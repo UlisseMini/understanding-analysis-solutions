@@ -15,8 +15,9 @@ jobs:
           persist-credentials: false # pdflatex doesn't need git access
 
       - name: Build pdf
-        run: |
-          pdflatex main.tex
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.2
