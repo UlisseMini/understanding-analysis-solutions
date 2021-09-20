@@ -1,8 +1,21 @@
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref} % needed for pdf indexing and jumping around
+\usepackage{hyperref}           % needed for pdf indexing and jumping around
+\usepackage[standard]{ntheorem} % numbered theorems, standard opt defines proof env
+\usepackage{enumitem}           % for enumerations in exercises like a,b,c
+
 
 
 \title{Understanding Analysis Solutions}
 \author{Ulisse Mini}
 \date{}
+
+
+% configure ntheorem
+\theoremstyle{break}
+\theorembodyfont{\upshape} % no italics in body font
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{solution}{Solution}
+
+% shortcuts
+\newcommand{\enum}[1]{\begin{enumerate}[label=(\alph*)] #1 \end{enumerate}}
 
