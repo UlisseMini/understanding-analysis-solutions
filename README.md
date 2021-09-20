@@ -1,6 +1,6 @@
 ## Understanding Analysis Solutions
 
-My solutions for understanding analysis second edition.
+My solutions for understanding analysis second edition. See the pdf [here](https://ulissemini.github.io/understanding-analysis-solutions/main.pdf)
 
 Build using `pdflatex main.tex`
 
