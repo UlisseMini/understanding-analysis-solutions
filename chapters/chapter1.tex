@@ -22,3 +22,32 @@
   }
 \end{solution}
 
+\begin{exercise}
+  Show that there is no rational number satisfying $2^r = 3$
+\end{exercise}
+
+\begin{solution}
+  Letting $r = p/q$ we have $2^{p/q} = 3$ implying $2^p = 3^q$ which is impossible since $2$ and $3$ are coprime.
+\end{solution}
+
+
+\begin{exercise}
+  Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+  \enum{
+  \item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all sets containing an infinite number of elements, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is infinite as well.
+  \item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all finite, nonempty sets of real numbers, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is finite and nonempty.
+  \item $A \cap(B \cup C)=(A \cap B) \cup C$.
+  \item $A \cap(B \cap C)=(A \cap B) \cap C$.
+  \item $A \cap(B \cup C)=(A \cap B) \cup(A \cap C)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item False, consider $A_1 = \{1, 2, \dots\}, A_2 = \{2, 3, \dots\}$, ... has $\bigcap_{n=1}^\infty A_n = \emptyset$.
+  \item True.
+  \item False, $A = \emptyset$ gives $\emptyset = C$.
+  \item True, intersection is associative.
+  \item True, draw a diagram.
+  }
+\end{solution}
