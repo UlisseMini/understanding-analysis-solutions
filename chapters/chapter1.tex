@@ -51,3 +51,63 @@
   \item True, draw a diagram.
   }
 \end{solution}
+
+\begin{exercise}
+  Produce an infinite collection of sets $A_{1}, A_{2}, A_{3}, \ldots$ with the property that every $A_{i}$ has an infinite number of elements, $A_{i} \cap A_{j}=\emptyset$ for all $i \neq j$, and $\bigcup_{i=1}^{\infty} A_{i}=\mathbf{N}$
+\end{exercise}
+
+\begin{solution}
+  This question is asking us to partition $\mathbf N$ into an infinite collection of sets.
+  This is equivalent to asking us to unroll $\mathbf N$ into a square, which we can do along the diagonal
+  $$
+  \begin{array}{lccccc}
+    1 & 3 & 6 & 10 & 15 & \cdots \\
+    2 & 5 & 9 & 14 & \cdots & \\
+    4 & 8 & 13 & \cdots & & \\
+    7 & 12 & \cdots & & & \\
+    11 & \ldots & & & & \\
+    \vdots & & & & &
+  \end{array}
+  $$
+\end{solution}
+
+\begin{exercise}[De Morgan's Laws]
+  Let $A$ and $B$ be subsets of $\mathbf R$.
+  \enum{
+  \item If $x \in(A \cap B)^{c}$, explain why $x \in A^{c} \cup B^{c}$. This shows that $(A \cap B)^{c} \subseteq$ $A^{c} \cup B^{c}$
+
+  \item Prove the reverse inclusion $(A \cap B)^{c} \supseteq A^{c} \cup B^{c}$, and conclude that $(A \cap B)^{c}=A^{c} \cup B^{c}$
+  \item Show $(A \cup B)^{c}=A^{c} \cap B^{c}$ by demonstrating inclusion both ways.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+
+\begin{exercise}
+  \enum{
+  \item Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
+  \item Find an efficient proof for all the cases at once by first demonstrating $(a+b)^{2} \leq(|a|+|b|)^{2}$
+  \item Prove $|a-b| \leq|a-c|+|c-d|+|d-b|$ for all $a, b, c$, and $d$.
+  \item Prove $\| a|-| b|| \leq|a-b|$. (The unremarkable identity $a=a-b+b$ may be useful.)
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We have equality $|a + b| = |a| + |b|$ meaning $|a + b| \le |a| + |b|$ also holds.
+  \item $(a+b)^2 \le (|a| + |b|)^2$ reduces to $2ab \le 2|a||b|$ which is obviously true.
+    and since squaring preserves inequality this implies $|a + b| \le |a| + |b|$. Showing that squaring preserves inequality is left as an exercise to the reader.
+  \item I would like to do this using the triangle inequality, I notice that $(a-c)+(c-d)+(d-b) = a-b$. Meaning I can use the triangle inequality for multiple terms
+    $$|a - b| = |(a-c)+(c-d)+(d-b)| \le |a-c| + |c-d| + |d-b|$$
+    The general triangle inequality is proved by repeated application of the two variable inequality
+    $$|(a + b) + c| \le |a + b| + |c| \le |a| + |b| + |c|$$
+  \item I would like to cancel the subtraction inside $||a| - |b||$ since then the inside will be positive, and the outer absolute value will vanish. \TODO
+  }
+\end{solution}
