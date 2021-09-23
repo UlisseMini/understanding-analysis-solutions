@@ -1,0 +1,262 @@
+\section{Some Preliminaries}
+
+\begin{exercise}
+  \enum{
+  \item Prove that $\sqrt 3$ is irrational. Does a similar similar argument work to show $\sqrt 6$ is irrational?
+  \item Where does the proof break down if we try to prove $\sqrt 4$ is irrational?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item
+    Suppose for contradiction that $p/q$ is a fraction in lowest terms, and that $(p/q)^2 = 3$.
+    Then $p^2 = 3q^2$ implying $p$ is a multiple of $3$ since $3$ is not a perfect square. Therefor we can write $p$ as $3r$ for some $r$, substituting we get $(3r)^2 = 3q^2$ and $3r^2 = q^2$ implying $q$ is also a multiple of $3$ contradicting the assumption that $p/q$ is in lowest terms. \\
+    For $\sqrt 6$ the same argument applies, since $6$ is not a perfect square.
+
+  \item $4$ is a perfect square, meaning $p^2 = 4q^2$ does not imply that $p$ is a multiple of four as $p$ could be $2$.
+  }
+\end{solution}
+
+\begin{exercise}
+  Show that there is no rational number satisfying $2^r = 3$
+\end{exercise}
+
+\begin{solution}
+  Letting $r = p/q$ we have $2^{p/q} = 3$ implying $2^p = 3^q$ which is impossible since $2$ and $3$ are coprime.
+\end{solution}
+
+
+\begin{exercise}
+  Decide which of the following represent true statements about the nature of sets. For any that are false, provide a specific example where the statement in question does not hold.
+  \enum{
+  \item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all sets containing an infinite number of elements, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is infinite as well.
+  \item If $A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq A_{4} \cdots$ are all finite, nonempty sets of real numbers, then the intersection $\bigcap_{n=1}^{\infty} A_{n}$ is finite and nonempty.
+  \item $A \cap(B \cup C)=(A \cap B) \cup C$.
+  \item $A \cap(B \cap C)=(A \cap B) \cap C$.
+  \item $A \cap(B \cup C)=(A \cap B) \cup(A \cap C)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item False, consider $A_1 = \{1, 2, \dots\}, A_2 = \{2, 3, \dots\}$, ... has $\bigcap_{n=1}^\infty A_n = \emptyset$.
+  \item True.
+  \item False, $A = \emptyset$ gives $\emptyset = C$.
+  \item True, intersection is associative.
+  \item True, draw a diagram.
+  }
+\end{solution}
+
+\begin{exercise}
+  Produce an infinite collection of sets $A_{1}, A_{2}, A_{3}, \ldots$ with the property that every $A_{i}$ has an infinite number of elements, $A_{i} \cap A_{j}=\emptyset$ for all $i \neq j$, and $\bigcup_{i=1}^{\infty} A_{i}=\mathbf{N}$
+\end{exercise}
+
+\begin{solution}
+  This question is asking us to partition $\mathbf N$ into an infinite collection of sets.
+  This is equivalent to asking us to unroll $\mathbf N$ into a square, which we can do along the diagonal
+  $$
+  \begin{array}{lccccc}
+    1 & 3 & 6 & 10 & 15 & \cdots \\
+    2 & 5 & 9 & 14 & \cdots & \\
+    4 & 8 & 13 & \cdots & & \\
+    7 & 12 & \cdots & & & \\
+    11 & \ldots & & & & \\
+    \vdots & & & & &
+  \end{array}
+  $$
+\end{solution}
+
+\begin{exercise}[De Morgan's Laws]
+  \label{demorgan}
+  Let $A$ and $B$ be subsets of $\mathbf R$.
+  \enum{
+  \item If $x \in(A \cap B)^{c}$, explain why $x \in A^{c} \cup B^{c}$. This shows that $(A \cap B)^{c} \subseteq$ $A^{c} \cup B^{c}$
+
+  \item Prove the reverse inclusion $(A \cap B)^{c} \supseteq A^{c} \cup B^{c}$, and conclude that $(A \cap B)^{c}=A^{c} \cup B^{c}$
+  \item Show $(A \cup B)^{c}=A^{c} \cap B^{c}$ by demonstrating inclusion both ways.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item If $x \in (A \cap B)^c$ then $x \notin A \cap B$ so $x \notin A$ or $x \notin B$ implying $x \in A^c$ or $x \in B^c$ which is the same as $x \in A^c \cup B^c$.
+  \item Let $x \in A^c \cup B^c$ implying $x \in A^c$ or $x \in B^c$ meaning $x \notin A$ or $x \notin B$ implying $x \notin A \cap B$ which is the same as $x \in (A \cap B)^c$.
+  \item First let $x \in (A \cup B)^c$ implying $x \notin A \cup B$ meaning $x \notin A$ and $x \notin B$ which is the same as $x \in A^c$ and $x \in B^c$ which is just $x \in A^c \cap B^c$. Second let $x \in A^c \cap B^c$ implying $x \in A^c$ and $x \in B^c$ implying $x \notin A$ and $x \notin B$ meaning $x \notin A \cup B$ which is just $x \in (A\cup B)^c$.
+  }
+\end{solution}
+
+
+\begin{exercise}
+  \enum{
+  \item Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
+  \item Find an efficient proof for all the cases at once by first demonstrating $(a+b)^{2} \leq(|a|+|b|)^{2}$
+  \item Prove $|a-b| \leq|a-c|+|c-d|+|d-b|$ for all $a, b, c$, and $d$.
+  \item Prove $\| a|-| b|| \leq|a-b|$. (The unremarkable identity $a=a-b+b$ may be useful.)
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We have equality $|a + b| = |a| + |b|$ meaning $|a + b| \le |a| + |b|$ also holds.
+  \item $(a+b)^2 \le (|a| + |b|)^2$ reduces to $2ab \le 2|a||b|$ which is obviously true.
+    and since squaring preserves inequality this implies $|a + b| \le |a| + |b|$.
+  \item I would like to do this using the triangle inequality, I notice that $(a-c)+(c-d)+(d-b) = a-b$. Meaning I can use the triangle inequality for multiple terms
+    $$|a - b| = |(a-c)+(c-d)+(d-b)| \le |a-c| + |c-d| + |d-b|$$
+    The general triangle inequality is proved by repeated application of the two variable inequality
+    $$|(a + b) + c| \le |a + b| + |c| \le |a| + |b| + |c|$$
+  \item I would like to cancel the subtraction inside $||a| - |b||$ since then the inside will be positive, and the outer absolute value will vanish. Using the suggestion let $a = (a - b) + b$
+    $$||a| - |b|| = ||(a-b)+b| - |b|| \stackrel{!}{\le} ||a-b| + |b| - |b|| = |a - b|$$
+    However this is incorrect by itself, since $|a| \le |c|$ does not imply $||a|-|b|| \le ||c|-|b||$ (draw a picture, or use the counterexample $a=0, c=1, b=2$). \par
+
+    We can salvage this argument though, notice if $|a| \ge |b|$ then $|a| \le |c|$ does imply $||a|-|b|| \le ||c| - |b||$. And since we can swap $a$ and $b$ without changing anything, we can say without loss of generality assume $|a| \ge |b|$ and then apply the previous argument.
+  }
+\end{solution}
+
+\begin{exercise}
+  Given a function $f$ and a subset $A$ of its domain, let $f(A)$ represent the range of $f$ over the set $A$; that is, $f(A)=\{f(x): x \in A\}$.
+  \enum{
+  \item Let $f(x)=x^{2} .$ If $A=[0,2]$ (the closed interval $\left.\{x \in \mathbf{R}: 0 \leq x \leq 2\}\right)$ and $B=[1,4]$, find $f(A)$ and $f(B) .$ Does $f(A \cap B)=f(A) \cap f(B)$ in this case? Does $f(A \cup B)=f(A) \cup f(B) ?$
+  \item Find two sets $A$ and $B$ for which $f(A \cap B) \neq f(A) \cap f(B)$.
+  \item  Show that, for an arbitrary function $g: \mathbf{R} \rightarrow \mathbf{R}$, it is always true that $g(A \cap B) \subseteq g(A) \cap g(B)$ for all sets $A, B \subseteq \mathbf{R}$
+  \item Form and prove a conjecture about the relationship between $g(A \cup B)$ and $g(A) \cup g(B)$ for an arbitrary function $g$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $f(A)=[0, 4]$, $f(B)=[1,16]$, $f(A\cap B) = [1,4] = f(A)\cap f(B)$ and $f(A\cup B) = [0, 16] = f(A) \cup f(B)$
+  \item $A = \{-1\}$, $B = \{1\}$ thus $f(A \cap B) = \emptyset$ but $f(A) \cap f(B) = \{1\}$
+  \item Suppose $y \in g(A \cap B)$, then $\exists x \in A \cap B$ such that $g(x) = y$. But if $x \in A \cap B$ then $x \in A$ and $x \in B$, meaning $y \in g(A)$ and $y \in g(B)$ implying $y \in g(A) \cap g(B)$ and thus $g(A \cap B) \subseteq g(A) \cap g(B)$. \par
+    Notice why it is possible to have $x \in g(A) \cap g(B)$ but $x \notin g(A \cap B)$, this happens when something in $A \setminus B$ and something in $B \setminus A$ map to the same thing. If $g$ is 1-1 this does not happen.
+  \item I conjecture that $g(A \cup B) = g(A) \cup g(B)$. To prove this we show inclusion both ways,
+    First suppose $y \in g(A\cup B)$. then either $y \in g(A)$ or $y \in g(B)$, implying $y \in g(A) \cup g(B)$. Now suppose $y \in g(A) \cup g(B)$ meaning either $y \in g(A)$ or $y \in g(B)$ which is the same as $y \in g(A \cup B)$ as above.
+  }
+\end{solution}
+
+\begin{theorem}
+  $g(A \cap B) = g(A) \cap g(B)$ if and only if $g$ is one-to-one
+\end{theorem}
+
+\begin{exercise}
+  Here are two important definitions related to a function $f:$ $A \rightarrow B .$ The function $f$ is \emph{one-to-one} $(1-1)$ if $a_{1} \neq a_{2}$ in $A$ implies that $f\left(a_{1}\right) \neq$ $f\left(a_{2}\right)$ in $B$. The function $f$ is \emph{onto} if, given any $b \in B$, it is possible to find an element $a \in A$ for which $f(a)=b$
+  Give an example of each or state that the request is impossible:
+  \enum{
+  \item $f: \mathbf{N} \rightarrow \mathbf{N}$ that is $1-1$ but not onto.
+  \item $f: \mathbf{N} \rightarrow \mathbf{N}$ that is onto but not $1-1$.
+  \item $f: \mathbf{N} \rightarrow \mathbf{Z}$ that is $1-1$ and onto.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Let $f(n) = n + 1$ does not have a solution to $f(a) = 1$
+  \item Let $f(1) = 1$ and $f(n) = n - 1$ for $n > 1$
+  \item Let $f(n) = n/2$ for even $n$, and $f(n) = -(n+1)/2$ for odd $n$.
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Given a function $f: D \rightarrow \mathbf{R}$ and a subset $B \subseteq \mathbf{R}$, let $f^{-1}(B)$ be the set of all points from the domain $D$ that get mapped into $B ;$ that is, $f^{-1}(B)=\{x \in D: f(x) \in B\} .$ This set is called the \emph{preimage} of $B$.
+  \enum{
+  \item Let $f(x)=x^{2} .$ If $A$ is the closed interval $[0,4]$ and $B$ is the closed interval $[-1,1]$, find $f^{-1}(A)$ and $f^{-1}(B)$. Does $f^{-1}(A \cap B)=f^{-1}(A) \cap f^{-1}(B)$ in this case? Does $f^{-1}(A \cup B)=f^{-1}(A) \cup f^{-1}(B) ?$
+  \item The good behavior of preimages demonstrated in (a) is completely general. Show that for an arbitrary function $g: \mathbf{R} \rightarrow \mathbf{R}$, it is always true that $g^{-1}(A \cap B)=g^{-1}(A) \cap g^{-1}(B)$ and $g^{-1}(A \cup B)=g^{-1}(A) \cup g^{-1}(B)$ for all sets $A, B \subseteq \mathbf{R}$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $f^{-1}(A) = [-2, 2]$, $f^{-1}(B) = [-1, 1]$, $f^{-1}(A\cap B) = [-1, 1] = f^{-1}(A) \cap f^{-1}(B)$, $f^{-1}(A \cup B) = [-2, 2] = f^{-1}(A) \cup f^{-1}(B)$
+  \item First let $x \in g^{-1}(A \cap B)$ meaning $g(x) \in A \cap B$ implying $g(x) \in A$ and $g(x) \in B$ which is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ meaning $x \in g^{-1}(A) \cap g^{-1}(B)$. \par
+    Second let $x \in g^{-1}(A) \cap g^{-1}(B)$, this is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ which is the same as $g(x) \in A$ and $g(x) \in B$ implying $g(x) \in A \cap B$ and thus $x \in g^{-1}(A \cap B)$.
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Decide which of the following are true statements. Provide a short justification for those that are valid and a counterexample for those that are not:
+  \enum{
+  \item Two real numbers satisfy $a<b$ if and only if $a<b+\epsilon$ for every $\epsilon>0$.
+  \item Two real numbers satisfy $a<b$ if $a<b+\epsilon$ for every $\epsilon>0$.
+  \item Two real numbers satisfy $a \leq b$ if and only if $a<b+\epsilon$ for every $\epsilon>0$.
+  }
+\end{exercise}
+
+
+\begin{solution}
+  \enum{
+  \item False, if $a=b$ then $a < b + \epsilon$ forall $\epsilon > 0$ but $a \not < b$
+  \item False, see above
+  \item True, suppose $a < b + \epsilon$ forall $\epsilon > 0$, We want to show this implies $a \le b$. We either have $a \le b$ or $a > b$, but $a > b$ is impossible since the gap implies there exists an $\epsilon$ small enough such that $a > b + \epsilon$. Now suppose $a \le b$, obviously $a < b + \epsilon$ forall $\epsilon > 0$.
+  }
+\end{solution}
+
+\begin{exercise}
+  Form the logical negation of each claim. One trivial way to do this is to simply add ``It is not the case that...'' in front of each assertion. To make this interesting, fashion the negation into a positive statement that avoids using the word ``not'' altogether. In each case, make an intuitive guess as to whether the claim or its negation is the true statement.
+  \enum{
+  \item For all real numbers satisfying $a<b$, there exists an $n \in \mathbf{N}$ such that $a+1 / n<b$
+  \item There exists a real number $x>0$ such that $x<1 / n$ for all $n \in \mathbf{N}$.
+  \item Between every two distinct real numbers there is a rational number.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item There exist real numbers satisfying $a < b$ where $a + 1/n \ge b$ forall $n \in \mathbf N$ (false).
+  \item For every real number $x > 0$ there exists an $n \in \mathbf N$ such that $x < 1/n$ (true).
+  \item There exist two real numbers $a < b$ such that if $r < b$ then $r < a$ forall $r \in \mathbf Q$ (false).
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Let $y_{1}=6$, and for each $n \in \mathbf{N}$ define $y_{n+1}=\left(2 y_{n}-6\right) / 3$
+  \enum{
+  \item Use induction to prove that the sequence satisfies $y_{n}>-6$ for all $n \in \mathbf{N}$.
+  \item Use another induction argument to show the sequence $\left(y_{1}, y_{2}, y_{3}, \ldots\right)$ is decreasing.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Suppose $y_n > -6$, then $y_{n+1} = (2y_n - 6)/3$ implying $y_n = (3y_{n+1} + 6)/2 > -6$ implying $y_{n+1} > -6$ by basic algebra.
+  \item Suppose $y_{n+1} < y_{n}$ this implies $2y_{n+1} < 2y_n$ implying $2y_{n+1} - 6 < 2y_n - 6$ and finally $(2y_{n+1} - 6)/3 < (2y_n - 6)/3$ which shows $y_{n+2} < y_{n+1}$.
+  }
+\end{solution}
+
+\begin{exercise}
+  For this exercise, assume Exercise \ref{demorgan} has been successfully completed.
+  \enum{
+  \item Show how induction can be used to conclude that
+    $$
+    \left(A_{1} \cup A_{2} \cup \cdots \cup A_{n}\right)^{c}=A_{1}^{c} \cap A_{2}^{c} \cap \cdots \cap A_{n}^{c}
+    $$
+    for any finite $n \in \mathbf{N}$
+  \item It is tempting to appeal to induction to conclude
+    $$
+    \left(\bigcup_{i=1}^{\infty} A_{i}\right)^{c}=\bigcap_{i=1}^{\infty} A_{i}^{c}
+    $$
+    but induction does not apply here. Induction is used to prove that a particular statement holds for every value of $n \in \mathbf{N}$, but this does not imply the validity of the infinite case. To illustrate this point, find an example of a collection of sets $B_{1}, B_{2}, B_{3}, \ldots$ where $\bigcap_{i=1}^{n} B_{i} \neq \emptyset$ is true for every $n \in \mathbf{N}$, but $\bigcap_{i=1}^{\infty} B_{i} \neq \emptyset$ fails.
+  \item Nevertheless, the infinite version of De Morgan's Law stated in (b) is a valid statement. Provide a proof that does not use induction.
+  }
+
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \hyperref[demorgan]{1.2.5} Is our base case, Assume $(A_1 \cup \cdots \cup A_n)^c = A_1^c \cap \cdots \cap A_n^c$. We want to show the $n+1$ case. Using associativity we have
+    $$
+    \begin{aligned}
+      ((A_1 \cup \cdots \cup A_n) \cup A_{n+1})^c
+      &= (A_1 \cup \dots \cup A_n)^c \cap A_{n+1}^c \\
+      &= (A_1^c \cap \cdots \cap A_n^c) \cap A_{n+1}^c \\
+      &= A_1^c \cap \cdots \cap A_n^c \cap A_{n+1}^c
+    \end{aligned}
+    $$
+  \item $B_1 = \{1, 2, \dots\}, B_2 = \{2, 3, \dots\}, \dots$
+  \item First suppose $x \in \left(\bigcap_{i=1}^\infty A_i\right)^c$, then $x \notin \bigcap_{i=1}^\infty A_i$ meaning $x \notin A_i$ for some $i$, which is the same as $x \in A_i^c$ for some $i$, meaning $x \in \bigcup_{i=1}^\infty A_i^c$. This shows
+    $$\left(\bigcap_{i=1}^\infty A_i\right) \subseteq \bigcup_{i=1}^\infty A_i^c$$
+    Now suppose $x \in \bigcup_{i=1}^\infty A_i^c$ meaning $x \notin A_i$ for some $i$, which is the same as $x \notin \bigcap_{i=1}^\infty A_i$ implying $x \notin \left(\bigcap_{i=1}^\infty A_i\right)^c$. This shows inclusion the other way and completes the proof.
+  }
+\end{solution}
