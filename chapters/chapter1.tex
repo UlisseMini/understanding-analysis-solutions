@@ -84,9 +84,9 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item If $x \in (A \cap B)^c$ then $x \notin A \cap B$ so $x \notin A$ or $x \notin B$ implying $x \in A^c$ or $x \in B^c$ which is the same as $x \in A^c \cup B^c$.
+  \item Let $x \in A^c \cup B^c$ implying $x \in A^c$ or $x \in B^c$ meaning $x \notin A$ or $x \notin B$ implying $x \notin A \cap B$ which is the same as $x \in (A \cap B)^c$.
+  \item First let $x \in (A \cup B)^c$ implying $x \notin A \cup B$ meaning $x \notin A$ and $x \notin B$ which is the same as $x \in A^c$ and $x \in B^c$ which is just $x \in A^c \cap B^c$. Second let $x \in A^c \cap B^c$ implying $x \in A^c$ and $x \in B^c$ implying $x \notin A$ and $x \notin B$ meaning $x \notin A \cup B$ which is just $x \in (A\cup B)^c$.
   }
 \end{solution}
 
@@ -132,7 +132,7 @@
   \item $f(A)=[0, 4]$, $f(B)=[1,16]$, $f(A\cap B) = [1,4] = f(A)\cap f(B)$ and $f(A\cup B) = [0, 16] = f(A) \cup f(B)$
   \item $A = \{-1\}$, $B = \{1\}$ thus $f(A \cap B) = \emptyset$ but $f(A) \cap f(B) = \{1\}$
   \item Suppose $y \in g(A \cap B)$, then $\exists x \in A \cap B$ such that $g(x) = y$. But if $x \in A \cap B$ then $x \in A$ and $x \in B$, meaning $y \in g(A)$ and $y \in g(B)$ implying $y \in g(A) \cap g(B)$ and thus $g(A \cap B) \subseteq g(A) \cap g(B)$. \par
-    Notice why it is possible to have $x \in g(A) \cap g(B)$ but $x \notin g(A \cap B)$, this happens when something in $A \setminus B$ and something in $B \setminus A$ maps to the same thing. If $g$ is 1-1 this does not happen. \TODO draw a picture with tikz and prove in appendix
+    Notice why it is possible to have $x \in g(A) \cap g(B)$ but $x \notin g(A \cap B)$, this happens when something in $A \setminus B$ and something in $B \setminus A$ map to the same thing. If $g$ is 1-1 this does not happen.
   \item I conjecture that $g(A \cup B) = g(A) \cup g(B)$. To prove this we show inclusion both ways,
     First suppose $y \in g(A\cup B)$. then either $y \in g(A)$ or $y \in g(B)$, implying $y \in g(A) \cup g(B)$. Now suppose $y \in g(A) \cup g(B)$ meaning either $y \in g(A)$ or $y \in g(B)$ which is the same as $y \in g(A \cup B)$ as above.
   }
@@ -172,7 +172,8 @@
 \begin{solution}
   \enum{
   \item $f^{-1}(A) = [-2, 2]$, $f^{-1}(B) = [-1, 1]$, $f^{-1}(A\cap B) = [-1, 1] = f^{-1}(A) \cap f^{-1}(B)$, $f^{-1}(A \cup B) = [-2, 2] = f^{-1}(A) \cup f^{-1}(B)$
-  \item The problem we had in 1.2.7 does not apply to preimages, before \TODO
+  \item First let $x \in g^{-1}(A \cap B)$ meaning $g(x) \in A \cap B$ implying $g(x) \in A$ and $g(x) \in B$ which is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ meaning $x \in g^{-1}(A) \cap g^{-1}(B)$. \par
+    Second let $x \in g^{-1}(A) \cap g^{-1}(B)$, this is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ which is the same as $g(x) \in A$ and $g(x) \in B$ implying $g(x) \in A \cap B$ and thus $x \in g^{-1}(A \cap B)$.
   }
 \end{solution}
 
@@ -206,9 +207,9 @@
 
 \begin{solution}
   \enum{
-  \item There exist real numbers satisfying $a < b$ where $a + 1/n \ge b$ forall $n \in \mathbf N$ 
-  \item \TODO
-  \item \TODO
+  \item There exist real numbers satisfying $a < b$ where $a + 1/n \ge b$ forall $n \in \mathbf N$ (false).
+  \item For every real number $x > 0$ there exists an $n \in \mathbf N$ such that $x < 1/n$ (true).
+  \item There exist two real numbers $a < b$ such that if $r < b$ then $r < a$ forall $r \in \mathbf Q$ (false).
   }
 \end{solution}
 
@@ -223,8 +224,8 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Suppose $y_n > -6$, then $y_{n+1} = (2y_n - 6)/3$ implying $y_n = (3y_{n+1} + 6)/2 > -6$ implying $y_{n+1} > -6$ by basic algebra.
+  \item Suppose $y_{n+1} < y_{n}$ this implies $2y_{n+1} < 2y_n$ implying $2y_{n+1} - 6 < 2y_n - 6$ and finally $(2y_{n+1} - 6)/3 < (2y_n - 6)/3$ which shows $y_{n+2} < y_{n+1}$.
   }
 \end{solution}
 
