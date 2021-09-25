@@ -14,3 +14,165 @@
   \item \TODO
   }
 \end{solution}
+
+
+\begin{exercise}
+  Give an example of each of the following, or state that the request is impossible.
+  \enum{
+  \item A set $B$ with inf $B \geq \sup B$.
+  \item A finite set that contains its infimum but not its supremum.
+  \item A bounded subset of $\mathbf{Q}$ that contains its supremum but not its infimum.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Let $B = \{0\}$ we have $\inf B = 0$ and $\sup B = 0$ thus $\inf B \le \sup B$.
+  \item Impossible, finite sets must contain their infimum and supremum.
+  \item Let $B = \{r \in \mathbf{Q} \mid 1 < r \le 2\}$ we have $\inf B = 1 \notin B$ and $\sup B = 2 \in B$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $A$ be nonempty and bounded below, and define $B=$ $\{b \in \mathbf{R}: b$ is a lower bound for $A\}$. Show that $\sup B=\inf A$.
+  \item Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item By definition $\sup B$ is the greatest lower bound for $A$, meaning it equals $\inf A$.
+  \item (a) Proves the greatest lower bound exists using the least upper bound.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $A_{1}, A_{2}, A_{3}, \ldots$ be a collection of nonempty sets, each of which is bounded above.
+  \enum{
+  \item Find a formula for $\sup \left(A_{1} \cup A_{2}\right)$. Extend this to $\sup \left(\bigcup_{k=1}^{n} A_{k}\right)$.
+  \item Consider $\sup \left(\bigcup_{k=1}^{\infty} A_{k}\right)$. Does the formula in (a) extend to the infinite case?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $\sup \left(\bigcup_{k=1}^n A_k\right) = \sup \left\{\sup A_k \mid k=1,\dots,n\right\}$
+  \item Yes. Let $S = \left\{\sup A_k \mid k=1,\dots,n\right\}$, $\sup S$ is obviously an upper bound, to see it is the least upper bound \TODO
+  }
+\end{solution}
+
+
+\begin{exercise}
+  As in Example 1.3.7, let $A \subseteq \mathbf{R}$ be nonempty and bounded above, and let $c \in \mathbf{R}$. This time define the set $c A=\{c a: a \in A\}$.
+  \enum{
+  \item If $c \geq 0$, show that $\sup (c A)=c \sup A$.
+  \item Postulate a similar type of statement for $\sup (c A)$ for the case $c<0$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Given sets $A$ and $B$, define $A+B=\{a+b: a \in A$ and $b \in B\}$. Follow these steps to prove that if $A$ and $B$ are nonempty and bounded above then $\sup (A+B)=\sup A+\sup B$
+  \enum{
+  \item Let $s=\sup A$ and $t=\sup B$. Show $s+t$ is an upper bound for $A+B$.
+  \item Now let $u$ be an arbitrary upper bound for $A+B$, and temporarily fix $a \in A$. Show $t \leq u-a$.
+  \item Finally, show $\sup (A+B)=s+t$.
+  \item Construct another proof of this same fact using Lemma 1.3.8.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Prove that if $a$ is an upper bound for $A$, and if $a$ is also an element of $A$, then it must be that $a=\sup A$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Compute, without proofs, the suprema and infima (if they exist) of the following sets:
+  \enum{
+  \item $\{m / n: m, n \in \mathbf{N}$ with $m<n\}$.
+  \item $\left\{(-1)^{m} / n: m, n \in \mathbf{N}\right\}$.
+  \item $\{n /(3 n+1): n \in \mathbf{N}\}$
+  \item $\{m /(m+n): m, n \in \mathbf{N}\}$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item If $\sup A<\sup B$, show that there exists an element $b \in B$ that is an upper bound for $A$.
+  \item Give an example to show that this is not always the case if we only assume $\sup A \leq \sup B$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Cut Property]
+
+  The Cut Property of the real numbers is the following:
+
+  If $A$ and $B$ are nonempty, disjoint sets with $A \cup B=\mathbf{R}$ and $a<b$ for all $a \in A$ and $b \in B$, then there exists $c \in \mathbf{R}$ such that $x \leq c$ whenever $x \in A$ and $x \geq c$ whenever $x \in B$.
+
+  \enum{
+  \item Use the Axiom of Completeness to prove the Cut Property.
+  \item Show that the implication goes the other way; that is, assume $\mathbf{R}$ possesses the Cut Property and let $E$ be a nonempty set that is bounded above. Prove $\sup E$ exists.
+  \item The punchline of parts (a) and (b) is that the Cut Property could be used in place of the Axiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid statement when $\mathbf{R}$ is replaced by $\mathbf{Q}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Exercise 1.3.11. Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
+  \enum{
+  \item If $A$ and $B$ are nonempty, bounded, and satisfy $A \subseteq B$, then $\sup A \leq$ $\sup B .$
+  \item If $\sup A<\inf B$ for sets $A$ and $B$, then there exists a $c \in \mathbf{R}$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$.
+  \item If there exists a $c \in \mathbf{R}$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$, then $\sup A<\inf B$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
