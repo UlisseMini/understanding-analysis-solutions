@@ -58,7 +58,7 @@
 \begin{solution}
   \enum{
   \item $\sup \left(\bigcup_{k=1}^n A_k\right) = \sup \left\{\sup A_k \mid k=1,\dots,n\right\}$
-  \item Yes. Let $S = \left\{\sup A_k \mid k=1,\dots,n\right\}$, $\sup S$ is obviously an upper bound, to see it is the least upper bound \TODO
+  \item Yes. Let $S = \left\{\sup A_k \mid k=1,\dots,\right\}$ and $s = \sup S$. $s$ is obviously an upper bound for $\bigcup_{k=1}^\infty A_k$. to see it is the least upper bound suppose $s' < s$, then by definition there exists a $k$ such that $\sup A_k > s'$ implying $s'$ is not an upper bound for $A_k$. Therefor $s$ is the least upper bound.
   }
 \end{solution}
 
@@ -73,8 +73,8 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Let $s = c \sup A$. Suppose $ca > s$, then $a > \sup A$ which is impossible, meaning $s$ is an upper bound on $cA$. Now suppose $s'$ is an upper bound on $cA$ and $s' < s$. Then $s'/c < s/c$ and $s'/c < \sup A$ meaning $s'/c$ cannot bound $A$, so there exists $a \in A$ such that $s'/c > a$ meaning $s' > ca$ thus $s'$ cannot be an upper bound on $cA$, and so $s = c \sup A$ is the least upper bound.
+  \item $\sup(cA) = c \inf(A)$ for $c < 0$
   }
 \end{solution}
 
@@ -88,12 +88,16 @@
   }
 \end{exercise}
 
+% TODO: Solve (c), I found this quizlet solution
+% https://quizlet.com/explanations/textbook-solutions/understanding-analysis-2nd-edition-9781493927128/chapter-1-exercises-6-47d0607f-d570-454e-b7a2-6113c474fe58
+% But I think their solution is flawed, since it assumes sup(A + B) = u to derive s+t<=u
+
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item We have $a \le s$ and $b \le t$, adding the equations gives $a + b \le s + t$.
+  \item $t \le u - a$ should be true since $u - a$ is an upper bound on $b$, meaning it is greater then or equal to the least upper bonud $t$. Formally $a + b \le u$ implies $b \le u - a$ and since $t$ is the least upper bound on $b$ we have $t \le u - a$.
+  \item From (a) we know $s + t$ is an upper bound, so we must only show it is the least upper bound. \TODO
+  \item Showing $s + t - \epsilon$ is not an upper bound for any $\epsilon > 0$ proves it is the least upper bound by Lemma 1.3.8. Rearranging gives $(s - \epsilon/2) + (t - \epsilon/2)$ we know there exists $a > (s - \epsilon/2)$ and $b > (t - \epsilon/2)$ therefor $a + b > s + t - \epsilon$ meaning $s+t$ cannot be made smaller, and thus is the least upper bound.
   }
 \end{solution}
 
@@ -102,7 +106,7 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  $a$ is the least upper bound since any smaller bound $a' < a$ would not bound $a$.
 \end{solution}
 
 \begin{exercise}
@@ -117,10 +121,10 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $\sup = 1$, $\inf = 0$
+  \item $\sup = 1$, $\inf = -1$
+  \item $\sup = 1/3$, $\inf = 1/4$
+  \item $\sup = 1$, $\inf = 0$
   }
 \end{solution}
 
@@ -133,8 +137,8 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item By Lemma 1.3.8 we know there exists a $b$ such that $(\sup B) - \epsilon < b$ for any $\epsilon > 0$, We set $\epsilon$ to be small enough that $\sup A < (\sup B)-\epsilon$ meaning $\sup A < b$ for some $b$, and thus $b$ is an upper bound on $A$.
+  \item $A = \{x \mid x \le 1\}$, $B = \{x \mid x < 1\}$ no $b \in B$ is an upper bound since $1 \in A$ and $1 > b$.
   }
 \end{solution}
 
@@ -153,15 +157,21 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item If $c = \sup A = \inf B$ then $a \le c \le b$ is obvious. So we must only prove $\sup A = \inf B$. If $\sup A < \inf B$ then we can find $c$ between $A$ and $B$ implying $A \cup B \ne \mathbf{R}$. If $\sup A > \inf B$ then we can find $a$ such that $a > b$ by subtracting $\epsilon > 0$ and using the least upper/lower bound facts, similarly to Lemma 1.3.8. Thus $\sup A$ must equal $\inf B$ since we have shown both alternatives are impossible.
+  \item Let $B = \{x \mid e < x,\forall e\in E\}$ and let $A = B^c$. Clearly $a < b$ so the cut property applies. We have $a \le c \le b$ and must show the two conditions for $c = \sup E$
+    \enumr{
+    \item Since $E \subseteq A$, $a \le c$ implies $e \le c$ thus $c$ is an upper bound.
+    \item $c \le b$ implies $c$ is the smallest upper bound.
+    }
+
+    Note: Using (a) here would be wrong, it assumes the axiom of completeness so we would be making a circular argument.
+  \item $A = \{r \in \mathbf{Q} \mid r^2 < 2\}$, $B = A^c$ does not satisfy the cut property in $\mathbf{Q}$ since $\sqrt 2 \notin \mathbf{Q}$
   }
 \end{solution}
 
 
 \begin{exercise}
-  Exercise 1.3.11. Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
+  Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
   \enum{
   \item If $A$ and $B$ are nonempty, bounded, and satisfy $A \subseteq B$, then $\sup A \leq$ $\sup B .$
   \item If $\sup A<\inf B$ for sets $A$ and $B$, then there exists a $c \in \mathbf{R}$ satisfying $a<c<b$ for all $a \in A$ and $b \in B$.
@@ -171,8 +181,9 @@
 
 \begin{solution}
   \enum{
+  \item True, $s = \sup A > \sup B$ implies there exists an $a$ such that $(\sup A) - \epsilon < a < \sup B$ which is impossible since $a \in A$ implies $a \in B$, but $a < \sup B$ implies $a \notin B$. Therefor $\sup A \le \sup B$.
   \item \TODO
-  \item \TODO
-  \item \TODO
+  \item False, consider $A = \{x \mid x < 1\}$, $B = \{x \mid x > 1\}$. $c = 1$ works, but $\sup A \not < \inf B$.
   }
 \end{solution}
+
