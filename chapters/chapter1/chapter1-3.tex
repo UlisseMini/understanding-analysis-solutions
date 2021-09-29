@@ -95,15 +95,13 @@
   }
 \end{exercise}
 
-% TODO: Solve (c), I found this quizlet solution
-% https://quizlet.com/explanations/textbook-solutions/understanding-analysis-2nd-edition-9781493927128/chapter-1-exercises-6-47d0607f-d570-454e-b7a2-6113c474fe58
-% But I think their solution is flawed, since it assumes sup(A + B) = u to derive s+t<=u
-
 \begin{solution}
   \enum{
   \item We have $a \le s$ and $b \le t$, adding the equations gives $a + b \le s + t$.
   \item $t \le u - a$ should be true since $u - a$ is an upper bound on $b$, meaning it is greater then or equal to the least upper bonud $t$. Formally $a + b \le u$ implies $b \le u - a$ and since $t$ is the least upper bound on $b$ we have $t \le u - a$.
-  \item From (a) we know $s + t$ is an upper bound, so we must only show it is the least upper bound. \TODO
+  \item From (a) we know $s + t$ is an upper bound, so we must only show it is the least upper bound. \par
+    Let $u = \sup(A+B)$, from (a) we have $t \le u-a$ and $s \le u-b$ adding and rearranging gives $a+b \le 2u - s - t$. since $2u - s - t$ is an upper bound on $A+B$ it is less then the least upper bound, so $u \le 2u - s -t$ implying $s + t \le u$. and since $u$ is the least upper bound $s+t$ must equal $u$. \par
+    Stepping back, the key to this proof is that $a + b \le s,\forall a,b$ implying $\sup(A + B) \le s$ can be used to transition from all $a+b$ to a single value $\sup(A+B)$, avoiding the $\epsilon$-hackery I would otherwise use.
   \item Showing $s + t - \epsilon$ is not an upper bound for any $\epsilon > 0$ proves it is the least upper bound by Lemma 1.3.8. Rearranging gives $(s - \epsilon/2) + (t - \epsilon/2)$ we know there exists $a > (s - \epsilon/2)$ and $b > (t - \epsilon/2)$ therefor $a + b > s + t - \epsilon$ meaning $s+t$ cannot be made smaller, and thus is the least upper bound.
   }
 \end{solution}
