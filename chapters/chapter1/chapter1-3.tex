@@ -181,9 +181,9 @@
 
 \begin{solution}
   \enum{
-  \item True, $s = \sup A > \sup B$ implies there exists an $a$ such that $(\sup A) - \epsilon < a < \sup B$ which is impossible since $a \in A$ implies $a \in B$, but $a < \sup B$ implies $a \notin B$. Therefor $\sup A \le \sup B$.
-  \item \TODO
-  \item False, consider $A = \{x \mid x < 1\}$, $B = \{x \mid x > 1\}$. $c = 1$ works, but $\sup A \not < \inf B$.
+  \item True. We know $a \le \sup A$ and $a \le \sup B$ since $A \subseteq B$. since $\sup A$ is the least upper bound on $A$ we have $\sup A \le \sup B$.
+  \item True. Let $c = (\sup A + \inf B)/2$, $c > \sup A$ implies $a < c$ and $c < \inf B$ implies $c < b$ giving $a < c < b$ as desired.
+  \item False. consider $A = \{x \mid x < 1\}$, $B = \{x \mid x > 1\}$, $a < 1 < b$ but $\sup A \not < \inf B$ since $1 \not < 1$.
   }
 \end{solution}
 
