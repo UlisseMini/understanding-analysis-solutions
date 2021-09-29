@@ -10,8 +10,15 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item We have $i = \inf A$ if and only if
+    \enumr{
+      \item Lower bound, $a \ge i$ forall $a \in A$
+      \item Greatest lower bound, If $b$ is a lower bound on $A$ then $b \le i$
+    }
+  \item Theorem: Suppose $i$ is a lower bound for $A$, it is the greatest lower bound if and only if forall $\epsilon>0$, there exists an $a\in A$ such that $i + \epsilon < a$. \par
+    Proof: \newline
+    $(\implies)$ Suppose $i = \inf A$, then any $i+\epsilon$ cannot be a lower bound since $i$ is defined as the greatest lower bound, and $i+\epsilon>i$. \newline
+    $(\impliedby)$ Suppose $j > i$ is a lower bound on $A$, then set $\epsilon = j-i$ and we have that $i+\epsilon = j$ is not a lower bound since there exists $a \in A$ such that $j > a$. Therefor $i$ is the greatest lower bound.
   }
 \end{solution}
 
