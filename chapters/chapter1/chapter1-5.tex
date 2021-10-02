@@ -1,0 +1,114 @@
+\section{Cardinality}
+
+\begin{exercise}
+  Finish the following proof for Theorem 1.5.7.
+  Assume $B$ is a countable set. Thus, there exists $f: \mathbf{N} \rightarrow B$, which is $1-1$ and onto. Let $A \subseteq B$ be an infinite subset of $B$. We must show that $A$ is countable.
+
+  Let $n_{1}=\min \{n \in \mathbf{N}: f(n) \in A\}$.
+  As a start to a definition of $g: \mathbf{N} \rightarrow A$ set $g(1)=f\left(n_{1}\right)$.
+  Show how to inductively continue this process to produce a 1-1 function $g$ from $\mathbf{N}$ onto $A$.
+\end{exercise}
+
+\begin{solution}
+  Let $n_k = \min\{n \in \mathbf N \mid f(n) \in A, n \notin \{n_1, n_2, \dots, n_{k-1}\}\}$
+  and $g(k) = f(n_k)$. since $g : \mathbf N \to A$ is 1-1 and onto, $A$ is countable.
+\end{solution}
+
+\begin{exercise}
+  Review the proof of Theorem 1.5.6, part (ii) showing that $\mathbf{R}$ is uncountable, and then find the flaw in the following erroneous proof that $\mathbf{Q}$ is uncountable:
+
+  Assume, for contradiction, that $\mathbf{Q}$ is countable. Thus we can write $\mathbf{Q}=$ $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ and, as before, construct a nested sequence of closed intervals with $r_{n} \notin I_{n}$. Our construction implies $\bigcap_{n=1}^{\infty} I_{n}=\emptyset$ while NIP implies $\bigcap_{n=1}^{\infty} I_{n} \neq$ $\emptyset$. This contradiction implies Q must therefore be uncountable.
+\end{exercise}
+
+\begin{solution}
+  The nested interval property is not true for $\mathbf{Q}$. Consider $I_n$ being rational bounds for $\sqrt2$ with $n$ decimal places, then $\bigcap_{n=1}^\infty I_n = \emptyset$ since $\sqrt2 \notin \mathbf{Q}$.
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Prove if $A_1, \dots, A_m$ are countable sets then $A_1 \cup \dots \cup A_m$ is countable.
+  \item Explain why induction \emph{cannot} be used to prove that if each $A_n$ is countable, then $\bigcup_{n=1}^\infty A_n$ is countable.
+  \item Show how arranging $\mathbf{N}$ into the two-dimensional array
+  $$\begin{array}{llllll}1 & 3 & 6 & 10 & 15 & \cdots \\ 2 & 5 & 9 & 14 & \cdots & \\ 4 & 8 & 13 & \cdots & & \\ 7 & 12 & \cdots & & & \\ 11 & \cdots & & & & \\ \vdots & & & & & \end{array}$$
+  leads to a proof for the infinite case.
+}
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Let $B, C$ be disjoint countable sets. We use the same trick as with the integers and list them as
+    $$B \cup C = \{b_1, c_1, b_2, c_2, \dots\}$$
+    Meaning $B \cup C$ is countable, and $A_1 \cup A_2$ is also countable since we can let $B = A_1$ and $C = A_2 \setminus A_1$.
+
+    Now induction: suppose $A_1 \cup \dots \cup A_n$ is countable, $\left(A_1 \cup \dots \cup A_n\right) \cup A_{n+1}$ is the union of two countable sets which by above is countable.
+  \item Induction shows something for each $n \in \mathbf{N}$, it does not apply in the infinite case.
+  \item Rearranging $\mathbf{N}$ as in (c) gives us disjoint sets $C_n$ such that $\bigcup_{n=1}^\infty C_n = \mathbf{N}$.
+    Let $B_n$ be disjoint, constructed as $B_1 = A_1, B_2 = A_1 \setminus B_1, \dots$ we want to do something like
+
+    $$f(\mathbf{N}) = f\left(\bigcup_{n=1}^\infty C_n\right) = \bigcup_{n=1}^\infty f_n(C_n) = \bigcup_{n=1}^\infty B_n = \bigcup_{n=1}^\infty A_n$$
+    Let $f_n : C_n \to B_n$ be bijective since $B_n$ is countable, define $f : \mathbf{N} \to \bigcup_{n=1}^\infty B_n$ as
+    $$
+    f(n) = \begin{cases}
+      f_1(n) &\text{if } n \in C_1 \\
+      f_2(n) &\text{if } n \in C_2 \\
+      \vdots
+    \end{cases}
+    $$
+    \enumr{
+      \item Since each $C_n$ is disjoint and each $f_n$ is 1-1, $f(n_1) = f(n_2)$ implies $n_1 = n_2$ meaning $f$ is 1-1.
+      \item Since any $b \in \bigcup_{n=1}^\infty B_n$ has $b \in B_n$ for some $n$, we know $b = f_n(x)$ has a solution since $f_n$ is onto. Letting $x = f_{n}^{-1}(b)$ we have $f(x) = f_n(x) = b$ since $f_n^{-1}(b) \in C_n$ meaning $f$ is onto.
+      }
+      By (i) and (ii) $f$ is bijective and so $\bigcup_{n=1}^\infty B_n$ is countable. And since
+      $$\bigcup_{n=1}^\infty B_n = \bigcup_{n=1}^\infty A_n$$
+      We have that $\bigcup_{n=1}^\infty A_n$ is countable, completing the proof.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show $(a, b) \sim \mathbf{R}$ for any interval $(a, b)$.
+  \item Show that an unbounded interval like $(a, \infty)=\{x: x>a\}$ has the same cardinality as $\mathbf{R}$ as well.
+  \item Using open intervals makes it more convenient to produce the required 1-1, onto functions, but it is not really necessary. Show that $[0,1) \sim(0,1)$ by exhibiting a 1-1 onto function between the two sets.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We will start by finding $f : (-1, 1) \to \mathbf{R}$ and then transform it to $(a, b)$. Example 1.5.4 gives a suitable $f$
+    $$
+    f(x) = \frac{x}{x^2 - 1}
+    $$
+    The book says to use calculus to show $f$ is bijective, first we will examine the derivative
+    $$
+    f'(x) = \frac{x^2 - 1 - 2x^2}{(x^2 - 1)^2} = - \frac{x^2 + 1}{(x^2 - 1)^2}
+    $$
+    The denominator and numerator are positive, so $f'(x) < 0$ forall $x \in (0,1)$.
+    This means no two inputs will be mapped to the same output, meaning $f$ is one to one (a rigorous proof is beyond our current ability)
+
+    To show that $f$ is onto, we examine the limits
+    $$
+    \begin{aligned}
+      \lim_{x \to 1^{-}} \frac{x}{x^2 - 1} &= - \infty \\
+      \lim_{x \to {-1}^{+}} \frac{x}{x^2 - 1} &= + \infty
+    \end{aligned}
+    $$
+    Then use the intermediate value theorem to conclude $f$ is onto.
+
+    Now we shift $f$ to the interval $(a, b)$
+    $$
+    g(x) = f\left(\frac{2x - 1}{b - a} - a\right)
+    $$
+    Proving $g(x)$ is also bijective is a straightforward computation.
+  \item We want a bijective $h(x)$ such that $h(x) : (a, \infty) \to (-1, 1)$ because then we could compose them to get a new bijective function $f(h(x)) : (a, \infty) \to \mathbf{R}$.
+
+    Let
+    $$
+    h(x) = \frac{2}{x - a + 1} - 1
+    $$
+    We have $h : (a, \infty) \to (1, -1)$ since $h(a) = 1$ and $\lim_{x \to \infty} h(x) = 1$.
+
+    Meaning that $f(h(x)) : (a, \infty) \to \mathbf{R}$ is our bijective map.
+  \item \TODO
+  }
+\end{solution}
+
