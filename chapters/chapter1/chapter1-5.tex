@@ -24,7 +24,7 @@
   The nested interval property is not true for $\mathbf{Q}$. Consider $I_n$ being rational bounds for $\sqrt2$ with $n$ decimal places, then $\bigcap_{n=1}^\infty I_n = \emptyset$ since $\sqrt2 \notin \mathbf{Q}$.
 \end{solution}
 
-\begin{exercise}
+\begin{exercise}\label{ex:countable_union}
   \enum{
   \item Prove if $A_1, \dots, A_m$ are countable sets then $A_1 \cup \dots \cup A_m$ is countable.
   \item Explain why induction \emph{cannot} be used to prove that if each $A_n$ is countable, then $\bigcup_{n=1}^\infty A_n$ is countable.
@@ -112,3 +112,100 @@
   }
 \end{solution}
 
+\begin{exercise}
+  \enum{
+  \item Why is $A \sim A$ for every set $A$?
+  \item Given sets $A$ and $B$, explain why $A \sim B$ is equivalent to asserting $B \sim A$.
+  \item For three sets $A, B$, and $C$, show that $A \sim B$ and $B \sim C$ implies $A \sim C$.
+    These three properties are what is meant by saying that $\sim$ is an \emph{equivalence relation}.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item The identity function $f(x) = x$ is a bijection
+  \item If $f : A \to B$ is bijective then $f^{-1} : B \to A$ is bijective.
+  \item Let $f : A \to B$ and $g : B \to C$, since $g \circ f : A \to C$ is bijective we have $A \sim C$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Give an example of a countable collection of disjoint open intervals.
+  \item Give an example of an uncountable collection of disjoint open intervals, or argue that no such collection exists.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $I_1 = (0, 1)$, $I_2 = (1, 2)$ and in general $I_n = (n-1, n)$
+  \item Let $A$ denote this set. Intuitively no such collection should exist since each $I_n$ has nonzero length.
+
+    The key here is to try and show $A \sim \mathbf{Q}$ instead of directly showing $A \sim \mathbf{N}$.
+
+    For any nonempty interval $I_n$ the density theorem tells us there exists an $r \in \mathbf{Q}$ such that $r \in I_n$.
+    Assigning each $I \in A$ a rational number $r \in I$ proves $I \sim \mathbf{Q}$ and thus $I$ is countable.
+  }
+\end{solution}
+
+\begin{exercise}
+  Consider the open interval $(0,1)$, and let $S$ be the set of points in the open unit square; that is, $S=\{(x, y): 0<x, y<1\}$.
+  \enum{
+  \item Find a 1-1 function that maps $(0,1)$ into, but not necessarily onto, $S$. (This is easy.)
+  \item Use the fact that every real number has a decimal expansion to produce a $1-1$ function that maps $S$ into $(0,1)$. Discuss whether the formulated function is onto. (Keep in mind that any terminating decimal expansion such as $.235$ represents the same real number as $.234999 \ldots .$)
+  }
+
+  The Schröder-Bernstein Theorem discussed in Exercise 1.5.11 can now be applied to conclude that $(0,1) \sim S$.
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We scale and shift up into the square. $f(x) = \frac 12 x + \frac 13$
+  \item Let $g : S \to (0, 1)$ be a function that interleaves decimals in the representation without trailing nines. $g(0.32, 0.45) = 0.3425$ and $g(0.1\bar 9, 0.2) = g(0.2, 0.2) = 0.22$ etc.
+
+    Every real number can be written with two digit representations, one with trailing 9's and one without.
+    However $g(x, y) = 0.d_1d_2\dots\bar9$ is impossible since it would imply $x = 0.d_1\dots\bar9$ and $y = 0.d_2\dots\bar9$ but the definition of $g$ forbids this.
+    Therefor $g(s)$ is unique, and so $g$ is 1-1.
+
+    Is $g$ onto? No since $g(x, y) = 0.1$ has no solutions, since we would want $x = 0.1$ and $y = 0$ but $0 \notin (0, 1)$.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $B$ be a set of positive real numbers with the property that adding together any finite subset of elements from $B$ always gives a sum of 2 or less. Show $B$ must be finite or countable.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  A real number $x \in \mathbf{R}$ is called algebraic if there exist integers $a_{0}, a_{1}, a_{2}, \ldots, a_{n} \in \mathbf{Z}$, not all zero, such that
+  $$
+  a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}=0
+  $$
+  Said another way, a real number is algebraic if it is the root of a polynomial with integer coefficients. Real numbers that are not algebraic are called \emph{transcendental} numbers. Reread the last paragraph of Section 1.1. The final question posed here is closely related to the question of whether or not transcendental numbers exist.
+
+  \enum{
+  \item Show that $\sqrt{2}, \sqrt[3]{2}$, and $\sqrt{3}+\sqrt{2}$ are algebraic.
+  \item Fix $n \in \mathbf{N}$, and let $A_{n}$ be the algebraic numbers obtained as roots of polynomials with integer coefficients that have degree $n$. Using the fact that every polynomial has a finite number of roots, show that $A_{n}$ is countable.
+  \item Now, argue that the set of all algebraic numbers is countable. What may we conclude about the set of transcendental numbers?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $x^2 - 2 = 0$, $x^3 - 2 = 0$ are obvious. Now consider $\sqrt 3 + \sqrt 2$. The key is setting $x = \sqrt 3 + \sqrt 2$ then using algebra on $x$ to concoct an integer, and thus find the polynomial with $x$ as a root.
+
+    We have $x^2 = 5 + 2\sqrt6$ meaning $x^2 - 5 = 2\sqrt{6}$ and thus $(x^2 - 5)^2 = 24$ so $(x^2 - 5)^2 - 24 = 0$ is a polynomial with $\sqrt 3 + \sqrt 2$ as a root.
+  \item Basically $A_n \sim \mathbf{Z}^n \sim \mathbf N^n \sim \mathbf{N}$.
+    \enumr{
+    \item $A_n \sim \mathbf{Z}^n$ since integer polynomials of degree $n$ are identical to an ordered list of $n$ integers.
+    \item $\mathbf Z^n \sim \mathbf N^n$ since $f : \mathbf{N}^n \to \mathbf{Z}^n$ is just the piecewise application of $g : \mathbf{N} \to \mathbf{Z}$.
+    \item $\mathbf N^n \sim \mathbf N$ since it is the intersection of finite sets $\bigcup_{n=2}^\infty \mathbf \{(a,b) : a+b = n\}$.
+    }
+
+    In general if $V$ is countable then $V^n = (v_1, \dots, v_n)$ is also countable.
+  \item By \ref{ex:countable_union} the set of all algebraic numbers $\bigcup_{n=1}^\infty A_n$ is countable.
+  }
+\end{solution}
