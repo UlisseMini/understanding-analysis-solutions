@@ -1,0 +1,91 @@
+\section{Cantor's theorem}
+
+\begin{exercise}
+  Show that $(0,1)$ is uncountable if and only if $\mathbf{R}$ is uncountable.
+\end{exercise}
+
+\begin{solution}
+  Exercise 1.5.4 tells us $(0, 1)$ has the same cardinality as $\mathbf{R}$.
+
+  \TODO Prove without using exercise 1.5.4 (probably what was intended)
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Explain why the real number $x=. b_{1} b_{2} b_{3} b_{4} \ldots$ cannot be $f(1)$.
+  \item Now, explain why $x \neq f(2)$, and in general why $x \neq f(n)$ for any $n \in \mathbf{N}$.
+  \item Point out the contradiction that arises from these observations and conclude that $(0,1)$ is uncountable.
+  }
+
+  \TODO Make question self contained
+\end{exercise}
+
+
+
+\begin{solution}
+  \enum{
+  \item The first digit is different
+  \item The nth digit is different
+  \item Therefor $x$ is not in the list, since the nth digit would be different by definition
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Supply rebuttals to the following complaints about the proof of Theorem 1.6.1.
+  \enum{
+  \item Every rational number has a decimal expansion, so we could apply this same argument to show that the set of rational numbers between 0 and 1 is uncountable. However, because we know that any subset of $\mathbf{Q}$ must be countable, the proof of Theorem 1.6.1 must be flawed.
+  \item Some numbers have two different decimal representations. Specifically, any decimal expansion that terminates can also be written with repeating 9's. For instance, $1 / 2$ can be written as $.5$ or as $.4999 \ldots$ Doesn't this cause some problems?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item False, since the constructed number has an infinite number of decimals it is irrational.
+  \item No, since if we have $9999\dots$ and change the nth digit $9992999 = 9993$ is still different.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $S$ be the set consisting of all sequences of 0 's and 1 's. Observe that $S$ is not a particular sequence, but rather a large set whose elements are sequences; namely,
+  $$
+  S=\left\{\left(a_{1}, a_{2}, a_{3}, \ldots\right): a_{n}=0 \text { or } 1\right\}
+  $$
+  As an example, the sequence $(1,0,1,0,1,0,1,0, \ldots)$ is an element of $S$, as is the sequence $(1,1,1,1,1,1, \ldots)$.
+  Give a rigorous argument showing that $S$ is uncountable.
+\end{exercise}
+
+\begin{solution}
+  We flip every bit in the diagonal just like with $\mathbf{R}$. Another way would be to show $S \sim \mathbf{R}$ by writing real numbers in base 2.
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $A=\{a, b, c\}$. List the eight elements of $P(A)$. (Do not forget that $\emptyset$ is considered to be a subset of every set.)
+  \item If $A$ is finite with $n$ elements, show that $P(A)$ has $2^{n}$ elements.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $A = \left\{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a,b,c\}\right\}$.
+  \item There are $n$ elements, we can include or exclude each element so there are $2^n$ subsets.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Using the particular set $A=\{a, b, c\}$, exhibit two different $1-1$ mappings from $A$ into $P(A)$.
+  \item Letting $C=\{1,2,3,4\}$, produce an example of a $1-1$ map $g: C \rightarrow P(C)$.
+  \item Explain why, in parts (a) and (b), it is impossible to construct mappings that are onto.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $f(x) = \{x\}$, $f(x) = \{x, b\}$ for $x \ne b$ and $f(x) = \{a,b,c\}$ for $x=b$.
+  \item $f(x) = \{x\}$.
+  \item We can hit at most $n$ elements in the power set out of the $2^n$ total elements.
+  }
+\end{solution}
+
