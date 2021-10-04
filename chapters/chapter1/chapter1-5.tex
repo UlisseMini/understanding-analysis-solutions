@@ -176,7 +176,8 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Notice $B \cap (a, 2)$ is finite forall $a > 0$, since if it was infinite we could make a set with sum greater then two.
+  And since $B$ is the countable union of finite sets $\bigcup_{n=1}^\infty B \cap (1/n, 2)$, $B$ must be countable or finite.
 \end{solution}
 
 \begin{exercise}
@@ -207,5 +208,46 @@
 
     In general if $V$ is countable then $V^n = (v_1, \dots, v_n)$ is also countable.
   \item By \ref{ex:countable_union} the set of all algebraic numbers $\bigcup_{n=1}^\infty A_n$ is countable.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $C \subseteq[0,1]$ be uncountable. Show that there exists $a \in(0,1)$ such that $C \cap[a, 1]$ is uncountable.
+  \item Now let $A$ be the set of all $a \in(0,1)$ such that $C \cap[a, 1]$ is uncountable, and set $\alpha=\sup A$. Is $C \cap[\alpha, 1]$ an uncountable set?
+  \item Does the statement in (a) remain true if ``uncountable'' is replaced by ``infinite''?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Schröder-Bernstein Theorem]
+  Assume there exists a 1-1 function $f: X \rightarrow Y$ and another 1-1 function $g: Y \rightarrow X .$ Follow the steps to show that there exists a 1-1, onto function $h: X \rightarrow Y$ and hence $X \sim Y$.
+  The strategy is to partition $X$ and $Y$ into components
+  $$
+  X=A \cup A^{\prime} \quad \text { and } \quad Y=B \cup B^{\prime}
+  $$
+  with $A \cap A^{\prime}=\emptyset$ and $B \cap B^{\prime}=\emptyset$, in such a way that $f$ maps $A$ onto $B$, and $g$ maps $B^{\prime}$ onto $A^{\prime}$.
+
+  \enum{
+  \item Explain how achieving this would lead to a proof that $X \sim Y$.
+  \item Set $A_{1}=X \setminus g(Y)=\{x \in X: x \notin g(Y)\}$ (what happens if $\left.A_{1}=\emptyset ?\right)$ and inductively define a sequence of sets by letting $A_{n+1}=g\left(f\left(A_{n}\right)\right)$. Show that $\left\{A_{n}: n \in \mathbf{N}\right\}$ is a pairwise disjoint collection of subsets of $X$, while $\left\{f\left(A_{n}\right): n \in \mathbf{N}\right\}$ is a similar collection in $Y$.
+  \item Let $A=\bigcup_{n=1}^{\infty} A_{n}$ and $B=\bigcup_{n=1}^{\infty} f\left(A_{n}\right)$. Show that $f$ maps $A$ onto $B$.
+  \item Let $A^{\prime}=X \setminus A$ and $B^{\prime}=Y \setminus B$. Show $g$ maps $B^{\prime}$ onto $A^{\prime}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
   }
 \end{solution}
