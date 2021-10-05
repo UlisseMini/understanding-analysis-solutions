@@ -89,3 +89,55 @@
   }
 \end{solution}
 
+
+\begin{theorem}[Cantor's Theorem]
+  Given any set $A$, there does not exist a function $f: A \rightarrow P(A)$ that is onto.
+\end{theorem}
+
+\begin{proof}
+  Suppose $f : A \to P(A)$ is onto. We want to use the self referential nature of $P(A)$ to find a contradiction. Define
+  $$
+  B = \{a : a \notin f(a)\}
+  $$
+  Since $f$ is onto we must have $f(a) = B$ for some $a \in A$. Then either
+  \enumr{
+  \item $a \in B$ implies $a \in f(a)$ which by the definition of $B$ implies $a \notin B$, so $a \in B$ is impossible.
+  \item $a \notin B$ implies $a \notin f(a)$ since $f(a) = B$. but if $a \notin f(a)$ then $a \in B$ by the definition of $B$, contradicting $a \notin B$.
+  }
+  Therefor $f$ cannot be onto, since we have found a $B \in P(A)$ where $f(a) = B$ is impossible.
+
+  Stepping back, the pearl of the argument is that if $B = f(a)$ then $B = \{a : a \notin B\}$ is undecidable/impossible.
+\end{proof}
+
+\begin{exercise}
+  See the proof of Cantor's theorem above (the rest is a computation)
+\end{exercise}
+
+\begin{exercise}
+  See the proof of Cantor's theorem above
+\end{exercise}
+
+\begin{exercise}
+  Using the various tools and techniques developed in the last two sections (including the exercises from Section 1.5), give a compelling argument showing that $P(\mathbf{N}) \sim \mathbf{R}$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  As a final exercise, answer each of the following by establishing a $1-1$ correspondence with a set of known cardinality.
+  \enum{
+  \item Is the set of all functions from $\{0,1\}$ to $\mathbf{N}$ countable or uncountable?
+  \item Is the set of all functions from $\mathbf{N}$ to $\{0,1\}$ countable or uncountable?
+  \item Given a set $B$, a subset $\mathcal{A}$ of $P(B)$ is called an antichain if no element of $\mathcal{A}$ is a subset of any other element of $\mathcal{A} .$ Does $P(\mathbf{N})$ contain an uncountable antichain?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item The set of functions from $\{0, 1\}$ to $\mathbf{N}$ is the same as $\mathbf N^2$ which we found was countable in Exercise 1.5.9.
+  \item This is the same as an infinite list of zeros and ones which we showed was uncountable in Exercise 1.6.4.
+  \item \TODO
+  }
+\end{solution}
