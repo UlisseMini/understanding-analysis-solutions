@@ -1,0 +1,166 @@
+\section{The Limit of a Sequence}
+
+\begin{exercise}
+What happens if we reverse the order of the quantifiers in Definition 2.2.3?
+
+Definition: A sequence $\left(x_{n}\right)$ \emph{verconges} to $x$ if \emph{there exists} an $\epsilon>0$ such that \emph{for all} $N \in \mathbf{N}$ it is true that $n \geq N$ implies $\left|x_{n}-x\right|<\epsilon$
+
+Give an example of a vercongent sequence. Is there an example of a vercongent sequence that is divergent? Can a sequence verconge to two different values? What exactly is being described in this strange definition?
+\end{exercise}
+
+\begin{solution}
+  Firstly, since we have \emph{for all} $N \in \mathbf{N}$ we can remove $N$ entirely and just say $n \in \mathbf{N}$. Our new definition is
+
+  Definition: A sequence $(x_n)$ \emph{verconges} to $x$ if \emph{there exists} an $\epsilon > 0$ such that $\emph{for all}$ $n \in \mathbf{N}$ we have $|x_n - x| < \epsilon$.
+
+  In other words, a series $(x_n)$ \emph{verconges} to $x$ if $|x_n - x|$ is bounded. This is a silly definition though since if $|x_n - x|$ is bounded, then $|x_n - x'|$ is bounded for all $x' \in \mathbf{R}$, meaning if a sequence is vercongent it verconges to every $x' \in \mathbf{R}$.
+
+  Put another way, a sequence is vercongent \emph{if and only if} it is bounded.
+\end{solution}
+
+\begin{exercise}
+  Verify, using the definition of convergence of a sequence, that the following sequences converge to the proposed limit.
+  \enum{
+  \item $\lim \frac{2 n+1}{5 n+4}=\frac{2}{5}$.
+  \item $\lim \frac{2 n^{2}}{n^{3}+3}=0$.
+  \item $\lim \frac{\sin \left(n^{2}\right)}{\sqrt[3]{n}}=0$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We have
+    $$
+    \left|\frac{2n + 1}{5n + 4} - \frac{2}{5}\right|
+    = \left|\frac{5(2n + 1) - 2(5n + 4)}{5(5n + 4)}\right|
+    = \left|\frac{-3}{5(5n + 4)}\right|
+    = \frac{3}{5(5n + 4)} < \epsilon
+    $$
+    We now find $n$ such that the distance is less then $\epsilon$
+    $$
+    \frac{3}{5(5n + 4)} < \frac{1}{n} < \epsilon \implies n > \frac{1}{\epsilon}
+    $$
+    You could also solve for the smallest $n$, which would give you
+    $$
+    \frac{3}{5(5n + 4)} < \epsilon \implies 5n + 4 > \frac{3}{5\epsilon} \implies n > \frac{3}{25\epsilon} - \frac{4}{5}
+    $$
+    I prefer the first approach, the second is better if you were doing numerical analysis and wanted a precise convergence rate.
+  \item We have
+    $$
+    \left|\frac{2n^2}{n^3 + 3} - 0\right| = \frac{2n^2}{n^3 + 3} < \frac{2n^2}{n^3} = \frac{2}{n} < \epsilon \implies n > \frac{2}{\epsilon}
+    $$
+  \item We have
+    $$
+    \frac{\sin(n^2)}{n^{1/3}} \le \frac{1}{n^{1/3}} < \epsilon \implies n > \frac{1}{\epsilon^3}
+    $$
+    Really slow convergence! if $\epsilon = 10^{-2}$ we would require $n > 10^6$
+  }
+\end{solution}
+
+\begin{exercise}
+  Describe what we would have to demonstrate in order to disprove each of the following statements.
+  \enum{
+  \item At every college in the United States, there is a student who is at least seven feet tall.
+  \item For all colleges in the United States, there exists a professor who gives every student a grade of either $\mathrm{A}$ or $\mathrm{B}$.
+  \item There exists a college in the United States where every student is at least six feet tall.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Find a collage in the United States with no students over seven feet tall.
+  \item Find a collage in the United States with a professor who has given a grade other then an A or B.
+  \item Find a collage in the united States with at least one student under six feet tall.
+  }
+\end{solution}
+
+\begin{exercise}
+  Give an example of each or state that the request is impossible. For any that are impossible, give a compelling argument for why that is the case.
+  \enum{
+  \item A sequence with an infinite number of ones that does not converge to one.
+  \item A sequence with an infinite number of ones that converges to a limit not equal to one.
+  \item A divergent sequence such that for every $n \in \mathbf{N}$ it is possible to find $n$ consecutive ones somewhere in the sequence.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $a_n = (-1)^n$
+  \item Impossible, if $\lim a_n = a \ne 1$ then for any $n \ge N$ we can find a $n$ with $a_n = 1$ meaning $\epsilon < |1 - a|$ is impossible.
+  \item $a_n = (1, 2, 1, 1, 3, 1, 1, 1, \dots)$
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $[[x]]$ be the greatest integer less than or equal to $x$. For example, $[[\pi]]=3$ and $[[3]]=3$. For each sequence, find $\lim a_{n}$ and verify it with the definition of convergence.
+  \enum{
+  \item $a_{n}=[[5 / n]]$,
+  \item $a_{n}=[[(12+4 n) / 3 n]]$.
+  }
+  Reflecting on these examples, comment on the statement following Definition 2.2.3 that ``the smaller the $\epsilon$-neighborhood, the larger $N$ may have to be.''
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item For all $n > 5$ we have $[[5/n]] = 0$ meaning $\lim a_n = 0$.
+  \item The inside clearly converges to $4/3$ from above, so $\lim a_n = 1$.
+  }
+  Some sequences eventually reach their limit, meaning $N$ no longer has to increase.
+\end{solution}
+
+\begin{exercise}
+  \textbf{Theorem 2.2.7 (Uniqueness of Limits).} \textit{The limit of a sequence, when it exists, must be unique.}
+
+  Prove Theorem 2.2.7. To get started, assume $\left(a_{n}\right) \rightarrow a$ and also that $\left(a_{n}\right) \rightarrow b$. Now argue $a=b$
+\end{exercise}
+
+\begin{solution}
+  If $a \ne b$ then we can set $\epsilon$ small enough that having both $|a_n - a| < \epsilon$ and $|a_n - b| < \epsilon$ is impossible. Therefor $a = b$.
+
+  (Making this rigorous is trivial and left as an exercise to the reader)
+\end{solution}
+
+\begin{exercise}
+  Here are two useful definitions:
+  \enumr{
+  \item A sequence $\left(a_{n}\right)$ is \emph{eventually} in a set $A \subseteq \mathbf{R}$ if there exists an $N \in \mathbf{N}$ such that $a_{n} \in A$ for all $n \geq N$.
+  \item A sequence $\left(a_{n}\right)$ is \emph{frequently} in a set $A \subseteq \mathbf{R}$ if, for every $N \in \mathbf{N}$, there exists an $n \geq N$ such that $a_{n} \in A$.
+    \enum{
+    \item Is the sequence $(-1)^{n}$ eventually or frequently in the set $\{1\}$?
+    \item Which definition is stronger? Does frequently imply eventually or does eventually imply frequently?
+    \item Give an alternate rephrasing of Definition 2.2.3B using either frequently or eventually. Which is the term we want?
+    \item Suppose an infinite number of terms of a sequence $\left(x_{n}\right)$ are equal to 2 . Is $\left(x_{n}\right)$ necessarily eventually in the interval $(1.9,2.1) ?$ Is it frequently in $(1.9,2.1) ?$
+    }
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Frequently, but not eventually.
+  \item Eventually is stronger, it implies frequently.
+  \item $(x_n) \to x$ \emph{if and only if} $x_n$ is eventually in any $\epsilon$-neighborhood around $x$.
+  \item $(x_n)$ is frequently in $(1.9, 2.1)$ but not necessarily eventually (consider $x_n = 2(-1)^n$).
+  }
+\end{solution}
+
+\begin{exercise}
+  For some additional practice with nested quantifiers, consider the following invented definition:
+
+  Let's call a sequence $\left(x_{n}\right)$ zero-heavy if there exists $M \in \mathbf{N}$ such that for all $N \in \mathbf{N}$ there exists $n$ satisfying $N \leq n \leq N+M$ where $x_{n}=0$
+  \enum{
+  \item Is the sequence $(0,1,0,1,0,1, \ldots)$ zero heavy?
+  \item If a sequence is zero-heavy does it necessarily contain an infinite number of zeros? If not, provide a counterexample.
+  \item If a sequence contains an infinite number of zeros, is it necessarily zeroheavy? If not, provide a counterexample.
+  \item Form the logical negation of the above definition. That is, complete the sentence: A sequence is not zero-heavy if ....
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item No.
+  \item Yes. as any finite number of zeros $K$ would lead to a contradiction when $M > K$.
+  \item No, consider $(0,1,0,\dots)$ from (a).
+  \item A sequence is not zero-heavy if there exists an $M \in \mathbf{N}$ such that for all $N \in \mathbf{N}$ there exists an $n \in \mathbf{N}$ such that $N \le n \le N + M$ but $x_n \ne 0$.
+  }
+\end{solution}
+
