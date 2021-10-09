@@ -34,7 +34,11 @@
 \begin{solution}
   \enum{
   \item We have $\left|\frac{2}{3} x_n - \frac 43\right| = \frac 23\left|x_n - 2\right| < \epsilon$ which can always be done since $|x_n - 2|$ can be made arbitrarily small.
-  \item Want $|(1/x_n) - 1/2| < \epsilon$ have $|x_n - 2| < \epsilon$ \TODO
+  \item Since $x_n$ is bounded we have $|x_n| \le M$
+    $$
+    |1/x_n - 1/2| = \frac{|2 - x_n|}{|2x_n|} \le \frac{|2 - x_n|}{|2M|} < \epsilon
+    $$
+    Letting $|2 - x_n| < \epsilon/{|2M|}$ gives $|1/x_n - 1/2| < \epsilon$.
   }
 \end{solution}
 
@@ -75,5 +79,222 @@
     $$
     \lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right) = 3/5
     $$
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Let $\left(x_{n}\right)$ and $\left(y_{n}\right)$ be given, and define $\left(z_{n}\right)$ to be the ``shuffled'' sequence $\left(x_{1}, y_{1}, x_{2}, y_{2}, x_{3}, y_{3}, \ldots, x_{n}, y_{n}, \ldots\right)$. Prove that $\left(z_{n}\right)$ is convergent if and only if $\left(x_{n}\right)$ and $\left(y_{n}\right)$ are both convergent with $\lim x_{n}=\lim y_{n}$.
+\end{exercise}
+
+
+\begin{solution}
+  Obviously if $\lim x_n = \lim y_n = l$ then $z_n \to l$. To show the other way suppose $(z_n) \to l$, then $|z_n - l| < \epsilon$ for all $n \ge N$ meaning $|y_n - l| < \epsilon$ and $|x_n - l| < \epsilon$ for $n \ge N$ aswell. Thus $\lim x_n = \lim y_n = l$.
+\end{solution}
+
+\begin{exercise}
+  Consider the sequence given by $b_{n}=n-\sqrt{n^{2}+2 n}$. Taking $(1 / n) \rightarrow 0$ as given, and using both the Algebraic Limit Theorem and the result in Exercise 2.3.1, show $\lim b_{n}$ exists and find the value of the limit.
+\end{exercise}
+
+\begin{solution}
+  I'm going to find the value of the limit before proving it. We have
+  $$
+  n - \sqrt{n^2 + 2n} = n - \sqrt{(n + 1)^2 - 1}
+  $$
+  For large $n$, $\sqrt{(n + 1)^2 - 1} \approx n + 1$ so $\lim b_n = -1$.
+
+  Factoring out $n$ we get $n\left(1 - \sqrt{1 + 2/n}\right)$. Tempting as it is to apply the ALT here to say $(b_n) \to 0$ it doesn't work since $n$ diverges.
+
+  How about if I get rid of the radical, then use the ALT to go back to what we had before?
+  $$
+  (n - \sqrt{n^2 + 2n})(n + \sqrt{n^2 + 2n}) = n^2 - (n^2 + 2n) = -2n
+  $$
+  Then we have
+  $$
+  b_n = n - \sqrt{n^2 + 2n} = \frac{-2n}{n + \sqrt{n^2 + 2n}} = \frac{-2}{1 + \sqrt{1 + 2/n}}
+  $$
+  Now we can finally use the algebraic limit theorem!
+  $$
+  \lim\left(\frac{-2}{1 + \sqrt{1 + 2/n}}\right) = \frac{-2}{1 + \sqrt{1 + \lim\left(2/n\right)}} = \frac{-2}{1 + \sqrt{1 + 0}} = -1
+  $$
+
+  Stepping back the key to this technique is removing the radicals via a difference of squares, then dividing both sides by the growthrate $n$ and applying the ALT.
+\end{solution}
+
+\begin{exercise}
+  Give an example of each of the following, or state that such a request is impossible by referencing the proper theorem(s):
+  \enum{
+  \item sequences $\left(x_{n}\right)$ and $\left(y_{n}\right)$, which both diverge, but whose sum $\left(x_{n}+y_{n}\right)$ converges;
+  \item sequences $\left(x_{n}\right)$ and $\left(y_{n}\right)$, where $\left(x_{n}\right)$ converges, $\left(y_{n}\right)$ diverges, and $\left(x_{n}+y_{n}\right)$ converges;
+  \item a convergent sequence $\left(b_{n}\right)$ with $b_{n} \neq 0$ for all $n$ such that $\left(1 / b_{n}\right)$ diverges;
+  \item an unbounded sequence $\left(a_{n}\right)$ and a convergent sequence $\left(b_{n}\right)$ with $\left(a_{n}-b_{n}\right)$ bounded;
+  \item two sequences $\left(a_{n}\right)$ and $\left(b_{n}\right)$, where $\left(a_{n} b_{n}\right)$ and $\left(a_{n}\right)$ converge but $\left(b_{n}\right)$ does not.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item $(x_n) = n$ and $(y_n) = -n$ diverge but $x_n + y_n = 0$ converges
+  \item Impossible, the algebraic limit theorem implies $\lim (x_n + y_n) - \lim (x_n) = \lim y_n$ therefor $(y_n)$ must converge if $(x_n)$ and $(x_n + y_n)$ converge.
+  \item Impossible, the algebraic limit theorem implies that if $(b_n) \to b$ then $(1/b_n) \to 1/b$.
+  \item Impossible, letting $|b_n| \le M$ we have $|a_n - b_n| \le |a_n - M|$ being bounded, which is impossible since $a_n$ is unbounded and shifting by a constant $M$ cannot not change that.
+  \item $b_n = n$ and $a_n = 0$ works. However if $(a_n) \to a$, $a \ne 0$ and $(a_nb_n) \to p$ then the ALT would imply $(b_n) \to p/a$.
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $\left(x_{n}\right) \rightarrow x$ and let $p(x)$ be a polynomial.
+  \enum{
+  \item Show $p\left(x_{n}\right) \rightarrow p(x)$.
+  \item Find an example of a function $f(x)$ and a convergent sequence $\left(x_{n}\right) \rightarrow x$ where the sequence $f\left(x_{n}\right)$ converges, but not to $f(x)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Applying the algebraic limit theorem multiple times gives $(x_n^d) \to x^d$ meaning
+    $$
+    \lim p(x_n) = \lim \left(a_{d}x_n^d + a_{d-1}x_n^{d-1} + \dots + a_0\right) = a_d x^d + a_{d-1}x^{d-1} + \dots + a_0 = p(x).
+    $$
+    As a cute corollary, any continuous function $f$ has $\lim f(x_n) = f(x)$ since polynomials can approximate continuous functions arbitrarily well by the Weierstrass approximation theorem.
+  \item Let $(x_n) = 1/n$ and define $f$ as
+    $$
+    f(x) = \begin{cases}
+      0 &\text{if } x = 0 \\
+      1 &\text{otherwise}
+    \end{cases}
+    $$
+    We have $f(1/n) = 1$ for all $n$, meaning $\lim f(1/n) = 1$ but $f(0) = 0$.
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $\left(a_{n}\right)$ be a bounded (not necessarily convergent) sequence, and assume $\lim b_{n}=0$. Show that $\lim \left(a_{n} b_{n}\right)=0$. Why are we not allowed to use the Algebraic Limit Theorem to prove this?
+  \item Can we conclude anything about the convergence of $\left(a_{n} b_{n}\right)$ if we assume that $\left(b_{n}\right)$ converges to some nonzero limit $b$ ?
+  \item Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a=0$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We can't use the ALT since $a_n$ is not necessarily convergent. $a_n$ being bounded gives $|a_n| \le M$ for some $M$ giving
+    $$|a_nb_n| \le M|b_n| < \epsilon$$
+    Which can be accomplished by letting $|b_n| < \epsilon/M$ since $(b_n) \to 0$.
+  \item No
+  \item In (a) we showed $\lim (a_nb_n) = 0 = ab$ for $b = 0$ which proves part (iii) of the ALT.
+  }
+\end{solution}
+
+\begin{exercise}
+  Consider the following list of conjectures. Provide a short proof for those that are true and a counterexample for any that are false.
+  \enum{
+  \item If $\lim \left(a_{n}-b_{n}\right)=0$, then $\lim a_{n}=\lim b_{n}$.
+  \item If $\left(b_{n}\right) \rightarrow b$, then $\left|b_{n}\right| \rightarrow|b|$.
+  \item If $\left(a_{n}\right) \rightarrow a$ and $\left(b_{n}-a_{n}\right) \rightarrow 0$, then $\left(b_{n}\right) \rightarrow a$.
+  \item If $\left(a_{n}\right) \rightarrow 0$ and $\left|b_{n}-b\right| \leq a_{n}$ for all $n \in \mathbf{N}$, then $\left(b_{n}\right) \rightarrow b$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item False, consider $a_n = n$ and $b_n = -n$.
+  \item True since if $|b_n - b| < \epsilon$ then $||b_n| - |b|| \le |b_n - b| < \epsilon$ by Exercise 1.2.6 (d).
+  \item True by ALT since $\lim (b_n - a_n) + \lim a_n = \lim b_n = a$.
+  \item True, since $0 \le |b_n - b| \le a_n$ we have $a_n \ge 0$. Let $\epsilon > 0$ and pick $N$ such that $a_n < \epsilon$ for all $n \ge N$. Therefor
+    $$
+    |b_n - b| \le a_n < \epsilon
+    $$
+    Proving $(b_n) \to b$.
+  }
+\end{solution}
+
+\begin{exercise}[Cesaro Means]
+  \enum {
+  \item Show that if $\left(x_{n}\right)$ is a convergent sequence, then the sequence given by the averages
+    $$
+    y_{n}=\frac{x_{1}+x_{2}+\cdots+x_{n}}{n}
+    $$
+    also converges to the same limit.
+  \item Give an example to show that it is possible for the sequence $\left(y_{n}\right)$ of averages to converge even if $\left(x_{n}\right)$ does not.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item
+    Let $D = \sup\{|x_n - x| : n \in \mathbf N\}$ we have
+    $$
+    |y_n - x| = \left|\frac{x_1 + \dots + x_n}{n} - x\right| \le \left|\frac{|x_1 - x| + \dots + |x_n - x|}{n}\right| \le D
+    $$
+
+    Let $|x_n - x| < \epsilon/2$ for $n \ge N_1$. We have
+    $$
+    |y_n - x| \le \left|\frac{|x_1-x| + \dots + |x_{N_1}-x| + \dots + |x_n-x|}{n}\right| \le \left|\frac{N_1 D + (n-N_1)\epsilon/2}{n}\right|
+    $$
+    Let $N_2$ be large enough that for all $n > N_2$
+    $$
+    \left|\frac{N_1 D + (n-N_1)\epsilon/2}{n}\right| = \left|\frac{N_1(D - \epsilon/2)}{n} + \epsilon/2\right| < \epsilon
+    $$
+    then let $N = \max\{N_1, N_2\}$.
+
+    \TODO Make more rigorous, remove $\epsilon/2$ hack
+  \item $x_n = (-1)^n$ diverges but $(y_n) \to 0$.
+  }
+\end{solution}
+
+
+\begin{exercise}
+  A typical task in analysis is to decipher whether a property possessed by every term in a convergent sequence is necessarily inherited by the limit. Assume $\left(a_{n}\right) \rightarrow a$, and determine the validity of each claim. Try to produce a counterexample for any that are false.
+
+  \enum{
+  \item If every $a_{n}$ is an upper bound for a set $B$, then $a$ is also an upper bound for $B$.
+  \item If every $a_{n}$ is in the complement of the interval $(0,1)$, then $a$ is also in the complement of $(0,1)$.
+  \item If every $a_{n}$ is rational, then $a$ is rational.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item True, let $s = \sup B$, we know $s \le a_n$ so by the order limit theorem $s \le a$ meaning $a$ is also an upper bound on $B$.
+  \item True, since if $a \in (0,1)$ then there would exist an $\epsilon$-neighborhood inside $(0,1)$ that $a_n$ would have to fall in (because its an open interval).
+  \item False, consider the sequence of rational approximations to $\sqrt 2$
+  }
+\end{solution}
+
+\begin{exercise}[Iterated Limits]
+  Given a doubly indexed array $a_{m n}$ where $m, n \in \mathbf{N}$, what should $\lim _{m, n \rightarrow \infty} a_{m n}$ represent?
+  \enum{
+  \item Let $a_{m n}=m /(m+n)$ and compute the iterated limits
+  $$
+  \lim _{n \rightarrow \infty}\left(\lim _{m \rightarrow \infty} a_{m n}\right) \quad \text { and } \lim _{m \rightarrow \infty}\left(\lim _{n \rightarrow \infty} a_{m n}\right)
+  $$
+  Define $\lim _{m, n \rightarrow \infty} a_{m n}=a$ to mean that for all $\epsilon>0$ there exists an $N \in \mathbf{N}$ such that if both $m, n \geq N$, then $\left|a_{m n}-a\right|<\epsilon$
+  \item Let $a_{m n}=1 /(m+n)$. Does $\lim _{m, n \rightarrow \infty} a_{m n}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{m n}=m n /\left(m^{2}+n^{2}\right)$
+  \item Produce an example where $\lim _{m, n \rightarrow \infty} a_{m n}$ exists but where neither iterated limit can be computed.
+  \item Assume $\lim _{m, n \rightarrow \infty} a_{m n}=a$, and assume that for each fixed $m \in \mathbf{N}$, $\lim _{n \rightarrow \infty}\left(a_{m n}\right) \rightarrow b_{m}$. Show $\lim _{m \rightarrow \infty} b_{m}=a$
+  \item Prove that if $\lim _{m, n \rightarrow \infty} a_{m n}$ exists and the iterated limits both exist, then all three limits must be equal.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item
+    $$
+    \lim_{n \to \infty}\left(\lim_{m \to \infty} \frac{m}{m+n}\right) = 1, \text{ and }
+    \lim_{m \to \infty}\left(\lim_{n \to \infty} \frac{m}{m+n}\right) = 0
+    $$
+  \item
+    For $a_{mn} = 1/(m+n)$ all three limits are zero.
+    For $a_{mn} = mn/(m^2 + n^2)$ limits are zero, and $\lim_{m,n\to \infty} a_{mn}$ does not exist since if $m,n \ge N$ setting $m=n=N$ gives
+    $$
+    \frac{N^2}{N^2 + N^2} = \frac{1}{2}
+    $$
+    Which cannot be made smaller then any $\epsilon$.
+
+    The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. Therefor the maximum point is at $m=n$ as can be seen in \href{https://www.desmos.com/calculator/t993sievxl}{this} desmos graph.
+  \item Geometrically we want the point $(m,n)$ to be arbitrarily small for $m,n \ge N$ but not arbitrarily small for $m\to \infty$ with $n$ fixed. \TODO
+  \item \TODO
+  \item \TODO
   }
 \end{solution}
