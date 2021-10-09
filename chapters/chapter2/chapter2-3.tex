@@ -1,0 +1,79 @@
+\section{The Algebraic and Order Limit Theorems}
+
+\begin{exercise}
+  Let $x_{n} \geq 0$ for all $n \in \mathbf{N}$.
+  \enum{
+  \item If $\left(x_{n}\right) \rightarrow 0$, show that $\left(\sqrt{x_{n}}\right) \rightarrow 0$.
+  \item If $\left(x_{n}\right) \rightarrow x$, show that $\left(\sqrt{x_{n}}\right) \rightarrow \sqrt{x}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item Setting $x_n < \epsilon^2$ implies $\sqrt{x_n} < \epsilon$ (for all $n \ge N$ of course)
+
+  \item We want $|\sqrt{x_n} - \sqrt x| < \epsilon$ multiplying by $(\sqrt{x_n} + \sqrt{x})$ gives $|x_n - x| < (\sqrt{x_n} + \sqrt{x})\epsilon$ since $x_n$ is convergent, it is bounded $|x_n| \le M$ implying $\sqrt{|x_n|} \le \sqrt{M}$, multiplying gives
+    $$
+    |x_n - x| < \left(\sqrt{x_n} + \sqrt{x}\right)\epsilon \le \left(\sqrt{M} + \sqrt x\right)\epsilon
+    $$
+    Since $|x_n - x|$ can be made arbitrarily small we can make this true for some $n \ge N$. Now dividing by $\sqrt{M} + \sqrt x$ gives us
+    $$|\sqrt{x_n} - \sqrt{x}| \le \frac{|x_n - x|}{\sqrt{M} + \sqrt{x}} < \epsilon$$
+    Therefor $|\sqrt{x_n} - \sqrt x| < \epsilon$ completing the proof.
+  }
+\end{solution}
+
+\begin{exercise}
+  Using only Definition 2.2.3, prove that if $\left(x_{n}\right) \rightarrow 2$, then
+  \enum{
+  \item $\left(\frac{2 x_{n}-1}{3}\right) \rightarrow 1$;
+  \item $\left(1 / x_{n}\right) \rightarrow 1 / 2$.
+  }
+  (For this exercise the Algebraic Limit Theorem is off-limits, so to speak.)
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item We have $\left|\frac{2}{3} x_n - \frac 43\right| = \frac 23\left|x_n - 2\right| < \epsilon$ which can always be done since $|x_n - 2|$ can be made arbitrarily small.
+  \item Want $|(1/x_n) - 1/2| < \epsilon$ have $|x_n - 2| < \epsilon$ \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Squeeze Theorem]
+  Show that if $x_{n} \leq y_{n} \leq z_{n}$ for all $n \in \mathbf{N}$, and if $\lim x_{n}=\lim z_{n}=l$, then $\lim y_{n}=l$ as well.
+\end{exercise}
+
+\begin{solution}
+  Let $y = \lim y_n$. By the order limit theorem we have $l \le y \le l$ implying $y = l$.
+\end{solution}
+
+\begin{exercise}
+  Let $\left(a_{n}\right) \rightarrow 0$, and use the Algebraic Limit Theorem to compute each of the following limits (assuming the fractions are always defined):
+  \enum{
+  \item $\lim \left(\frac{1+2 a_{n}}{1+3 a_{n}-4 a_{n}^{2}}\right)$
+  \item $\lim \left(\frac{\left(a_{n}+2\right)^{2}-4}{a_{n}}\right)$
+  \item $\lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item I'm not sure how much work I have to show, many of these steps are obvious
+    $$
+    \begin{aligned}
+      \lim \left(\frac{1+2 a_{n}}{1+3 a_{n}-4 a_{n}^{2}}\right)
+      &= \lim \left(\frac{1}{1+3 a_{n}-4 a_{n}^{2}}\right) + 2\lim \left(\frac{a_n}{1+3 a_{n}-4 a_{n}^{2}}\right) \\
+      &= 2\lim \left(\frac{1}{1/a_n + 3 - 4 a_{n}}\right) \\
+      &= 0
+    \end{aligned}
+    $$
+    \TODO Show this more rigorously
+  \item
+    $$
+    \lim \left(\frac{\left(a_{n}+2\right)^{2}-4}{a_{n}}\right) = \lim \left(\frac{a_{n}^2 + 2a_n}{a_{n}}\right) = \lim \left(a_n + 2\right) = \infty
+    $$
+  \item This one is a straightforward application of the algebraic limit theorem
+    $$
+    \lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right) = 3/5
+    $$
+  }
+\end{solution}
