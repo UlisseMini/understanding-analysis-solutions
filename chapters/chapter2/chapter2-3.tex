@@ -77,3 +77,153 @@
     $$
   }
 \end{solution}
+
+
+\begin{exercise}
+  Let $\left(x_{n}\right)$ and $\left(y_{n}\right)$ be given, and define $\left(z_{n}\right)$ to be the ``shuffled'' sequence $\left(x_{1}, y_{1}, x_{2}, y_{2}, x_{3}, y_{3}, \ldots, x_{n}, y_{n}, \ldots\right)$. Prove that $\left(z_{n}\right)$ is convergent if and only if $\left(x_{n}\right)$ and $\left(y_{n}\right)$ are both convergent with $\lim x_{n}=\lim y_{n}$.
+\end{exercise}
+
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Consider the sequence given by $b_{n}=n-\sqrt{n^{2}+2 n}$. Taking $(1 / n) \rightarrow 0$ as given, and using both the Algebraic Limit Theorem and the result in Exercise 2.3.1, show $\lim b_{n}$ exists and find the value of the limit.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Give an example of each of the following, or state that such a request is impossible by referencing the proper theorem(s):
+  \enum{
+  \item sequences $\left(x_{n}\right)$ and $\left(y_{n}\right)$, which both diverge, but whose sum $\left(x_{n}+y_{n}\right)$ converges;
+  \item sequences $\left(x_{n}\right)$ and $\left(y_{n}\right)$, where $\left(x_{n}\right)$ converges, $\left(y_{n}\right)$ diverges, and $\left(x_{n}+y_{n}\right)$ converges;
+  \item a convergent sequence $\left(b_{n}\right)$ with $b_{n} \neq 0$ for all $n$ such that $\left(1 / b_{n}\right)$ diverges;
+  \item an unbounded sequence $\left(a_{n}\right)$ and a convergent sequence $\left(b_{n}\right)$ with $\left(a_{n}-b_{n}\right)$ bounded;
+  \item two sequences $\left(a_{n}\right)$ and $\left(b_{n}\right)$, where $\left(a_{n} b_{n}\right)$ and $\left(a_{n}\right)$ converge but $\left(b_{n}\right)$ does not.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $\left(x_{n}\right) \rightarrow x$ and let $p(x)$ be a polynomial.
+  \enum{
+  \item Show $p\left(x_{n}\right) \rightarrow p(x)$.
+  \item Find an example of a function $f(x)$ and a convergent sequence $\left(x_{n}\right) \rightarrow x$ where the sequence $f\left(x_{n}\right)$ converges, but not to $f(x)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $\left(a_{n}\right)$ be a bounded (not necessarily convergent) sequence, and assume $\lim b_{n}=0$. Show that $\lim \left(a_{n} b_{n}\right)=0$. Why are we not allowed to use the Algebraic Limit Theorem to prove this?
+  \item Can we conclude anything about the convergence of $\left(a_{n} b_{n}\right)$ if we assume that $\left(b_{n}\right)$ converges to some nonzero limit $b$ ?
+  \item Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a=0$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Consider the following list of conjectures. Provide a short proof for those that are true and a counterexample for any that are false.
+  \enum{
+  \item If $\lim \left(a_{n}-b_{n}\right)=0$, then $\lim a_{n}=\lim b_{n}$.
+  \item If $\left(b_{n}\right) \rightarrow b$, then $\left|b_{n}\right| \rightarrow|b|$.
+  \item If $\left(a_{n}\right) \rightarrow a$ and $\left(b_{n}-a_{n}\right) \rightarrow 0$, then $\left(b_{n}\right) \rightarrow a$.
+  \item If $\left(a_{n}\right) \rightarrow 0$ and $\left|b_{n}-b\right| \leq a_{n}$ for all $n \in \mathbf{N}$, then $\left(b_{n}\right) \rightarrow b$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Cesaro Means]
+  \enum {
+  \item Show that if $\left(x_{n}\right)$ is a convergent sequence, then the sequence given by the averages
+    $$
+    y_{n}=\frac{x_{1}+x_{2}+\cdots+x_{n}}{n}
+    $$
+    also converges to the same limit.
+  \item Give an example to show that it is possible for the sequence $\left(y_{n}\right)$ of averages to converge even if $\left(x_{n}\right)$ does not.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+
+\begin{exercise}
+  A typical task in analysis is to decipher whether a property possessed by every term in a convergent sequence is necessarily inherited by the limit. Assume $\left(a_{n}\right) \rightarrow a$, and determine the validity of each claim. Try to produce a counterexample for any that are false.
+
+  \enum{
+  \item If every $a_{n}$ is an upper bound for a set $B$, then $a$ is also an upper bound for $B$.
+  \item If every $a_{n}$ is in the complement of the interval $(0,1)$, then $a$ is also in the complement of $(0,1)$.
+  \item If every $a_{n}$ is rational, then $a$ is rational.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Iterated Limits]
+  Given a doubly indexed array $a_{m n}$ where $m, n \in \mathbf{N}$, what should $\lim _{m, n \rightarrow \infty} a_{m n}$ represent?
+  \enum{
+  \item Let $a_{m n}=m /(m+n)$ and compute the iterated limits
+  $$
+  \lim _{n \rightarrow \infty}\left(\lim _{n \rightarrow \infty} a_{m n}\right) \quad \text { and } \lim _{m \rightarrow \infty}\left(\lim _{n \rightarrow \infty} a_{m n}\right)
+  $$
+  Define $\lim _{m, n \rightarrow \infty} a_{m n}=a$ to mean that for all $\epsilon>0$ there exists an $N \in \mathbf{N}$ such that if both $m, n \geq N$, then $\left|a_{m n}-a\right|<\epsilon$
+  \item Let $a_{m n}=1 /(m+n)$. Does $\lim _{m, n \rightarrow \infty} a_{m n}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{m n}=m n /\left(m^{2}+n^{2}\right)$
+  \item Produce an example where $\lim _{m, n \rightarrow \infty} a_{m n}$ exists but where neither iterated limit can be computed.
+  \item Assume $\lim _{m, n \rightarrow \infty} a_{m n}=a_{1}$ and assume that for each fixed $m \in \mathbf{N}$, $\lim _{n \rightarrow \infty}\left(a_{m n}\right) \rightarrow b_{m}$. Show $\lim _{m \rightarrow \infty} b_{m}=a$
+  \item Prove that if $\lim _{m, n \rightarrow \infty} a_{m n}$ exists and the iterated limits both exist, then all three limits must be equal.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
