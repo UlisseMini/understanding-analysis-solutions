@@ -1,0 +1,192 @@
+\section{The Monotone Convergence Theorem and a First Look at Infinite Series}
+
+\begin{exercise}
+  \enum{
+  \item Prove that the sequence defined by $x_{1}=3$ and
+    $$
+    x_{n+1}=\frac{1}{4-x_{n}}
+    $$
+    converges.
+  \item Now that we know $\lim x_{n}$ exists, explain why $\lim x_{n+1}$ must also exist and equal the same value.
+  \item Take the limit of each side of the recursive equation in part (a) to explicitly compute $\lim x_{n}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Consider the recursively defined sequence $y_{1}=1$
+  $$
+  y_{n+1}=3-y_{n}
+  $$
+  and set $y=\lim y_{n} .$ Because $\left(y_{n}\right)$ and $\left(y_{n+1}\right)$ have the same limit, taking the limit across the recursive equation gives $y=3-y$. Solving for $y$, we conclude $\lim y_{n}=3 / 2$
+  What is wrong with this argument?
+  \item This time set $y_{1}=1$ and $y_{n+1}=3-\frac{1}{y_{n}} .$ Can the strategy in (a) be applied to compute the limit of this sequence?
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show that
+    $$
+    \sqrt{2}, \sqrt{2+\sqrt{2}}, \sqrt{2+\sqrt{2+\sqrt{2}}}, \ldots
+    $$
+    converges and find the limit.
+  \item Does the sequence
+    $$
+    \sqrt{2}, \sqrt{2 \sqrt{2}}, \sqrt{2 \sqrt{2 \sqrt{2}}}, \ldots
+    $$
+    converge? If so, find the limit.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item In Section 1.4 we used the Axiom of Completeness (AoC) to prove the Archimedean Property of $\mathbf{R}$ (Theorem 1.4.2). Show that the Monotone Convergence Theorem can also be used to prove the Archimedean Property without making any use of AoC.
+  \item Use the Monotone Convergence Theorem to supply a proof for the Nested Interval Property (Theorem 1.4.1) that doesn't make use of AoC.
+
+  These two results suggest that we could have used the Monotone Convergence Theorem in place of $\mathrm{AoC}$ as our starting axiom for building a proper theory of the real numbers.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Calculating Square Roots]
+  Let $x_{1}=2$, and define
+  $$
+  x_{n+1}=\frac{1}{2}\left(x_{n}+\frac{2}{x_{n}}\right)
+  $$
+  \enum{
+  \item Show that $x_{n}^{2}$ is always greater than or equal to 2 , and then use this to prove that $x_{n}-x_{n+1} \geq 0$. Conclude that $\lim x_{n}=\sqrt{2}$.
+  \item Modify the sequence $\left(x_{n}\right)$ so that it converges to $\sqrt{c}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Arithmetic-Geometric Mean]
+  \enum{
+  \item Explain why $\sqrt{x y} \leq$ $(x+y) / 2$ for any two positive real numbers $x$ and $y$. (The geometric mean is always less than the arithmetic mean.)
+  \item Now let $0 \leq x_{1} \leq y_{1}$ and define
+    $$
+    x_{n+1}=\sqrt{x_{n} y_{n}} \quad \text { and } \quad y_{n+1}=\frac{x_{n}+y_{n}}{2}
+    $$
+    Show $\lim x_{n}$ and $\lim y_{n}$ both exist and are equal.
+  }
+
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Limit Superior]
+  Let $\left(a_{n}\right)$ be a bounded sequence.
+
+  \enum{
+  \item Prove that the sequence defined by $y_{n}=\sup \left\{a_{k}: k \geq n\right\}$ converges.
+  \item The limit superior of $\left(a_{n}\right)$, or $\lim \sup a_{n}$, is defined by
+    $$
+    \limsup a_{n}=\lim y_{n}
+    $$
+    where $y_{n}$ is the sequence from part (a) of this exercise. Provide a reasonable definition for $\lim \inf a_{n}$ and briefly explain why it always exists for any bounded sequence.
+  \item Prove that $\lim \inf a_{n} \leq \lim \sup a_{n}$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+  \item Show that $\lim \inf a_{n}=\lim \sup a_{n}$ if and only if $\lim a_{n}$ exists. In this case, all three share the same value.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  For each series, find an explicit formula for the sequence of partial sums and determine if the series converges.
+  \enum{
+  \item $\sum_{n=1}^{\infty} \frac{1}{2^{n}}$
+  \item $\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$
+  \item $\sum_{n=1}^{\infty} \log \left(\frac{n+1}{n}\right)$
+  }
+  (In (c), $\log (x)$ refers to the natural logarithm function from calculus.)
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Complete the proof of Theorem 2.4.6 by showing that if the series $\sum_{n=0}^{\infty} 2^{n} b_{2^{n}}$ diverges, then so does $\sum_{n=1}^{\infty} b_{n}$. Example $2.4 .5$ may be a useful reference.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Infinite Products]
+  A close relative of infinite series is the infinite product
+  $$
+  \prod_{n=1}^{\infty} b_{n}=b_{1} b_{2} b_{3} \cdots
+  $$
+  which is understood in terms of its sequence of partial products
+  $$
+  p_{m}=\prod_{n=1}^{m} b_{n}=b_{1} b_{2} b_{3} \cdots b_{m}
+  $$
+
+  Consider the special class of infinite products of the form
+  $$
+  \prod_{n=1}^{\infty}\left(1+a_{n}\right)=\left(1+a_{1}\right)\left(1+a_{2}\right)\left(1+a_{3}\right) \cdots, \quad \text { where } a_{n} \geq 0
+  $$
+  \enum{
+  \item Find an explicit formula for the sequence of partial products in the case where $a_{n}=1 / n$ and decide whether the sequence converges. Write out the first few terms in the sequence of partial products in the case where $a_{n}=1 / n^{2}$ and make a conjecture about the convergence of this sequence.
+  \item Show, in general, that the sequence of partial products converges if and only if $\sum_{n=1}^{\infty} a_{n}$ converges. (The inequality $1+x \leq 3^{x}$ for positive $x$ will be useful in one direction.)
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
