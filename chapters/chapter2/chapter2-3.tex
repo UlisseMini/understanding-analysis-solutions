@@ -220,22 +220,26 @@
 \begin{solution}
   \enum{
   \item
-    Let $D = \sup\{|x_n - x| : n \in \mathbf N\}$ we have
+    Let $D = \sup\{|x_n - x| : n \in \mathbf N\}$ and let $0<\epsilon<D$, we have
     $$
     |y_n - x| = \left|\frac{x_1 + \dots + x_n}{n} - x\right| \le \left|\frac{|x_1 - x| + \dots + |x_n - x|}{n}\right| \le D
     $$
 
-    Let $|x_n - x| < \epsilon/2$ for $n \ge N_1$. We have
+    Let $|x_n - x| < \epsilon/2$ for $n > N_1$ giving
     $$
     |y_n - x| \le \left|\frac{|x_1-x| + \dots + |x_{N_1}-x| + \dots + |x_n-x|}{n}\right| \le \left|\frac{N_1 D + (n-N_1)\epsilon/2}{n}\right|
     $$
-    Let $N_2$ be large enough that for all $n > N_2$
+    Let $N_2$ be large enough that for all $n > N_2$ (remember $0 < \epsilon < D$ so $(D-\epsilon/2)>0$.)
     $$
-    \left|\frac{N_1 D + (n-N_1)\epsilon/2}{n}\right| = \left|\frac{N_1(D - \epsilon/2)}{n} + \epsilon/2\right| < \epsilon
+    0 < \frac{N_1(D - \epsilon/2)}{n} < \epsilon/2
     $$
-    then let $N = \max\{N_1, N_2\}$.
+    Therefor
+    $$
+    |y_n - x| \le \left|\frac{N_1(D - \epsilon/2)}{n} + \epsilon/2\right| < \epsilon
+    $$
+    Letting $N = \max\{N_1, N_2\}$ completes the proof as $|y_n - x| < \epsilon$ for all $n > N$.
 
-    \TODO Make more rigorous, remove $\epsilon/2$ hack
+    (Note: I could have used any $\epsilon' < \epsilon$ instead of $\epsilon/2$, I just needed some room.)
   \item $x_n = (-1)^n$ diverges but $(y_n) \to 0$.
   }
 \end{solution}
