@@ -287,15 +287,19 @@
     $$
   \item
     For $a_{mn} = 1/(m+n)$ all three limits are zero.
-    For $a_{mn} = mn/(m^2 + n^2)$ limits are zero, and $\lim_{m,n\to \infty} a_{mn}$ does not exist since if $m,n \ge N$ setting $m=n=N$ gives
+    For $a_{mn} = mn/(m^2 + n^2)$ iterated limits are zero, and $\lim_{m,n\to \infty} a_{mn}$ does not exist since for $m,n \ge N$ setting $m=n$ gives
     $$
-    \frac{N^2}{N^2 + N^2} = \frac{1}{2}
+    \frac{n^2}{n^2 + n^2} = \frac{1}{2}
     $$
-    Which cannot be made smaller then any $\epsilon$.
+    Which cannot be made smaller then $\epsilon = 1/2$.
 
-    The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. Therefor the maximum point is at $m=n$ as can be seen in \href{https://www.desmos.com/calculator/t993sievxl}{this} desmos graph.
-  \item Geometrically we want the point $(m,n)$ to be arbitrarily small for $m,n \ge N$ but not arbitrarily small for $m\to \infty$ with $n$ fixed. \TODO
+    The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. Therefor the maximum point is at $m=n$ as can be seen in \href{https://www.desmos.com/calculator/t993sievxl}{this} graph.
   \item \TODO
-  \item \TODO
+  \item
+    We are given $|b_m - a_{mn}| < \epsilon$ for all $n > N$, By the triangle inequality
+    $$
+    |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a| < \epsilon/2 + \epsilon/2 = \epsilon
+    $$
+  \item Let $b_m = \lim_{n \to \infty} (a_{mn})$ and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$, A similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
   }
 \end{solution}
