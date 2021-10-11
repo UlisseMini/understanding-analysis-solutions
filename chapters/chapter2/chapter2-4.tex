@@ -14,9 +14,18 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $x_2 = 1$ makes me conjecture $x_n$ is monotonic. For induction suppose $x_n > x_{n+1}$ then we have
+    $$
+    4 - x_n < 4 - x_{n+1} \implies \frac{1}{4 - x_n} > \frac{1}{4 - x_{n+1}} \implies x_{n+1} > x_{n+2}
+    $$
+    Thus $x_n$ is decreasing, to show $x_n$ is bounded notice $x_n$ cannot be negative since $x_n < 3$ means $x_{n+1} = 1/(4-x_n) > 0$.
+    Therefor by the monotone convergence theorem $(x_n)$ converges.
+  \item Clearly skipping a single term does not change what the series converges to.
+  \item Since $x = \lim (x_n) = \lim (x_{n+1})$ we must have
+    $$
+    x = \frac{1}{4 - x} \iff x^2 - 4x + 1 = 0 \iff (x - 2)^2 = 3 \iff x = 2 \pm \sqrt 3
+    $$
+    $2 + \sqrt 3 > 3$ is impossible since $x_n < 3$ thus $x = 2 - \sqrt 3$.
   }
 \end{solution}
 
@@ -28,14 +37,14 @@
   $$
   and set $y=\lim y_{n} .$ Because $\left(y_{n}\right)$ and $\left(y_{n+1}\right)$ have the same limit, taking the limit across the recursive equation gives $y=3-y$. Solving for $y$, we conclude $\lim y_{n}=3 / 2$
   What is wrong with this argument?
-  \item This time set $y_{1}=1$ and $y_{n+1}=3-\frac{1}{y_{n}} .$ Can the strategy in (a) be applied to compute the limit of this sequence?
+  \item This time set $y_{1}=1$ and $y_{n+1}=3-\frac{1}{y_{n}}$. Can the strategy in (a) be applied to compute the limit of this sequence?
   }
 \end{exercise}
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item The series $y_n = (1, 2, 1, 2, \dots)$ does not converge.
+  \item Yes, $y_n$ converges by the monotone convergence theorem since $0 < y_n < 3$ and $y_n$ is increasing.
   }
 \end{solution}
 
@@ -56,8 +65,17 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Let $x_1 = \sqrt 2$ and $x_{n+1} = \sqrt{2 + x_n}$ clearly $x_2 > x_1$. assuming $x_{n+1} > x_n$ gives
+    $$
+    2 + x_{n+1} > 2 + x_n \iff \sqrt{2 + x_{n+1}} > \sqrt{2 + x_n} \iff x_{n+2} > x_{n+1}
+    $$
+    Since $x_n$ is monotonically increasing and bounded the monotone convergence theorem tells us $(x_n) \to x$. Equating both sides like in 2.4.1 gives
+    $$
+    x = \sqrt{2 + x} \iff x^2 - x - 2 = 0 \iff x = \frac 12 \pm \frac{\sqrt{5}}{2}
+    $$
+    Since $x > 0$ we must have $x = (1 + \sqrt 5)/2$.
+  \item We have $x_1 = 2^{1/2}$, $x_{n+1} = (2x_n)^{1/2}$ taking logs we get $y_1 = 1/2$, $y_{n+1} = (1 + y_n)/2$. obviously $(y_n) \to 1$ therefor $(x_n) \to 2^1$.
+    \TODO Make this rigorous
   }
 \end{solution}
 
