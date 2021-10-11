@@ -61,16 +61,13 @@
 
 \begin{solution}
   \enum{
-  \item I'm not sure how much work I have to show, many of these steps are obvious
+  \item Divide by $a_n^2$, then apply the ALT
     $$
-    \begin{aligned}
-      \lim \left(\frac{1+2 a_{n}}{1+3 a_{n}-4 a_{n}^{2}}\right)
-      &= \lim \left(\frac{1}{1+3 a_{n}-4 a_{n}^{2}}\right) + 2\lim \left(\frac{a_n}{1+3 a_{n}-4 a_{n}^{2}}\right) \\
-      &= 2\lim \left(\frac{1}{1/a_n + 3 - 4 a_{n}}\right) \\
-      &= 0
-    \end{aligned}
+    \lim \left(\frac{1+2 a_{n}}{1+3 a_{n}-4 a_{n}^{2}}\right)
+    = \frac{\lim\left(\frac{1}{a_n^2} + \frac{2}{a_n}\right)}{\lim\left(\frac{1}{a_n^2} + \frac{3}{a_n} - 4\right)}
+    = \frac{0}{-4}
+    = 0
     $$
-    \TODO Show this more rigorously
   \item
     $$
     \lim \left(\frac{\left(a_{n}+2\right)^{2}-4}{a_{n}}\right) = \lim \left(\frac{a_{n}^2 + 2a_n}{a_{n}}\right) = \lim \left(a_n + 2\right) = \infty
@@ -223,22 +220,26 @@
 \begin{solution}
   \enum{
   \item
-    Let $D = \sup\{|x_n - x| : n \in \mathbf N\}$ we have
+    Let $D = \sup\{|x_n - x| : n \in \mathbf N\}$ and let $0<\epsilon<D$, we have
     $$
     |y_n - x| = \left|\frac{x_1 + \dots + x_n}{n} - x\right| \le \left|\frac{|x_1 - x| + \dots + |x_n - x|}{n}\right| \le D
     $$
 
-    Let $|x_n - x| < \epsilon/2$ for $n \ge N_1$. We have
+    Let $|x_n - x| < \epsilon/2$ for $n > N_1$ giving
     $$
     |y_n - x| \le \left|\frac{|x_1-x| + \dots + |x_{N_1}-x| + \dots + |x_n-x|}{n}\right| \le \left|\frac{N_1 D + (n-N_1)\epsilon/2}{n}\right|
     $$
-    Let $N_2$ be large enough that for all $n > N_2$
+    Let $N_2$ be large enough that for all $n > N_2$ (remember $0 < \epsilon < D$ so $(D-\epsilon/2)>0$.)
     $$
-    \left|\frac{N_1 D + (n-N_1)\epsilon/2}{n}\right| = \left|\frac{N_1(D - \epsilon/2)}{n} + \epsilon/2\right| < \epsilon
+    0 < \frac{N_1(D - \epsilon/2)}{n} < \epsilon/2
     $$
-    then let $N = \max\{N_1, N_2\}$.
+    Therefor
+    $$
+    |y_n - x| \le \left|\frac{N_1(D - \epsilon/2)}{n} + \epsilon/2\right| < \epsilon
+    $$
+    Letting $N = \max\{N_1, N_2\}$ completes the proof as $|y_n - x| < \epsilon$ for all $n > N$.
 
-    \TODO Make more rigorous, remove $\epsilon/2$ hack
+    (Note: I could have used any $\epsilon' < \epsilon$ instead of $\epsilon/2$, I just needed some room.)
   \item $x_n = (-1)^n$ diverges but $(y_n) \to 0$.
   }
 \end{solution}
@@ -286,15 +287,19 @@
     $$
   \item
     For $a_{mn} = 1/(m+n)$ all three limits are zero.
-    For $a_{mn} = mn/(m^2 + n^2)$ limits are zero, and $\lim_{m,n\to \infty} a_{mn}$ does not exist since if $m,n \ge N$ setting $m=n=N$ gives
+    For $a_{mn} = mn/(m^2 + n^2)$ iterated limits are zero, and $\lim_{m,n\to \infty} a_{mn}$ does not exist since for $m,n \ge N$ setting $m=n$ gives
     $$
-    \frac{N^2}{N^2 + N^2} = \frac{1}{2}
+    \frac{n^2}{n^2 + n^2} = \frac{1}{2}
     $$
-    Which cannot be made smaller then any $\epsilon$.
+    Which cannot be made smaller then $\epsilon = 1/2$.
 
-    The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. Therefor the maximum point is at $m=n$ as can be seen in \href{https://www.desmos.com/calculator/t993sievxl}{this} desmos graph.
-  \item Geometrically we want the point $(m,n)$ to be arbitrarily small for $m,n \ge N$ but not arbitrarily small for $m\to \infty$ with $n$ fixed. \TODO
+    The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. Therefor the maximum point is at $m=n$ as can be seen in \href{https://www.desmos.com/calculator/t993sievxl}{this} graph.
   \item \TODO
-  \item \TODO
+  \item
+    We are given $|b_m - a_{mn}| < \epsilon$ for all $n > N$, By the triangle inequality
+    $$
+    |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a| < \epsilon/2 + \epsilon/2 = \epsilon
+    $$
+  \item Let $b_m = \lim_{n \to \infty} (a_{mn})$ and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$, A similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
   }
 \end{solution}
