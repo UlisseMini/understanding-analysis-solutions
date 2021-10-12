@@ -90,8 +90,8 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item MCT tells us $(1/n)$ converges, obviously it must converge to zero therefor we have $|1/n - 0| = 1/n < \epsilon$ for any $\epsilon$, which is the Archimedean Property.
+  \item We have $I_n = [a_n, b_n]$ with $a_n \le b_n$ since $I_n\ne \emptyset$. Since $I_{n+1} \subseteq I_n$ we must have $b_{n+1} \le b_n$ and $a_{n+1} \ge a_n$ the MCT tells us that $(a_n) \to a$ and $(b_n) \to b$. by the Order Limit Theorem we have $a \le b$ since $a_n \le b_n$, therefor $a \in I_n$ for all $n$ meaning $a \in \bigcap_{n=1}^\infty I_n$ and thus $\bigcap_{n=1}^\infty I_n \ne \emptyset$.
   }
 \end{solution}
 
@@ -108,8 +108,40 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Clearly $x_1^2 \ge 2$, now procede by induction. if $x_{n}^2 \ge 2$ then we have
+    $$
+    x_{n+1}^2 = \frac 14\left(\frac{x_n^2 + 2}{x_n}\right)^2
+    = \frac 14\left(\frac{(x_n^2 + 2)^2}{x_n^2}\right)
+    \ge \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right)
+    $$
+    Now since $x_n^2 \ge 2$ we have $(x_n^2 + 2)^2 \ge 16$ meaning
+    $$
+    x_{n+1}^2 = \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right) \ge 2.
+    $$
+    To show $x_n - x_{n+1} \ge 0$ we examine $(x_n - x_{n+1})^2 \ge 0$ with the hope of using $x_n^2 \ge 2$.
+    $$
+    \begin{aligned}
+      (x_n - x_{n+1})^2
+      &= x_n^2 - 2x_nx_{n+1} + x_{n+1}^2 \\
+      &= x_n^2 - 2x_n \frac 12\left(x_n + \frac{1}{x_n}\right) + x_{n+1}^2 \\
+      &= x_n^2 - (x_n^2 + 2) + x_{n+1}^2 \\
+      &= x_{n+1}^2 - 2 \ge 0.
+    \end{aligned}
+    $$
+    Now we know $(x_n) \to x$ converges, to show $x^2 = 2$ observe that $\lim x_n = \lim x_{n+1}$ so
+    $$
+    x = \frac 12 \left(x + \frac{2}{x}\right) \iff x^2 = \frac 12 x^2 + 1 \iff x^2 = 2
+    $$
+    Therefor $x = \pm \sqrt 2$, since every $x_n$ is positive $x = \sqrt 2$.
+  \item Let
+    $$
+    x_{n+1} = \frac{1}{2}\left(x_n + \frac{c}{x_n}\right)
+    $$
+    I won't go through the convergence analysis again, but the only fixed point is
+    $$
+    x = \frac 12\left(x + \frac{c}{x}\right) \implies \frac 12 x^2 = \frac 12 c \implies x^2 = c
+    $$
+    So if $x_n$ converges, it must converge to $x^2 = c$.
   }
 \end{solution}
 
@@ -127,8 +159,12 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item We have
+    $$
+    \sqrt{xy} \le (x+y)/2 \iff 4xy \le x^2 + 2xy + y^2 \iff 0 \le (x - y)^2
+    $$
+  \item The only fixed points are $x_n = y_n$ so we only need to show both sequences converge.
+    \TODO
   }
 \end{solution}
 
@@ -149,10 +185,10 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $(y_n)$ is decreasing and converges by the monotone convergence theorem.
+  \item Define $\lim \inf a_n = \lim z_n$ for $z_n = \inf\{a_n : k \ge n\}$. $z_n$ converges since it is increasing and bounded.
+  \item Obviously $\inf\{a_k : k \ge n\} \le \sup\{a_n : k \ge n\}$ so by the Order Limit Theorem $\lim \inf a_n \le \lim \sup a_n$.
+  \item If $\lim \inf a_n = \lim \sup a_n$ then the squeeze theorem (Exercise 2.3.3) implies $a_n$ converges to the same value, since $\inf\{a_{k\ge n}\} \le a_n \le \sup\{a_{k\ge n}\}$.
   }
 \end{solution}
 
@@ -168,9 +204,41 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item This is a geometric series, we can use the usual trick to derive $s_n$. Let $r = 1/2$ for convenience
+    $$
+    \begin{aligned}
+      s_n  &= 1 + r + r^2 + \dots + r^n \\
+      rs_n &= r + r^2 + \dots + r^{n+1} \\
+      rs_n - s_n &= r^{n+1} - 1 \implies s_n = \frac{r^{n+1} - 1}{r - 1}
+    \end{aligned}
+    $$
+    So we have
+    $$
+    \sum_{n=1}^\infty \frac{1}{2^n}
+    = \lim_{n\to \infty} \frac{(1/2)^{n+1} - 1}{1/2 - 1}
+    = \frac{-1}{-1/2} = 2
+    $$
+  \item We can use partial fractions to get
+    $$
+    \frac{1}{n(n+1)} = \frac{1}{n} -\frac{1}{n+1}
+    $$
+    Which gives us a telescoping series, most of the terms cancel and we get
+    $$
+    s_n = 1 - \frac{1}{n+1}
+    $$
+    Therefor
+    $$
+    \sum_{n=1}^\infty \frac{1}{n(n+1)} = \lim_{n \to \infty} \left(1 - \frac{1}{n+1}\right) = 1
+    $$
+  \item Another telescoping series, since
+    $$
+    \log\left(\frac{n+1}{n}\right) = \log(n+1) - \log(n)
+    $$
+    Therefor most of the terms cancel and we get
+    $$
+    s_n = \log(n+1)
+    $$
+    Which doesn't converge.
   }
 \end{solution}
 
@@ -179,7 +247,20 @@
 \end{exercise}
 
 \begin{solution}
+  % Since $b_n \ge 0$ and $b_n$ are decreasing, we have
+  % $$
+  % b_1 + b_2 + (b_3 + b_4) > b_1 + b_2 + (b_4 + b_4)
+  % $$
+  % Since $b_4 < b_3$. In general
+
+  % Therefor $\sum_{n=1}^\infty b_n$ diverges as it is smaller then $\sum_{n=0}^\infty 2^nb_{2^n}$ which diverges.
+
   \TODO
+  The harmonic series is an example of this argument
+  $$
+  1 + \frac{1}{2} + \left(\frac 13 + \frac 14\right) > 1 + \frac 12 + \left(\frac 14 + \frac 14\right) = 2
+  $$
+  Since the right hand side becomes arbitrarily large and the harmonic series is greater then it, it must diverge.
 \end{solution}
 
 \begin{exercise}[Infinite Products]
