@@ -247,20 +247,34 @@
 \end{exercise}
 
 \begin{solution}
-  % Since $b_n \ge 0$ and $b_n$ are decreasing, we have
-  % $$
-  % b_1 + b_2 + (b_3 + b_4) > b_1 + b_2 + (b_4 + b_4)
-  % $$
-  % Since $b_4 < b_3$. In general
+  Let $s_n = b_1 + b_2 + \dots + b_n$ and $t_k = b_1 + 2b_2 + \dots + 2^kb_{2^k}$.
 
-  % Therefor $\sum_{n=1}^\infty b_n$ diverges as it is smaller then $\sum_{n=0}^\infty 2^nb_{2^n}$ which diverges.
+  We want to show $s_n$ is unbounded, first we find a series similar to $t_k$ that is less then $s_n$, then rewrite it in terms of $t_k$.
 
-  \TODO
-  The harmonic series is an example of this argument
+  Let $n = 2^k$ so things match up nicely. We get
   $$
-  1 + \frac{1}{2} + \left(\frac 13 + \frac 14\right) > 1 + \frac 12 + \left(\frac 14 + \frac 14\right) = 2
+  \begin{aligned}
+  s_n
+  &=   b_1 + b_2 + (b_3 + b_4) + \dots + (b_{2^{k-1}} + \dots + b_{2^k}) \\
+  &\le b_1 + b_2 + (b_4 + b_4) + \dots + 2^{k-1}b_{2^k}
+  \end{aligned}
   $$
-  Since the right hand side becomes arbitrarily large and the harmonic series is greater then it, it must diverge.
+  (Notice there are $2^k - 2^{k-1} = 2^{k-1}$ terms in the last term)
+
+  Now define $t_k'$ to be our new series $b_1 + b_2 + 2b_4 + 4b_8 + \dots + 2^{k-1}b_{2^k}$.
+  This looks a lot like $t_k$, and in fact some algebra gives
+  $$
+  t_k'
+  = \frac 12 \left(b_1 + 2b_2 + 4b_4 + \dots + 2^kb_k\right) + \frac 12 b_1
+  = \frac 12 t_k + \frac 12 b_1
+  $$
+  Therefor we are justified in writing
+  $$
+  s_n \ge t_k' \ge \frac 12 t_k
+  $$
+  And since $t_k/2$ diverges and $s_n$ is bigger, $s_n$ must also diverge.
+
+  \TODO This could be shortened by proving $s_n \ge t_k/2$ directly, the long version might be more understandable though.
 \end{solution}
 
 \begin{exercise}[Infinite Products]
