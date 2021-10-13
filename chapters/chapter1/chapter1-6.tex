@@ -11,13 +11,18 @@
 \end{solution}
 
 \begin{exercise}
+  Let $f : \mathbf{N} \to \mathbf{R}$ be a way to list every real number (hence show $\mathbf R$ is countable).
+
+  Define a new number $x$ with digits $b_1b_2\ldots$ given by
+  $$
+  b_{n}= \begin{cases}2 & \text { if } a_{n n} \neq 2 \\ 3 & \text { if } a_{n n}=2\end{cases}
+  $$
+
   \enum{
   \item Explain why the real number $x=. b_{1} b_{2} b_{3} b_{4} \ldots$ cannot be $f(1)$.
   \item Now, explain why $x \neq f(2)$, and in general why $x \neq f(n)$ for any $n \in \mathbf{N}$.
   \item Point out the contradiction that arises from these observations and conclude that $(0,1)$ is uncountable.
   }
-
-  \TODO Make question self contained
 \end{exercise}
 
 
@@ -26,7 +31,7 @@
   \enum{
   \item The first digit is different
   \item The nth digit is different
-  \item Therefor $x$ is not in the list, since the nth digit would be different by definition
+  \item Therefor $x$ is not in the list, since the nth digit is different
   }
 \end{solution}
 
