@@ -163,8 +163,13 @@
     $$
     \sqrt{xy} \le (x+y)/2 \iff 4xy \le x^2 + 2xy + y^2 \iff 0 \le (x - y)^2
     $$
-  \item The only fixed points are $x_n = y_n$ so we only need to show both sequences converge.
-    \TODO
+  \item The only fixed point is $x_n = y_n$ so we only need to show both sequences converge.
+
+    The inequality $x_1 \le y_1$ is always true since
+    $$
+    \sqrt{x_ny_n} \le \frac{x_n + y_n}{2} \implies x_{n+1} \le y_{n+1}
+    $$
+    Also $x_n \le y_n$ implies $(x_n+y_n)/2 = y_{n+1} \le y_n$, similarly $\sqrt{x_ny_n} = x_{n+1} \ge x_n$ meaning both sequences converge by the monotone convergence theorem.
   }
 \end{solution}
 
@@ -299,7 +304,27 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item This is a telescoping product, most of the terms cancel
+    $$
+    p_m = \prod_{n=1}^m (1 + 1/n) = \prod_{n=1}^m \frac{n+1}{n} = \frac 21 \cdot \frac 32 \cdot \frac 42 \cdots \frac {m+1}{m} = m+1
+    $$
+    Therefor $(p_m)$ diverges.
+
+    In the cast $a_n = 1/n^2$ we get
+    $$
+    \prod_{n=1}^\infty (1+ 1/n^2) = \prod_{n=1}^\infty \frac{1 + n^2}{n^2} = \frac 21 \cdot \frac 54 \cdot \frac{10}{9} \cdots
+    $$ 
+    The growth seems slower, I conjecture it converges now.
+  \item Using the inequality suggested we have $1 + a_n \le 3^{a_n}$ letting $s_m = a_1 + \dots + a_m$ we get
+    $$
+    p_m = (1+a_1)\cdots(1+a_m) \le 3^{a_1}3^{a_2}\cdots 3^{a_m} = 3^{s_m}
+    $$
+    Now if $s_m$ converges it is bounded by some $M$ meaning $p_m$ is bounded by $3^M$. and because $a_n \ge 0$ the partial products $p_m$ are increasing, so they converge by the MCT. This shows $s_m$ converging implies $p_m$ converges.
+
+    For the other direction suppose $p_m \to p$. Distributing inside the products gives $p_2 = a_1 + a_2 + 1 + a_1a_2 > s_2$ and in general $p_m > s_m$ implying that if $p_m$ is bounded then $s_n$ is bounded aswell. This completes the proof.
+
+    Summary: Convergence is if and only if because $s_m \le p_m \le 3^{s_m}$.
+
+    (By the way the inequality $1 + x \le 3^x$ can be derived from $\log(1 + x) \le x$ implying $1 + x \le e^x$, I assume abbott rounded up to $3$.)
   }
 \end{solution}
