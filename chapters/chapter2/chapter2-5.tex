@@ -1,0 +1,33 @@
+\section{Subsequences and the Bolzano–Weierstrass Theorem}
+
+
+\begin{exercise}
+  Give an example of each of the following, or argue that such a request is impossible.
+  \enum{
+  \item A sequence that has a subsequence that is bounded but contains no subsequence that converges.
+  \item A sequence that does not contain 0 or 1 as a term but contains subsequences converging to each of these values.
+  \item A sequence that contains subsequences converging to every point in the infinite set $\{1,1 / 2,1 / 3,1 / 4,1 / 5, \ldots\}$.
+  \item A sequence that contains subsequences converging to every point in the infinite set $\{1,1 / 2,1 / 3,1 / 4,1 / 5, \ldots\}$, and no subsequences converging to points outside of this set.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+    \item Impossible, the Bolzano–Weierstrass theorem tells us a convergent subsequence of that subsequence exists, and that sub-sub sequence is also a subsequence of the original sequence.
+    \item $(1 + 1/n) \to 1$ and $(1/n) \to 0$ so $(1/2, 1+1/2, 1/3, 1 + 1/3, \dots)$ has subsequences converging to $0$ and $1$.
+    \item Copy the finitely many previous terms before proceeding to a new term
+      $$(1, 1/2, 1, 1/3, 1, 1/2, 1/4, 1, 1/2, 1/3, \dots)$$
+      The sequence contains infinitely many terms in $\{1, 1/2, 1/3, \dots\}$ hence subsequences exist converging to each of these values.
+    \item Impossible, the sequence must converge to zero which is not in the set.
+
+      Proof: Let $\epsilon > 0$ be arbitrary, pick $N$ large enough that $1/n < \epsilon/2$ for $n > N$.
+      We can find a subsequence $(b_m) \to 1/n$ meaning $|b_m - 1/n| < \epsilon/2$ for some $m$. using the triangle inequality we get
+      $$
+      |b_m - 0| \le |b_n - 1/n| + |1/n - 0| < \epsilon/2 + \epsilon/2 = \epsilon
+      $$
+      Therefor we have found a number $b_m$ in the sequence $a_m$ with $|b_m| < \epsilon$.
+      This process can be repeated for any $\epsilon$ therefor a sequence which converges to zero can be constructed.
+  }
+\end{solution}
+
+
