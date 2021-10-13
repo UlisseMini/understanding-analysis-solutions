@@ -74,8 +74,19 @@
     x = \sqrt{2 + x} \iff x^2 - x - 2 = 0 \iff x = \frac 12 \pm \frac{\sqrt{5}}{2}
     $$
     Since $x > 0$ we must have $x = (1 + \sqrt 5)/2$.
-  \item We have $x_1 = 2^{1/2}$, $x_{n+1} = (2x_n)^{1/2}$ taking logs we get $y_1 = 1/2$, $y_{n+1} = (1 + y_n)/2$. obviously $(y_n) \to 1$ therefor $(x_n) \to 2^1$.
-    \TODO Make this rigorous
+  \item We have $x_1 = 2^{1/2}$ and $x_{n+1} = (2x_n)^{1/2}$. We have
+    $$
+    x_{n+1} = (2x_n)^{1/2} \ge x_n \iff 2x_n \ge x_n^2 \iff 2 \ge x_n
+    $$
+    Since $x_1 = 2^{1/2} \le 2$ induction implies $x_n$ is increasing. Now to show $x_n$ is bounded notice that $x_1 \le 2$ and if $x_n \le 2$ then
+    $$
+    2x_n \le 4 \implies (2x_n)^{1/2} \le 2
+    $$
+    Now the monotone convergence theorem tells us $(x_n)$ converges. To find the limit use $\lim x_n = \lim x_{n+1} = x$ to get
+    $$
+    x = (2x)^{1/2} \implies x^2 = 2x \implies x = \pm 2
+    $$
+    Since $x_n \ge 0$ we have $x = 2$.
   }
 \end{solution}
 
@@ -279,7 +290,7 @@
   $$
   And since $t_k/2$ diverges and $s_n$ is bigger, $s_n$ must also diverge.
 
-  \TODO This could be shortened by proving $s_n \ge t_k/2$ directly, the long version might be more understandable though.
+  \textbf{Summary}: $s_n$ converges iff $t_k$ conv since $t_k \ge s_n \ge t_k/2$ for $n = 2^k$.
 \end{solution}
 
 \begin{exercise}[Infinite Products]
@@ -323,7 +334,7 @@
 
     For the other direction suppose $p_m \to p$. Distributing inside the products gives $p_2 = a_1 + a_2 + 1 + a_1a_2 > s_2$ and in general $p_m > s_m$ implying that if $p_m$ is bounded then $s_n$ is bounded aswell. This completes the proof.
 
-    Summary: Convergence is if and only if because $s_m \le p_m \le 3^{s_m}$.
+    \textbf{Summary}: Convergence is if and only if because $s_m \le p_m \le 3^{s_m}$.
 
     (By the way the inequality $1 + x \le 3^x$ can be derived from $\log(1 + x) \le x$ implying $1 + x \le e^x$, I assume abbott rounded up to $3$.)
   }
