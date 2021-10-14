@@ -221,9 +221,17 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Suppose $a$ does not exist, then $C \cap [a, 1]$ is countable for all $a \in (0, 1)$ meaning
+    $$
+    \bigcup_{n=1}^\infty C \cap [1/n, 1] = C \cap [0, 1]
+    $$
+    Is countable (by \ref{ex:countable_union}), contradicting our assumption that $C \cap [0, 1]$ is uncountable.
+  \item If $\alpha = 1$ then $C \cap [\alpha, 1]$ is finite. Now if $\alpha < 1$ we have $C \cap [\alpha+\epsilon, 1]$ countable for $\epsilon>0$ (otherwise the set would be in $A$, and hence $\alpha$ would not be an upper bound). Take
+    $$
+    \bigcup_{n=1}^\infty C \cap [\alpha+1/n, 1] = C \cap [\alpha, 1]
+    $$
+    Which is countable by \ref{ex:countable_union}.
+  \item No, consider the set $C = \{1/n : n \in \mathbf{N}\}$ it has $C \cap [\alpha, 1]$ finite for every $\alpha$, but $C \cap [0, 1]$ is infinite.
   }
 \end{solution}
 
