@@ -75,7 +75,19 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Let $A$ be a bounded set, we're basically going to binary search for $\sup A$ and then use NIP to prove the limit exists.
+
+  Let $M$ be an upper bound on $A$, and pick any $L \in A$ as our starting lower bound for $\sup A$ and define $I_1 = [L, M]$. Doing binary search gives $I_{n+1} \subseteq I_n$ with length proportional to $(1/2)^n$. Applying the Nested Interval Property gives
+  $$
+  \bigcap_{n=1}^\infty I_n \ne \emptyset
+  $$
+  As the length $(1/2)^n$ goes to zero, there is a single $s \in \bigcap_{n=1}^\infty I_n$ which must be the least upper bound since $I_n = [L_n, M_n]$ gives $L_n \le x \le M_n$ for all $n$ meaning $s = \sup A$ since
+  \enumr{
+  \item $s \ge L_n$ implies $s$ is an upper bound
+  \item $s \le M_n$ implies $s$ is the least upper bound
+  }
+
+  \TODO Draw a diagram with tikz, Make this rigorous
 \end{solution}
 
 \begin{exercise}
@@ -83,7 +95,7 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  $(a_2, a_3, \dots)$ Is a convergent subsequence, so obviously if $(a_2, a_3, \dots) \to a$ then $(a_n) \to a$ also.
 \end{solution}
 
 \begin{exercise}
@@ -91,7 +103,23 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Intuitively $\lim b^{1/n} = 1$
+
+  Two facts I'll take as granted (you can prove them if you wish)
+  \enumr{
+  \item If $b < 1$ then $b^{1/n}$ is increasing
+  \item If $b > 1$ then $b^{1/n}$ is decreasing
+  }
+  Thus $b^{1/n}$ is monotonic, and bounded since
+  \enumr{
+  \item If $b > 1$ then $b^{1/n} > 1$ since $b > 1^n$
+  \item If $b < 1$ then $b^{1/n} < 1$ since $b < 1^n$
+  }
+  Therefor $b^{1/n}$ converges by the monotone convergence theorem. to find the limit equate terms
+  $$
+  b^{1/{n+1}} = b^{1/n} \implies b^1 = b^{\frac{n+1}{n}} = b^2 \implies b=1
+  $$
+  \TODO Shorten this
 \end{solution}
 
 \begin{exercise}
@@ -99,7 +127,11 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  If $|b| \ge 1$ then $\lim (b^n) \ne 0$ (diverges for $b \ne 1$).
+
+  Now for the other direction, if $|b| < 1$ we immediately get $|b^n| < 1$ thus $b^n$ is bounded.
+  Since it is decreasing the monotone convergence theorem implies it converges.
+  To find the limit equating terms $b^{n+1} = b^{n}$ gives $b = 0$ or $b = 1$, since $b$ is \emph{strictly} decreasing we have $b = 0$.
 \end{solution}
 
 \begin{exercise}
@@ -112,8 +144,10 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item $(1,2,\dots)$ has zero peak terms, $(1, 0, 1/2, 2/3, 3/4, \dots)$ has a single peak term, $(2, 1, 1/2, 2/3, \dots)$ has two peak terms (a similar argument works for $k$ peak terms) and $(1,1/2,1/3,\dots)$ has infinitely many peak terms.
+    The sequence $(1, -1/2, 1/3, -1/4, \dots)$ has infinitely many peak terms, but is not monotone.
+  \item The sequence of peak terms is monotonic decreasing, thus if the parent sequence is bounded we have found a subsequence which converges, hence proving BW.
+    (If there aren't infinitely many peak terms, then take the sequence of valley terms)
   }
 \end{solution}
 
@@ -127,5 +161,7 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  For every $\epsilon > 0$ there exists an $x \in S$ with $x > s - \epsilon$ implying $|s-x| < \epsilon$. Therefor we can get arbitrarily close to $s = \sup S$ so there is a subsequence converging to this value.
+
+  To make this more rigorous, pick $x_n \in S$ such that $|x_n - s| < 1/n$ then pick $N > 1/\epsilon$ to get $|x_n - s| < \epsilon$ for all $n > N$.
 \end{solution}
