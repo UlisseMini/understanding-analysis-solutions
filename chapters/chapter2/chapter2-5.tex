@@ -62,7 +62,14 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item Let $s_n$ be the original partial sums, and let $s_m'$ be the modified partial sums.
+
+    If $(s_n) \to s$ then $|s_n - s| < \epsilon$. Pick $M$ so that for $m > M$ there is some $n > N$ with $s_n = s_m'$ meaning $|s_m' - s| < \epsilon$ for $m > M$ and so $(s_m') \to s$.
+
+    The converse is not true, $(s_m') \to s'$ does not imply $(s_n) \to s'$ (consider $(-1)^n$)
+  \item Because $\sum_{n=1}^\infty (-1)^n$ diverges.
+  }
 \end{solution}
 
 \begin{exercise}
