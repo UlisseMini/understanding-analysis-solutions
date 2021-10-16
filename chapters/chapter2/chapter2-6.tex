@@ -5,7 +5,11 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Suppose $(x_n)$ is convergent, we must show that for $m,n > N$ we have $|x_n - x_m| < \epsilon$
+
+  Set $|x_n - x| < \epsilon/2$ for $n > N$.
+
+  We get $|x_n - x_m| \le |x_n - x| + |x - x_m| \le \epsilon/2 + \epsilon/2 = \epsilon$
 \end{solution}
 
 \begin{exercise}
@@ -20,10 +24,10 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $x_n = (-1)^n/n$ is cauchy by Theorem 2.6.2.
+  \item Impossible since all cauchy sequences converge.
+  \item Impossible, If a subsequence was cauchy it would converge, implying the subsequence would be bounded and therefor the parent sequence would be bounded (because it is monotone) and thus would converge.
+  \item $(2, 1/2, 3, 1/3, \dots)$ has subsequence $(1/2, 1/3, \dots)$ which is cauchy.
   }
 \end{solution}
 
@@ -37,8 +41,18 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item We have $|(x_n + y_n) - (x_m + y_m)| \le |x_n - x_m| + |y_n - y_m| < \epsilon/2 + \epsilon/2 = \epsilon$
+  \item Bound $|x_n| \le M_1$, and $|y_n| \le M_2$ then
+    $$
+    \begin{aligned}
+      |x_n y_n - x_m y_m|
+      &= |(x_ny_n - x_ny_m) + (x_ny_m - x_my_m)| \\
+      &\le |x_n(y_n - y_m)| + |y_m(x_n - x_m)| \\
+      &\le M_1|y_n - y_m| + M_2|x_n - x_m| \\
+      &< \epsilon/2 + \epsilon/2 = \epsilon
+    \end{aligned}
+    $$
+    After setting $|y_n - y_m| < \epsilon/(2M_1)$ and $|x_n-x_m|<\epsilon/(2M_2)$.
   }
 \end{solution}
 
@@ -54,9 +68,9 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Yes, since $|(a_n - b_n) - (a_m - b_m)| \le |a_n - a_m| + |b_m - b_n| < \epsilon/2 + \epsilon/2 = \epsilon$
+  \item No, if $a_n = 1$ then $(-1)^na_n$ diverges, and thus is not cauchy.
+  \item No, if $a_n = 1 - (-1)^n/n$ then $[[a_n]]$ fluctuates between $0$ and $1$ and so cannot be cauchy.
   }
 \end{solution}
 
@@ -71,7 +85,10 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enumr{
+  \item False, consider $s_n = \log n$. clearly $|s_{n+1} - s_n|$ can be made arbitrarily small but $s_n$ is unbounded.
+  \item True, as $|(x_{n+1} + y_{n+1}) - (x_n + y_n)| \le |x_{n+1} - x_n| + |y_{n+1} - y_n| < \epsilon/2 + \epsilon/2 = \epsilon$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -85,7 +102,7 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
+  \item $a_n = (-1)^n/n$  is quasi-increasing since we can get $(-1)^m/m - (-1)^n/n \le 1/m + 1/n < \epsilon$ for large enough $n > m \ge N$.
   \item \TODO
   \item \TODO
   }
