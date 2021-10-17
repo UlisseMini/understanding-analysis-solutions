@@ -1,0 +1,235 @@
+\section{The Cauchy Criterion}
+
+\begin{exercise}
+  Proving the Alternating Series Test (Theorem 2.7.7) amounts to showing that the sequence of partial sums
+  $$
+  s_{n}=a_{1}-a_{2}+a_{3}-\cdots \pm a_{n}
+  $$
+  converges. (The opening example in Section $2.1$ includes a typical illustration of $\left(s_{n}\right)$.) Different characterizations of completeness lead to different proofs.
+
+  \enum{
+  \item Prove the Alternating Series Test by showing that $\left(s_{n}\right)$ is a Cauchy sequence.
+  \item Supply another proof for this result using the Nested Interval Property (Theorem 1.4.1).
+  \item Consider the subsequences $\left(s_{2 n}\right)$ and $\left(s_{2 n+1}\right)$, and show how the Monotone Convergence Theorem leads to a third proof for the Alternating Series Test.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Decide whether each of the following series converges or diverges:
+  \enum{
+  \item $\sum_{n=1}^{\infty} \frac{1}{2^{n}+n}$
+  \item $\sum_{n=1}^{\infty} \frac{\sin (n)}{n^{2}}$
+  \item $1-\frac{3}{4}+\frac{4}{6}-\frac{5}{8}+\frac{6}{10}-\frac{7}{12}+\cdots$
+  \item $1+\frac{1}{2}-\frac{1}{3}+\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\frac{1}{7}+\frac{1}{8}-\frac{1}{9}+\cdots$
+  \item $1-\frac{1}{2^{2}}+\frac{1}{3}-\frac{1}{4^{2}}+\frac{1}{5}-\frac{1}{6^{2}}+\frac{1}{7}-\frac{1}{8^{2}}+\cdots$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Provide the details for the proof of the Comparison Test (Theorem 2.7.4) using the Cauchy Criterion for Series.
+  \item Give another proof for the Comparison Test, this time using the Monotone Convergence Theorem.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Give an example of each or explain why the request is impossible referencing the proper theorem(s).
+  \enum{
+  \item Two series $\sum x_{n}$ and $\sum y_{n}$ that both diverge but where $\sum x_{n} y_{n}$ converges.
+  \item A convergent series $\sum x_{n}$ and a bounded sequence $\left(y_{n}\right)$ such that $\sum x_{n} y_{n}$ diverges.
+  \item Two sequences $\left(x_{n}\right)$ and $\left(y_{n}\right)$ where $\sum x_{n}$ and $\sum\left(x_{n}+y_{n}\right)$ both converge but $\sum y_{n}$ diverges.
+  \item A sequence $\left(x_{n}\right)$ satisfying $0 \leq x_{n} \leq 1 / n$ where $\sum(-1)^{n} x_{n}$ diverges.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Prove the series $\sum_{n=1}^{\infty} 1 / n^{p}$ converges if and only if $p>1$. (Corollary 2.4.7)
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let's say that a series subverges if the sequence of partial sums contains a subsequence that converges. Consider this (invented) definition for a moment, and then decide which of the following statements are valid propositions about subvergent series:
+  \enum{
+  \item If $\left(a_{n}\right)$ is bounded, then $\sum a_{n}$ subverges.
+  \item All convergent series are subvergent.
+  \item If $\sum\left|a_{n}\right|$ subverges, then $\sum a_{n}$ subverges as well.
+  \item If $\sum a_{n}$ subverges, then $\left(a_{n}\right)$ has a convergent subsequence.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+    \item \TODO
+    \item \TODO
+    \item \TODO
+    \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show that if $a_{n}>0$ and $\lim \left(n a_{n}\right)=l$ with $l \neq 0$, then the series $\sum a_{n}$ diverges.
+  \item Assume $a_{n}>0$ and $\lim \left(n^{2} a_{n}\right)$ exists. Show that $\sum a_{n}$ converges.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+    \item \TODO
+    \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Consider each of the following propositions. Provide short proofs for those that are true and counterexamples for any that are not.
+  \enum{
+  \item If $\sum a_{n}$ converges absolutely, then $\sum a_{n}^{2}$ also converges absolutely.
+  \item If $\sum a_{n}$ converges and $\left(b_{n}\right)$ converges, then $\sum a_{n} b_{n}$ converges.
+  \item If $\sum a_{n}$ converges conditionally, then $\sum n^{2} a_{n}$ diverges.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Ratio Test]
+  Given a series $\sum_{n=1}^{\infty} a_{n}$ with $a_{n} \neq 0$, the Ratio Test states that if $\left(a_{n}\right)$ satisfies
+  $$
+  \lim \left|\frac{a_{n+1}}{a_{n}}\right|=r<1
+  $$
+  then the series converges absolutely.
+
+  \enum{
+  \item Let $r^{\prime}$ satisfy $r<r^{\prime}<1$. Explain why there exists an $N$ such that $n \geq N$ implies $\left|a_{n+1}\right| \leq\left|a_{n}\right| r^{\prime}$.
+  \item Why does $\left|a_{N}\right| \sum\left(r^{\prime}\right)^{n}$ converge?
+  \item Now, show that $\sum\left|a_{n}\right|$ converges, and conclude that $\sum a_{n}$ converges.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Infinite Products]
+  Review Exercise 2.4.10 about infinite products and then answer the following questions:
+  \enum{
+  \item Does $\frac{2}{1} \cdot \frac{3}{2} \cdot \frac{5}{4} \cdot \frac{9}{8} \cdot \frac{17}{16} \cdots$ converge?
+  \item The infinite product $\frac{1}{2} \cdot \frac{3}{4} \cdot \frac{5}{6} \cdot \frac{7}{8} \cdot \frac{9}{10} \cdots$ certainly converges. (Why?) Does it converge to zero?
+  \item In 1655, John Wallis famously derived the formula
+    $$
+    \left(\frac{2 \cdot 2}{1 \cdot 3}\right)\left(\frac{4 \cdot 4}{3 \cdot 5}\right)\left(\frac{6 \cdot 6}{5 \cdot 7}\right)\left(\frac{8 \cdot 8}{7 \cdot 9}\right) \cdots=\frac{\pi}{2}
+    $$
+    Show that the left side of this identity at least converges to something. (A complete proof of this result is taken up in Section 8.3.)
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Find examples of two series $\sum a_{n}$ and $\sum b_{n}$ both of which diverge but for which $\sum \min \left\{a_{n}, b_{n}\right\}$ converges. To make it more challenging, produce examples where $\left(a_{n}\right)$ and $\left(b_{n}\right)$ are strictly positive and decreasing.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Summation-by-parts]
+  Let $\left(x_{n}\right)$ and $\left(y_{n}\right)$ be sequences, let $s_{n}=x_{1}+x_{2}+\cdots+x_{n}$ and set $s_{0}=0 .$ Use the observation that $x_{j}=s_{j}-s_{j-1}$ to verify the formula
+  $$
+  \sum_{j=m}^{n} x_{j} y_{j}=s_{n} y_{n+1}-s_{m-1} y_{m}+\sum_{j=m}^{n} s_{j}\left(y_{j}-y_{j+1}\right)
+  $$
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Abel's Test]
+  Abel's Test for convergence states that if the series $\sum_{k=1}^{\infty} x_{k}$ converges, and if $\left(y_{k}\right)$ is a sequence satisfying
+  $$
+  y_{1} \geq y_{2} \geq y_{3} \geq \cdots \geq 0
+  $$
+  then the series $\sum_{k=1}^{\infty} x_{k} y_{k}$ converges.
+  \enum{
+  \item Use Exercise $2.7 .12$ to show that
+    $$
+    \sum_{k=1}^{n} x_{k} y_{k}=s_{n} y_{n+1}+\sum_{k=1}^{n} s_{k}\left(y_{k}-y_{k+1}\right)
+    $$
+    where $s_{n}=x_{1}+x_{2}+\cdots+x_{n}$.
+  \item Use the Comparison Test to argue that $\sum_{k=1}^{\infty} s_{k}\left(y_{k}-y_{k+1}\right)$ converges absolutely, and show how this leads directly to a proof of Abel's Test.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}[Dirichlet's Test]
+  Dirichlet's Test for convergence states that if the partial sums of $\sum_{k=1}^{\infty} x_{k}$ are bounded (but not necessarily convergent), and if $\left(y_{k}\right)$ is a sequence satisfying $y_{1} \geq y_{2} \geq y_{3} \geq \cdots \geq 0$ with $\lim y_{k}=0$, then the series $\sum_{k=1}^{\infty} x_{k} y_{k}$ converges.
+  \enum{
+  \item Point out how the hypothesis of Dirichlet's Test differs from that of Abel's Test in Exercise 2.7.13, but show that essentially the same strategy can be used to provide a proof.
+  \item Show how the Alternating Series Test (Theorem 2.7.7) can be derived as a special case of Dirichlet's Test.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
