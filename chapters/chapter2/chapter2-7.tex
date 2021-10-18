@@ -42,7 +42,24 @@
   \item Converges by a comparison test with $\sum_{n=1}^\infty \frac{1}{2^n}$.
   \item Converges by a comparison test with $\sum_{n=1}^\infty \frac{1}{n^2}$.
   \item Diverges since $(n+1)/2n = 1/2 + 1/2n$ never gets smaller then $1/2$.
-  \item \TODO
+  \item The first thing I notice is the series cannot converge absolutely (as then it would be harmonic).
+
+    Grouping terms gives
+    $$
+    \begin{aligned}
+    \frac{1}{n} + \frac{1}{n+1} - \frac{1}{n+2}
+    &= \frac{(n+1)(n+2) + n(n+2) - n(n+1)}{n(n+1)(n+2)} \\
+    &= \frac{(n^2 + 3n + 2) + (n^2 + 2n) - (n^2 + n)}{n(n+1)(n+2)} \\
+    &= \frac{n^2 + 4n + 2}{n(n+1)(n+2)}
+    \end{aligned}
+    $$
+    Which diverges since
+    $$
+    \frac{n^2 + 4n + 2}{n(n+1)(n+2)} \ge \frac{n^2 + 4n + 2}{n^3} \ge \frac 1n
+    $$
+    In other words, If we take terms three at a time (a subsequence of the partial sums) grows faster then the harmonic series implying the subsequence (and thus the parent sequence) of partial sums diverges.
+
+    \TODO Find better proof
   \item \TODO
   }
 \end{solution}
