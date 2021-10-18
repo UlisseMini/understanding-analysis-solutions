@@ -17,7 +17,11 @@
 \begin{solution}
   \enum{
   \item \TODO
-  \item \TODO
+  \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$ we have $I_{n+1} \subseteq I_n$ since $(a_n)$ is decreasing. The nested interval property gives
+    $$\bigcap_{n=1}^\infty I_n \ne \emptyset$$
+    Combined with the length going to zero means there is a single $x \in \bigcup_{n=1}^\infty I_n$ which is what the series converges to.
+
+    \TODO Make rigorous
   \item \TODO
   }
 \end{solution}
@@ -35,9 +39,9 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Converges by a comparison test with $\sum_{n=1}^\infty \frac{1}{2^n}$.
+  \item Converges by a comparison test with $\sum_{n=1}^\infty \frac{1}{n^2}$.
+  \item Diverges since $(n+1)/2n = 1/2 + 1/2n$ never gets smaller then $1/2$.
   \item \TODO
   \item \TODO
   }
@@ -51,9 +55,12 @@
 \end{exercise}
 
 \begin{solution}
+  Suppose $a_n, b_n \ge 0$, $a_n \le b_n$ and define $s_n = a_1 + \dots + a_n$, $t_n = b_1 + \dots + b_n$.
+
   \enum{
-  \item \TODO
-  \item \TODO
+  \item We have $|a_{m+1} + \dots + a_n| \le |b_{m+1} + \dots + b_n| < \epsilon$ implying $\sum_{n=1}^\infty a_n$ converges by the cauchy criterion.
+    The other direction is analogous, if $(s_n)$ diverges then $(t_n)$ must also diverge since $s_n \le t_n$.
+  \item Since $(t_n) \to t$. This implies that $s_n$ is bounded, and since $s_n \le t_n$ implies $s_n \le t$ by the order limit theorem, we can use the monotone convergence theorem to conclude $(s_n)$ converges.
   }
 \end{solution}
 
@@ -81,7 +88,9 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Eventually we have $1/n^p < 1/p^n$ for $p > 1$ (polynomial vs exponential) meaning we can use the comparison test to conclude $\sum_{n=1}^\infty 1/n^p$ converges if $p > 1$.
+
+  Now suppose $p \le 1$, since $1/n^p \le 1/n$ a comparsion test with the harmonic series implies $p \le 1$ diverges.
 \end{solution}
 
 \begin{exercise}
