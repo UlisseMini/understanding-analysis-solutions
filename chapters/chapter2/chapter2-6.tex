@@ -103,8 +103,8 @@
 \begin{solution}
   \enum{
   \item $a_n = (-1)^n/n$  is quasi-increasing since we can get $(-1)^m/m - (-1)^n/n \le 1/m + 1/n < \epsilon$ for large enough $n > m \ge N$.
-  \item \TODO
-  \item \TODO
+  \item $a_n = (2, 1/2, 3, 1/3, \dots)$ is quasi-increasing since $n > m - \epsilon$ is clearly true as $(n)$ is increasing. And $1/n > 1/m - \epsilon$ is true after picking $N$ large enough that for $m \ge N$ we have $1/m < \epsilon$ and thus $1/n > 1/m - \epsilon$.
+  \item In (b) I gave such an example, so there is no Monotone Convergence Theorem for quasiincreasing sequences (without modifying the definition that is.)
   }
 \end{solution}
 
@@ -119,8 +119,12 @@
 
 \begin{solution}
   \enum{
+  \item Suppose $(x_n)$ is increasing and bounded, BW tells us there exists a convergent subsequence $(x_{n_k}) \to x$, We will show $(x_n) \to x$. First note $x_k \le x_{n_k}$ implies $x_n \le x$ by the Order Limit Theorem.
+
+    Pick $K$ such that for $k \ge K$ we have $|x_{n_k} - x| < \epsilon$.
+    Since $(x_n)$ is increasing and $x_n \le x$ every $n \ge n_K$ satisfies $|x_n - x| < \epsilon$ as well.
+    Thus $(x_n)$ converges, completing the proof.
   \item \TODO
-  \item \TODO
-  \item \TODO
+  \item The Archimedean Property is true for $\mathbf{Q}$ meaning it cannot prove AoC which is only true for $\mathbf{R}$. (If we did, then we would have proved AoC for $\mathbf{Q}$ which is obviously false.)
   }
 \end{solution}
