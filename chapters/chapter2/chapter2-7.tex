@@ -133,10 +133,10 @@
 
 \begin{solution}
   \enum{
-    \item \TODO
-    \item \TODO
-    \item \TODO
-    \item \TODO
+    \item False, consider $a_n = 1$ then $s_n = n$ does not have a convergent subsequence.
+    \item True, every subsequence converges to the same limit in fact.
+    \item True, since $s_n = \sum_{k=1}^n |a_k|$ converges it is bounded $|s_n| \le M$, and since $t_n = \sum_{k=1}^n a_k$ is smaller $t_n \le s_n$ it is bounded $t_n \le M$ which by BW implies there exists a convergent subsequence $(t_{n_k})$.
+    \item False, $a_n = (1, -1, 2, -2, \dots)$ has no convergent subsequence but the sum $s_n = \sum_{k=1}^n a_k$ has the subsequence $(s_{2n}) \to 0$.
   }
 \end{solution}
 
