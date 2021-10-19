@@ -15,14 +15,25 @@
 \end{exercise}
 
 \begin{solution}
+  The fundemental reason the alternating series test works is that the partial sums stay inside intervals which are getting smaller. Always keep the fundemental reason in mind when proving things.
   \enum{
-  \item \TODO
+  \item We would like to show $|a_{m+1} - a_{m+2} + \dots \pm a_{n}|$ becomes arbitrarily small. \TODO
   \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$ we have $I_{n+1} \subseteq I_n$ since $(a_n)$ is decreasing. The nested interval property gives
     $$\bigcap_{n=1}^\infty I_n \ne \emptyset$$
-    Combined with the length going to zero means there is a single $x \in \bigcup_{n=1}^\infty I_n$ which is what the series converges to.
+    Let $x \in \bigcap_{n=1}^\infty I_n$, since $a_n \in I_n$ and $x \in I_n$ the distance $|a_n - x|$ must be less then the length $|I_n|$. and since the length goes to zero $|a_n - x|$ can be made less then any $\epsilon$.
+  \item If we can show $\lim s_{2n} = \lim s_{2n+1} = s$ that will imply $\lim s_n = s$ since each $s_n$ is either in $(s_{2n+1})$ or in $(s_{2n})$ as $n$ is must be even or odd.
 
-    \TODO Make rigorous
-  \item \TODO
+    We have $s_{2n+1} \le a_1$ since
+    $$
+    s_{2n+1} = a_1 - (a_2 - a_3) - \dots - (a_{2n} - a_{2n+1}) \le a_1
+    $$
+    Thus $s_{2n+1} \to s$ by the Monotone Convergence Theorem, to show $(s_{2n}) \to s$ notice $s_{2n} = s_{2n+1} - a_{2n+1}$ with $(a_{2n+1}) \to 0$ meaning we can use the triangle inequality
+    $$
+    |s_{2n} - s| \le \underbrace{|s_{2n} - s_{2n+1}|}_{a_{2n+1}} + |s_{2n+1} - s| < \epsilon/2 + \epsilon/2 < \epsilon
+    $$
+    Thus $(s_{2n}) \to s$ aswell finally implying $(s_n) \to s$.
+
+    \textbf{Summary:} Partition the alternating series into two subsequences of partial sums, then use MCT to show they both converge to the same limit.
   }
 \end{solution}
 
