@@ -54,16 +54,12 @@
   }
 \end{solution}
 
-% TODO: Make self contained
 \begin{exercise}
-  Using Exercise 1.4.1, supply a proof for Corollary 1.4.4 by considering the real numbers $a-\sqrt{2}$ and $b-\sqrt{2}$.
+  Using Exercise 1.4.1, supply a proof that $\mathbf{I}$ is dense in $\mathbf{R}$ by considering the real numbers $a-\sqrt{2}$ and $b-\sqrt{2}$. In other words show for every two real numbers $a<b$ there exists an irrational number $t$ with $a<t<b$.
 \end{exercise}
 
 \begin{solution}
-  By the density theorem we first find $a < p/q < b$, then we add $(\sqrt2)/n$ with $n$ small enough that $a < (p/q) + (\sqrt2)/n < b$. By (a) we know $(p/q) + (\sqrt2)/n \in \mathbf{I}$. Thus we have found $t = (p/q) + (\sqrt2)/n$ with $a < t < b$ and $t \in \mathbf{I}$ which proves Corollary 1.4.4.
-
-  (I'm not sure what the exercise wanted me to do with $a-\sqrt2$ and $b-\sqrt2$. I'll figure out later) \newline
-  \TODO Make more rigorous
+  The density theorem lets us find a rational number $r$ with $a-\sqrt2 < r < b-\sqrt2$, adding $\sqrt 2$ to both sides gives $a < r +\sqrt 2< b$. From 1.4.1 we know $r+\sqrt2$ is irrational, so setting $t = r+\sqrt2$ gives $a<t<b$ as desired.
 \end{solution}
 
 \begin{exercise}
