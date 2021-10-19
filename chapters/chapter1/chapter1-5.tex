@@ -98,7 +98,7 @@
     $$
     g(x) = f\left(\frac{2x - 1}{b - a} - a\right)
     $$
-    Proving $g(x)$ is also bijective is a straightforward computation.
+    Proving $g(x)$ is also bijective is a straightforward application of the chain rule.
   \item We want a bijective $h(x)$ such that $h(x) : (a, \infty) \to (-1, 1)$ because then we could compose them to get a new bijective function $f(h(x)) : (a, \infty) \to \mathbf{R}$.
 
     Let
@@ -108,7 +108,20 @@
     We have $h : (a, \infty) \to (1, -1)$ since $h(a) = 1$ and $\lim_{x \to \infty} h(x) = 1$.
 
     Meaning that $f(h(x)) : (a, \infty) \to \mathbf{R}$ is our bijective map.
-  \item \TODO
+  \item With countable sets adding a single element doesn't change cardinality since we can just shift by one to get a bijective map. we'll use a similar technique here to essentially outrun our problems. Define $f : [0,1) \to (0,1)$ as
+    $$
+    f(x) = \begin{cases}
+      1/2 &\text{if } {x=0} \\
+      1/4 &\text{if } {x=1/2} \\
+      1/8 &\text{if } {x=1/4} \\
+      \vdots \\
+      x &\text{otherwise}
+    \end{cases}
+    $$
+    Now we prove $f$ is bijective by showing $y = f(x)$ has exactly one solution for all $y \in (0,1)$.
+
+    If $y = 1/2^n$ then the only solution is $y = f(1/2^{n-1})$ (or $x=0$ in the special case $n=1$),
+    If $y \ne 1/2^n$ then the only solution is $y = f(y)$.
   }
 \end{solution}
 
