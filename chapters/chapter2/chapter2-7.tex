@@ -195,9 +195,29 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item We are given
+    $$
+    \left|\frac{a_{n+1}}{a_n} - r\right| < \epsilon
+    $$
+    Since $1 > r' > r$ we can set $\epsilon = r' - r$ meaning the neighborhood
+    $$
+    \frac{a_{n+1}}{a_n} \in (r-\epsilon, r+\epsilon) = (2r-r', r')
+    $$
+    Is all less then $r'$ meaning
+    $$
+    \left|\frac{a_{n+1}}{a_n}\right| \le r' \implies |a_{n+1}| \le r'|a_n|
+    $$
+  \item Let $N$ be large enough that for $n > N$ we have $|a_{n+1}| \le |a_n|r'$.
+    Applying this multiple times gives $|a_n| \le (r')^{n-N} |a_N|$ which gives
+    $$
+    |a_N| + |a_{N+1}| + \dots + |a_n| \le |a_N| + r'|a_N| + \dots + (r')^{n-N}|a_N|
+    $$
+    Factoring out $|a_N|$ and writing with sums gives
+    $$
+    \sum_{k=N}^n |a_k| \le |a_N|\sum_{k=0}^{n-1} (r')^k
+    $$
+    Which converges as $n \to \infty$ since $|r'| < 1$ and $|a_N|$ is constant. Implying $\sum_{k=N}^n |a_k|$ converges and thus $\sum_{k=1}^n |a_k|$ also converges since we only omitted finitely many terms.
+  \item See (b)
   }
 \end{solution}
 
