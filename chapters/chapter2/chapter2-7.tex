@@ -156,9 +156,10 @@
 \end{exercise}
 
 \begin{solution}
+  Note: This is kind of like a wierd way to do a comparison with $1/n$ and $1/n^2$.
   \enum{
-  \item \TODO
-  \item \TODO
+  \item If $\lim(na_n) = l \ne 0$ then $na_n \in (l-\epsilon, l+\epsilon)$, setting $\epsilon = l/2$ gives $na_n \in (l/2, 3l/2)$ implying $a_n > (l/2)(1/n)$. But if $a_n > (l/2)(1/n)$ then $\sum a_n$ diverges as it is a multiple of the harmonic series. (note that $a_n > 0$ ensures $l \ge 0$.)
+  \item Letting $l = \lim(n^2a_n)$ we have $n^2a_n \in (l-\epsilon,l+\epsilon)$ setting $\epsilon = l$ gives $n^2a_n \in (0, 2l)$ implying $0 \le a_n \le 2l/n^2$ and so $\sum a_n$ converges by a comparsion test with $\sum 2l/n^2$.
   }
 \end{solution}
 
