@@ -230,7 +230,17 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Since $x_j = s_j - s_{j-1}$ we can rewrite the sum as
+  $$
+  \begin{aligned}
+    &= \sum_{j=m}^n (s_j - s_{j-1})y_j \\
+    &= \sum_{j=m}^n s_j y_j - \sum_{j=m}^n s_{j-1} y_j \\
+    &= (s_my_m + \dots + s_ny_n) - (s_{m-1}y_m + \dots + s_{n-1}y_n)                  &&\text{Factor out each } s_j\\
+    &= s_n(y_n) - s_{m-1}(y_m) + s_m(y_m - y_{m+1}) + \dots + s_{n-1}(y_{n-1} - y_n)  &&\text{Add and subtract } s_ny_{n+1} \text{ for factoring} \\
+    &= s_n(y_{n+1}) - s_{m-1}(y_m) + s_m(y_m - y_{m+1}) + \dots + s_n(y_n - y_{n+1})  &&\text{Rewrite as a sum} \\
+    &= s_n(y_{n+1}) - s_{m-1}(y_m) + \sum_{j=m}^n s_j(y_j - y_{j+1})                  &&\text{Done :)} \\
+  \end{aligned}
+  $$
 \end{solution}
 
 \begin{exercise}[Abel's Test]
