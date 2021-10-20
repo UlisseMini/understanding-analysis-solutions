@@ -71,7 +71,15 @@
     In other words, If we take terms three at a time (a subsequence of the partial sums) grows faster then the harmonic series implying the subsequence (and thus the parent sequence) of partial sums diverges.
 
     \TODO Find better proof
-  \item \TODO
+  \item Intuitively this should diverge since it is a mixture of $1/n$ (divergent) and $1/n^2)$ (convergent). To make this rigorous examine the subsequence $(s_{2n})$
+    $$
+    s_{2n} = 1 - 1/2^2 + 1/3 - 1/4^2 + \dots + 1/(2n)^2
+    $$
+    We can the rearrange terms in the partial sum to get
+    $$
+    s_{2n} = \sum_{k=1}^{n} \frac{1}{2k - 1} - \sum_{k=1}^n \frac{1}{(2k)^2} \equiv t_n - v_n
+    $$
+    Now if $\lim(s_{2n})$ converges then $\lim(t_n - v_n)$ also converges. This is impossible however as $(t_n)$ diverging and $(v_n)$ converging would imply $\lim(t_n-v_n) + \lim(v_n) = \lim(t_n)$ converges by the ALT, but $(t_n)$ diverges so we have a contradiction. Thus $(s_{2n})$ diverges and so the parent sequence $(s_n)$ must also diverge.
   }
 \end{solution}
 
@@ -230,7 +238,17 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Since $x_j = s_j - s_{j-1}$ we can rewrite the sum as
+  $$
+  \begin{aligned}
+    &= \sum_{j=m}^n (s_j - s_{j-1})y_j \\
+    &= \sum_{j=m}^n s_j y_j - \sum_{j=m}^n s_{j-1} y_j \\
+    &= (s_my_m + \dots + s_ny_n) - (s_{m-1}y_m + \dots + s_{n-1}y_n)                  &&\text{Factor out each } s_j\\
+    &= s_n(y_n) - s_{m-1}(y_m) + s_m(y_m - y_{m+1}) + \dots + s_{n-1}(y_{n-1} - y_n)  &&\text{Add and subtract } s_ny_{n+1} \text{ for factoring} \\
+    &= s_n(y_{n+1}) - s_{m-1}(y_m) + s_m(y_m - y_{m+1}) + \dots + s_n(y_n - y_{n+1})  &&\text{Rewrite as a sum} \\
+    &= s_n(y_{n+1}) - s_{m-1}(y_m) + \sum_{j=m}^n s_j(y_j - y_{j+1})                  &&\text{Done :)} \\
+  \end{aligned}
+  $$
 \end{solution}
 
 \begin{exercise}[Abel's Test]
@@ -250,9 +268,32 @@
 \end{exercise}
 
 \begin{solution}
+  Intuitively, Abel's test is saying that multiplying by a positive decreasing sequence $(y_n)$ is basically the same as multiplying by a constant in that it doesn't effect convergence.
+
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Exercise 2.7.12 combined with $s_0=0$ gives
+    $$
+    \sum_{k=1}^n x_ky_k = s_ny_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1})
+    $$
+    as desired.
+  \item $s_ny_{n+1}$ clearly converges since $y_{n+1}$ is ``eventually constant'', so we must only show the right hand side converges.
+
+    We will show absolute convergence, note $y_k - y_{k+1} \ge 0$ and so
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \ge 0
+    $$
+    Bounding $|s_n| \le M$ gives
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M \sum_{k=1}^n (y_k-y_{k+1})
+    $$
+    Since $\sum_{k=1}^n (y_k - y_{k+1}) = y_1 - y_{n+1}$ is telescoping we can write
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M(y_1 - y_{n+1}) \le My_1
+    $$
+    Implying $\sum_{k=1}^\infty |s_k|(y_k - y_{k+1})$ converges since it is bounded and increasing.
+    And since the series converges absolutely so does the original $\sum_{k=1}^\infty s_k(y_k - y_{k+1})$.
+
+    \textbf{Summary:} Bound $|s_k| \le M$ and use the fact that $\sum(y_k - y_{k+1})$ is telescoping.
   }
 \end{solution}
 
