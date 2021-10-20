@@ -173,9 +173,9 @@
 
 \begin{solution}
   \enum{
-  \item True since $(a_n) \to 0$ so eventually $a_n^2 \le |a_n|$ meaning $\sum a_n^2$ converges by a comparsion test with $\sum |a_n|$. (and clearly $|a_n^2| = a_n^2$ also converges.)
-  \item \TODO
-  \item \TODO
+  \item True since $(a_n) \to 0$ so eventually $a_n^2 \le |a_n|$ meaning $\sum a_n^2$ converges by a comparsion test with $\sum |a_n|$.
+  \item False, let $a_n = (-1)^n/{\sqrt n}$ and $b_n = (-1)^n/{\sqrt n}$. $\sum a_n$ converges by the alternating series test, but $\sum a_nb_n = \sum 1/n$ diverges.
+  \item True, suppose $(n^2a_n)$ converges, since $(n^2 a_n) \to 0$ we have $|n^2 a_n| < 1$ for $n > N$, implying $|a_n| < 1/n^2$. But if $|a_n| < 1/n^2$ then a comparsion test with $1/n^2$ implies $a_n$ converges absolutely, contradicting the assumption that $a_n$ converges conditionally. Therefor $\sum n^2a_n$ must diverge.
   }
 \end{solution}
 
