@@ -337,7 +337,24 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Abel's test assumed $\sum x_n$ converged but did not require $\lim y_k = 0$. To prove it we use summation by parts to get
+    $$
+    \begin{aligned}
+    \sum_{k=1}^n x_ky_k
+    &= s_n y_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1})
+    \end{aligned}
+    $$
+    Clearly $(s_n y_{n+1}) \to 0$ since $|s_n| \le M$ and $(y_{n+1}) \to 0$. Now we show absolute convergence of the right hand side (note $|y_k - y_{k+1}| = (y_k - y_{k+1})$ as $(y_n)$ is decreasing)
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M \sum_{k=1}^n (y_k - y_{k+1}) = M(y_1 - y_{n+1}) \le My_1
+    $$
+    Thus $\sum s_k(y_k - y_{k+1})$ converges absolutely and so finally
+    $$
+    s_n y_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1}) = \sum_{k=1}^n x_ky_k
+    $$
+    converges.
+  \item Let $a_n \ge 0$ with $a_1 \ge a_2 \ge \dots \ge 0$ and $\lim a_n = 0$. The series $\sum (-1)^n \le 1$ is bounded, so Dirichlet's test implies $\sum (-1)^n a_n$ converges.
+
+    In fact any periodic $b_n$ has $\sum a_n b_n$ converging by Dirichlet.
   }
 \end{solution}
