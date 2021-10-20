@@ -236,9 +236,19 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Rewriting the terms as $a_n = (1 + 1/n)$ and using the result from 2.4.10 implies the product diverges since $\sum 1/n$ diverges.
+  \item Converges by the monotone convergence theorem since the partial products are decreasin and greater then zero.
+  \item In compontent form we have
+    $$
+    a_n
+    = \frac{(2n)^2}{(2n-1)(2n+1)}
+    = \frac{(2n)^2}{(2n)^2 - 1}
+    = 1 + \frac{(2n)^2 - ((2n)^2 - 1)}{(2n)^2 - 1}
+    = 1 + \frac{1}{(2n)^2 - 1}
+    $$
+    And since $\sum 1/((2n)^2 - 1)$ converges by a comparison test with $1/n^2$ 2.4.10 implies
+    $$\prod_{n=1}^\infty \left(1 + \frac{1}{(2n)^2 - 1}\right)$$
+    also converges.
   }
 \end{solution}
 
