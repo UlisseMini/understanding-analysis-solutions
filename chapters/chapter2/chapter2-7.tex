@@ -15,7 +15,6 @@
 \end{exercise}
 
 \begin{solution}
-  The fundemental reason the alternating series test works is that the partial sums stay inside intervals which are getting smaller. Always keep the fundemental reason in mind when proving things.
   \enum{
   \item We would like to show $|a_{m+1} - a_{m+2} + \dots \pm a_{n}|$ becomes arbitrarily small. \TODO
   \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$ we have $I_{n+1} \subseteq I_n$ since $(a_n)$ is decreasing. The nested interval property gives
@@ -156,9 +155,10 @@
 \end{exercise}
 
 \begin{solution}
+  Note: This is kind of like a wierd way to do a comparison with $1/n$ and $1/n^2$.
   \enum{
-  \item \TODO
-  \item \TODO
+  \item If $\lim(na_n) = l \ne 0$ then $na_n \in (l-\epsilon, l+\epsilon)$, setting $\epsilon = l/2$ gives $na_n \in (l/2, 3l/2)$ implying $a_n > (l/2)(1/n)$. But if $a_n > (l/2)(1/n)$ then $\sum a_n$ diverges as it is a multiple of the harmonic series. (note that $a_n > 0$ ensures $l \ge 0$.)
+  \item Letting $l = \lim(n^2a_n)$ we have $n^2a_n \in (l-\epsilon,l+\epsilon)$ setting $\epsilon = l$ gives $n^2a_n \in (0, 2l)$ implying $0 \le a_n \le 2l/n^2$ and so $\sum a_n$ converges by a comparsion test with $\sum 2l/n^2$.
   }
 \end{solution}
 
@@ -173,9 +173,9 @@
 
 \begin{solution}
   \enum{
-  \item True since $(a_n) \to 0$ so eventually $a_n^2 \le |a_n|$ meaning $\sum a_n^2$ converges by a comparsion test with $\sum |a_n|$. (and clearly $|a_n^2| = a_n^2$ also converges.)
-  \item \TODO
-  \item \TODO
+  \item True since $(a_n) \to 0$ so eventually $a_n^2 \le |a_n|$ meaning $\sum a_n^2$ converges by a comparsion test with $\sum |a_n|$.
+  \item False, let $a_n = (-1)^n/{\sqrt n}$ and $b_n = (-1)^n/{\sqrt n}$. $\sum a_n$ converges by the alternating series test, but $\sum a_nb_n = \sum 1/n$ diverges.
+  \item True, suppose $(n^2a_n)$ converges, since $(n^2 a_n) \to 0$ we have $|n^2 a_n| < 1$ for $n > N$, implying $|a_n| < 1/n^2$. But if $|a_n| < 1/n^2$ then a comparsion test with $1/n^2$ implies $a_n$ converges absolutely, contradicting the assumption that $a_n$ converges conditionally. Therefor $\sum n^2a_n$ must diverge.
   }
 \end{solution}
 
@@ -195,9 +195,29 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item We are given
+    $$
+    \left|\frac{a_{n+1}}{a_n} - r\right| < \epsilon
+    $$
+    Since $1 > r' > r$ we can set $\epsilon = r' - r$ meaning the neighborhood
+    $$
+    \frac{a_{n+1}}{a_n} \in (r-\epsilon, r+\epsilon) = (2r-r', r')
+    $$
+    Is all less then $r'$ meaning
+    $$
+    \left|\frac{a_{n+1}}{a_n}\right| \le r' \implies |a_{n+1}| \le r'|a_n|
+    $$
+  \item Let $N$ be large enough that for $n > N$ we have $|a_{n+1}| \le |a_n|r'$.
+    Applying this multiple times gives $|a_n| \le (r')^{n-N} |a_N|$ which gives
+    $$
+    |a_N| + |a_{N+1}| + \dots + |a_n| \le |a_N| + r'|a_N| + \dots + (r')^{n-N}|a_N|
+    $$
+    Factoring out $|a_N|$ and writing with sums gives
+    $$
+    \sum_{k=N}^n |a_k| \le |a_N|\sum_{k=0}^{n-1} (r')^k
+    $$
+    Which converges as $n \to \infty$ since $|r'| < 1$ and $|a_N|$ is constant. Implying $\sum_{k=N}^n |a_k|$ converges and thus $\sum_{k=1}^n |a_k|$ also converges since we only omitted finitely many terms.
+  \item See (b)
   }
 \end{solution}
 
@@ -216,9 +236,19 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Rewriting the terms as $a_n = (1 + 1/n)$ and using the result from 2.4.10 implies the product diverges since $\sum 1/n$ diverges.
+  \item Converges by the monotone convergence theorem since the partial products are decreasin and greater then zero.
+  \item In compontent form we have
+    $$
+    a_n
+    = \frac{(2n)^2}{(2n-1)(2n+1)}
+    = \frac{(2n)^2}{(2n)^2 - 1}
+    = 1 + \frac{(2n)^2 - ((2n)^2 - 1)}{(2n)^2 - 1}
+    = 1 + \frac{1}{(2n)^2 - 1}
+    $$
+    And since $\sum 1/((2n)^2 - 1)$ converges by a comparison test with $1/n^2$ 2.4.10 implies
+    $$\prod_{n=1}^\infty \left(1 + \frac{1}{(2n)^2 - 1}\right)$$
+    also converges.
   }
 \end{solution}
 
@@ -307,7 +337,24 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Abel's test assumed $\sum x_n$ converged but did not require $\lim y_k = 0$. To prove it we use summation by parts to get
+    $$
+    \begin{aligned}
+    \sum_{k=1}^n x_ky_k
+    &= s_n y_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1})
+    \end{aligned}
+    $$
+    Clearly $(s_n y_{n+1}) \to 0$ since $|s_n| \le M$ and $(y_{n+1}) \to 0$. Now we show absolute convergence of the right hand side (note $|y_k - y_{k+1}| = (y_k - y_{k+1})$ as $(y_n)$ is decreasing)
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M \sum_{k=1}^n (y_k - y_{k+1}) = M(y_1 - y_{n+1}) \le My_1
+    $$
+    Thus $\sum s_k(y_k - y_{k+1})$ converges absolutely and so finally
+    $$
+    s_n y_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1}) = \sum_{k=1}^n x_ky_k
+    $$
+    converges.
+  \item Let $a_n \ge 0$ with $a_1 \ge a_2 \ge \dots \ge 0$ and $\lim a_n = 0$. The series $\sum (-1)^n \le 1$ is bounded, so Dirichlet's test implies $\sum (-1)^n a_n$ converges.
+
+    In fact any periodic $b_n$ with $\sum b_n$ bounded has $\sum a_n b_n$ converging by Dirichlet.
   }
 \end{solution}
