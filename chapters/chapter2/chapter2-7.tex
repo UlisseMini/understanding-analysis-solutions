@@ -268,9 +268,32 @@
 \end{exercise}
 
 \begin{solution}
+  Intuitively, Abel's test is saying that multiplying by a positive decreasing sequence $(y_n)$ is basically the same as multiplying by a constant in that it doesn't effect convergence.
+
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Exercise 2.7.12 combined with $s_0=0$ gives
+    $$
+    \sum_{k=1}^n x_ky_k = s_ny_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1})
+    $$
+    as desired.
+  \item $s_ny_{n+1}$ clearly converges since $y_{n+1}$ is ``eventually constant'', so we must only show the right hand side converges.
+
+    We will show absolute convergence, note $y_k - y_{k+1} \ge 0$ and so
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \ge 0
+    $$
+    Bounding $|s_n| \le M$ gives
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M \sum_{k=1}^n (y_k-y_{k+1})
+    $$
+    Since $\sum_{k=1}^n (y_k - y_{k+1}) = y_1 - y_{n+1}$ is telescoping we can write
+    $$
+    \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M(y_1 - y_{n+1}) \le My_1
+    $$
+    Implying $\sum_{k=1}^\infty |s_k|(y_k - y_{k+1})$ converges since it is bounded and increasing.
+    And since the series converges absolutely so does the original $\sum_{k=1}^\infty s_k(y_k - y_{k+1})$.
+
+    \textbf{Summary:} Bound $|s_k| \le M$ and use the fact that $\sum(y_k - y_{k+1})$ is telescoping.
   }
 \end{solution}
 
