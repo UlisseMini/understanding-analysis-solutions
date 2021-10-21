@@ -124,7 +124,12 @@
     Pick $K$ such that for $k \ge K$ we have $|x_{n_k} - x| < \epsilon$.
     Since $(x_n)$ is increasing and $x_n \le x$ every $n \ge n_K$ satisfies $|x_n - x| < \epsilon$ as well.
     Thus $(x_n)$ converges, completing the proof.
-  \item \TODO
+  \item We're basically going to use the cauchy criterion as a replacement for NIP in the proof of BW.
+    Recall we had $I_{n+1} \subseteq I_n$ with $a_{n_k} \in I_k$, we will show $a_{n_k}$ is cauchy.
+
+    The length of $I_k$ is $M(1/2)^{k-1}$ by construction, so clearly $|a_{n_k} - a_{n_j}| < M(1/2)^{N-1}$ for $k,j \ge N$, implying $(a_{n_k})$ converges by the cauchy criterion.
+
+    We needed the Archimedean Property to conclude $M(1/2)^{N-1} \in \mathbf{Q}$ can be made smaller then any $\epsilon \in \mathbf{R}^+$.
   \item The Archimedean Property is true for $\mathbf{Q}$ meaning it cannot prove AoC which is only true for $\mathbf{R}$. (If we did, then we would have proved AoC for $\mathbf{Q}$ which is obviously false.)
   }
 \end{solution}
