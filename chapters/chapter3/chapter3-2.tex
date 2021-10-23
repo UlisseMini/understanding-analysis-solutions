@@ -139,17 +139,18 @@
   \item $A \backslash B=\{x \in A: x \notin B\}$
   \item $\left(A^{c} \cup B\right)^{c}$
   \item $(A \cap B) \cup\left(A^{c} \cap B\right)$
-  \item $\bar{A}^{c} \cap \overline{A^{c}}$
+  \item $\closure{A}^{c} \cap \closure{A^{c}}$
   }
 \end{exercise}
 
 \begin{solution}
+  For all of these keep in mind the only open and closed sets are $\mathbf{R}$ and $\emptyset$, and if $A$ is open $A^c$ is closed and vise versa.
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Closed, since the closure of a set is closed.
+  \item Open since $B$ being closed implies $B^c$ is open and thus $A \cap B^c$ is open as it is an intersection of open sets.
+  \item Demorgan's laws give $(A^c \cup B)^c = A \cap B^c$ which is the same as (b)
+  \item Both since $(A \cap B) \cup (A^c \cap B) = \mathbf{R}$
+  \item Neither in general. Note that $\closure{A}^c \ne \closure{A^c}$ consider how $A = \{1/n : n \in \mathbf{N}\}$ has $\closure{A^c} = \mathbf{R}$ but $\closure{A}^c \ne \mathbf{R}$.
   }
 \end{solution}
 
