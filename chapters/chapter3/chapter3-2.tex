@@ -167,7 +167,15 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
+  \item If $x \in \left(\bigcup_{\lambda \in \Lambda} E_\lambda\right)^c$ then $x \notin \bigcup_{\lambda \in \Lambda} E_\lambda$ meaning $x \notin E_\lambda$ for all $\lambda \in \Lambda$ implying $x \in E_\lambda^c$ for all $\lambda\in\Lambda$ and so finally $x \in \bigcap_{\lambda\in\Lambda} E_\lambda^c$. This shows
+    $$
+    \left(\bigcup_{\lambda\in\Lambda}E_\lambda\right)^c \subseteq \bigcap_{\lambda\in\Lambda} E_\lambda^c
+    $$
+    To show the reverse inclusion suppose $x \in \bigcap_{\lambda\in\Lambda} E_\lambda^c$ then $x \notin E_\lambda$ for all $\lambda$ meaning $x \notin \bigcup_{\lambda\in\Lambda} E_\lambda$ and so the reverse inclusion
+    $$
+    \bigcap_{\lambda\in\Lambda} E_\lambda^c \subseteq \left(\bigcup_{\lambda\in\Lambda}E_\lambda\right)^c
+    $$
+    Is true, completing the proof.
   \item \TODO
   }
 \end{solution}
@@ -182,7 +190,11 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enumr{
+  \item Cannot exist because taking any sequence $(x_n)$ BW tells us there exists a convergent subsequence.
+  \item \TODO
+  \item \TODO
+  }
 \end{solution}
 
 \begin{exercise}
