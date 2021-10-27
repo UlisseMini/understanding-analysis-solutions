@@ -1,0 +1,194 @@
+\section{Compact Sets}
+
+\begin{exercise}
+  Show that if $K$ is compact and nonempty, then sup $K$ and $\inf K$ both exist and are elements of $K$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Decide which of the following sets are compact. For those that are not compact, show how Definition 3.3.1 breaks down. In other words, give an example of a sequence contained in the given set that does not possess a subsequence converging to a limit in the set.
+  \enum{
+  \item $\mathbf{N}$.
+  \item $\mathbf{Q} \cap[0,1]$.
+  \item The Cantor set.
+  \item $\left\{1+1 / 2^{2}+1 / 3^{2}+\cdots+1 / n^{2}: n \in N\right\}$.
+  \item $\{1,1 / 2,2 / 3,3 / 4,4 / 5, \ldots\} .$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Prove the converse of Theorem 3.3.4 by showing that if a set $K \subseteq \mathbf{R}$ is closed and bounded, then it is compact.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Assume $K$ is compact and $F$ is closed. Decide if the following sets are definitely compact, definitely closed, both, or neither.
+  \enum{
+  \item $K \cap F$
+  \item $\overline{F^{c} \cup K^{c}}$
+  \item $K \backslash F=\{x \in K: x \notin F\}$
+  \item $\overline{K \cap F^c}$
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Decide whether the following propositions are true or false. If the claim is valid, supply a short proof, and if the claim is false, provide a counterexample.
+  \enum{
+  \item The arbitrary intersection of compact sets is compact.
+  \item The arbitrary union of compact sets is compact.
+  \item Let $A$ be arbitrary, and let $K$ be compact. Then, the intersection $A \cap K$ is compact.
+  \item If $F_{1} \supseteq F_{2} \supseteq F_{3} \supseteq F_{4} \supseteq \cdots$ is a nested sequence of nonempty closed sets, then the intersection $\bigcap_{n=1}^{\infty} F_{n} \neq \emptyset$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  This exercise is meant to illustrate the point made in the opening paragraph to Section 3.3. Verify that the following three statements are true if every blank is filled in with the word "finite." Which are true if every blank is filled in with the word "compact"? Which are true if every blank is filled in with the word "closed"?
+  \enum{
+  \item Every \blank\space set has a maximum.
+  \item If $A$ and $B$ are \blank, then $A+B=\{a+b: a \in A, b \in B\}$ is also \blank
+  \item If $\left\{A_{n}: n \in \mathbf{N}\right\}$ is a collection of \blank sets with the property that every finite subcollection has a nonempty intersection, then $\bigcap_{n=1}^{\infty} A_{n}$ is nonempty as well.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  As some more evidence of the surprising nature of the Cantor set, follow these steps to show that the sum $C+C=\{x+y: x, y \in C\}$ is equal to the closed interval $[0,2]$. (Keep in mind that $C$ has zero length and contains no intervals.)
+
+  Because $C \subseteq[0,1], C+C \subseteq[0,2]$, so we only need to prove the reverse inclusion $[0,2] \subseteq\{x+y: x, y \in C\}$. Thus, given $s \in[0,2]$, we must find two elements $x, y \in C$ satisfying $x+y=s$
+  \enum{
+  \item Show that there exist $x_{1}, y_{1} \in C_{1}$ for which $x_{1}+y_{1}=s$. Show in general that, for an arbitrary $n \in \mathbf{N}$, we can always find $x_{n}, y_{n} \in C_{n}$ for which $x_{n}+y_{n}=s .$
+  \item Keeping in mind that the sequences $\left(x_{n}\right)$ and $\left(y_{n}\right)$ do not necessarily converge, show how they can nevertheless be used to produce the desired $x$ and $y$ in $C$ satisfying $x+y=s$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Let $K$ and $L$ be nonempty compact sets, and define
+  $$
+  d=\inf \{|x-y|: x \in K \text { and } y \in L\}
+  $$
+  This turns out to be a reasonable definition for the distance between $K$ and $L$.
+  \enum{
+  \item If $K$ and $L$ are disjoint, show $d>0$ and that $d=\left|x_{0}-y_{0}\right|$ for some $x_{0} \in K$ and $y_{0} \in L$.
+  \item Show that it's possible to have $d=0$ if we assume only that the disjoint sets $K$ and $L$ are closed.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+
+\begin{exercise}
+  Follow these steps to prove the final implication in Theorem 3.3.8.
+
+  Assume $K$ satisfies (i) and (ii), and let $\left\{O_{\lambda}: \lambda \in \Lambda\right\}$ be an open cover for $K$. For contradiction, let's assume that no finite subcover exists. Let $I_{0}$ be a closed interval containing $K$.
+  \enum{
+  \item Show that there exists a nested sequence of closed intervals $I_{0} \supseteq I_{1} \supseteq I_{2} \supseteq$ $\cdots$ with the property that, for each $n, I_{n} \cap K$ cannot be finitely covered and $\lim \left|I_{n}\right|=0$.
+  \item Argue that there exists an $x \in K$ such that $x \in I_{n}$ for all $n$.
+  \item Because $x \in K$, there must exist an open set $O_{\lambda_{0}}$ from the original collection that contains $x$ as an element. Explain how this leads to the desired contradiction.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Here is an alternate proof to the one given in Exercise 3.3.9 for the final implication in the Heine-Borel Theorem.
+
+  Consider the special case where $K$ is a closed interval. Let $\left\{O_{\lambda}: \lambda \in \Lambda\right\}$ be an open cover for $[a, b]$ and define $S$ to be the set of all $x \in[a, b]$ such that $[a, x]$ has a finite subcover from $\left\{O_{\lambda}: \lambda \in \Lambda\right\}$.
+  \enum{
+  \item Argue that $S$ is nonempty and bounded, and thus $s=\sup S$ exists.
+  \item Now show $s=b$, which implies $[a, b]$ has a finite subcover.
+  \item Finally, prove the theorem for an arbitrary closed and bounded set $K$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum{
+  \item \TODO
+  \item \TODO
+  \item \TODO
+  }
+\end{solution}
+
+\begin{exercise}
+  Consider each of the sets listed in Exercise 3.3.2. For each one that is not compact, find an open cover for which there is no finite subcover.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+
+\begin{exercise}
+  Using the concept of open covers (and explicitly avoiding the Bolzano-Weierstrass Theorem), prove that every bounded infinite set has a limit point.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let's call a set \emph{clompact} if it has the property that every \emph{closed} cover (i.e., a cover consisting of closed sets) admits a finite subcover. Describe all of the clompact subsets of $\mathbf{R}$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
