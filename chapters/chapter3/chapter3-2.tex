@@ -176,7 +176,14 @@
     \bigcap_{\lambda\in\Lambda} E_\lambda^c \subseteq \left(\bigcup_{\lambda\in\Lambda}E_\lambda\right)^c
     $$
     Is true, completing the proof.
-  \item \TODO
+  \item
+    Let $F = F_1 \cup F_2$, if $x_n \in F$ and $x = \lim x_n$. Let $(x_{n_k})$ be a subsequence of $(x_n)$ fully contained in $F_1$ or $F_2$. the subsequence $(x_{n_k})$ must also converge to $x$, meaning $x$ is in $F_1$ or $F_2$, the rest is by induction.
+
+    Now let $F = \bigcap_{\lambda\in\Lambda} F_\lambda$
+    $$
+    F^c = \bigcup_{\lambda\in\Lambda} F_\lambda^c
+    $$
+    Each $F_\lambda^c$ is open by Theorem 3.2.13, thus Theorem 3.2.3 (ii) implies $F^c$ is open, and so $(F^c)^c = F$ is closed.
   }
 \end{solution}
 
