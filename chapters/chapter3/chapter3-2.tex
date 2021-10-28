@@ -213,8 +213,17 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item Recall that the set of limit points of a set is closed (Exercise 3.2.7). Let $L$ be the set of limit points of $A\cup B$ and let $L_a, L_b$ be the set of limit points for $A$ and $B$ respectively.
+
+    Let $x \in L$, thus there exists a sequence $x_n \in A\cup B$ with $x = \lim x_n$, since $(x_n)$ is infinite there exists a subsequence $(x_{n_k})$ where every term is in $A$ or $B$. Thus the limit $\lim (x_{n_k}) = x$ must be a limit point of $A$ or $B$ meaning $x \in L_a \cup L_b$. This shows $\closure{A \cup B} \subseteq \closure{A} \cup \closure{B}$.
+
+    Now let $x \in L_a$ ($L_b$ is the same). there exists a sequence $x_n \in A$ with $x=\lim x_n$, now since $x_n \in A \cup B$ as well, $x \in L$. Thus we have shown $\closure A \cup \closure B \subseteq \closure{A \cup B}$ completing the proof.
+  \item False, take $A_n = \{1/n\}$ as a counterexample
+    $$
+    \closure{\bigcup_{n=1}^\infty A_n} = \{1/n : n \in \mathbf{N}\} \cup \{0\},
+    \text{ but }
+    \bigcup_{n=1}^\infty \closure{A_n} = \{1/n : n \in \mathbf{N}\}
+    $$
   }
 \end{solution}
 
