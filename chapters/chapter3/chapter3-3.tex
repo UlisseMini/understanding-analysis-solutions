@@ -138,9 +138,9 @@
 
 
 \begin{exercise}
-  Follow these steps to prove the final implication in Theorem 3.3.8.
+  Follow these steps to prove that being compact implies every open cover has a finite subcover.
 
-  Assume $K$ satisfies (i) and (ii), and let $\left\{O_{\lambda}: \lambda \in \Lambda\right\}$ be an open cover for $K$. For contradiction, let's assume that no finite subcover exists. Let $I_{0}$ be a closed interval containing $K$.
+  Assume $K$ is compact, and let $\left\{O_{\lambda}: \lambda \in \Lambda\right\}$ be an open cover for $K$. For contradiction, let's assume that no finite subcover exists. Let $I_{0}$ be a closed interval containing $K$.
   \enum{
   \item Show that there exists a nested sequence of closed intervals $I_{0} \supseteq I_{1} \supseteq I_{2} \supseteq$ $\cdots$ with the property that, for each $n, I_{n} \cap K$ cannot be finitely covered and $\lim \left|I_{n}\right|=0$.
   \item Argue that there exists an $x \in K$ such that $x \in I_{n}$ for all $n$.
@@ -150,9 +150,9 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Bisect $I_0$ into two intervals, and let $I_1$ be the interval where $I_1 \cap K$ cannot be finitely covered. Repating in this fashion we have $\lim |I_n| = \lim |I_0|(1/2)^n = 0$.
+  \item The nested compact set property with $K_n = I_n \cap K$ gives $x \in \bigcap_{n=1}^\infty K_n$ meaning $x \in K$ and $x \in I_n$ for all $n$.
+  \item Since $x \in O_{\lambda_0}$ and $|I_n| \to 0$ with $x \in I_n$ for all $n$, there exists an $N$ where $n > N$ implies $I_n \subseteq O_{\lambda_0}$ contradicting the assumption that $I_n \cap K$ cannot be finitely covered since $\{O_{\lambda_0}\}$ is a finite subcover for $I_n \cap K$.
   }
 \end{solution}
 
