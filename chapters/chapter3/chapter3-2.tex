@@ -232,7 +232,27 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  % TODO: Refactor using lemmas, get rid of ugly s = \pm \infty case
+  Our primary tool will be that countably infinite unions preserve countability (see Exercise \ref{ex:countable_union}). First we will find an $s \in B$, then we will find a neighborhood with $V_\epsilon(s) \subseteq B$.
+
+  Let $s = \inf \{x \in \mathbf{R} : (-\infty, x) \cap A \text{ is uncountable}\}$, we know $s$ is finite since if $s = \infty$ then every $(-\infty, n) \cap A$ being countable would imply $A$ was countable by \ref{ex:countable_union}.
+  And if $s = -\infty$ then every $(-\infty, -n) \cap A$ being uncountable implies $\exists n$ with $(-n, \infty) \cap A$ uncountable as otherwise
+  $$
+  \bigcup_{n=1}^\infty (-n, \infty) \cap A = A
+  $$
+  would be countable.
+
+  Now assume $s$ is finite, we know
+  $$(-\infty, s) \cap A = \bigcup_{n=1}^\infty (-\infty, s+1/n) \cap A$$
+  is countable by \ref{ex:countable_union}. therefor $(s, \infty) \cap A$ must be uncountable.
+
+  The definition of infimum implies $(-\infty, s+\epsilon) \cap A$ is uncountable forall $\epsilon > 0$, We will show there exists an $\epsilon > 0$ with $s+\epsilon \in B$.
+
+  Suppose the converse, if $(s+\epsilon, \infty)$ is countable forall $\epsilon > 0$, then \ref{ex:countable_union} would imply that
+  $$\bigcup_{n=1}^\infty (s+1/n, \infty) = (s, \infty)$$
+  is countable, which is impossible since it would imply $A$ is countable. Therefor there exists an $\epsilon > 0$ with $(s+\epsilon, \infty) \cap A$ uncountable and $(-\infty, s+\epsilon) \cap A$ uncountable, meaning $s+\epsilon \in B$.
+
+  Now we know $B$ is nonempty, pick any $s \in B$ we must show there exists an $\epsilon > 0$ with $V_\epsilon(b) \subseteq B$. If $(-\infty, s) \cap A$ is uncountable we automatically have that $(-\infty, s+\epsilon) \cap A$ is uncountable. Which is true when $\epsilon > 0$ is small enough that $(s+\epsilon, \infty) \cap A$ is uncountable. We can do this using \ref{ex:countable_union} as before.
 \end{solution}
 
 \begin{exercise}
@@ -240,7 +260,13 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Let $A \ne \emptyset$ be open and closed, and suppose for contradiction that $A \ne \mathbf R$ and $r \notin A$.
+
+  $A \cap (-\infty, r)$ is open and closed since $A \cap (-\infty, r)$ is an intersection of open sets, and $A \cap (-\infty, r) = A \cap (-\infty, r]$ (since $r \notin A$) is an intersection of closed sets.
+
+  Attempting to take $s = \sup A \cap (-\infty, r)$ gives a contradiction, since $s \in A \cap (-\infty, r)$ (because closed and bounded above) we can find $\epsilon > 0$ with $V_\epsilon(s) \subseteq A \cap (-\infty, r)$ (because open) which contradictions $s$ being an upper bound of $A \cap (-\infty, r)$.
+
+  Therefor if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
 \end{solution}
 
 \begin{exercise}
