@@ -305,8 +305,11 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $[a,b] = \bigcap_{n=1}^\infty (a-1/n, b+1/n)$
+  \item $(a,b] = \bigcap_{n=1}^\infty (a, b+1/n) = \bigcup_{n=1}^\infty [a+1/n, b]$
+  \item Let $r_n$ be an enumeration of $\mathbf Q$ (possible since $\mathbf Q$ is countable), we have
+    $$\mathbf Q = \bigcup_{n=1}^\infty [r_n, r_n]$$
+    Applying demorgan's laws combined with the complement of a closed set being open we get
+    $$\mathbf Q^c = \bigcap_{n=1}^\infty [r_n, r_n]^c$$
   }
 \end{solution}
