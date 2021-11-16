@@ -276,15 +276,21 @@
   $$
   Results about closures and interiors possess a useful symmetry.
   \enum{
-  \item Show that $E$ is closed if and only if $\bar{E}=E .$ Show that $E$ is open if and only if $E^{\circ}=E$.
-  \item Show that $\bar{E}^{c}=\left(E^{c}\right)^{\circ}$, and similarly that $\left(E^{\circ}\right)^{c}=\overline{E^{c}}$.
+  \item Show that $E$ is closed if and only if $\closure{E}=E .$ Show that $E$ is open if and only if $E^{\circ}=E$.
+  \item Show that $\closure{E}^{c}=\left(E^{c}\right)^{\circ}$, and similarly that $\left(E^{\circ}\right)^{c}=\closure{E^{c}}$.
   }
 \end{exercise}
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item
+    \enumr{
+    \item If $E = \closure E$ then $E$ contains its limit points and so is closed. If $E$ is closed then $E$ contains its limit points so $\closure{E} = E$.
+    \item If $E^\circ = E$ then every $x \in E$ has $V_\epsilon(x) \subseteq E$ therefor $E$ is open. If $E$ is open then every $x \in E$ has $V_\epsilon(x) \subseteq E$ therefor $E = E^\circ$.
+    }
+  \item $x \in \closure{E}^c$ iff $x \notin E$ and $x$ is not a limit point of $E$, $x \in (E^c)^\circ$ iff $x \notin E$ and there exists $V_\epsilon(x) \subseteq E^c$. Notice ``x is not a limit point of $E$'' is equivilant to ``there exists $V_\epsilon(x) \subseteq E^c$'' therefor the sets are the same.
+
+    To show $(E^\circ)^c = \closure{E^c}$ let $D = E^c$ yielding $((D^c)^\circ)^c = \closure{D}$ taking the complement of both sides yields $(D^c)^\circ = \closure{D}^c$ which we showed earlier.
   }
 \end{solution}
 
