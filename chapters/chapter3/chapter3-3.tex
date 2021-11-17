@@ -109,10 +109,14 @@
 
 \begin{solution}
   \enum{
-  \item Since $y = s-x$ we must show there exists an $x \in C_1$ such that $s-x \in C_1$. If $s \in C_1$ then set $x=0$, if $s \notin C_1$ then either $s \in (1/3, 2/3)$ and $x=1/3$ or $s \in (1, 2]$ and $x=1$.
+  \item Define $2A = A+A = \{x+y : x,y \in A\}$, $C_1 = [0, 1/3] \cup [2/3, 1]$ has
+    $$2C_1 = (2[0,1/3]) \cup (2[2/3, 1]) \cup ([0,1/3] + [2/3, 1])$$
+    It's obvious that $2[0,1/3] = [0,2/3]$ and $2[2/3, 1] = [4/3, 2]$ now consider the last term, let $x \in [0,1/3]$ be fixed and let $y \in [2/3, 1]$ vary. obviously $x+y \in [2/3, 4/3]$ therefor adding the endpoints to compute $[0,1/3]+[2/3,1]=[2/3,4/3]$ works!
+    % TODO: Rewrite this explanation at the top, unifying stupid 2*. and .+. notation for closed intervals
 
-    \TODO
-    % Now for $C_2$ we use the symmetry of the Cantor procedure. In general for any interval $[0, a]$ we know from above that after removing the middle third we can still find $x,y \in [0, a/3] \cup [2a/3, a]$ with $x+y = s$ for all $s \in [0, 2a]$.
+    This means that $2C_1 = [0,2/3] \cup [4/3, 2] \cup [2/3, 4/3] = [0, 2]$!
+
+    \TODO Induction
   \item Since $C$ is compact, there exists a subsequence $(x_{n_k}) \to x$ with $x \in C$. Now since $x_{n_k} + y_{n_k} = s$ for all $k$, we have $\lim y_{n_k} = \lim s - x_{n_k} = s - x$. Now since each $y_{n_k} \in C$ the limit $y = s - x \in C$ as well, thus we have found $x,y\in C$ with $x+y = s$.
   }
 \end{solution}
@@ -169,9 +173,12 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $S$ is nonempty since $x=a$ has the finite subcover $\{O_{\lambda_0}\}$ for $a \in O_{\lambda_0}$. $S$ is bounded since $x \le b$ for all $x \in S$.
+  \item Suppose for contradiction that $s < b$, letting $s \in O_{\lambda_0}$ implies $[a,s]$ is finitely coverable since we can take the finite cover of an $x \in O_{\lambda_0}$ with $x < s$. This is causes a contradiction however since there exist points $y > s$ with $y \in O_{\lambda_0}$ meaning $[a,y]$ is also finitely coverable. Therefor the only option is $s = b$, since any $s < b$ doesn't work.
+  \item (a) still works, for (b) we must also consider the case where $y$ does not exist / there is a gap. Let $y = \inf\;[s, b]\cap K$ and suppose $y \ne s$. since $y \in [s,b] \cap K$ we know
+    $$[a,y] \cap K = ([a,s]\cap K) \cup ((s, y]\cap K) = [a,s]\cap K \cup \{y\}$$
+    therefor if $\{O_{\lambda_1}, \dots, O_{\lambda_n}\}$
+    covered $[a, s]$ then letting $y \in O_{\lambda_{n+1}}$ would give the finite cover $\{O_{\lambda_1}, \dots, O_{\lambda_{n+1}}\}$ contradicting the assumption that $s < b$, therefor $s = b$ is the only option, and so $K$ can be finitely covered.
   }
 \end{solution}
 
