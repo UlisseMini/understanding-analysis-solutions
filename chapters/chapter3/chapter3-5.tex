@@ -1,0 +1,69 @@
+\section{Baire's Theorem}
+
+\begin{exercise}
+  Argue that a set $A$ is a $G_{\delta}$ set if and only if its complement is an $F_{\sigma}$ set.
+\end{exercise}
+
+\begin{solution}
+  If $A$ is a $G_\delta$ set, then $A^c$ is a $F_\sigma$ set by demorgan's laws.
+  Likewise if $A$ is an $F_\sigma$ set then $A^c$ must be a $G_\delta$ set.
+\end{solution}
+
+\begin{exercise}
+  Replace each with the word finite or countable, depending on which is more appropriate.
+  \enum{
+  \item The \blankk union of $F_{\sigma}$ sets is an $F_{\sigma}$ set.
+  \item The \blankk intersection of $F_{\sigma}$ sets is an $F_{\sigma}$ set.
+  \item The \blankk union of $G_{\delta}$ sets is a $G_{\delta}$ set.
+  \item The \blankk intersection of $G_{\delta}$ sets is a $G_{\delta}$ set.
+  }
+\end{exercise}
+
+\begin{solution}
+  \enum {
+  \item Countable, since two countable union can be written as a single countable union over the diagonal (see Exercise 1.2.4). Another way of seeing this is that we can form a bijection between $\mathbf N$ and $\mathbf N^2$, therefor a double infinite union can be written as a single infinite union.
+  \item Finite
+  \item Countable, by the same logic as in (a) we can write two countable intersections as a single countable intersection.
+  \item Finite
+  }
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show that a closed interval $[a, b]$ is a $G_{\delta}$ set.
+  \item Show that the half-open interval $(a, b]$ is both a $G_{\delta}$ and an $F_{\sigma}$ set.
+  \item Show that $\mathbf{Q}$ is an $F_{\sigma}$ set, and the set of irrationals I forms a $G_{\delta}$ set.
+  }
+\end{exercise}
+
+\begin{solution}
+  This exercise has already appeared as Exercise 3.2.15.
+\end{solution}
+
+\begin{exercise}
+  Let $\left\{G_{1}, G_{2}, G_{3}, \ldots\right\}$ be a countable collection of dense, open sets, we will prove that the intersection $\bigcap_{n=1}^{\infty} G_{n}$ is not empty.
+
+  Starting with $n=1$, inductively construct a nested sequence of closed intervals $I_{1} \supseteq I_{2} \supseteq I_{3} \supseteq \cdots$ satisfying $I_{n} \subseteq G_{n}$. Give special attention to the issue of the endpoints of each $I_{n}$. Show how this leads to a proof of the theorem.
+\end{exercise}
+
+\begin{solution}
+  Since each $G_n$ is dense in $\mathbf R$, and $G_n = 3/2$
+
+  Let $I_1 \subseteq G_1$ because $G_1$ is open, if $m_1$ is the midpoint of $I_1$ then there exists an $\epsilon$ small enough that $V_\epsilon(m_1) \subseteq G_1$ and $V_\epsilon(m_1) \subseteq I_1$, let $I_2 \subseteq V_\epsilon(m_1)$. Continuing this process and applying NIP gives an $x \in \bigcap_{n=1}^\infty I_n$, since each $I_n \subseteq G_n$ we have $x \in \bigcap_{n=1}^\infty G_n$ and thus the intersection is nonempty.
+\end{solution}
+
+\begin{exercise}
+  Show that it is impossible to write
+  $$
+  \mathbf{R}=\bigcup_{n=1}^{\infty} F_{n}
+  $$
+  where for each $n \in \mathbf{N}, F_{n}$ is a closed set containing no nonempty open intervals.
+\end{exercise}
+
+\begin{solution}
+  This is just the complement of Exercise 3.5.4, If we had $\mathbf R = \bigcup_{n=1}^\infty F_n$ then we would also have
+  $$\emptyset = \bigcap_{n=1}^\infty G_n$$
+  for $G_n = F_n^c$. $G_n$ is open as it is the complement of a closed set, and since $F_n$ contains no nonempty open intervals $G_n$ is dense. This contradicts $\bigcap_{n=1}^\infty G_n \ne \emptyset$  from 3.5.4.
+
+  To be totally rigorous we still have to justify $F_n^c$ being dense. \TODO
+\end{solution}
