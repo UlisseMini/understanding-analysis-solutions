@@ -38,6 +38,10 @@
 
 \begin{exercise}
   Review the definition of Thomae's function $t(x)$ from Section 4.1.
+  $$
+  t(x)= \begin{cases}1 & \text { if } x=0 \\ 1 / n & \text { if } x=m / n \in \mathbf{Q} \backslash\{0\} \text { is in lowest terms with } n>0 \\ 0 & \text { if } x \notin \mathbf{Q} .\end{cases}
+  $$
+
   \enum{
   \item Construct three different sequences $\left(x_{n}\right),\left(y_{n}\right)$, and $\left(z_{n}\right)$, each of which converges to 1 without using the number 1 as a term in the sequence.
   \item Now, compute $\lim t\left(x_{n}\right), \lim t\left(y_{n}\right)$, and $\lim t\left(z_{n}\right)$.
@@ -47,9 +51,11 @@
 
 \begin{solution}
   \enum {
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item $x_n = (1+n)/n$, $y_n = 1 - 1/n^2$ and $z_n = 1 + 1/2^n$.
+  \item $\lim t(x_n) = 0$ since the size of the denominator becomes arbitrarily large. Same for the others
+  \item I claim $\lim_{x \to 1} t(x) = 0$. let $\epsilon > 0$ be arbitrary, we must show there exists a $\delta$ where every $|x| < \delta$ has $t(x) < \epsilon$. for $x \notin \mathbf{Q}$ we have $t(x) = 0 < \epsilon$, and we can easily set $\delta$ small enough that $t(0)=1$ is excluded. That leaves us with the case $x \in \mathbf{Q}$ in which case we can write $x = m/n$ in lowest terms.
+
+    To get $t(x) = 1/n < \epsilon$ we observe that $|m/n| < \delta$ implies $t(x) = 1/n < \delta$ since $|m/n| \le 1/n$. Setting $\delta = \min\{\epsilon,1\}$ completes the proof.
   }
 \end{solution}
 
@@ -105,10 +111,10 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Obviously, since if $\delta' < \delta$ then $|x - a| < \delta'$ implies $|x - a| < \delta$.
+  \item False, consider $f(0) = 1$ and $f(x) = 0$ otherwise, the definition of a functional limit requires $|x - a| < \delta$ to imply $|f(x) - L| < \epsilon$ \emph{for $x$ not equal to $a$}
+  \item True by the algebraic limit theorem for functional limits. (or composition of continuous functions, but that's unnecessary here)
+  \item False, consider how $f(x) = x$ has $\lim_{x \to 0} f(x) = 0$ but $g(x) = 1/x$ has $\lim_{n \to 0} f(x)g(x) = 1$. (Fundementally this is because $1/x$ is not continuous at $0$)
   }
 \end{solution}
 
@@ -118,7 +124,9 @@ Show that if $\lim _{x \rightarrow c} g(x)=0$, then $\lim _{x \rightarrow c} g(x
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  We have $|g(x)f(x)| \le M|g(x)|$, set $\delta$ small enough that $|g(x)| < \epsilon/M$ to get
+  $$|g(x)f(x)| \le M|g(x)| < M\frac{\epsilon}{M} = \epsilon$$
+  for all $|x - a| < \delta$.
 \end{solution}
 
 \begin{exercise}
