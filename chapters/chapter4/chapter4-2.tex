@@ -55,7 +55,7 @@
   \item $\lim t(x_n) = 0$ since the size of the denominator becomes arbitrarily large. Same for the others
   \item I claim $\lim_{x \to 1} t(x) = 0$. let $\epsilon > 0$ be arbitrary, we must show there exists a $\delta$ where every $|x| < \delta$ has $t(x) < \epsilon$. for $x \notin \mathbf{Q}$ we have $t(x) = 0 < \epsilon$, and we can easily set $\delta$ small enough that $t(0)=1$ is excluded. That leaves us with the case $x \in \mathbf{Q}$ in which case we can write $x = m/n$ in lowest terms.
 
-    To get $t(x) = 1/n < \epsilon$ we observe that $|m/n| < \delta$ implies $t(x) = 1/n < \delta$ since $|m/n| \le 1/n$. Setting $\delta = \min\{\epsilon,1\}$ completes the proof.
+    To get $t(x) = 1/n < \epsilon$ we observe that $|m/n| < \delta$ implies $t(x) = 1/n \le |m/n| < \delta$ so setting $\delta = \epsilon$ gives $t(x) < \epsilon$. To complete the proof set $\delta = \min\{\epsilon, 1\}$
   }
 \end{solution}
 
