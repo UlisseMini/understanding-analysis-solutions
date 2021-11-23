@@ -47,9 +47,15 @@
 \end{exercise}
 
 \begin{solution}
-  Since each $G_n$ is dense in $\mathbf R$, and $G_n = 3/2$
+  Because $G_1$ is open there exists an open interval $(a_1,b_1) \subseteq G_1$, letting $[-c_1, c_1]$ be a closed interval contained in $(a_1, b_1)$ gives $I_1 \subseteq G_1$ as desired.
 
-  Let $I_1 \subseteq G_1$ because $G_1$ is open, if $m_1$ is the midpoint of $I_1$ then there exists an $\epsilon$ small enough that $V_\epsilon(m_1) \subseteq G_1$ and $V_\epsilon(m_1) \subseteq I_1$, let $I_2 \subseteq V_\epsilon(m_1)$. Continuing this process and applying NIP gives an $x \in \bigcap_{n=1}^\infty I_n$, since each $I_n \subseteq G_n$ we have $x \in \bigcap_{n=1}^\infty G_n$ and thus the intersection is nonempty.
+  Now suppose $I_{n} \subseteq G_{n}$. because $G_{n+1}$ is dense and $(-c_{n}, c_{n}) \cap G_{n+1}$ is open there exists an interval $(a_{n+1}, b_{n+1}) \subseteq G_n \cap (-c_{n-1}, c_{n-1})$. Letting $[-c_{n+1}, c_{n+1}] \subseteq (a_{n+1}, b_{n+1})$ gives us our new closed interval.
+
+  This gives us our collection of sets with $I_{n+1} \subseteq I_n$, $I_n \subseteq G_n$ and $I_n \ne \emptyset$ allowing us to apply the nested interval property to conclude
+  $$
+  \bigcap_{n=1}^\infty I_n \ne \emptyset
+  $$
+  and thus $\bigcap_{n=1}^\infty G_n \ne \emptyset$ since each $I_n \subseteq G_n$.
 \end{solution}
 
 \begin{exercise}
