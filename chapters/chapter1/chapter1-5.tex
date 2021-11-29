@@ -266,8 +266,15 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
+  \item $f : A \to B$ and $g : B' \to A'$ are bijective, therefor we can define
+    $$h(x) = \begin{cases}f(x) & \text{ if } x \in A \\ g^{-1}(x) & \text{ if } x \in A' \end{cases}$$
+    which is bijective.
+  \item If $A_1 = \emptyset$ then $g : Y \to X$ is 1-1 and onto so we are done.
+    To show $\{A_n\}$ is pairwise disjoint, we will first show $A_1 \cap g(f(A_1)) = \emptyset$. this is obviously true since $A_1 = X \setminus g(Y)$ so $A_1$ is the set of elements not accessable by $g$.
+
+    Suppose $x \in g(f(A_1))$, then $x \notin A_1$ since $A_1 = X \setminus g(Y)$ is the set inaccessable from $g$. Thus $A_1 \cap A_2 = \emptyset$
+
+    \TODO
   \item \TODO
   \item \TODO
   }
