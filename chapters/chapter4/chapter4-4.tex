@@ -1,0 +1,164 @@
+\section{Continuous Functions on Compact Sets}
+
+\begin{exercise}
+  \enum{
+  \item Show that $f(x)=x^{3}$ is continuous on all of $\mathbf{R}$.
+  \item Argue, using Theorem 4.4.5, that $f$ is not uniformly continuous on $\mathbf{R}$.
+  \item Show that $f$ is uniformly continuous on any bounded subset of $\mathbf{R}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Is $f(x)=1 / x$ uniformly continuous on $(0,1)$ ?
+  \item Is $g(x)=\sqrt{x^{2}+1}$ uniformly continuous on $(0,1)$ ?
+  \item Is $h(x)=x \sin (1 / x)$ uniformly continuous on $(0,1)$ ?
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+
+\begin{exercise}
+  Show that $f(x)=1 / x^{2}$ is uniformly continuous on the set $[1, \infty)$ but not on the set $(0,1]$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Decide whether each of the following statements is true or false, justifying each conclusion.
+  \enum{
+  \item If $f$ is continuous on $[a, b]$ with $f(x)>0$ for all $a \leq x \leq b$, then $1 / f$ is bounded on $[a, b]$ (meaning $1 / f$ has bounded range).
+  \item If $f$ is uniformly continuous on a bounded set $A$, then $f(A)$ is bounded.
+  \item If $f$ is defined on $\mathbf{R}$ and $f(K)$ is compact whenever $K$ is compact, then $f$ is continuous on $\mathbf{R}$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Assume that $g$ is defined on an open interval $(a, c)$ and it is known to be uniformly continuous on $(a, b]$ and $[b, c)$, where $a<b<c$. Prove that $g$ is uniformly continuous on $(a, c)$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Give an example of each of the following, or state that such a request is impossible. For any that are impossible, supply a short explanation for why this is the case.
+  \enum{
+  \item A continuous function $f:(0,1) \rightarrow \mathbf{R}$ and a Cauchy sequence $\left(x_{n}\right)$ such that $f\left(x_{n}\right)$ is not a Cauchy sequence;
+  \item A uniformly continuous function $f:(0,1) \rightarrow \mathbf{R}$ and a Cauchy sequence $\left(x_{n}\right)$ such that $f\left(x_{n}\right)$ is not a Cauchy sequence;
+  \item A continuous function $f:[0, \infty) \rightarrow \mathbf{R}$ and a Cauchy sequence $\left(x_{n}\right)$ such that $f\left(x_{n}\right)$ is not a Cauchy sequence;
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+
+\begin{exercise}
+  Prove that $f(x)=\sqrt{x}$ is uniformly continuous on $[0, \infty)$.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Give an example of each of the following, or provide a short argument for why the request is impossible.
+  \enum{
+  \item A continuous function defined on $[0,1]$ with range $(0,1)$.
+  \item A continuous function defined on $(0,1)$ with range $[0,1]$.
+  \item A continuous function defined on $(0,1]$ with range $(0,1)$.
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Lipschitz Functions]
+  A function $f: A \rightarrow \mathrm{R}$ is called Lipschitz if there exists a bound $M>0$ such that
+  $$
+  \left|\frac{f(x)-f(y)}{x-y}\right| \leq M
+  $$
+  for all $x \neq y \in A$. Geometrically speaking, a function $f$ is Lipschitz if there is a uniform bound on the magnitude of the slopes of lines drawn through any two points on the graph of $f$.
+  \enum{
+  \item Show that if $f: A \rightarrow \mathbf{R}$ is Lipschitz, then it is uniformly continuous on $A$.
+  \item Is the converse statement true? Are all uniformly continuous functions necessarily Lipschitz?
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Assume that $f$ and $g$ are uniformly continuous functions defined on a common domain $A$. Which of the following combinations are necessarily uniformly continuous on $A$:
+  $$
+  f(x)+g(x), \quad f(x) g(x), \quad \frac{f(x)}{g(x)}, \quad f(g(x)) ?
+  $$
+  (Assume that the quotient and the composition are properly defined and thus at least continuous.)
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Topological Characterization of Continuity]
+  Let $g$ be defined on all of $\mathbf{R}$. If $B$ is a subset of $\mathbf{R}$, define the $\operatorname{set} g^{-1}(B)$ by
+  $$
+  g^{-1}(B)=\{x \in \mathbf{R}: g(x) \in B\} .
+  $$
+  Show that $g$ is continuous if and only if $g^{-1}(O)$ is open whenever $O \subseteq \mathbf{R}$ is an open set.
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Review Exercise 4.4.11, and then determine which of the following statements is true about a continuous function defined on $\mathbf{R}$ :
+  \enum{
+  \item $f^{-1}(B)$ is finite whenever $B$ is finite.
+  \item $f^{-1}(K)$ is compact whenever $K$ is compact.
+  \item $f^{-1}(A)$ is bounded whenever $A$ is bounded.
+  \item $f^{-1}(F)$ is closed whenever $F$ is closed.
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Continuous Extension Theorem]
+  \enum{
+  \item Show that a uniformly continuous function preserves Cauchy sequences; that is, if $f: A \rightarrow \mathbf{R}$ is uniformly continuous and $\left(x_{n}\right) \subseteq A$ is a Cauchy sequence, then show $f\left(x_{n}\right)$ is a Cauchy sequence.
+  \item Let $g$ be a continuous function on the open interval $(a, b)$. Prove that $g$ is uniformly continuous on $(a, b)$ if and only if it is possible to define values $g(a)$ and $g(b)$ at the endpoints so that the extended function $g$ is continuous on $[a, b]$. (In the forward direction, first produce candidates for $g(a)$ and $g(b)$, and then show the extended $g$ is continuous.)
+  }
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
+
+
+\begin{exercise}
+  Construct an alternate proof of Theorem 4.4.7 (Continuous on $K$ implies Uniformly Continuous on $K$) using the open cover characterization of compactness from the Heine-Borel Theorem (Theorem 3.3.8 (iii)).
+\end{exercise}
+
+\begin{solution}
+  \TODO
+\end{solution}
