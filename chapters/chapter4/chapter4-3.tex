@@ -245,7 +245,18 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item Let $\delta = \epsilon/c$ to get $|f(x) - f(y)| \le c|x-y| < \epsilon$ whenever $|x-y|<\delta$. (This is the general proof, we could make it shorter by letting $\delta=\epsilon$ since $0<c<1$)
+  \item We want $|y_n - y_m| < \epsilon$. since $0 < c < 1$ we have $|y_{n+1} - y_{m+1}| \le c|y_n - y_m|$,
+    implying $|y_n - y_m| \le c^m|y_{n-m+1} - y_1|$. Thus if we can bound $|y_k - y_1| \le M$ we will be done.
+
+    \TODO
+
+
+    Note that showing $|y_n - y_{n-1}|$ goes to zero is not enough for general cauchy sequences, consider $a_n = \ln n$ as a counterexample: $|a_n - a_{n-1}| = \left|\ln(1 - 1/n)\right|$ goes to zero but $(a_n)$ is not cauchy.
+  \item \TODO
+  \item \TODO
+  }
 \end{solution}
 
 \begin{exercise}
@@ -254,7 +265,13 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Let $x \in \mathbf R$ and let $a \in F$ be the element of $F$ closest to $x$ (must exist since $F$ is closed), we have $0 \le g(y) \le |y-a|$ and $g(x) = |x-a|$ thus $-|x-a| \le g(y)-g(x) \le |y-a|-|x-a|$ so
+  $$|g(y) - g(x)| \le ||y-a| - |x-a||$$
+  Applying the bound from Exercise 1.2.6 (d) we get
+  $$||y-a|-|x-a|| \le |(y-a) - (x-a)| = |y-x| < \delta$$
+  Setting $\delta = \epsilon$ gives $|g(x)-g(y)|<\epsilon$ as desired.
+
+  To see $g(x) \ne 0$ for $x \notin F$ notice that $F^c$ is open so there exists an $\alpha>0$ so that $V_\alpha(x) \cap F = \emptyset$ meaning $g(x) \ge \alpha$ and so $g(x) \ne 0$.
 \end{solution}
 
 \begin{exercise}
@@ -267,7 +284,13 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item $f(0+0) = f(0) + f(0)$ implies $f(0) = 0$ and thus $f(x + (-x)) = 0 = f(x) + f(-x)$ meaning $f(-x) = -f(x)$.
+  \item $f(n) = f(1) + \dots + f(1) = k + \dots + k = kn$. Now since $f(-n) = -f(n) = -kn$ we have $f(z) = kz$ for all $z \in \mathbf{Z}$. Finally let $r = p/q$ for $p \in \mathbf{Z}$ and $q \in \mathbf{N}$. notice that $f(qr) = k(qr)$ and since $f(qr) = f(r + \dots + r) = f(r) + \dots + f(r) = qf(r)$ we have $f(r) = k(qr)/q = kr$.
+  \item Assume $f$ is continuous at $0$ and let $x \in \mathbf{R}$ be arbitrary. Let $x_n$ be a sequence approaching $x$. since $(x-x_n) \to 0$ we have $f(x-x_n) \to 0$ because $f$ is continuous at zero. Now since $f$ is additive $f(x-x_n) = f(x) - f(x_n) \to 0$ implies $f(x_n) \to f(x)$ meaning $f$ is continuous at $x \in \mathbf{R}$ by the sequential characterization of continuity.
+
+    Now to see that $f(x) = kx$ for $x \in \mathbf{I}$ simply take a limit of rationals approaching $x$.
+  }
 \end{solution}
 
 \begin{exercise}
