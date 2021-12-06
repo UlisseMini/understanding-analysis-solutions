@@ -9,7 +9,23 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item True since the product of continuous functions is continuous
+  \item Take $x_n = n$ and $y_n = n + 1/n$ has $|x_n - y_n| \to 0$ but
+    $$
+    \left|f(y_n) - f(x_n)\right|
+    = \left|(n + 1/n)^3 - n^3\right|
+    = \left|3n^2 \cdot \frac{1}{n} + 3n \cdot \frac 1{n^2} + \frac{1}{n^3}\right| \to \infty
+    $$
+    Which shows $x^3$ is not uniformly continuous by Theorem 4.4.5
+  \item Let $A$ be a bounded subset of $\mathbf R$ with $A \subset (-M, M)$. Let $\epsilon > 0$ and note that
+    $$
+    \left|\frac{x^3 - y^3}{x - y}\right|
+    = \left|\frac{(x-y)(x^2 + xy + y^2)}{(x-y)}\right|
+    = \left|x^2 + xy + y^2\right|
+    $$
+    Is clearly bounded on $(-M, M)$. Thus the Lipschitz condition allows us to conclude $f$ is uniformly continuous on $A$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -21,7 +37,11 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item No, intuitively because slope becomes unbounded as we approach zero. Rigorously consider $x_n = 2/n$ and $y_n = 1/n$ we have $|x_n - y_n| \to 0$ but $|1/x_n - 1/y_n| = |n/2 - n| = n/2$ is unbounded meaning $f$ cannot be uniformly continuous by Theorem 4.4.5.
+  \item Yes, since it's continuous on $[0, 1]$ Theorem 4.4.7 implies it is uniformly continuous on $[0, 1]$ and hence on any subset as well.
+  \item Yes, since $h$ is continuous over $[0,1]$ implying it is also uniformly continuous over $[0,1]$ by Theorem 4.4.7
+  }
 \end{solution}
 
 
