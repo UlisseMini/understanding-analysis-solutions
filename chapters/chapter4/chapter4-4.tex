@@ -50,7 +50,18 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  By Lipschitz over $[1, \infty)$
+  $$
+  \left|\frac{1/x^2 - 1/y^2}{x - y}\right|
+  = \left|\frac{y^2 - x^2}{x^2y^2(x-y)}\right|
+  = \left|\frac{(x - y)(x + y)}{x^2y^2(x-y)}\right|
+  = \left|\frac{x + y}{x^2y^2}\right|
+  = \left|\frac{1}{xy^2} + \frac{1}{x^2y}\right|
+  \le 2
+  $$
+  For $(0, 1]$ consider $x_n = 1/n$ and $y_n = 1/2n$. we have $|x_n - y_n| \to 0$ but
+  $$|f(x_n) - f(y_n)| = |n - 2n| = n$$
+  is unbounded, hence $f$ is not uniformly continuous on $(0, 1]$ by Theorem 4.4.5.
 \end{solution}
 
 \begin{exercise}
@@ -63,7 +74,23 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item True, the Algebraic Limit Theorem implies $1/f$ is continuous (well defined since $f > 0$) and the Extreme Value Theorem implies $1/f$ attains a maximum and minimum and so is bounded.
+  \item Let $\epsilon = 1$ and choose $\delta > 0$ so that $|x - y| < \delta$ implies $|f(x)-f(y)|<\epsilon$. Partition $A$ into $P = \{x_0, \dots, x_n\}$ where each interval is smaller then $\delta$ (ie. $\forall k,\; x_k - x_{k-1} < \delta$).
+    Let $y \in A$ be arbitrary, we have $|y - x_0| < n\delta$ meaning $|f(y) - f(x_0)| < n\epsilon$ by the triangle inequality. Meaning every $y \in A$ has $f(y) \in (f(x_0)-n, f(x_0)+n)$ and so $f(A)$ is bounded.
+  \item \TODO
+
+    % Let $(x_n)$ be a sequence converging to $x$, we can cover $(x_n)$ with a compact set $K$ so that every $x_n \in K$. since $f(K)$ is compact and $f(x_n) \in f(K)$ there must exist a converging subsequence $f(x_{n_k}) \in f(K)$ with $f(x_{n_k}) \to f(x)$. To finish we must show $f(x_n)$ converges. \TODO
+
+    % Counterexample: Let
+    % $$
+    % f(x) = \begin{cases}
+    %   \sin(1/x) &\text{ if } x \ne 0 \\
+    %   0 &\text{ if } x = 0
+    % \end{cases}
+    % $$
+    % $f$ is continuous at every point except $0$, let $K$ be a compact set containing $0$. Every sequence $y_n \in f(K)$ must contain a convergent subsequence $(y_{n_k}) \to y$ since $f(K)$ is bounded. To show $y \in f(K)$ note that $y \in [-1,1]$ you might think $[-1,1] \subseteq f(K)$ but not for wierd $K$ made from infinite intersections of closed intervals.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -71,7 +98,12 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Let $\epsilon > 0$ and choose $\delta_1$ so that every $x,y \in (a,b]$ with $|x-y|<\delta_1$ has $|f(x)-f(y)|<\epsilon/2$, likewise choose $\delta_2$ so that every $x,y \in [b,c)$ with $|x-y|<\delta_2$ has $|f(x)-f(y)|<\epsilon/2$.
+  Finally let $\delta = \min\{\delta_1, \delta_2\}$. The final case is if $x \in (a,b]$ and $y \in [b,c]$ where we use the triangle inequality
+  $$
+  |f(x) - f(y)| \le |f(x) - f(b)| + |f(b) - f(y)| < \epsilon/2 + \epsilon/2 = \epsilon
+  $$
+  Thus $f$ is uniformly continuous on $(a,c)$.
 \end{solution}
 
 \begin{exercise}
@@ -84,7 +116,11 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item $f(x) = 1/x$ and $x_n = 1/n$ has $f(x_n)$ diverging, hence $f(x_n)$ is not Cauchy.
+  \item Impossible since for all $\epsilon > 0$ we can find an $N$ so that all $n \ge N$ has $|x_n - x_m| < \delta$ (since $x_n$ is cauchy) implying $|f(x_n) - f(x_m)| < \epsilon$ and thus $f(x_n)$ is Cauchy. (Uniform continuity is needed for the $\forall n \ge N$ part)
+  \item Impossible since $[0,\infty)$ is closed $(x_n) \to x \in [0,\infty)$ implying $f(x_n) \to f(x)$ since $f$ is continuous, thus $f(x_n)$ is a cauchy sequence.
+  }
 \end{solution}
 
 
@@ -93,7 +129,23 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  We will show $f$ is uniformly continuous on $[0,1]$ and $[1, \infty)$ then combine them similar to Exercise 4.4.5.
+
+  \enumr{
+  \item Since $f$ is continuous over $[0,1]$ Theorem 4.4.7 implies $f$ is uniformly continuous on $[0,1]$.
+  \item $f$ is Lipschitz on $[1, \infty)$ since $\sqrt x$ is sublinear over $[1, \infty)$
+    $$
+    \left|\frac{\sqrt x - \sqrt y}{x - y}\right|
+    = \left|\frac{(\sqrt x - \sqrt y)}{(\sqrt x - \sqrt y)(\sqrt x + \sqrt y)}\right|
+    = \left|\frac{1}{\sqrt x + \sqrt y}\right| \le 1
+    $$
+  }
+
+  Let $\delta = \min\{\delta_1, \delta_2\}$ where $\delta_1$ is for $[0,1]$ and $\delta_2$ is for $[1, \infty)$. If $x,y$ are both in one of $[0,1]$ or $[1,\infty)$ we have $|f(x)-f(y)|<\epsilon/2$ and are done. If $x \in [0,1]$ and $y \in [1, \infty)$ then
+  $$
+  |f(x) - f(y)| \le |f(x) - f(1)| + |f(1) - f(y)| < \epsilon/2 + \epsilon/2 = \epsilon
+  $$
+  Thus $f(x) = \sqrt x$ is uniformly continuous on $[0,\infty)$.
 \end{solution}
 
 \begin{exercise}
