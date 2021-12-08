@@ -158,7 +158,24 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item Impossible as continuous functions preserve compact sets and $(0,1)$ is not compact.
+  \item Define
+    $$
+    f(x) = \begin{cases}
+      3x - 1 &\text{ if } x \in [1/3, 2/3] \\
+      1      &\text{ if } x \in (2/3, 1) \\
+      0      &\text{ if } x \in (0, 1/3) \\
+    \end{cases}
+    $$
+    $f$ is continuous on $(0,1)$ and has range $[0,1]$. Here's a graph of $f$:
+    \begin{tikzpicture}
+      \draw (0, 0)   -- (1/3, 0);
+      \draw (1/3, 0) -- (2/3, 1);
+      \draw (2/3, 1) -- (1, 1);
+    \end{tikzpicture}
+  \item Impossible. for each $y \in \{0,1\}$ we can make a convergent sequence $(x_n) \to x$ so that $f(x_n) \to y$ but since $y \notin (0,1)$ we must have $x \notin (0, 1]$. But since $(0,1]$ only has a single ``escape'' point (a limit point outside the set) we run into a contradiction.
+  }
 \end{solution}
 
 \begin{exercise}[Lipschitz Functions]
@@ -174,7 +191,14 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item Choose $\epsilon > 0$ and set $\delta = \epsilon/M$ to get $|f(x) - f(y)| \le M|x-y| < M\delta < \epsilon$.
+  \item No, consider $f(x) = \sqrt x$ over $[0,1]$ which is uniformly continuous by Theorem 4.4.7 however at $x=0$ we have
+    $$
+    \left|\frac{f(x) - f(y)}{x - y}\right| = \left|\frac{- \sqrt y}{-y}\right| = \frac{1}{\sqrt y}
+    $$
+    Which is unbounded for small $y$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -186,7 +210,28 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Note both $f$ and $g$ are bounded since they are uniformly continuous (Pick $x \in A$ and $\epsilon$ then cover with $\delta$-length intervals) so we can let $|f(x)| \le M$ and $|g(x)| \le M$.
+
+  \enumr{
+  \item $f(x) + g(x)$ is clearly uniformly continuous
+  \item Similar to the continuous proof of $f(x)g(x)$ being continuous
+    $$
+    \begin{aligned}
+      |f(x)g(x) - f(y)g(y)|
+      &\le |f(x)g(x) - f(x)g(y)| + |f(x)g(y) - f(y)g(y)| \\
+      &\le M|g(x) - g(y)| + M|f(x) - f(y)| \\
+      &< M\left(\frac{\epsilon}{2M} + \frac{\epsilon}{2M}\right) = \epsilon
+    \end{aligned}
+    $$
+  \item False, consider $f(x)=1$ and $g(x) = x$ over $(0,1)$. Both are uniformly continuous on $(0,1)$ but $f/g = 1/x$ is not.
+  \item Want $|f(g(x)) - f(g(y))|<\epsilon$. Since $f$ is uniformly continuous we can find an $\alpha > 0$ so that
+    $$|g(x) - g(y)| < \alpha \implies |f(g(x))-f(g(y))| < \epsilon$$
+    Now since $g$ is uniformly continuous we can find a $\delta > 0$ so that
+    $$|x - y| < \delta \implies |g(x) - g(y)| < \alpha$$
+    Combine the two to get
+    $$|x-y| < \delta \implies |f(g(x)) - f(g(y))| < \epsilon$$
+    as desired, which proves that $f(g(x))$ is uniformly continuous.
+  }
 \end{solution}
 
 \begin{exercise}[Topological Characterization of Continuity]
@@ -198,7 +243,16 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  A fact we'll use is that $g(A) \subseteq B$ if and only if $A \subseteq g^{-1}(B)$. Which is true since 
+  $$
+  g(A) \subseteq B \implies A \subseteq g^{-1}(g(A)) \subseteq g^{-1}(B)
+  \quad\text{and}\quad
+  A \subseteq g^{-1}(B) \implies g(A) \subseteq B.
+  $$
+
+  Fix $x \in \mathbf{R}$, we are given that $g^{-1}(V_\epsilon(x))$ is open, meaning there exists a neighborhood $V_\delta(x)$ with $V_\delta(x) \subseteq g^{-1}(V_\epsilon(x))$ implying $g(V_\delta(x)) \subseteq V_\epsilon(x)$ and thus $g$ is continuous.
+
+  Now suppose $g$ is continuous and let $O \subseteq \mathbf{R}$ be an open set. If $x \in g^{-1}(O)$ then $g(x) \in O$ and (since $O$ is open) there exists a neighborhood $V_\epsilon(g(x)) \subseteq O$, now there exists $V_\delta(x)$ where $g(V_\delta(x)) \subseteq V_\epsilon(g(x)) \subseteq O$ so we have $V_\delta(x) \subseteq g^{-1}(O)$ and are done.
 \end{solution}
 
 \begin{exercise}
