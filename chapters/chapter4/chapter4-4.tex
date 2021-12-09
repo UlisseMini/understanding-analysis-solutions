@@ -256,7 +256,7 @@
 \end{solution}
 
 \begin{exercise}
-  Review Exercise 4.4.11, and then determine which of the following statements is true about a continuous function defined on $\mathbf{R}$ :
+  Review Exercise 4.4.11, and then determine which of the following statements is true about a continuous function defined on $\mathbf{R}$:
   \enum{
   \item $f^{-1}(B)$ is finite whenever $B$ is finite.
   \item $f^{-1}(K)$ is compact whenever $K$ is compact.
@@ -266,7 +266,12 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item False, $f(x)=0$ has $f^{-1}(\{0\}) = \mathbf R$
+  \item False, $f(x)=0$ has $\{0\}$ compact but $f^{-1}(\{0\}) = \mathbf{R}$ is not compact
+  \item False, $f(x)=0$ has $f^{-1}(\{0\}) = \mathbf{R}$
+  \item True, let $(x_n) \to x$ be a convergent sequence in $f^{-1}(F)$, we know $f(x_n) \to f(x) \in F$ meaning $x \in f^{-1}(F)$ and so $f^{-1}(F)$ is closed.
+  }
 \end{solution}
 
 \begin{exercise}[Continuous Extension Theorem]
