@@ -282,7 +282,12 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+  \item Let $\epsilon > 0$ and set $N$ large enough that $n,m \ge N$ has $|x_n - x_m| < \delta$ implying $|f(x_n) - f(x_m)| < \epsilon$ by the uniformly continuity of $f$.
+  \item Define $g(a) = \lim_{x \to a} g(x)$ and $g(b) = \lim_{x \to b} g(x)$ if both limits exist, then $g$ is continuous on $[a,b]$ meaning it is uniformly continuous on $[a,b]$ by Theorem 4.4.7, and thus is uniformly continuous the subset $(a,b)$.
+
+    If $f$ were uniformly continuous $(a,b)$ cauchy sequences are preserved meaning the sequential definition for functional limits (Theorem 4.2.3) implies the limits $\lim_{x \to a} g(x)$ and $\lim_{x \to b} g(x)$ exist.
+  }
 \end{solution}
 
 
