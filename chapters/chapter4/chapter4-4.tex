@@ -78,18 +78,14 @@
   \item True, the Algebraic Limit Theorem implies $1/f$ is continuous (well defined since $f > 0$) and the Extreme Value Theorem implies $1/f$ attains a maximum and minimum and so is bounded.
   \item Let $\epsilon = 1$ and choose $\delta > 0$ so that $|x - y| < \delta$ implies $|f(x)-f(y)|<\epsilon$. Partition $A$ into $P = \{x_0, \dots, x_n\}$ where each interval is smaller then $\delta$ (ie. $\forall k,\; x_k - x_{k-1} < \delta$).
     Let $y \in A$ be arbitrary, we have $|y - x_0| < n\delta$ meaning $|f(y) - f(x_0)| < n\epsilon$ by the triangle inequality. Meaning every $y \in A$ has $f(y) \in (f(x_0)-n, f(x_0)+n)$ and so $f(A)$ is bounded.
-  \item \TODO
-
-    % Let $(x_n)$ be a sequence converging to $x$, we can cover $(x_n)$ with a compact set $K$ so that every $x_n \in K$. since $f(K)$ is compact and $f(x_n) \in f(K)$ there must exist a converging subsequence $f(x_{n_k}) \in f(K)$ with $f(x_{n_k}) \to f(x)$. To finish we must show $f(x_n)$ converges. \TODO
-
-    % Counterexample: Let
-    % $$
-    % f(x) = \begin{cases}
-    %   \sin(1/x) &\text{ if } x \ne 0 \\
-    %   0 &\text{ if } x = 0
-    % \end{cases}
-    % $$
-    % $f$ is continuous at every point except $0$, let $K$ be a compact set containing $0$. Every sequence $y_n \in f(K)$ must contain a convergent subsequence $(y_{n_k}) \to y$ since $f(K)$ is bounded. To show $y \in f(K)$ note that $y \in [-1,1]$ you might think $[-1,1] \subseteq f(K)$ but not for wierd $K$ made from infinite intersections of closed intervals.
+  \item Any function with finite range preserves compact sets, since all finite sets are compact. Meaning dirichlet's function
+    $$
+    g(x) = \begin{cases}
+      1 &\text{ if } x \in \mathbf{Q} \\
+      0 &\text{ if } x \in \mathbf{Q}
+    \end{cases}
+    $$
+    ``preserves'' compact sets, but is nowhere-continuous.
   }
 \end{solution}
 
