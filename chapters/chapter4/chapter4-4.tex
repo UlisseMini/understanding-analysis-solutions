@@ -296,5 +296,7 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  Let $f$ be continuous on $K$, and choose $\epsilon > 0$. We can create the open cover $\{V_{\delta_x}(x) : x \in K\}$ where $\delta_x$ is chosen so every $y \in V_\delta(x)$ has $|f(x)-f(y)|<\epsilon/2$.
+  Now since $K$ is compact there exists a finite subcover $\{V_{\delta_1}(x_1), \dots, V_{\delta_n}(x_n)\}$ (ordered, $x_k < x_{k+1}$) with $K \subseteq \bigcup_{k=1}^n V_{\delta_k}(x_k)$. Let $\delta = \min\{\delta_1, \dots, \delta_n\}$, if $x,y \in  K$ with $|x-y| < \delta$ then either both $x,y \in V_{\delta_k}(x_k)$ so $|f(x)-f(y)|<\epsilon/2$ or
+  $x \in V_{\delta_k}$ and $y \in V_{\delta_{k+1}}$ meaning we can find an $m \in V_{\delta_k}(x_k) \cap V_{\delta_{k+1}}(x_{k+1})$ with $|f(x)-f(y)|\le |f(x)-f(m)|+|f(m)-f(y)|<\epsilon/2+\epsilon/2=\epsilon$. (The intersection is nonempty because there cannot be gaps between $V_{\delta_k}(x_k)$ and $V_{\delta_{k+1}}(x_{k+1})$.)
 \end{solution}
