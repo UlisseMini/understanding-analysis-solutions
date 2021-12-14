@@ -4,7 +4,13 @@
   Show how the Intermediate Value Theorem follows as a corollary to preservation of connected sets (Theorem 4.5.2).
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $f$ be a continuous function defined over $[a,b]$. And let $L$ be a real number such that $f(a) < L < f(b)$.
+
+  Define $A = \{x \in (a,b) : f(x) \le L\}$ and $B = \{x \in (a,b) : f(x) > L\}$. $A,B$ are clearly disjoint, they are also nonempty since $a+\epsilon \in A$ and $b-\epsilon \in B$ for small $\epsilon$. Since $(a,b)$ is connected there exists a sequence in $A$ or $B$ with limit in the other. Let $(x_n)$ be such a sequence, I claim $f(x_n) \to L$ and thus $(x_n) \to x$ with $f(x) = L$.
+
+  If $(x_n)$ is contained in $B$ then $f(x_n) > L$ implies $f(x) \ge L$ by the Order Limit Theorem. But since $x \in A$ we have $f(x) \le A$ as well. Thus $f(x) = L$ completing the proof.
+
+  Note that $(x_n)$ in $A$ cannot have a limit in $B$ since $f(x) \le L$ disallows $f(x) > L$. In other words $A$ is closed.
 \end{solution}
 
 \begin{exercise}
