@@ -4,7 +4,13 @@
   Show how the Intermediate Value Theorem follows as a corollary to preservation of connected sets (Theorem 4.5.2).
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $f$ be a continuous function defined over $[a,b]$. And let $L$ be a real number such that $f(a) < L < f(b)$.
+
+  Define $A = \{x \in [a,b] : f(x) \le L\}$ and $B = \{x \in [a,b] : f(x) > L\}$. $A,B$ are clearly disjoint, they are also nonempty since $a \in A$ and $b \in B$. Since $[a,b]$ is connected there exists a sequence in $A$ or $B$ with limit in the other. Let $(x_n)$ be such a sequence, I claim $(x_n) \to x$ with $f(x) = L$.
+
+  $(x_n)$ cannot be contained in $A$ since $f(x_n) \le L$ implies $f(x) \le L$ and $x \in A$ ($A$ is closed)
+
+  If $(x_n)$ is contained in $B$ then $f(x_n) > L$ implies $f(x) \ge L$ by the Order Limit Theorem. But since $x \in A$ we have $f(x) \le A$ as well. Thus $f(x) = L$ completing the proof.
 \end{solution}
 
 \begin{exercise}
@@ -17,7 +23,19 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Possible, see Exercise 4.4.8 (b)
+  \item Impossible by preservation of compact sets
+  \item Let $f : (0,1) \to [2, \infty)$ be defined by
+    $$
+    f(x) = \begin{cases}
+      \frac 1x &\text{ if } x \in (0, 1/2] \\
+      \frac{1}{1-x} &\text{ if } x \in (1/2, 1)
+    \end{cases}
+    $$
+    This works since $[2,\infty)$ is closed, unbounded and different from $\mathbf{R}$.
+  \item Impossible as this contradicts the intermediate value theorem.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -35,7 +53,8 @@
   Show $F$ is either empty or uncountable.
 \end{exercise}
 \begin{solution}
-  \TODO
+  % TODO: Cleanup
+  Suppose $F$ is nonempty, let $x,y \in A$ with $x \ne y$ and $f(x) = f(y)$. Pick $z \in (x,y)$ such that $f(z) \ne f(x)$ (if $z$ does not exist $f$ is constant over $(x,y)$ and we are finished early). By the Intermediate Value Theorem every $L \in (f(x), f(z))$ has an $x' \in (x, z)$ with $f(x') = L$. And since $L \in (f(z), f(y))$ as well we can find $y' \in (z,y)$ with $f(y') = L$, thus $f(y') = f(x')$ and so $f$ is not 1-1 at every $L \in (f(x), f(z))$ which is uncountable.
 \end{solution}
 
 \begin{exercise}
