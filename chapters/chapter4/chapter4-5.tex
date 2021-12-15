@@ -53,7 +53,8 @@
   Show $F$ is either empty or uncountable.
 \end{exercise}
 \begin{solution}
-  \TODO
+  % TODO: Cleanup
+  Suppose $F$ is nonempty, let $x,y \in A$ with $x \ne y$ and $f(x) = f(y)$. Pick $z \in (x,y)$ such that $f(z) \ne f(x)$ (if $z$ does not exist $f$ is constant over $(x,y)$ and we are finished early). By the Intermediate Value Theorem every $L \in (f(x), f(z))$ has an $x' \in (x, z)$ with $f(x') = L$. And since $L \in (f(z), f(y))$ as well we can find $y' \in (z,y)$ with $f(y') = L$, thus $f(y') = f(x')$ and so $f$ is not 1-1 at every $L \in (f(x), f(z))$ which is uncountable.
 \end{solution}
 
 \begin{exercise}
