@@ -64,7 +64,25 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item
+    $$h'(x) = \lim_{y\to x} \frac{1/y - 1/x}{y-x} = \lim_{y \to x} \frac{x - y}{xy(y-x)} = \lim_{y \to x} -\frac{1}{xy} = -\frac{1}{x^2}$$
+  \item By chain rule $(1/g)'(x) = -g'(x)/g(x)^2$ combined with product rule gives
+    $$
+    \begin{aligned}
+      (f \cdot 1/g)'(x) = f'(x) \cdot \frac{1}{g(x)} + f(x)(1/g)'(x) &= \frac{f'(x)}{g(x)} - f(x)\frac{g'(x)}{g(x)^2} \\
+                                                                     &= \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+    \end{aligned}
+    $$
+  \item
+    $$
+    (f/g)'(x) = \lim_{y \to x} \frac{(f/g)(y) - (f/g)(x)}{y - x} = \lim_{y \to x} \frac{f(y)g(x) - f(x)g(y)}{g(x)g(y)(y-x)}
+    $$
+    Now the $g(x)g(y)$ goes to $g(x)^2$, we just need to evaluate the derivatives in the numerator. We do this by adding and subtracting $f(x)g(x)$ similar to the proof of the product rule, then use the functional limit theorem to finish it off
+    $$
+    \lim_{y \to x} \frac{g(x)(f(y)- f(x)) + f(x)(g(x) - g(y))}{g(x)g(y)(y-x)} = \frac{g(x)f'(x) - f(x)g'(x)}{g(x)^2}
+    $$
+  }
 \end{solution}
 
 \begin{exercise}
