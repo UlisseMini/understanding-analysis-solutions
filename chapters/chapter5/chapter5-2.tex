@@ -57,11 +57,133 @@
 \end{solution}
 
 \begin{exercise}
+  \enum{
+  \item Use Definition 5.2.1 to produce the proper formula for the derivative of $h(x)=1 / x$.
+  \item Combine the result in part (a) with the Chain Rule (Theorem 5.2.5) to supply a proof for part (iv) of Theorem 5.2.4.
+  \item Supply a direct proof of Theorem 5.2.4 (iv) by algebraically manipulating the difference quotient for $(f / g)$ in a style similar to the proof of Theorem 5.2.4 (iii).
+  }
 \end{exercise}
 \begin{solution}
+  \TODO
 \end{solution}
 
 \begin{exercise}
+  Follow these steps to provide a slightly modified proof of the Chain Rule.
+  \enum{
+  \item Show that a function $h: A \rightarrow \mathbf{R}$ is differentiable at $a \in A$ if and only if there exists a function $l: A \rightarrow \mathbf{R}$ which is continuous at $a$ and satisfies
+    $$
+    h(x)-h(a)=l(x)(x-a) \quad \text { for all } x \in A
+    $$
+  \item Use this criterion for differentiability (in both directions) to prove Theorem $5.2 .5$.
+  }
 \end{exercise}
 \begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let $$f_{a}(x)= \begin{cases}x^{a} & \text { if } x>0 \\ 0 & \text { if } x \leq 0\end{cases}$$
+  \enum{
+  \item For which values of $a$ is $f$ continuous at zero?
+  \item For which values of $a$ is $f$ differentiable at zero? In this case, is the derivative function continuous?
+  \item For which values of $a$ is $f$ twice-differentiable?
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let $g$ be defined on an interval $A$, and let $c \in A$.
+  \enum{
+  \item Explain why $g^{\prime}(c)$ in Definition 5.2.1 could have been given by
+    $$
+    g^{\prime}(c)=\lim _{h \rightarrow 0} \frac{g(c+h)-g(c)}{h} .
+    $$
+  \item Assume $A$ is open. If $g$ is differentiable at $c \in A$, show
+    $$
+    g^{\prime}(c)=\lim _{h \rightarrow 0} \frac{g(c+h)-g(c-h)}{2 h} .
+    $$
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let
+  $$
+  g_{a}(x)= \begin{cases}x^{a} \sin (1 / x) & \text { if } x \neq 0 \\ 0 & \text { if } x=0\end{cases}
+  $$
+  Find a particular (potentially noninteger) value for $a$ so that
+  \enum{
+  \item $g_{a}$ is differentiable on $\mathbf{R}$ but such that $g_{a}^{\prime}$ is unbounded on $[0,1]$.
+  \item $g_{a}$ is differentiable on $\mathbf{R}$ with $g_{a}^{\prime}$ continuous but not differentiable at zero.
+  \item $g_{a}$ is differentiable on $\mathbf{R}$ and $g_{a}^{\prime}$ is differentiable on $\mathbf{R}$, but such that $g_{a}^{\prime \prime}$ is not continuous at zero.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Review the definition of uniform continuity (Definition 4.4.4). Given a differentiable function $f: A \rightarrow \mathbf{R}$, let's say that $f$ is \emph{uniformly differentiable} on $A$ if, given $\epsilon>0$ there exists a $\delta>0$ such that
+  $$
+  \left|\frac{f(x)-f(y)}{x-y}-f^{\prime}(y)\right|<\epsilon \quad \text { whenever } 0<|x-y|<\delta .
+  $$
+  \enum{
+  \item Is $f(x)=x^{2}$ uniformly differentiable on $\mathbf{R} ?$ How about $g(x)=x^{3} ?$
+  \item Show that if a function is uniformly differentiable on an interval $A$, then the derivative must be continuous on $A$.
+  \item Is there a theorem analogous to Theorem 4.4.7 for differentiation? Are functions that are differentiable on a closed interval $[a, b]$ necessarily uniformly differentiable?
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Decide whether each conjecture is true or false. Provide an argument for those that are true and a counterexample for each one that is false.
+  \enum{
+  \item If $f^{\prime}$ exists on an interval and is not constant, then $f^{\prime}$ must take on some irrational values.
+  \item If $f^{\prime}$ exists on an open interval and there is some point $c$ where $f^{\prime}(c)>0$, then there exists a $\delta$-neighborhood $V_{\delta}(c)$ around $c$ in which $f^{\prime}(x)>0$ for all $x \in V_{\delta}(c)$.
+  \item If $f$ is differentiable on an interval containing zero and if $\lim _{x \rightarrow 0} f^{\prime}(x)=L$, then it must be that $L=f^{\prime}(0)$.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Recall that a function $f:(a, b) \rightarrow \mathbf{R}$ is increasing on $(a, b)$ if $f(x) \leq f(y)$ whenever $x<y$ in $(a, b)$. A familiar mantra from calculus is that a differentiable function is increasing if its derivative is positive, but this statement requires some sharpening in order to be completely accurate.
+  Show that the function
+  $$
+  g(x)= \begin{cases}x / 2+x^{2} \sin (1 / x) & \text { if } x \neq 0 \\ 0 & \text { if } x=0\end{cases}
+  $$
+  is differentiable on $\mathbf{R}$ and satisfies $g^{\prime}(0)>0$. Now, prove that $g$ is not increasing over any open interval containing 0 .
+
+  In the next section we will see that $f$ is indeed increasing on $(a, b)$ if and only if $f^{\prime}(x) \geq 0$ for all $x \in(a, b)$.
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Assume that $g$ is differentiable on $[a, b]$ and satisfies $g^{\prime}(a)<$ $0<g^{\prime}(b)$.
+  \enum{
+  \item Show that there exists a point $x \in(a, b)$ where $g(a)>g(x)$, and a point $y \in(a, b)$ where $g(y)<g(b)$.
+  \item Now complete the proof of Darboux's Theorem started earlier.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}[Inverse functions]
+  If $f:[a, b] \rightarrow \mathbf{R}$ is one-to-one, then there exists an inverse function $f^{-1}$ defined on the range of $f$ given by $f^{-1}(y)=$ $x$ where $y=f(x)$. In Exercise 4.5.8 we saw that if $f$ is continuous on $[a, b]$, then $f^{-1}$ is continuous on its domain. Let's add the assumption that $f$ is differentiable on $[a, b]$ with $f^{\prime}(x) \neq 0$ for all $x \in[a, b]$. Show $f^{-1}$ is differentiable with
+  $$
+  \left(f^{-1}\right)^{\prime}(y)=\frac{1}{f^{\prime}(x)} \quad \text { where } y=f(x) .
+  $$
+\end{exercise}
+\begin{solution}
+  \TODO
 \end{solution}
