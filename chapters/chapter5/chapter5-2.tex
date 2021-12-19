@@ -92,11 +92,27 @@
     $$
     h(x)-h(a)=l(x)(x-a) \quad \text { for all } x \in A
     $$
-  \item Use this criterion for differentiability (in both directions) to prove Theorem $5.2 .5$.
+  \item Use this criterion for differentiability (in both directions) to prove Theorem 5.2.5.
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item First suppose $h$ is differentiable at $a$, then we can define $l(x) = \frac{h(x)-h(a)}{x-a}$ for $x \ne a$ and set $l(a) = h'(a)$. $l$ is continuous at $a$ thus we have shown one direction.
+
+    Now suppose $l : A \to \mathbf{R}$ exists and satisfies $h(x) - h(a) = l(x)(x-a)$, then dividing by $(x-a)$ and taking limits gives $h'(a) = l(a)$.
+  \item Let $f$ be differentiable at $a$ and $g$ be differentiable at $f(a)$. we will show $g(f(x))$ is differentiable at $a$ with derivative $g'(f(a))f'(a)$.
+
+    Multiply the top and bottom by $f(y)-f(a)$ to get
+    $$
+    (g \circ f)'(a) = \lim_{y \to a} \frac{g(f(y)) - g(f(a))}{f(y)-f(a)} \cdot \frac{f(y)-f(a)}{y-a}
+    $$
+    We're almost done, the right hand side is $f'(a)$ we just need to evaluate the nested limit on the left. Define $l(y) = \frac{g(y) - g(f(a))}{y - f(a)}$ and $l(a) = g'(f(a))$ then we have a product of continuous functions so
+    $$
+    \lim_{y \to a} l(f(y)) \cdot \frac{f(y)-f(a)}{y-a} = g'(f(a)) \cdot f'(a)
+    $$
+
+    \TODO Proof as intended, this is the same as the proof in Theorem 5.2.5.
+  }
 \end{solution}
 
 \begin{exercise}
