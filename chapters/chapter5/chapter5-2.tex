@@ -1,0 +1,67 @@
+\section{Derivatives and the Intermediate Value Property}
+
+\begin{exercise}
+  Supply proofs for parts (i) and (ii) of Theorem 5.2.4. (addition and scalar multiplication preserve differentiability)
+\end{exercise}
+\begin{solution}
+  Let $f$ and $g$ be differentiable at $c$. $f + g$ is differentiable at $c$ by using the algebraic limit theorem
+  $$
+  (f + g)' = \lim_{x \to c} \frac{(f + g)(x) - (f + g)(c)}{x-c} = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} \lim_{x \to c} \frac{g(x) - g(c)}{x - c} = f'(c) + g'(c)
+  $$
+  Likewise for $k \in \mathbf{R}$ we can apply ALT
+  $$
+  (kf)' = \lim_{x \to c} \frac{kf(x) - kf(c)}{x-c} = k \lim_{x \to c} \frac{f(x)-f(c)}{x-c} = k f'(c)
+  $$
+\end{solution}
+
+\begin{exercise}
+  Exactly one of the following requests is impossible. Decide which it is, and provide examples for the other three. In each case, let's assume the functions are defined on all of $\mathbf{R}$.
+  \enum{
+  \item Functions $f$ and $g$ not differentiable at zero but where $f g$ is differentiable at zero.
+  \item A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $f g$ is differentiable at zero.
+  \item A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $f+g$ is differentiable at zero.
+  \item A function $f$ differentiable at zero but not differentiable at any other point.
+  }
+\end{exercise}
+\begin{solution}
+  \enum{
+  \item Let
+    $$
+    f(x) = \begin{cases}
+      -1 &\text{if } x < 0 \\
+      1  &\text{if } x \ge 0 \\
+    \end{cases}
+    $$
+    And $g(x) = -f(x)$. Both $f$ and $g$ are not differentiable at $0$, but $fg = 1$ (constant) is.
+  \item If $fg$ and $g$ are differentiable at zero, then $(fg)/g = f$ is differentiable at zero provided the quotient is well defined. \textit{However} if we let $g(x) = 0$ then $fg = 0$ is differentiable at zero regardless of $f$. (Note we must have $g(0) = 0$ otherwise $f = (fg)/g$ would be differentiable at zero)
+  \item Impossible, since $f = (f + g) - g$ would be differentiable at zero by the differentiable limit theorem
+  \item Thomae's function is a starting point
+    $$
+    t(x) = \begin{cases}
+      0   &\text{if } x = 0 \\
+      1/n &\text{if } x = m/n \text{ in lowest terms} \\
+      x   &\text{if } x \in \mathbf I
+    \end{cases}
+    $$
+    We have
+    $$
+    t'(0) = \lim_{x \to 0} t(x)/x
+    $$
+    This limit doesn't exist, but if we define $f(x) = xt(x)$ then the inside is thomae's function and so
+    $$
+    f'(0) = \lim_{x \to 0} f(x)/x = \lim_{x \to 0} t(x) = 0
+    $$
+    is the only place the derivative exists.
+
+  }
+\end{solution}
+
+\begin{exercise}
+\end{exercise}
+\begin{solution}
+\end{solution}
+
+\begin{exercise}
+\end{exercise}
+\begin{solution}
+\end{solution}
