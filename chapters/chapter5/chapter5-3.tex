@@ -1,0 +1,124 @@
+\section{The Mean Value Theorems}
+
+\begin{exercise}
+  Recall from Exercise $4.4 .9$ that a function $f: A \rightarrow \mathbf{R}$ is Lipschitz on $A$ if there exists an $M>0$ such that
+  $$
+  \left|\frac{f(x)-f(y)}{x-y}\right| \leq M
+  $$
+  for all $x \neq y$ in $A$
+  \enum{
+  \item Show that if $f$ is differentiable on a closed interval $[a, b]$ and if $f^{\prime}$ is continuous on $[a, b]$, then $f$ is Lipschitz on $[a, b]$.
+  \item Review the definition of a contractive function in Exercise 4.3.11. If we add the assumption that $\left|f^{\prime}(x)\right|<1$ on $[a, b]$, does it follow that $f$ is contractive on this set?
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let $f$ be differentiable on an interval $A$. If $f^{\prime}(x) \neq 0$ on $A$, show that $f$ is one-to-one on $A$. Provide an example to show that the converse statement need not be true.
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let $h$ be a differentiable function defined on the interval $[0,3]$, and assume that $h(0)=1, h(1)=2$, and $h(3)=2$.
+  \enum{
+  \item Argue that there exists a point $d \in[0,3]$ where $h(d)=d$.
+  \item Argue that at some point $c$ we have $h^{\prime}(c)=1 / 3$.
+  \item Argue that $h^{\prime}(x)=1 / 4$ at some point in the domain.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let $f$ be differentiable on an interval $A$ containing zero, and assume $\left(x_{n}\right)$ is a sequence in $A$ with $\left(x_{n}\right) \rightarrow 0$ and $x_{n} \neq 0$.
+  \enum{
+  \item If $f\left(x_{n}\right)=0$ for all $n \in N$, show $f(0)=0$ and $f^{\prime}(0)=0$.
+  \item Add the assumption that $f$ is twice-differentiable at zero and show that $f^{\prime \prime}(0)=0$ as well.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Supply the details for the proof of Cauchy's Generalized Mean Value Theorem (Theorem 5.3.5).
+  \item Give a graphical interpretation of the Generalized Mean Value Theorem analogous to the one given for the Mean Value Theorem at the beginning of Section 5.3. (Consider $f$ and $g$ as parametric equations for a curve.)
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Let $g:[0, a] \rightarrow \mathbf{R}$ be differentiable, $g(0)=0$, and $\left|g^{\prime}(x)\right| \leq M$ for all $x \in[0, a] .$ Show $|g(x)| \leq M x$ for all $x \in[0, a] .$
+  \item Let $h:[0, a] \rightarrow \mathbf{R}$ be twice differentiable, $h^{\prime}(0)=h(0)=0$ and $\left|h^{\prime \prime}(x)\right| \leq$ $M$ for all $x \in[0, a] .$ Show $|h(x)| \leq M x^{2} / 2$ for all $x \in[0, a] .$
+  \item Conjecture and prove an analogous result for a function that is differentiable three times on $[0, a]$.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  A fixed point of a function $f$ is a value $x$ where $f(x)=x$. Show that if $f$ is differentiable on an interval with $f^{\prime}(x) \neq 1$, then $f$ can have at most one fixed point.
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Assume $f$ is continuous on an interval containing zero and differentiable for all $x \neq 0$. If $\lim _{x \rightarrow 0} f^{\prime}(x)=L$, show $f^{\prime}(0)$ exists and equals $L$.
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hospital's Rule under this stronger hypothesis.
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  Let $f(x)=x \sin \left(1 / x^{4}\right) e^{-1 / x^{2}}$ and $g(x)=e^{-1 / x^{2}}$. Using the familiar properties of these functions, compute the limit as $x$ approaches zero of $f(x), g(x), f(x) / g(x)$, and $f^{\prime}(x) / g^{\prime}(x)$. Explain why the results are surprising but not in conflict with the content of Theorem 5.3.6. ${ }^{1}$
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Use the Generalized Mean Value Theorem to furnish a proof of the $0 / 0$ case of L'Hospital's Rule (Theorem 5.3.6).
+  \item If we keep the first part of the hypothesis of Theorem 5.3.6 the same but we assume that
+    $$
+    \lim _{x \rightarrow a} \frac{f^{\prime}(x)}{g^{\prime}(x)}=\infty
+    $$
+    does it necessarily follow that
+    $$
+    \lim _{x \rightarrow a} \frac{f(x)}{g(x)}=\infty ?
+    $$
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
+\begin{exercise}
+  If $f$ is twice differentiable on an open interval containing $a$ and $f^{\prime \prime}$ is continuous at $a$, show
+  $$
+  \lim _{h \rightarrow 0} \frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}}=f^{\prime \prime}(a) .
+  $$
+  (Compare this to Exercise 5.2.6(b).)
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+
