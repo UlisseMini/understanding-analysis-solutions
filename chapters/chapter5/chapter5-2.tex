@@ -64,7 +64,25 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item
+    $$h'(x) = \lim_{y\to x} \frac{1/y - 1/x}{y-x} = \lim_{y \to x} \frac{x - y}{xy(y-x)} = \lim_{y \to x} -\frac{1}{xy} = -\frac{1}{x^2}$$
+  \item By chain rule $(1/g)'(x) = -g'(x)/g(x)^2$ combined with product rule gives
+    $$
+    \begin{aligned}
+      (f \cdot 1/g)'(x) = f'(x) \cdot \frac{1}{g(x)} + f(x)(1/g)'(x) &= \frac{f'(x)}{g(x)} - f(x)\frac{g'(x)}{g(x)^2} \\
+                                                                     &= \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+    \end{aligned}
+    $$
+  \item
+    $$
+    (f/g)'(x) = \lim_{y \to x} \frac{(f/g)(y) - (f/g)(x)}{y - x} = \lim_{y \to x} \frac{f(y)g(x) - f(x)g(y)}{g(x)g(y)(y-x)}
+    $$
+    Now the $g(x)g(y)$ goes to $g(x)^2$, we just need to evaluate the derivatives in the numerator. We do this by adding and subtracting $f(x)g(x)$ similar to the proof of the product rule, then use the functional limit theorem to finish it off
+    $$
+    \lim_{y \to x} \frac{g(x)(f(y)- f(x)) + f(x)(g(x) - g(y))}{g(x)g(y)(y-x)} = \frac{g(x)f'(x) - f(x)g'(x)}{g(x)^2}
+    $$
+  }
 \end{solution}
 
 \begin{exercise}
@@ -74,11 +92,27 @@
     $$
     h(x)-h(a)=l(x)(x-a) \quad \text { for all } x \in A
     $$
-  \item Use this criterion for differentiability (in both directions) to prove Theorem $5.2 .5$.
+  \item Use this criterion for differentiability (in both directions) to prove Theorem 5.2.5.
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item First suppose $h$ is differentiable at $a$, then we can define $l(x) = \frac{h(x)-h(a)}{x-a}$ for $x \ne a$ and set $l(a) = h'(a)$. $l$ is continuous at $a$ thus we have shown one direction.
+
+    Now suppose $l : A \to \mathbf{R}$ exists and satisfies $h(x) - h(a) = l(x)(x-a)$, then dividing by $(x-a)$ and taking limits gives $h'(a) = l(a)$.
+  \item Let $f$ be differentiable at $a$ and $g$ be differentiable at $f(a)$. we will show $g(f(x))$ is differentiable at $a$ with derivative $g'(f(a))f'(a)$.
+
+    Multiply the top and bottom by $f(y)-f(a)$ to get
+    $$
+    (g \circ f)'(a) = \lim_{y \to a} \frac{g(f(y)) - g(f(a))}{f(y)-f(a)} \cdot \frac{f(y)-f(a)}{y-a}
+    $$
+    We're almost done, the right hand side is $f'(a)$ we just need to evaluate the nested limit on the left. Define $l(y) = \frac{g(y) - g(f(a))}{y - f(a)}$ and $l(a) = g'(f(a))$ then we have a product of continuous functions so
+    $$
+    \lim_{y \to a} l(f(y)) \cdot \frac{f(y)-f(a)}{y-a} = g'(f(a)) \cdot f'(a)
+    $$
+
+    \TODO Proof as intended, this is the same as the proof in Theorem 5.2.5.
+  }
 \end{solution}
 
 \begin{exercise}
