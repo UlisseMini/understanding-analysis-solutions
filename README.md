@@ -1,4 +1,4 @@
-# [[PDF]](https://ulissemini.github.io/understanding-analysis-solutions/main.pdf)
+# Understanding Analysis Solutions ([PDF](https://ulissemini.github.io/understanding-analysis-solutions/main.pdf))
 
 My solutions for understanding analysis second edition. See the pdf [here](https://ulissemini.github.io/understanding-analysis-solutions/main.pdf)
 
