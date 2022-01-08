@@ -11,7 +11,7 @@ header, data = data[0], data[1:]
 start_date = datetime.fromisoformat(data[0][1])
 end_date = datetime.now()
 
-def latest_data_on(date: datetime) -> list:
+def latest_data_on(date: datetime) -> tuple:
     # TODO: Get data on date 'date'. If no data on date then
     # return the first commit before it.
     # .strftime('%Y-%m-%d')
@@ -21,7 +21,7 @@ def latest_data_on(date: datetime) -> list:
         if date < datetime.fromisoformat(row[1]):
             break
         else:
-            latest = row
+            latest = (row[0], row[1], int(row[2]), int(row[3]))
 
     assert latest is not None
     return latest
@@ -38,8 +38,14 @@ for d in range(days):
     todo_list.append(todo)
 
 
-print(completed_list)
 import matplotlib.pyplot as plt
+# there are 490 exercises in abbott, not including the extras (section 8)
+fig = plt.figure()
+ax = fig.add_subplot()
+
+ax.set_ylabel('Exercises')
+ax.set_xlabel('Days')
+
+plt.ylim(ymin=0, ymax=490)
 plt.plot(completed_list)
-plt.savefig('foo.png')
 plt.show()
