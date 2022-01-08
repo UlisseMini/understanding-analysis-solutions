@@ -1,5 +1,8 @@
 from subprocess import check_output, check_call, STDOUT
 from tqdm import tqdm
+import shutil
+
+shutil.copy('./count-solutions.awk', '/tmp/count-solutions.awk')
 
 lines = check_output(['git', 'log', '--pretty=format:%H %as']).decode().split('\n')
 
@@ -10,14 +13,14 @@ for commit, date in (line.split(' ') for line in lines):
         break
     commits.append((commit, date))
 
+commits.reverse()
 
 with open('status.csv', 'w') as f:
     print('commit,date,completed,todos', file=f)
 
-
 for commit, date in tqdm(commits):
     check_output(['git', 'checkout', commit], stderr=STDOUT)
-    awk_output = check_output(['sh', '-c', 'awk -f count-solutions.awk chapters/*/*.tex']).decode()
+    awk_output = check_output(['sh', '-c', 'awk -f /tmp/count-solutions.awk chapters/*/*.tex']).decode()
     completed, todos = awk_output.split(' ')
 
     with open('status.csv', 'a') as f:
