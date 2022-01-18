@@ -145,7 +145,17 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item This is just a change of variable from the normal definition, set $h = (x - c)$ to get
+    $$\lim_{x \to c} \frac{g(x) - g(c)}{x-c} = \lim_{h \to 0} \frac{g(c+h) - g(c)}{h}$$
+  \item Some basic algebra
+    $$\lim_{h \to 0} \frac{g(c+h) - g(c) + g(c) - g(c-h)}{2h} = \frac 12\left(\lim_{h \to 0} \frac{g(c+h)-g(c)}{h} + \lim_{h \to 0} \frac{g(c) - g(c-h)}{h}\right)$$
+    The first term is clearly $g'(c)$ and the second is $g'(c)$ with the substitution $h = c-x$ since
+    $$
+    g'(c) = \lim_{x \to c} \frac{g(c) - g(x)}{c-x}
+    $$
+    Thus the whole expression is $g'(c)$.
+  }
 \end{solution}
 
 \begin{exercise}
