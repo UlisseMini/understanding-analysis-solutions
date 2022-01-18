@@ -171,7 +171,24 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  We need $a>0$ to make $g_a$ continuous at zero, for differentiation notice
+  $$
+  g_a'(0) = \lim_{x \to 0} \frac{g(x) - g(0)}{x - 0} = \lim_{x \to 0} \frac{x^a\sin(1/x)}{x} = \lim_{x \to 0} x^{a-1}\sin(1/x)
+  $$
+  Thus for differentiation we need $x^{a-1}\sin(1/x)$ to have a limit at zero. Keep this in mind for the problems.
+  Also note
+  $$
+  \begin{aligned}
+    g_a'(x) &= ax^{a-1}\sin(1/x) + x^a\cos(1/x)(-1/x^2) \\
+            &= ax^{a-1}\sin(1/x) - x^{a-2}\cos(1/x)
+  \end{aligned}
+  $$
+
+  \enum{
+  \item To get unboundedness we need the $x^{a-2}\cos(1/x)$ term to become unbounded, so pick $a = 1.5$ to satisfy $a > 1$ (differentiable) and $a < 2$ (unbounded derivative)
+  \item Pick $a = 2.5$, It's clear that $g_a'(x) = 2.5x^{1.5}\sin(1/x)-x^{0.5}\cos(1/x)$ is continuous at zero, but not differentiable since $x^{0.5}\cos(1/x)$ isn't differentiable at zero and $2.5x^{1.5}\sin(1/x)$ is (if both terms were not differentiable they could cancel eachother out, constant vigilance!).
+  \item Pick $a = 3.5$, for all intents and purposes $g_a'$ behaves like $g_{a-2}$ (because the $x^{a-2}\cos(1/x)$ term acts as a bottleneck) meaning $g_a''$ exists, but isn't continuous since we get another $-2$ to $a$ leading to a $x^{-0.5}$ term in $g_a''$.
+  }
 \end{solution}
 
 \begin{exercise}
