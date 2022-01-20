@@ -203,7 +203,44 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item We have
+    $$
+    \left|\frac{x^2 - y^2}{x - y} - 2y\right| = \left|(x + y) - 2y\right| = |x - y| < \delta
+    $$
+    Thus $\delta = \epsilon$ suffices to show $x^2$ is uniformly differentiable. Now for $x^3$
+    $$
+    \left|\frac{x^3 - y^3}{x - y} - 3y^2\right| = \left|\frac{(x-y)(x^2 + xy + y^2)}{x-y} - 3y^2\right| = |x^2 + xy - 2y^2|
+    $$
+    Let $y = (x+h)$ to get
+    $$|x^2 + x(x+h) - 2(x+h)^2| = |x^2 + x^2 xh - 2x^2 - 4xh - 2h^2| = |3xh + 2h^2|$$
+    Fix $0 < h < \delta$, since $x$ can be as big as we want we can make $|3xh + 2h^2| > \epsilon$.
+    As no fixed $\delta$ works $x^3$ is not uniformly differentiable.
+
+  \item
+    Choose $c \in A$ and $\epsilon > 0$. Pick $\delta$ so that
+    $$\left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon/2, \quad\text{when}\quad 0 < |x - y| < \delta$$
+    Then use the triangle inequality when $|x-c|<\delta$ to show $f'$ is continuous.
+    $$
+    \begin{aligned}
+    |f'(x) - f'(c)|
+    &\le \left|\frac{f(x) - f(c)}{x - c} - f'(c)\right| + \left|f'(x) - \frac{f(x) - f(c)}{x - c}\right| \\
+    &< \epsilon/2 + \epsilon/2 = \epsilon
+    \end{aligned}
+    $$
+    Note where uniformity comes in, without uniformity $\delta$ would be dependent on $x$ and we would not be able to get the desired ``for all''.
+  \item Let $f$ be differentiable on $[a,b]$, and cover $[a,b]$ with open intervals $\{O_\lambda : \lambda \in \Lambda\}$ such that every $x,y \in O_{\lambda_0}$ satisfies
+    $$
+    \left|\frac{f(x) - f(y)}{x - y} - f'(x)\right| < \epsilon
+    $$
+    Now since $[a,b]$ is compact there exists a finite subcover $O_1, \dots, O_n$.
+    Let $\delta = \min\{|O_1|, \dots, |O_n|\}$. Now let $x,y \in [a,b]$ with $|x-y| < \delta$, there are two cases:
+    If both $x,y \in O_k$ we are done. 
+    If $x \in O_k$ and $y \in O_{k+1}$ then pick $z \in O_k \cap O_{k+1}$ (possible, otherwise there would be a gap) and use the triangle inequality
+    $$
+    \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| \le \TODO
+    $$
+  }
 \end{solution}
 
 \begin{exercise}
