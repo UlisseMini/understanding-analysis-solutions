@@ -218,28 +218,29 @@
     As no fixed $\delta$ works $x^3$ is not uniformly differentiable.
 
   \item
-    Choose $c \in A$ and $\epsilon > 0$. Pick $\delta$ so that
-    $$\left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon/2, \quad\text{when}\quad 0 < |x - y| < \delta$$
-    Then use the triangle inequality when $|x-c|<\delta$ to show $f'$ is continuous.
+    Consider the counterexample $f(x) = x^2\sin(1/x)$ over $[0,1]$ (where $f(0) = 0$).
+    $f$ is differentiable over $[0,1]$ but not uniformly differentiable.
+
+    Intuitively this is because I can find $x_n, y_n$ such that the slope between them becomes unbounded, but the derivative $f'$ must stay bounded. To be exact set
+    $$
+    x_n = \frac{1}{2\pi n + \pi/2}, \quad y_n = \frac{1}{2\pi n}
+    $$
+    then
     $$
     \begin{aligned}
-    |f'(x) - f'(c)|
-    &\le \left|\frac{f(x) - f(c)}{x - c} - f'(c)\right| + \left|f'(x) - \frac{f(x) - f(c)}{x - c}\right| \\
-    &< \epsilon/2 + \epsilon/2 = \epsilon
+      \left|\frac{f(x_n) - f(y_n)}{x_n - y_n} - f'(x_n)\right|
+      &= \left|\frac{1}{x_n - y_n} - f'(x_n)\right| \\
+      &= \left|\frac{(2\pi n)(2\pi n + \pi/2)}{\pi/2} - f'(x_n)\right| \\
+      &= \left|4n(2\pi n + \pi/2) - f'(x_n)\right|
     \end{aligned}
     $$
-    Note where uniformity comes in, without uniformity $\delta$ would be dependent on $x$ and we would not be able to get the desired ``for all''.
-  \item Let $f$ be differentiable on $[a,b]$, and cover $[a,b]$ with open intervals $\{O_\lambda : \lambda \in \Lambda\}$ such that every $x,y \in O_{\lambda_0}$ satisfies
+    Now since $f'(x_n) = 2x\sin(1/x) - \cos(1/x)$ is bounded I can defeat any $\delta$ by picking $n$ large enough so that
     $$
-    \left|\frac{f(x) - f(y)}{x - y} - f'(x)\right| < \epsilon
+    |x_n - y_n| < \delta \quad\text{and}\quad \left|\frac{f(x_n) - f(y_n)}{x_n - y_n} - f'(x_n)\right| \ge \epsilon
     $$
-    Now since $[a,b]$ is compact there exists a finite subcover $O_1, \dots, O_n$.
-    Let $\delta = \min\{|O_1|, \dots, |O_n|\}$. Now let $x,y \in [a,b]$ with $|x-y| < \delta$, there are two cases:
-    If both $x,y \in O_k$ we are done. 
-    If $x \in O_k$ and $y \in O_{k+1}$ then pick $z \in O_k \cap O_{k+1}$ (possible, otherwise there would be a gap) and use the triangle inequality
-    $$
-    \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| \le \TODO
-    $$
+    Thus $f$ is not uniformly differentiable.
+
+    If you try to apply the same proof as for uniform continuity you get stuck at the triangle inequality.
   }
 \end{solution}
 
