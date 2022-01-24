@@ -294,12 +294,27 @@
     Which cannot be made smaller then $\epsilon = 1/2$.
 
     The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. Therefor the maximum point is at $m=n$.
-  \item \TODO
+  \item Let $a_{mn} = 1 / \min\{m,n\}$. both iterated limits are infinity since
+    $$\lim_{n \to \infty}\left(\lim_{m \to \infty} a_{mn}\right) = \lim_{n \to \infty}\left(n\right) = \infty$$
+    But increasing both at the same time gives zero
+    $$\lim_{m,n \to \infty} a_{mn} = 0$$
   \item
-    We are given $|b_m - a_{mn}| < \epsilon$ for all $n > N$, By the triangle inequality
+    Choose $\epsilon > 0$ and let $0 < \epsilon' < \epsilon$.
+    We need to find $N$ so that $|b_m - a| < \epsilon$ for all $m > N$.
+
+    Set $N$ such that $|a_{mn} - a| < \epsilon'$ when $n,m \ge N$.
+    Then fix $m \ge N$, I will show $|b_m-a|<\epsilon$. apply the triangle inequality to get
     $$
-    |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a| < \epsilon/2 + \epsilon/2 = \epsilon
+    |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a|\quad\forall n \in \mathbf{N}
     $$
+    This inequality is true for all $n$, we will pick $n$ to make it strict enough to complete the proof.
+    Set $n \ge \max\{N, N_m\}$ where $N_m$ (dependent on $m$) is big enough that $|b_m - a_{mn}| < \epsilon-\epsilon'$.
+    We also have $|a_{mn} - a| < \epsilon'$ since $m \ge N$ and $n \ge N$. So finally
+    $$
+    |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a| < (\epsilon-\epsilon') + \epsilon' = \epsilon
+    $$
+    And we are done. The key is that we can make $|b_{m} - a_{mn}|$ as small as we want \emph{independent of m}, so we take the limit as $n \to \infty$ to show $|b_m - a| \le |a_{mn} - a|$
+    % TODO: Replace proof by taking limit of both sides?
   \item Let $b_m = \lim_{n \to \infty} (a_{mn})$ and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$, A similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
   }
 \end{solution}
