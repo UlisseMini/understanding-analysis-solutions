@@ -42,7 +42,10 @@
   A function $f$ is increasing on $A$ if $f(x) \leq f(y)$ for all $x<y$ in $A$. Show that if $f$ is increasing on $[a, b]$ and satisfies the intermediate value property (Definition 4.5.3), then $f$ is continuous on $[a, b]$.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $x \in [a,b]$ and choose $\epsilon > 0$.
+  Let $L \in (f(a), f(x)) \cap (f(x)-\epsilon, f(x))$ IVP lets us find $c \in (a, x)$ with $f(c)= L$, thus $|f(x) - f(c)| < \epsilon$.
+  Likewise we can find $d \in (x,b)$ with $|f(d)-f(x)|<\epsilon$.
+  Because $f$ is increasing $f(x)-f(c) < \epsilon$ implies $f(x)-f(c')<\epsilon$ for $c' \in (c, x)$ (and likewise for $d$) meaning every $y \in (c, d)$ has $|f(x)-f(y)|<\epsilon$. To get a $\delta$-neighborhood simply set $\delta = \min\{x-c, d-x\}$.
 \end{solution}
 
 \begin{exercise}
@@ -64,7 +67,18 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $f$ be continuous, and let $L \in (f(a), f(b))$, we must find $c \in (a,b)$ with $f(c) = L$.
+
+  \enum{
+  \item Let $c = \sup \{x : f(x) \le L\}$. $f(c) < L$ is not possible since we could find $\delta$ small enough that $f(c+\delta) < L$ contradicting $c$ being an upper bound. And $f(c) > L$ is impossible since we could find $\delta$ small enough that $f(c-\delta) > L$ contradicting $c$ being the least upper bound (since we found a smaller upper bound). Thus we must have $f(c) = L$ completing the proof.
+
+    A detail we glossed over is $c \in (a,b)$, which can be seen since $f(b) > L$ and $f(a) < L$ has $f(a+\delta) < L$ meaning $a$ cannot be the least upper bound.
+  \item Let $I_0 = [a,b]$ and bisect into two intervals, let $I_1$ be the interval where $L$ is still between $f$ at the endpoints.
+    Continue like this to get a sequence $I_n \subseteq I_{n+1}$, $I_n \ne \emptyset$ and let $c \in \bigcap_{n=1}^\infty I_n$.
+    If $f(c) \ne L$ is impossible since we would eventually remove it. Thus $f(c) = L$
+
+    \TODO Make rigorous
+  }
 \end{solution}
 
 \begin{exercise}
