@@ -253,7 +253,25 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item If $f'$ is not constant there exist $x,y$ with $f'(x) < f'(y)$, since derivatives obey the intermediate value proper (Theorem 5.2.7) $f'$ takes on the value of every irrational number in $(f'(x), f'(y))$.
+  \item True if $f'$ is continuous, False in general. Let $f(x) = x^2\sin(1/x) + x/2$ so that
+    $$
+    f'(x) = 2x\sin(1/x) - \cos(1/x) + 1/2
+    $$
+    Notice how $f'$ alternates between positive and negative for small $x$. We have
+    $$
+    \lim_{x \to 0} \frac{x^2\sin(1/x) - 0}{x - 0} = \lim_{x \to 0} x\sin(1/x) = 0
+    $$
+    Thus $f'(0) = 1/2$, pick any $\delta$ and I can find $x \in V_\delta(0)$ with $f'(x) \le 0$.
+    To be explicit define $x_n = 1/(2\pi n)$ so that $f'(x_n) = -1/2$ then pick $n$ large enough so $x_n \in V_\delta(0)$.
+  \item This isn't saying derivatives are continuous, it's saying \emph{if the limit exists} then $L = f'(0)$.
+    Attempting to use $x^2\sin(1/x)$ again as a counterexample doesn't work as the limit doesn't exist.
+    And modifying it into $x^{2.5}\sin(1/x)$ (so the limit exists) makes $L = f'(0)$.
+
+    Pick $\delta > 0$, By IVP for any $y \in (f'(0), f'(\delta))$ I can find $x \in (0, \delta)$ with $f'(x) = y$.
+    Thus $L \ne f'(0)$ is impossible as I can always find values of $x \in (-\delta,\delta)$ such that $|f'(x) - f'(0)|$ is as small as I want.
+  }
 \end{solution}
 
 \begin{exercise}
