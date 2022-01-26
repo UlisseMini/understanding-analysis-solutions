@@ -318,5 +318,14 @@
   $$
 \end{exercise}
 \begin{solution}
-  \TODO
+  Typically I'd use the chain rule, but to be rigorous we must prove $f^{-1}$ is differentiable.
+  Consider the limit
+  $$
+  \left(f^{-1}\right)'(d) = \lim_{y \to d} \frac{f^{-1}(y) - f^{-1}(d)}{y-d}
+  $$
+  Since both $y$ and $d$ are in the range of $f$ we can substitute $y=f(x)$ and $d=f(c)$
+  $$
+  \lim_{f(x) \to f(c)} \frac{x - c}{f(x) - f(c)} = \lim_{x \to c} \frac{x - c}{f(x) - f(c)} = \frac{1}{f'(c)}
+  $$
+  Changing $f(x) \to f(a)$ into $x \to a$ is possible because $f$ is continuous, meaning that $x$ being close to $a$ causes $f(x)$ to be close to $f(a)$. (This can be made more rigorous, but I'm lazy)
 \end{solution}
