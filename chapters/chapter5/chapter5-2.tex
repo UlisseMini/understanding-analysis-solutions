@@ -285,7 +285,7 @@
   In the next section we will see that $f$ is indeed increasing on $(a, b)$ if and only if $f^{\prime}(x) \geq 0$ for all $x \in(a, b)$.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Already did this in 5.2.9 (b) as I came up with the same counterexample as abbott!
 \end{solution}
 
 \begin{exercise}
@@ -296,7 +296,19 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Since $g'(a) = \lim_{x \to a} \frac{g(x) - g(a)}{x - a} < 0$ we know
+    $$
+    g'(a)-\epsilon < \frac{g(x) - g(a)}{x - a} < g'(a)+\epsilon \quad\text{when}\quad |x-a|<\delta
+    $$
+    Therefor
+    $$
+    g(x) < g(a) + (g'(a)+\epsilon)(x-a)
+    $$
+    Pick $\epsilon$ small enough that $g'(a)+\epsilon < 0$, and since $(x-a) > 0$ we have $g(x)<g(a)$ as desired.
+    A similar argument works for $g(y) < g(b)$.
+  \item By EVT $g$ obtains a minimum value over $[a,b]$. We just showed $a$ and $b$ are not minima, therefor the minimum point $c$ must be in the interior $(a,b)$ which has $g'(c) = 0$ by Theorem 5.2.6.
+  }
 \end{solution}
 
 \begin{exercise}[Inverse functions]
@@ -306,5 +318,14 @@
   $$
 \end{exercise}
 \begin{solution}
-  \TODO
+  Typically I'd use the chain rule, but to be rigorous we must prove $f^{-1}$ is differentiable.
+  Consider the limit
+  $$
+  \left(f^{-1}\right)'(d) = \lim_{y \to d} \frac{f^{-1}(y) - f^{-1}(d)}{y-d}
+  $$
+  Since both $y$ and $d$ are in the range of $f$ we can substitute $y=f(x)$ and $d=f(c)$
+  $$
+  \lim_{f(x) \to f(c)} \frac{x - c}{f(x) - f(c)} = \lim_{x \to c} \frac{x - c}{f(x) - f(c)} = \frac{1}{f'(c)}
+  $$
+  Changing $f(x) \to f(a)$ into $x \to a$ is possible because $f$ is continuous, meaning that $x$ being close to $a$ causes $f(x)$ to be close to $f(a)$. (This can be made more rigorous, but I'm lazy)
 \end{solution}
