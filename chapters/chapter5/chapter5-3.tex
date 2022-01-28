@@ -12,7 +12,23 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Since $f'$ is continuous on the compact set $[a,b]$ we can set $M$ such that $|f'(x)| \le M$ over $[a,b]$, then pick $x,y \in [a,b]$ with $x<y$. Apply MVT on $[x,y]$ to get a $c \in (x,y)$ with
+    $$
+    \frac{f(x)-f(y)}{x-y} = f'(c)
+    $$
+    Which implies
+    $$
+    \left|\frac{f(x)-f(y)}{x-y}\right| = |f'(c)| \le M
+    $$
+    Since $x,y$ were arbitrary this shows $f$ is Lipschitz.
+  \item For $f$ to be contractive we need some $c \in (0, 1)$ with $|f(x)-f(y)| \le c|x-y|$.
+    Set
+    $$c = \sup \{|f'(x)| : x \in [a,b]\}$$
+    Clearly $|f'(x)| \le c$, now apply the Extreme Value Theorem to find $d \in [a,b]$ with $|f'(d)| = c$, which implies $c < 1$ since $|f'(d)| < 1$.
+
+    Now apply the MVT as in (a) to bound $|f(x) - f(y)| \le c|x-y|$, which shows $f$ is contractive.
+  }
 \end{solution}
 
 \begin{exercise}
