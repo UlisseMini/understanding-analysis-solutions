@@ -35,7 +35,13 @@
   Let $f$ be differentiable on an interval $A$. If $f^{\prime}(x) \neq 0$ on $A$, show that $f$ is one-to-one on $A$. Provide an example to show that the converse statement need not be true.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $x,y$ be in $A$ with $x < y$, to show $f(x) \ne f(y)$ apply the Mean Value Theorem on $[x,y]$ to get $c \in (x,y)$ with
+  $$
+  f'(c) = \frac{f(x) - f(y)}{x-y}
+  $$
+  Now since $f'(c) \ne 0$ we must have $f(x) - f(y) \ne 0$, and thus $f(x) \ne f(y)$.
+
+  To see the converse is false consider how $f(x) = x^3$ is 1-1 but has $f'(0) = 0$.
 \end{solution}
 
 \begin{exercise}
@@ -47,7 +53,12 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Consider $g(x) = h(x) - x$ which is continuous and has $g(0) = 1$ and $g(3) = -1$, then apply the IVT to find $d \in (0,3)$ with $g(d) = 0$ which implies $h(d) = d$.
+  \item Apply MVT on $[0,3]$ to get $c \in (0,3)$ with
+    $$h'(c) = \frac{h(0) - h(3)}{0 - 3} = 1/3$$
+  \item We can find $c \in (0, 3)$ with $h'(c) = 1/3$ and a $d \in (1,3)$ with $h'(d) = 0$. So by Darboux's theorem there exists a point $x \in (c,d)$ with $h'(x) = 1/4$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -58,7 +69,12 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Since $f$ is continuous $f(0) = \lim f(x_n) = 0$. For $f'$ note that
+    $$f'(0) = \lim_{x \to 0} \frac{f(x)}{x} = \lim \frac{f(x_n)}{x_n} = 0$$
+    A subtle bit is how $f'(0)$ existing implies the limit exists.
+  \item This is different then (a) because $f'(x_n)$ may be nonzero. \TODO
+  }
 \end{solution}
 
 \begin{exercise}
