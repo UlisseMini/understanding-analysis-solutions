@@ -35,7 +35,13 @@
   Let $f$ be differentiable on an interval $A$. If $f^{\prime}(x) \neq 0$ on $A$, show that $f$ is one-to-one on $A$. Provide an example to show that the converse statement need not be true.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $x,y$ be in $A$ with $x < y$, to show $f(x) \ne f(y)$ apply the Mean Value Theorem on $[x,y]$ to get $c \in (x,y)$ with
+  $$
+  f'(c) = \frac{f(x) - f(y)}{x-y}
+  $$
+  Now since $f'(c) \ne 0$ we must have $f(x) - f(y) \ne 0$, and thus $f(x) \ne f(y)$.
+
+  To see the converse is false consider how $f(x) = x^3$ is 1-1 but has $f'(0) = 0$.
 \end{solution}
 
 \begin{exercise}
