@@ -84,7 +84,22 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Let $h(x) = [f(b)-f(a)]g(x) - [g(b)-g(a)]f(x)$ and apply the MVT to $h$ to get $c \in (a,b)$ with
+    $$
+    h'(c) = \frac{h(b)-h(a)}{b-a} = \frac{[f(b)-f(a)][g(b)-g(a)] - [g(b)-g(a)][f(b)-f(a)]}{b-a} = 0
+    $$
+    Thus we have
+    $$
+    h'(c) = [f(b)-f(a)]g'(c) - [g(b)-g(a)]f'(c) = 0
+    $$
+    Completing the proof.
+  \item Rename $x = f$, $g = y$, $t=a$, then the theorem states
+    $$
+    \frac{x'(t)}{y'(t)} = \frac{dx}{dy} = \frac{x(b)-x(a)}{y(b)-y(a)}
+    $$
+    In other words, it's the mean value theorem for parametric curves.
+  }
 \end{solution}
 
 \begin{exercise}
