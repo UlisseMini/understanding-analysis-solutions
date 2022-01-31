@@ -117,7 +117,11 @@
   A fixed point of a function $f$ is a value $x$ where $f(x)=x$. Show that if $f$ is differentiable on an interval with $f^{\prime}(x) \neq 1$, then $f$ can have at most one fixed point.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Suppose for contradiction that $x,y$ are fixed points of $f$ with $x < y$, then apply MVT on $[x,y]$ to get
+  $$
+  f'(c) = \frac{f(x) - f(y)}{x - y} = \frac{x - y}{x - y} = 1
+  $$
+  But we know $f'(c) \ne 1$, therefor finding more then one fixed point is impossible.
 \end{solution}
 
 \begin{exercise}
