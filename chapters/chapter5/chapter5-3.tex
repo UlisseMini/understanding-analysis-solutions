@@ -110,7 +110,22 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item For $x \in [0,a]$, apply MVT to find a $c \in [0,x]$ with
+    $$g'(c) = \frac{g(x)}{x} \implies g(x) = g'(c)x \implies |g(x)| \le Mx$$
+  \item This is a special case of the theorem that if $f(0) = g(0) = 0$ and $f'(x) \le g'(x)$ for all $x \in [0,a]$ then $f(x) \le g(x)$. To prove this note how letting $h(x) = g(x) - f(x)$ changes the statement into $h'(x) \ge 0$ implying $h(x) \ge 0$. Which is true since MVT to get $c \in [0,x]$ implies $h'(c) = h(x)/x \ge 0$ thus $h(x) \ge 0$.
+
+    Now returning to $|h''(x)| \le Mx^2/2$ apply the above result to both cases in the inequality
+    $$
+    \begin{aligned}
+      -Mx^2/2 \le h''(x) \le Mx^2/2 &\implies -Mx \le h'(x) \le Mx \\
+                                    &\implies -M \le h(x) \le M \\
+                                    &\implies |h(x)| \le M
+    \end{aligned}
+    $$
+    Which proves $|h(x)| \le M$.
+  \item I conjecture $|f(x)| \le x^3/6$ when $f(0) = f'(0) = f''(0) = 0$. The proof is the same as (b), except we differentiate one more time.
+  }
 \end{solution}
 
 \begin{exercise}

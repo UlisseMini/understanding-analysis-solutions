@@ -61,20 +61,32 @@
 
 \begin{solution}
   \enum{
-  \item Divide by $a_n^2$, then apply the ALT
+  \item Apply the ALT
     $$
+    \begin{aligned}
     \lim \left(\frac{1+2 a_{n}}{1+3 a_{n}-4 a_{n}^{2}}\right)
-    = \frac{\lim\left(\frac{1}{a_n^2} + \frac{2}{a_n}\right)}{\lim\left(\frac{1}{a_n^2} + \frac{3}{a_n} - 4\right)}
-    = \frac{0}{-4}
-    = 0
+    &= \frac{\lim\left(1 + 2a_n\right)}{\lim \left(1 + 3a_n - 4a_n^2\right)} \\
+    &= \frac{1 + 2\lim (a_n)}{1 + 3\lim a_n - 4 \lim a_n^2} \\
+    &= 1
+    \end{aligned}
     $$
-  \item
+    Showing $a_n^2 \to 0$ is easy so I've omitted it 
+  \item Apply the ALT
     $$
-    \lim \left(\frac{\left(a_{n}+2\right)^{2}-4}{a_{n}}\right) = \lim \left(\frac{a_{n}^2 + 2a_n}{a_{n}}\right) = \lim \left(a_n + 2\right) = \infty
+    \begin{aligned}
+    \lim \left(\frac{\left(a_{n}+2\right)^{2}-4}{a_{n}}\right)
+    &= \lim \left(\frac{a_{n}^2 + 2a_n}{a_{n}}\right) \\
+    &= \lim(a_n + 2) = 2 + \lim a_n = 2
+    \end{aligned}
     $$
-  \item This one is a straightforward application of the algebraic limit theorem
+  \item Multiply the top and bottom by $a_n$ then apply the ALT
     $$
-    \lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right) = 3/5
+    \begin{aligned}
+    \lim \left(\frac{\frac{2}{a_{n}}+3}{\frac{1}{a_{n}}+5}\right)
+    &= \lim \left(\frac{2 + 3a_n}{1 + 5a_n}\right) \\
+    &= \frac{2 + 3 \lim a_n}{1 + 5 \lim a_n} \\
+    &= 2
+    \end{aligned}
     $$
   }
 \end{solution}
