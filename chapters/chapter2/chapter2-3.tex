@@ -47,7 +47,8 @@
 \end{exercise}
 
 \begin{solution}
-  Let $y = \lim y_n$. By the order limit theorem we have $l \le y \le l$ implying $y = l$.
+  Let $\epsilon > 0$, set $N$ so that $|x_n - l| < \epsilon/4$ and $|z_n - l| < \epsilon/4$, then use the triangle inequality to see $|x_n - z_n| < |x_n-l|+|l-z_n|<\epsilon/2$ then apply it again to get
+  $$|y_n - l| \le |y_n - x_n| + |x_n - l| < \epsilon/2 + \epsilon/4 < \epsilon$$
 \end{solution}
 
 \begin{exercise}
