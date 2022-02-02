@@ -129,21 +129,18 @@
     $$
     x_{n+1}^2 = \frac 14\left(\frac{(x_n^2 + 2)^2}{2}\right) \ge 2.
     $$
-    To show $x_n - x_{n+1} \ge 0$ we examine $(x_n - x_{n+1})^2 \ge 0$ with the hope of using $x_n^2 \ge 2$.
+    Now to show $x_n - x_{n+1} \ge 0$ we use $x_n \ge 0$
     $$
     \begin{aligned}
-      (x_n - x_{n+1})^2
-      &= x_n^2 - 2x_nx_{n+1} + x_{n+1}^2 \\
-      &= x_n^2 - 2x_n \frac 12\left(x_n + \frac{1}{x_n}\right) + x_{n+1}^2 \\
-      &= x_n^2 - (x_n^2 + 2) + x_{n+1}^2 \\
-      &= x_{n+1}^2 - 2 \ge 0.
+      x_n - x_{n+1} &= x_n - \frac 12\left(x_n + \frac{2}{x_n}\right) \\
+                    &= \frac 12 x_n + \frac{1}{x_n} \ge 0
     \end{aligned}
     $$
-    Now we know $(x_n) \to x$ converges, to show $x^2 = 2$ observe that $\lim x_n = \lim x_{n+1}$ so
+    Now we know $(x_n) \to x$ converges by MCT, to show $x^2 = 2$ we equate $x_n = x_{n+1}$ (true in the limit since $|x_n - x_{n+1}|$ becomes arbitrarily small)
     $$
     x = \frac 12 \left(x + \frac{2}{x}\right) \iff x^2 = \frac 12 x^2 + 1 \iff x^2 = 2
     $$
-    therefore $x = \pm \sqrt 2$, since every $x_n$ is positive $x = \sqrt 2$.
+    therefore $x = \pm \sqrt 2$, and since every $x_n$ is positive $x = \sqrt 2$.
   \item Let
     $$
     x_{n+1} = \frac{1}{2}\left(x_n + \frac{c}{x_n}\right)
