@@ -244,13 +244,13 @@
 
   Now assume $s$ is finite, we know
   $$(-\infty, s) \cap A = \bigcup_{n=1}^\infty (-\infty, s+1/n) \cap A$$
-  is countable by \ref{ex:countable_union}. therefor $(s, \infty) \cap A$ must be uncountable.
+  is countable by \ref{ex:countable_union}. therefore $(s, \infty) \cap A$ must be uncountable.
 
   The definition of infimum implies $(-\infty, s+\epsilon) \cap A$ is uncountable forall $\epsilon > 0$, We will show there exists an $\epsilon > 0$ with $s+\epsilon \in B$.
 
   Suppose the converse, if $(s+\epsilon, \infty)$ is countable forall $\epsilon > 0$, then \ref{ex:countable_union} would imply that
   $$\bigcup_{n=1}^\infty (s+1/n, \infty) = (s, \infty)$$
-  is countable, which is impossible since it would imply $A$ is countable. Therefor there exists an $\epsilon > 0$ with $(s+\epsilon, \infty) \cap A$ uncountable and $(-\infty, s+\epsilon) \cap A$ uncountable, meaning $s+\epsilon \in B$.
+  is countable, which is impossible since it would imply $A$ is countable. therefore there exists an $\epsilon > 0$ with $(s+\epsilon, \infty) \cap A$ uncountable and $(-\infty, s+\epsilon) \cap A$ uncountable, meaning $s+\epsilon \in B$.
 
   Now we know $B$ is nonempty, pick any $s \in B$ we must show there exists an $\epsilon > 0$ with $V_\epsilon(b) \subseteq B$. If $(-\infty, s) \cap A$ is uncountable we automatically have that $(-\infty, s+\epsilon) \cap A$ is uncountable. Which is true when $\epsilon > 0$ is small enough that $(s+\epsilon, \infty) \cap A$ is uncountable. We can do this using \ref{ex:countable_union} as before.
 \end{solution}
@@ -266,7 +266,7 @@
 
   Attempting to take $s = \sup A \cap (-\infty, r)$ gives a contradiction, since $s \in A \cap (-\infty, r)$ (because closed and bounded above) we can find $\epsilon > 0$ with $V_\epsilon(s) \subseteq A \cap (-\infty, r)$ (because open) which contradictions $s$ being an upper bound of $A \cap (-\infty, r)$.
 
-  Therefor if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
+  therefore if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
 \end{solution}
 
 \begin{exercise}
@@ -286,9 +286,9 @@
   \item
     \enumr{
     \item If $E = \closure E$ then $E$ contains its limit points and so is closed. If $E$ is closed then $E$ contains its limit points so $\closure{E} = E$.
-    \item If $E^\circ = E$ then every $x \in E$ has $V_\epsilon(x) \subseteq E$ therefor $E$ is open. If $E$ is open then every $x \in E$ has $V_\epsilon(x) \subseteq E$ therefor $E = E^\circ$.
+    \item If $E^\circ = E$ then every $x \in E$ has $V_\epsilon(x) \subseteq E$ therefore $E$ is open. If $E$ is open then every $x \in E$ has $V_\epsilon(x) \subseteq E$ therefore $E = E^\circ$.
     }
-  \item $x \in \closure{E}^c$ iff $x \notin E$ and $x$ is not a limit point of $E$, $x \in (E^c)^\circ$ iff $x \notin E$ and there exists $V_\epsilon(x) \subseteq E^c$. Notice ``x is not a limit point of $E$'' is equivilant to ``there exists $V_\epsilon(x) \subseteq E^c$'' therefor the sets are the same.
+  \item $x \in \closure{E}^c$ iff $x \notin E$ and $x$ is not a limit point of $E$, $x \in (E^c)^\circ$ iff $x \notin E$ and there exists $V_\epsilon(x) \subseteq E^c$. Notice ``x is not a limit point of $E$'' is equivilant to ``there exists $V_\epsilon(x) \subseteq E^c$'' therefore the sets are the same.
 
     To show $(E^\circ)^c = \closure{E^c}$ let $D = E^c$ yielding $((D^c)^\circ)^c = \closure{D}$ taking the complement of both sides yields $(D^c)^\circ = \closure{D}^c$ which we showed earlier.
   }
