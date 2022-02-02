@@ -111,7 +111,7 @@
   \enum{
   \item Define $2A = A+A = \{x+y : x,y \in A\}$, $C_1 = [0, 1/3] \cup [2/3, 1]$ has
     $$2C_1 = (2[0,1/3]) \cup (2[2/3, 1]) \cup ([0,1/3] + [2/3, 1])$$
-    It's obvious that $2[0,1/3] = [0,2/3]$ and $2[2/3, 1] = [4/3, 2]$ now consider the last term, let $x \in [0,1/3]$ be fixed and let $y \in [2/3, 1]$ vary. obviously $x+y \in [2/3, 4/3]$ therefor adding the endpoints to compute $[0,1/3]+[2/3,1]=[2/3,4/3]$ works!
+    It's obvious that $2[0,1/3] = [0,2/3]$ and $2[2/3, 1] = [4/3, 2]$ now consider the last term, let $x \in [0,1/3]$ be fixed and let $y \in [2/3, 1]$ vary. obviously $x+y \in [2/3, 4/3]$ therefore adding the endpoints to compute $[0,1/3]+[2/3,1]=[2/3,4/3]$ works!
     % TODO: Rewrite this explanation at the top, unifying stupid 2*. and .+. notation for closed intervals
 
     This means that $2C_1 = [0,2/3] \cup [4/3, 2] \cup [2/3, 4/3] = [0, 2]$!
@@ -174,11 +174,11 @@
 \begin{solution}
   \enum{
   \item $S$ is nonempty since $x=a$ has the finite subcover $\{O_{\lambda_0}\}$ for $a \in O_{\lambda_0}$. $S$ is bounded since $x \le b$ for all $x \in S$.
-  \item Suppose for contradiction that $s < b$, letting $s \in O_{\lambda_0}$ implies $[a,s]$ is finitely coverable since we can take the finite cover of an $x \in O_{\lambda_0}$ with $x < s$. This is causes a contradiction however since there exist points $y > s$ with $y \in O_{\lambda_0}$ meaning $[a,y]$ is also finitely coverable. Therefor the only option is $s = b$, since any $s < b$ doesn't work.
+  \item Suppose for contradiction that $s < b$, letting $s \in O_{\lambda_0}$ implies $[a,s]$ is finitely coverable since we can take the finite cover of an $x \in O_{\lambda_0}$ with $x < s$. This is causes a contradiction however since there exist points $y > s$ with $y \in O_{\lambda_0}$ meaning $[a,y]$ is also finitely coverable. therefore the only option is $s = b$, since any $s < b$ doesn't work.
   \item (a) still works, for (b) we must also consider the case where $y$ does not exist / there is a gap. Let $y = \inf\;[s, b]\cap K$ and suppose $y \ne s$. since $y \in [s,b] \cap K$ we know
     $$[a,y] \cap K = ([a,s]\cap K) \cup ((s, y]\cap K) = [a,s]\cap K \cup \{y\}$$
-    therefor if $\{O_{\lambda_1}, \dots, O_{\lambda_n}\}$
-    covered $[a, s]$ then letting $y \in O_{\lambda_{n+1}}$ would give the finite cover $\{O_{\lambda_1}, \dots, O_{\lambda_{n+1}}\}$ contradicting the assumption that $s < b$, therefor $s = b$ is the only option, and so $K$ can be finitely covered.
+    therefore if $\{O_{\lambda_1}, \dots, O_{\lambda_n}\}$
+    covered $[a, s]$ then letting $y \in O_{\lambda_{n+1}}$ would give the finite cover $\{O_{\lambda_1}, \dots, O_{\lambda_{n+1}}\}$ contradicting the assumption that $s < b$, therefore $s = b$ is the only option, and so $K$ can be finitely covered.
   }
 \end{solution}
 
@@ -211,6 +211,6 @@
 \end{exercise}
 
 \begin{solution}
-  $K$ is clompact if and only if $K$ is finite, since the closed cover $\{[x,x] : x \in K\} = K$ having a finite subcover implies $\{[x,x] : x \in K\}$ is finite (since it is the only subcover that works) therefor $K$ is finite. If $K$ is finite then it obviously permits a finite subcover.
+  $K$ is clompact if and only if $K$ is finite, since the closed cover $\{[x,x] : x \in K\} = K$ having a finite subcover implies $\{[x,x] : x \in K\}$ is finite (since it is the only subcover that works) therefore $K$ is finite. If $K$ is finite then it obviously permits a finite subcover.
 \end{solution}
 

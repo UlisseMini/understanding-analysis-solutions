@@ -17,7 +17,7 @@
   \item Theorem: Suppose $i$ is a lower bound for $A$, it is the greatest lower bound if and only if forall $\epsilon>0$, there exists an $a\in A$ such that $i + \epsilon < a$. \par
     Proof: \newline
     $(\implies)$ Suppose $i = \inf A$, then any $i+\epsilon$ cannot be a lower bound since $i$ is defined as the greatest lower bound, and $i+\epsilon>i$. \newline
-    $(\impliedby)$ Suppose $j > i$ is a lower bound on $A$, then set $\epsilon = j-i$ and we have that $i+\epsilon = j$ is not a lower bound since there exists $a \in A$ such that $j > a$. Therefor $i$ is the greatest lower bound.
+    $(\impliedby)$ Suppose $j > i$ is a lower bound on $A$, then set $\epsilon = j-i$ and we have that $i+\epsilon = j$ is not a lower bound since there exists $a \in A$ such that $j > a$. therefore $i$ is the greatest lower bound.
   }
 \end{solution}
 
@@ -64,7 +64,7 @@
 \begin{solution}
   \enum{
   \item $\sup \left(\bigcup_{k=1}^n A_k\right) = \sup \left\{\sup A_k \mid k=1,\dots,n\right\}$
-  \item Yes. Let $S = \left\{\sup A_k \mid k=1,\dots,\right\}$ and $s = \sup S$. $s$ is obviously an upper bound for $\bigcup_{k=1}^\infty A_k$. to see it is the least upper bound suppose $s' < s$, then by definition there exists a $k$ such that $\sup A_k > s'$ implying $s'$ is not an upper bound for $A_k$. Therefor $s$ is the least upper bound.
+  \item Yes. Let $S = \left\{\sup A_k \mid k=1,\dots,\right\}$ and $s = \sup S$. $s$ is obviously an upper bound for $\bigcup_{k=1}^\infty A_k$. to see it is the least upper bound suppose $s' < s$, then by definition there exists a $k$ such that $\sup A_k > s'$ implying $s'$ is not an upper bound for $A_k$. therefore $s$ is the least upper bound.
   }
 \end{solution}
 
@@ -101,7 +101,7 @@
   \item From (a) we know $s + t$ is an upper bound, so we must only show it is the least upper bound. \par
     Let $u = \sup(A+B)$, from (a) we have $t \le u-a$ and $s \le u-b$ adding and rearranging gives $a+b \le 2u - s - t$. since $2u - s - t$ is an upper bound on $A+B$ it is less then the least upper bound, so $u \le 2u - s -t$ implying $s + t \le u$. and since $u$ is the least upper bound $s+t$ must equal $u$. \par
     Stepping back, the key to this proof is that $a + b \le s,\forall a,b$ implying $\sup(A + B) \le s$ can be used to transition from all $a+b$ to a single value $\sup(A+B)$, avoiding the $\epsilon$-hackery I would otherwise use.
-  \item Showing $s + t - \epsilon$ is not an upper bound for any $\epsilon > 0$ proves it is the least upper bound by Lemma 1.3.8. Rearranging gives $(s - \epsilon/2) + (t - \epsilon/2)$ we know there exists $a > (s - \epsilon/2)$ and $b > (t - \epsilon/2)$ therefor $a + b > s + t - \epsilon$ meaning $s+t$ cannot be made smaller, and thus is the least upper bound.
+  \item Showing $s + t - \epsilon$ is not an upper bound for any $\epsilon > 0$ proves it is the least upper bound by Lemma 1.3.8. Rearranging gives $(s - \epsilon/2) + (t - \epsilon/2)$ we know there exists $a > (s - \epsilon/2)$ and $b > (t - \epsilon/2)$ therefore $a + b > s + t - \epsilon$ meaning $s+t$ cannot be made smaller, and thus is the least upper bound.
   }
 \end{solution}
 
