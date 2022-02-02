@@ -101,23 +101,21 @@
 \end{exercise}
 
 \begin{solution}
-  Intuitively $\lim b^{1/n} = 1$
-
-  Two facts I'll take as granted (you can prove them if you wish)
+  To show $b^{1/n}$ is monotone bounded consider two cases (I won't prove each rigorously to avoid clutter, you can if you want)
   \enumr{
-  \item If $b < 1$ then $b^{1/n}$ is increasing
-  \item If $b > 1$ then $b^{1/n}$ is decreasing
+  \item If $b > 1$ then $b^{1/n}$ is decreasing, and bounded $b^{1/n} > 1 \iff b > 1^n$ (raise both to $n$)
+  \item If $b < 1$ then $b^{1/n}$ is increasing, and bounded $b^{1/n} < 1 \iff b < 1^n$ (raise both to $n$)
   }
-  Thus $b^{1/n}$ is monotonic, and bounded since
-  \enumr{
-  \item If $b > 1$ then $b^{1/n} > 1$ since $b > 1^n$
-  \item If $b < 1$ then $b^{1/n} < 1$ since $b < 1^n$
-  }
-  Therefor $b^{1/n}$ converges by the monotone convergence theorem. to find the limit equate terms
+  Therefor $b^{1/n}$ converges for each $b \ge 0$ by the monotone convergence theorem. to find the limit equate terms
   $$
-  b^{1/{n+1}} = b^{1/n} \implies b^1 = b^{\frac{n+1}{n}} = b^2 \implies b=1
+  \begin{aligned}
+  b^{1/{(n+1)}}
+  = b^{1/n}
+  &\implies b = b^{\frac{n+1}{n}} = b^{1 + 1/n} &&\text{Raise both to $(n+1)$th power} \\
+  &\implies 1 = b^{1/n}                         &&\text{Divide by $b$, this assumes $b \ne 0$}
+  \end{aligned}
   $$
-  \TODO Shorten this
+  Thus $\lim b^{1/n} = 1$ if $b \ne 0$, if $b = 0$ then $\lim b^{1/n} = 0$.
 \end{solution}
 
 \begin{exercise}
