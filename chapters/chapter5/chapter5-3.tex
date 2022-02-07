@@ -157,7 +157,40 @@
   Let $f(x)=x \sin \left(1 / x^{4}\right) e^{-1 / x^{2}}$ and $g(x)=e^{-1 / x^{2}}$. Using the familiar properties of these functions, compute the limit as $x$ approaches zero of $f(x), g(x), f(x) / g(x)$, and $f^{\prime}(x) / g^{\prime}(x)$. Explain why the results are surprising but not in conflict with the content of Theorem 5.3.6. ${ }^{1}$
 \end{exercise}
 \begin{solution}
-  \TODO
+  $$
+  \lim_{x \to 0} f(x) = 0,
+  \quad \lim_{x \to 0} g(x) = 0,
+  \quad \lim_{x \to 0} \frac{f(x)}{g(x)} = 0,
+  $$
+  To compute the last limit we need to find $f'$ and $g'$ using derivative rules. Let $h(x) = x\sin(1/x^4)$ for bookkeeping.
+  $$
+  \begin{aligned}
+    g'(x) &= \frac{d}{dx} e^{-x^{-2}} = e^{-x^{-2}}(2x^{-3}) = g(x)(2x^{-3}) \\
+    h'(x) &= \sin(x^{-4}) + x\cos(x^{-4})(-4x^{-5}) = \sin(x^{-4}) - 4x^{-4}\cos(x^{-4})\\
+    f'(x) &= \frac{d}{dx} h(x)g(x) \\
+          &= h'(x)g(x) + g(x)(2x^{-3})h(x) \\
+          &= g(x)(h'(x) + 2x^{-3}h(x))
+  \end{aligned}
+  $$
+  We can simplify by dividing out $g(x)$
+  $$
+  \frac{f'(x)}{g'(x)}
+  = \frac{g(x)(h'(x) + 2x^{-3}h(x))}{g(x)(2x^{-3})}
+  = \frac{h'(x) + 2x^{-3}h(x)}{2x^{-3}}
+  = \frac 12 x^3h'(x) + h(x)
+  $$
+  Now we can compute the limit
+  $$
+  \begin{aligned}
+  \lim_{x \to 0}\left[\frac 12 x^3 h'(x) + h(x)\right]
+  &= \lim_{x \to 0} \frac 12 x^3 h'(x) &&{\text{since } \lim_{x\to 0} h(x) = 0} \\
+  &= \frac 12 \lim_{x \to 0}\left[x^3\sin(x^{-4}) - 4x^{-1}\cos(x^{-4})\right] &&{\text{substitute } h'} \\
+  &= -2 \lim_{x \to 0} x^{-1}\cos(x^{-4}) &&{\text{since } \lim_{x \to 0} x^3\sin(x^{-4}) = 0} \\
+  &\to \text{does not exist, just like } \lim_{x \to 0} 1/x
+  \end{aligned}
+  $$
+  L'Hospital's rule for $0/0$ would apply if $f'/g'$ existed. but when it doesn't exist $f/g$ may still exist, that's a bit surprising.
+  % TODO: I feel I'm missing something here
 \end{solution}
 
 \begin{exercise}
