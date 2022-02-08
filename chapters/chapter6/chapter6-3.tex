@@ -1,0 +1,87 @@
+\section{Uniform Convergence and Differentiation}
+
+\begin{exercise}
+  Consider the sequence of functions defined by
+  $$
+  g_{n}(x)=\frac{x^{n}}{n} .
+  $$
+  \enum {
+  \item Show $\left(g_{n}\right)$ converges uniformly on $[0,1]$ and find $g=\lim g_{n}$. Show that $g$ is differentiable and compute $g^{\prime}(x)$ for all $x \in[0,1]$.
+  \item Now, show that $\left(g_{n}^{\prime}\right)$ converges on $[0,1]$. Is the convergence uniform? Set $h=\lim g_{n}^{\prime}$ and compare $h$ and $g^{\prime}$. Are they the same?
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Consider the sequence of functions
+  $$
+  h_{n}(x)=\sqrt{x^{2}+\frac{1}{n}} .
+  $$
+  \enum {
+  \item Compute the pointwise limit of $\left(h_{n}\right)$ and then prove that the convergence is uniform on $\mathbf{R}$.
+  \item Note that each $h_{n}$ is differentiable. Show $g(x)=\lim h_{n}^{\prime}(x)$ exists for all $x$, and explain how we can be certain that the convergence is not uniform on any neighborhood of zero.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Consider the sequence of functions
+  $$
+  f_{n}(x)=\frac{x}{1+n x^{2}} .
+  $$
+  \enum{
+  \item Find the points on $\mathbf{R}$ where each $f_{n}(x)$ attains its maximum and minimum value. Use this to prove $\left(f_{n}\right)$ converges uniformly on $\mathbf{R}$. What is the limit function?
+  \item Let $f=\lim f_{n}$. Compute $f_{n}^{\prime}(x)$ and find all the values of $x$ for which $f^{\prime}(x)=\lim f_{n}^{\prime}(x) .$
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Let
+  $$
+  h_{n}(x)=\frac{\sin (n x)}{\sqrt{n}} .
+  $$
+  Show that $h_{n} \rightarrow 0$ uniformly on $\mathbf{R}$ but that the sequence of derivatives $\left(h_{n}^{\prime}\right)$ diverges for every $x \in \mathbf{R}$.
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Let
+  $$
+  g_{n}(x)=\frac{n x+x^{2}}{2 n}
+  $$
+  and set $g(x)=\lim g_{n}(x)$. Show that $g$ is differentiable in two ways:
+  \enum {
+  \item Compute $g(x)$ by algebraically taking the limit as $n \rightarrow \infty$ and then find $g^{\prime}(x)$.
+  \item Compute $g_{n}^{\prime}(x)$ for each $n \in \mathbf{N}$ and show that the sequence of derivatives $\left(g_{n}^{\prime}\right)$ converges uniformly on every interval $[-M, M]$. Use Theorem 6.3.3 to conclude $g^{\prime}(x)=\lim g_{n}^{\prime}(x)$.
+  \item Repeat parts (a) and (b) for the sequence $f_{n}(x)=\left(n x^{2}+1\right) /(2 n+x)$.
+
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Provide an example or explain why the request is impossible. Let's take the domain of the functions to be all of $\mathbf{R}$.
+  \enum {
+  \item A sequence $\left(f_{n}\right)$ of nowhere differentiable functions with $f_{n} \rightarrow f$ uniformly and $f$ everywhere differentiable.
+  \item A sequence $\left(f_{n}\right)$ of differentiable functions such that $\left(f_{n}^{\prime}\right)$ converges uniformly but the original sequence $\left(f_{n}\right)$ does not converge for any $x \in \mathbf{R}$.
+  \item A sequence $\left(f_{n}\right)$ of differentiable functions such that both $\left(f_{n}\right)$ and $\left(f_{n}^{\prime}\right)$ converge uniformly but $f=\lim f_{n}$ is not differentiable at some point.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that, for any $x \in[a, b]$ and $m, n \in \mathbf{N}$,
+  $$
+  \left|f_{n}(x)-f_{m}(x)\right| \leq\left|\left(f_{n}(x)-f_{m}(x)\right)-\left(f_{n}\left(x_{0}\right)-f_{m}\left(x_{0}\right)\right)\right|+\left|f_{n}\left(x_{0}\right)-f_{m}\left(x_{0}\right)\right| .
+  $$
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
