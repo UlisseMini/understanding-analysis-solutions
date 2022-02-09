@@ -48,13 +48,40 @@
   \item Find the pointwise limit on $[0, \infty)$.
   \item Explain how we know that the convergence cannot be uniform on $[0, \infty)$.
   \item Choose a smaller set over which the convergence is uniform and supply an argument to show that this is indeed the case.
-
-
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item
+    $$
+    \lim g_n(x) = \begin{cases}
+      x &\text{if } x \in [0, 1) \\
+      0 &\text{if } x \in [1, \infty) \\
+    \end{cases}
+    \quad\text{and}\quad
+    \lim h_n(x) = \begin{cases}
+      1 &\text{if } x > 0 \\
+      0 &\text{if } x = 0
+    \end{cases}
+    $$
+  \item They can't converge uniformly since it would contradict Theorem 6.2.6 as both $g_n$ and $h_n$ are continuous but the limit functions are not.
+  \item
+    % TODO: Combine both into a single interval, the one I used for h_n is basically cheating
+
+    Over $[1,\infty)$ we have $h_n(x) = 1$ for all $n$, thus $|h_n(x) - 1| = 0$ so $h_n$ obviously converges uniformly.
+
+    Now for $g_n$. Let $t \in [0,1)$, I claim $g_n(x) \to x$ uniformly over $[0, t)$ since
+    $$
+    \left|\frac{x}{1 + x^n} - x\right|
+    = \left|\frac{x - x(1+x^n)}{1 + x^n}\right|
+    = \left|\frac{x^{n+1}}{1 + x^n}\right|
+    < \left|t^{n+1}\right|
+    < \epsilon \quad\forall x
+    $$
+    After setting $n > \log_t \epsilon$.
+  }
 \end{solution}
+
 \begin{exercise}
   Review Exercise 5.2.8 which includes the definition for a uniformly differentiable function. Use the results discussed in Section 2 to show that if $f$ is uniformly differentiable, then $f^{\prime}$ is continuous.
 
