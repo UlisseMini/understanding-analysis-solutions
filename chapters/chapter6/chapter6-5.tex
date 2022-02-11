@@ -1,0 +1,68 @@
+\section{Power Series}
+
+Exercise $6.5 .1$. Consider the function $g$ defined by the power series
+$$
+g(x)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\frac{x^{5}}{5}-\cdots .
+$$
+(a) Is $g$ defined on $(-1,1)$ ? Is it continuous on this set? Is $g$ defined on $(-1,1]$ ? Is it continuous on this set? What happens on $[-1,1]$ ? Can the power series for $g(x)$ possibly converge for any other points $|x|>1$ ? Explain.
+(b) For what values of $x$ is $g^{\prime}(x)$ defined? Find a formula for $g^{\prime}$.
+Exercise 6.5.2. Find suitable coefficients $\left(a_{n}\right)$ so that the resulting power series $\sum a_{n} x^{n}$ has the given properties, or explain why such a request is impossible.
+(a) Converges for every value of $x \in \mathbf{R}$.
+(b) Diverges for every value of $x \in \mathbf{R}$.
+(c) Converges absolutely for all $x \in[-1,1]$ and diverges off of this set.
+(d) Converges conditionally at $x=-1$ and converges absolutely at $x=1$.
+(e) Converges conditionally at both $x=-1$ and $x=1$.
+Exercise 6.5.3. Use the Weierstrass M-Test to prove Theorem $6.5 .2$.
+Exercise $6.5 .4$ (Term-by-term Antidifferentiation). Assume $f(x)=$ $\sum_{n=0}^{\infty} a_{n} x^{n}$ converges on $(-R, R)$.
+(a) Show
+$$
+F(x)=\sum_{n=0}^{\infty} \frac{a_{n}}{n+1} x^{n+1}
+$$
+is defined on $(-R, R)$ and satisfies $F^{\prime}(x)=f(x)$.
+(b) Antiderivatives are not unique. If $g$ is an arbitrary function satisfying $g^{\prime}(x)=f(x)$ on $(-R, R)$, find a power series representation for $g$.
+
+Exercise 6.5.5. (a) If $s$ satisfies $0<s<1$, show $n s^{n-1}$ is bounded for all $n \geq 1$.
+(b) Given an arbitrary $x \in(-R, R)$, pick $t$ to satisfy $|x|<t<R$. Use this start to construct a proof for Theorem 6.5.6.
+
+Exercise 6.5.6. Previous work on geometric series (Example 2.7.5) justifies the formula
+$$
+\frac{1}{1-x}=1+x+x^{2}+x^{3}+x^{4}+\cdots, \quad \text { for all }|x|<1 .
+$$
+Use the results about power series proved in this section to find values for $\sum_{n=1}^{\infty} n / 2^{n}$ and $\sum_{n=1}^{\infty} n^{2} / 2^{n}$. The discussion in Section $6.1$ may be helpful.
+Exercise 6.5.7. Let $\sum a_{n} x^{n}$ be a power series with $a_{n} \neq 0$, and assume
+$$
+L=\lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|
+$$
+exists.
+(a) Show that if $L \neq 0$, then the series converges for all $x$ in $(-1 / L, 1 / L)$. (The advice in Exercise 2.7.9 may be helpful.)
+(b) Show that if $L=0$, then the series converges for all $x \in \mathbf{R}$.
+(c) Show that (a) and (b) continue to hold if $L$ is replaced by the limit.
+$$
+L^{\prime}=\lim _{n \rightarrow \infty} s_{n} \quad \text { where } \quad s_{n}=\sup \left\{\left|\frac{a_{k+1}}{a_{k}}\right|: k \geq n\right\} .
+$$
+(General properties of the limit superior are discussed in Exercise 2.4.7.)
+Exercise 6.5.8. (a) Show that power series representations are unique. If we have
+$$
+\sum_{n=0}^{\infty} a_{n} x^{n}=\sum_{n=0}^{\infty} b_{n} x^{n}
+$$
+for all $x$ in an interval $(-R, R)$, prove that $a_{n}=b_{n}$ for all $n=0,1,2, \ldots$
+(b) Let $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converge on $(-R, R)$, and assume $f^{\prime}(x)=f(x)$ for all $x \in(-R, R)$ and $f(0)=1$. Deduce the values of $a_{n}$.
+
+Exercise 6.5.9. Review the definitions and results from Section $2.8$ concerning products of series and Cauchy products in particular. At the end of Section 2.9, we mentioned the following result: If both $\sum a_{n}$ and $\sum b_{n}$ converge conditionally to $A$ and $B$ respectively, then it is possible for the Cauchy product,
+$$
+\sum d_{n} \quad \text { where } \quad d_{n}=a_{0} b_{n}+a_{1} b_{n-1}+\cdots+a_{n} b_{0}
+$$
+to diverge. However, if $\sum d_{n}$ does converge, then it must converge to $A B$. To prove this, set
+$$
+f(x)=\sum a_{n} x^{n}, \quad g(x)=\sum b_{n} x^{n}, \quad \text { and } \quad h(x)=\sum d_{n} x^{n} .
+$$
+Use Abel's Theorem and the result in Exercise $2.8 .7$ to establish this result.
+Exercise 6.5.10. Let $g(x)=\sum_{n=0}^{\infty} b_{n} x^{n}$ converge on $(-R, R)$, and assume $\left(x_{n}\right) \rightarrow 0$ with $x_{n} \neq 0$. If $g\left(x_{n}\right)=0$ for all $n \in \mathbf{N}$, show that $g(x)$ must be identically zero on all of $(-R, R)$.
+
+Exercise 6.5.11. A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
+$$
+f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}
+$$
+converges for all $x \in[0,1)$ and $L=\lim _{x \rightarrow 1-} f(x)$.
+(a) Show that any series that converges to a limit $L$ is also Abel-summable to $L$.
+(b) Show that $\sum_{n=0}^{\infty}(-1)^{n}$ is Abel-summable and find the sum.
