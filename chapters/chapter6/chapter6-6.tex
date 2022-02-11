@@ -1,0 +1,119 @@
+\section{Taylor Series}
+
+\begin{exercise}
+  The derivation in Example 6.6.1 shows the Taylor series for $\arctan (x)$ is valid for all $x \in(-1,1)$. Notice, however, that the series also converges when $x=1$. Assuming that arctan $(x)$ is contimuous, explain why the value of the series at $x=1$ must necessarily be arctan(1). What interesting identity do we get in this case?
+
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Starting from one of the previously generated series in this section, use manipulations similar to those in Example 6.6.1 to find Taylor series representations for each of the following functions. For precisely what values of $x$ is each series representation valid?
+  \enum {
+  \item $x \cos \left(x^{2}\right)$
+  \item $x /\left(1+4 x^{2}\right)^{2}$
+  \item $\log \left(1+x^{2}\right)$
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Derive the formula for the Taylor coefficients given in Theorem 6.6.2.
+
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Explain how Lagrange's Remainder Theorem can be modified to prove
+  $$
+  1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\cdots=\log (2)
+  $$
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+
+  \enum {
+  \item Generate the Taylor coefficients for the exponential function $f(x)=e^{x}$, and then prove that the corresponding Taylor series converges uniformly to $e^{x}$ on any interval of the form $[-R, R]$.
+  \item Verify the formula $f^{\prime}(x)=e^{x}$.
+  \item Use a substitution to generate the series for $e^{-x}$, and then informally calculate $e^{x} \cdot e^{-x}$ by multiplying together the two series and collecting common powers of $x$.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Review the proof that $g^{\prime}(0)=0$ for the function
+  $$
+  g(x)= \begin{cases}e^{-1 / x^{2}} & \text { for } x \neq 0 \\ 0 & \text { for } x=0\end{cases}
+  $$
+  introduced at the end of this section.
+  \enum {
+  \item Compute $g^{\prime}(x)$ for $x \neq 0$. Then use the definition of the derivative to find $g^{\prime \prime}(0)$.
+  \item Compute $g^{\prime \prime}(x)$ and $g^{\prime \prime \prime}(x)$ for $x \neq 0$. Use these observations and invent whatever notation is needed to give a general description for the $n$th derivative $g^{(n)}(x)$ at points different from zero.
+  \item Construct a general argument for why $g^{(n)}(0)=0$ for all $n \in \mathbf{N}$.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Find an example of each of the following or explain why no such function exists.
+  \enum {
+  \item An infinitely differentiable function $g(x)$ on all of $\mathbf{R}$ with a Taylor series that converges to $g(x)$ only for $x \in(-1,1)$.
+  \item An infinitely differentiable function $h(x)$ with the same Taylor series as $\sin (x)$ but such that $h(x) \neq \sin (x)$ for all $x \neq 0$.
+  \item An infinitely differentiable function $f(x)$ on all of $\mathbf{R}$ with a Taylor series that converges to $f(x)$ if and only if $x \leq 0$.
+
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Here is a weaker form of Lagrange's Remainder Theorem whose proof is arguably more illuminating than the one for the stronger result.
+  \enum {
+  \item First establish a lemma: If $g$ and $h$ are differentiable on $[0, x]$ with $g(0)=h(0)$ and $g^{\prime}(t) \leq h^{\prime}(t)$ for all $t \in[0, x]$, then $g(t) \leq h(t)$ for all $t \in[0, x] .$
+  \item Let $f, S_{N}$, and $E_{N}$ be as Theorem 6.6.3, and take $0<x<R$. If $\left|f^{(N+1)}(t)\right| \leq M$ for all $t \in[0, x]$, show
+    $$
+    \left|E_{N}(x)\right| \leq \frac{M x^{N+1}}{(N+1) !}
+    $$
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}[Cauchy's Remainder Theorem]
+  Let $f$ be differentiable $N+1$ times on $(-R, R)$. For each $a \in(-R, R)$, let $S_{N}(x, a)$ be the partial sum of the Taylor series for $f$ centered at $a$; in other words, define
+  $$
+  S_{N}(x, a)=\sum_{n=0}^{N} c_{n}(x-a)^{n} \quad \text { where } \quad c_{n}=\frac{f^{(n)}(a)}{n !} .
+  $$
+  Let $E_{N}(x, a)=f(x)-S_{N}(x, a) .$ Now fix $x \neq 0$ in $(-R, R)$ and consider $E_{N}(x, a)$ as a function of $a$.
+  \enum {
+  \item Find $E_{N}(x, x)$.
+  \item Explain why $E_{N}(x, a)$ is differentiable with respect to $a$, and show
+    $$
+    E_{N}^{\prime}(x, a)=\frac{-f^{(N+1)}(a)}{N !}(x-a)^{N} .
+    $$
+  \item Show
+    $$
+    E_{N}(x)=E_{N}(x, 0)=\frac{f^{(N+1)}(c)}{N !}(x-c)^{N} x
+    $$
+    for some $c$ between 0 and $x$. This is Cauchy's form of the remainder for Taylor series centered at the origin.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
+\begin{exercise}
+  Consider $f(x)=1 / \sqrt{1-x}$.
+  \enum {
+  \item Generate the Taylor series for $f$ centered at zero, and use Lagrange's Remainder Theorem to show the series converges to $f$ on $[0,1 / 2]$. (The case $x<1 / 2$ is more straightforward while $x=1 / 2$ requires some extra care.) What happens when we attempt this with $x>1 / 2 ?$
+  \item Use Canchy's Remainder Theorem proved in Exercise 6.6.9 to show the series representation for $f$ holds on $[0,1)$.
+  }
+\end{exercise}
+\begin{solution}
+  \TODO
+\end{solution}
