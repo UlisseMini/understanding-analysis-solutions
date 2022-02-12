@@ -158,7 +158,23 @@
   Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hospital's Rule under this stronger hypothesis.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $(x_n)$ be a sequence approaching $a$ and apply MVT on $[x_n,a]$ to find $c_n,d_n \in (x_n,a)$ with
+  $$
+  f'(c_n) = \frac{f(x_n)}{x_n - a} \quad\text{and}\quad g'(d_n) = \frac{g(x_n)}{x_n - a}
+  $$
+  Meaning
+  $$
+  \lim \frac{f(x_n)}{g(x_n)} = \lim \frac{f'(c_n)/(x_n-a)}{g'(d_n)/(x_n-a)} = \lim \frac{f'(c_n)}{g'(d_n)}
+  $$
+  The continuity of $f'$ and $g'$ combined with $g'(a) \ne 0$ implies the limit exists
+  $$
+  \lim \frac{f'(c_n)}{g'(d_n)} = \frac{f'(a)}{g'(a)} = L
+  $$
+  Since we showed $\lim f(x_n)/g(x_n) = L$ \emph{for all} sequences $(x_n)$ the Sequential Criterion for Functional Limits (Theorem 4.2.3) implies
+  $$
+  \lim_{x \to a} \frac{f(x)}{g(x)} = L
+  $$
+  Which completes the proof.
 \end{solution}
 
 \begin{exercise}
