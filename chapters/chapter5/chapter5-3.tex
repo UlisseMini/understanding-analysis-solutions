@@ -64,16 +64,24 @@
 \begin{exercise}
   Let $f$ be differentiable on an interval $A$ containing zero, and assume $\left(x_{n}\right)$ is a sequence in $A$ with $\left(x_{n}\right) \rightarrow 0$ and $x_{n} \neq 0$.
   \enum{
-  \item If $f\left(x_{n}\right)=0$ for all $n \in N$, show $f(0)=0$ and $f^{\prime}(0)=0$.
+  \item If $f\left(x_{n}\right)=0$ for all $n \in \mathbf N$, show $f(0)=0$ and $f^{\prime}(0)=0$.
   \item Add the assumption that $f$ is twice-differentiable at zero and show that $f^{\prime \prime}(0)=0$ as well.
   }
 \end{exercise}
 \begin{solution}
   \enum{
-  \item Since $f$ is continuous $f(0) = \lim f(x_n) = 0$. For $f'$ note $f(x_n) = 0$ implies
-    $$f'(0) = \lim_{x \to 0} \frac{f(x)}{x} = \lim \frac{f(x_n)}{x_n} = 0$$
-    A subtle bit is how $f'(0)$ existing implies the limit exists, normally a single sequence converging would not be enough.
-  \item This is different then (a) because $f'(x_n)$ may be nonzero. \TODO
+  \item Since $f'(0)$ exists and $f(x_n) = 0$ for all $n$ we have
+    $$
+    f'(0) = \lim \frac{f(x_n)}{x_n} = 0
+    $$
+  \item By the mean value theorem over $[0,x_n]$ there exists a $c_n \in (0,x_n)$ such that
+    $$
+    f'(c_n) = \frac{f(x_n)}{x_n}
+    $$
+    Then like in (a)
+    $$
+    f''(0) = \lim \frac{f'(c_n)}{c_n} = 0
+    $$
   }
 \end{solution}
 
