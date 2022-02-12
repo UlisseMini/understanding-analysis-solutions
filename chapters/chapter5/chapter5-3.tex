@@ -64,16 +64,24 @@
 \begin{exercise}
   Let $f$ be differentiable on an interval $A$ containing zero, and assume $\left(x_{n}\right)$ is a sequence in $A$ with $\left(x_{n}\right) \rightarrow 0$ and $x_{n} \neq 0$.
   \enum{
-  \item If $f\left(x_{n}\right)=0$ for all $n \in N$, show $f(0)=0$ and $f^{\prime}(0)=0$.
+  \item If $f\left(x_{n}\right)=0$ for all $n \in \mathbf N$, show $f(0)=0$ and $f^{\prime}(0)=0$.
   \item Add the assumption that $f$ is twice-differentiable at zero and show that $f^{\prime \prime}(0)=0$ as well.
   }
 \end{exercise}
 \begin{solution}
   \enum{
-  \item Since $f$ is continuous $f(0) = \lim f(x_n) = 0$. For $f'$ note $f(x_n) = 0$ implies
-    $$f'(0) = \lim_{x \to 0} \frac{f(x)}{x} = \lim \frac{f(x_n)}{x_n} = 0$$
-    A subtle bit is how $f'(0)$ existing implies the limit exists, normally a single sequence converging would not be enough.
-  \item This is different then (a) because $f'(x_n)$ may be nonzero. \TODO
+  \item Since $f'(0)$ exists and $f(x_n) = 0$ for all $n$ we have
+    $$
+    f'(0) = \lim \frac{f(x_n)}{x_n} = 0
+    $$
+  \item By the mean value theorem over $[0,x_n]$ there exists a $c_n \in (0,x_n)$ such that
+    $$
+    f'(c_n) = \frac{f(x_n)}{x_n}
+    $$
+    Then like in (a)
+    $$
+    f''(0) = \lim \frac{f'(c_n)}{c_n} = 0
+    $$
   }
 \end{solution}
 
@@ -150,7 +158,23 @@
   Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hospital's Rule under this stronger hypothesis.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $(x_n)$ be a sequence approaching $a$ and apply MVT on $[x_n,a]$ to find $c_n,d_n \in (x_n,a)$ with
+  $$
+  f'(c_n) = \frac{f(x_n)}{x_n - a} \quad\text{and}\quad g'(d_n) = \frac{g(x_n)}{x_n - a}
+  $$
+  Meaning
+  $$
+  \lim \frac{f(x_n)}{g(x_n)} = \lim \frac{f'(c_n)/(x_n-a)}{g'(d_n)/(x_n-a)} = \lim \frac{f'(c_n)}{g'(d_n)}
+  $$
+  The continuity of $f'$ and $g'$ combined with $g'(a) \ne 0$ implies the limit exists
+  $$
+  \lim \frac{f'(c_n)}{g'(d_n)} = \frac{f'(a)}{g'(a)} = L
+  $$
+  Since we showed $\lim f(x_n)/g(x_n) = L$ \emph{for all} sequences $(x_n)$ the Sequential Criterion for Functional Limits (Theorem 4.2.3) implies
+  $$
+  \lim_{x \to a} \frac{f(x)}{g(x)} = L
+  $$
+  Which completes the proof.
 \end{solution}
 
 \begin{exercise}
