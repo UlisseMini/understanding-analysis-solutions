@@ -23,7 +23,7 @@
 \end{exercise}
 
 \begin{solution}
-  Letting $r = p/q$ we have $2^{p/q} = 3$ implying $2^p = 3^q$ which is impossible since $2$ and $3$ are coprime.
+  If $r = 0$ clearly $2^r = 1 \ne 3$, if $r \ne 0$ set $p/q = r$ to get $2^p = 3^q$ which is impossible since $2$ and $3$ share no factors.
 \end{solution}
 
 
@@ -41,7 +41,7 @@
 \begin{solution}
   \enum{
   \item False, consider $A_1 = \{1, 2, \dots\}, A_2 = \{2, 3, \dots\}$, ... has $\bigcap_{n=1}^\infty A_n = \emptyset$.
-  \item True.
+  \item True, because we eventually reach $A_j = \{x\}$ and get stuck
   \item False, $A = \emptyset$ gives $\emptyset = C$.
   \item True, intersection is associative.
   \item True, draw a diagram.
@@ -99,17 +99,16 @@
 \begin{solution}
   \enum{
   \item We have equality $|a + b| = |a| + |b|$ meaning $|a + b| \le |a| + |b|$ also holds.
-  \item $(a+b)^2 \le (|a| + |b|)^2$ reduces to $2ab \le 2|a||b|$ which is obviously true.
+  \item $(a+b)^2 \le (|a| + |b|)^2$ reduces to $2ab \le 2|a||b|$ which is true as the left side can be negative but the right side can't.
     and since squaring preserves inequality this implies $|a + b| \le |a| + |b|$.
   \item I would like to do this using the triangle inequality, I notice that $(a-c)+(c-d)+(d-b) = a-b$. Meaning I can use the triangle inequality for multiple terms
     $$|a - b| = |(a-c)+(c-d)+(d-b)| \le |a-c| + |c-d| + |d-b|$$
     The general triangle inequality is proved by repeated application of the two variable inequality
     $$|(a + b) + c| \le |a + b| + |c| \le |a| + |b| + |c|$$
-  \item I would like to cancel the subtraction inside $||a| - |b||$ since then the inside will be positive, and the outer absolute value will vanish. Using the suggestion let $a = (a - b) + b$
-    $$||a| - |b|| = ||(a-b)+b| - |b|| \stackrel{!}{\le} ||a-b| + |b| - |b|| = |a - b|$$
-    However this is incorrect by itself, since $|a| \le |c|$ does not imply $||a|-|b|| \le ||c|-|b||$ (draw a picture, or use the counterexample $a=0, c=1, b=2$). \par
-
-    We can salvage this argument though, notice if $|a| \ge |b|$ then $|a| \le |c|$ does imply $||a|-|b|| \le ||c| - |b||$. And since we can swap $a$ and $b$ without changing anything, we can say without loss of generality assume $|a| \ge |b|$ and then apply the previous argument.
+  \item Since $||a|-|b|| = ||b|-|a||$ we can assume $|a| > |b|$ without loss of generality. Then
+    $$
+    ||a|-|b|| = |a|-|b| = |(a - b) + b| - |b| \le |a-b| + |b| - |b| = |a-b|
+    $$
   }
 \end{solution}
 
@@ -165,7 +164,9 @@
   \enum{
   \item $f^{-1}(A) = [-2, 2]$, $f^{-1}(B) = [-1, 1]$, $f^{-1}(A\cap B) = [-1, 1] = f^{-1}(A) \cap f^{-1}(B)$, $f^{-1}(A \cup B) = [-2, 2] = f^{-1}(A) \cup f^{-1}(B)$
   \item First let $x \in g^{-1}(A \cap B)$ meaning $g(x) \in A \cap B$ implying $g(x) \in A$ and $g(x) \in B$ which is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ meaning $x \in g^{-1}(A) \cap g^{-1}(B)$. \par
-    Second let $x \in g^{-1}(A) \cap g^{-1}(B)$, this is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ which is the same as $g(x) \in A$ and $g(x) \in B$ implying $g(x) \in A \cap B$ and thus $x \in g^{-1}(A \cap B)$.
+    Second let $x \in g^{-1}(A) \cap g^{-1}(B)$, this is the same as $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$ which is the same as $g(x) \in A$ and $g(x) \in B$ implying $g(x) \in A \cap B$ and thus $x \in g^{-1}(A \cap B)$. Thus $g^{-1}(A \cap B) = g^{-1}(A) \cap g^{-1}(B)$.
+
+    Seeing $g^{-1}(A \cup B) = g^{-1}(A) \cup g^{-1}(B)$ is obvious. see 1.2.7 (d).
   }
 \end{solution}
 
@@ -183,8 +184,10 @@
 \begin{solution}
   \enum{
   \item False, if $a=b$ then $a < b + \epsilon$ forall $\epsilon > 0$ but $a \not < b$
-  \item False, see above
-  \item True, suppose $a < b + \epsilon$ forall $\epsilon > 0$, We want to show this implies $a \le b$. We either have $a \le b$ or $a > b$, but $a > b$ is impossible since the gap implies there exists an $\epsilon$ small enough such that $a > b + \epsilon$. Now suppose $a \le b$, obviously $a < b + \epsilon$ forall $\epsilon > 0$.
+  \item False, consider $a=b$ as above
+  \item True. First suppose $a < b + \epsilon$ forall $\epsilon > 0$, We want to show this implies $a \le b$. We either have $a \le b$ or $a > b$, but $a > b$ is impossible since the gap implies there exists an $\epsilon$ small enough such that $a > b + \epsilon$.
+
+    Second suppose $a \le b$, obviously $a < b + \epsilon$ forall $\epsilon > 0$.
   }
 \end{solution}
 
@@ -216,8 +219,26 @@
 
 \begin{solution}
   \enum{
-  \item Suppose $y_n > -6$, then $y_{n+1} = (2y_n - 6)/3$ implying $y_n = (3y_{n+1} + 6)/2 > -6$ implying $y_{n+1} > -6$ by basic algebra.
-  \item Suppose $y_{n+1} < y_{n}$ this implies $2y_{n+1} < 2y_n$ implying $2y_{n+1} - 6 < 2y_n - 6$ and finally $(2y_{n+1} - 6)/3 < (2y_n - 6)/3$ which shows $y_{n+2} < y_{n+1}$.
+  \item Suppose for induction that $y_n > -6$, our base case clearly satisfies $y_1 > -6$. then
+    $$
+    \begin{aligned}
+    y_{n+1} = (2y_n - 6)/3
+    &\implies y_n = (3y_{n+1} + 6)/2 > -6 \\
+    &\implies y_{n+1} > (2\cdot (-6) - 6)/3 = -6
+    \end{aligned}
+    $$
+    Thus $y_{n+1} > -6$
+  \item Suppose $y_{n+1} < y_{n}$, the base case $2 < 6$ works. Now
+    $$
+    \begin{aligned}
+      y_{n+1} < y_{n}
+      &\implies 2y_{n+1} < 2y_n \\
+      &\implies 2y_{n+1} - 6 < 2y_n - 6 \\
+      &\implies (2y_{n+1} - 6)/3 < (2y_n - 6)/3 \\
+      &\implies y_{n+2} < y_{n+1}
+    \end{aligned}
+    $$
+    Thus $(y_n)$ is decreasing.
   }
 \end{solution}
 
