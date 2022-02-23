@@ -7,13 +7,32 @@
   $$
   \enum {
   \item Find the pointwise limit of $\left(f_{n}\right)$ for all $x \in(0, \infty)$.
-  \item Is the convergence uniform on $(0, \infty)$ ?
-  \item Is the convergence uniform on $(0,1)$ ?
-  \item Is the convergence uniform on $(1, \infty) ?$
+  \item Is the convergence uniform on $(0, \infty)$?
+  \item Is the convergence uniform on $(0,1)$?
+  \item Is the convergence uniform on $(1, \infty)$?
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item $\lim f_n(x) = \lim \frac{nx}{1+nx^2} = \lim \frac{x}{1/n + x^2} = 1/x$
+  \item Examine the difference $|f_n(x) - f(x)|$
+    $$
+    \left|\frac{nx}{1+nx^2} - \frac{1}{x}\right|
+    = \left|\frac{nx^2 - (1+nx^2)}{x(1+nx^2)}\right|
+    = \frac{1}{x(1+nx^2)}
+    $$
+    Consider $x_n = 1/n$, then
+    $$
+    \left|f_n(x_n) - f(x_n)\right| = \frac{1}{(1/n)(1+n(1/n^2)} = \frac{1}{n/2} = \frac{n}{2}
+    $$
+    Which shows that no matter how big $n$ is, we can find $x = 1/n$ such that $|f_n(x) - f(x)| \ge 1/2$ meaning $\epsilon$ cannot be made smaller then $1/2$. So $f$ isn't uniformly continuous.
+  \item No, same logic as (b)
+  \item Yes, because $x \ge 1$ implies
+    $$
+    |f_n(x) - f(x)| = \frac{1}{x(1 + nx^2)} \le \frac{1}{n}
+    $$
+    Meaning forall $\epsilon > 0$, setting $N > 1/\epsilon$ implies every $n \ge N$ has $|f_n(x) - f(x)| \le 1/N < \epsilon$ for every $x \in (1,\infty)$.
+  }
 \end{solution}
 \begin{exercise}
 
