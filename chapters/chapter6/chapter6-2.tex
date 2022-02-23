@@ -7,13 +7,32 @@
   $$
   \enum {
   \item Find the pointwise limit of $\left(f_{n}\right)$ for all $x \in(0, \infty)$.
-  \item Is the convergence uniform on $(0, \infty)$ ?
-  \item Is the convergence uniform on $(0,1)$ ?
-  \item Is the convergence uniform on $(1, \infty) ?$
+  \item Is the convergence uniform on $(0, \infty)$?
+  \item Is the convergence uniform on $(0,1)$?
+  \item Is the convergence uniform on $(1, \infty)$?
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item $\lim f_n(x) = \lim \frac{nx}{1+nx^2} = \lim \frac{x}{1/n + x^2} = 1/x$
+  \item Examine the difference $|f_n(x) - f(x)|$
+    $$
+    \left|\frac{nx}{1+nx^2} - \frac{1}{x}\right|
+    = \left|\frac{nx^2 - (1+nx^2)}{x(1+nx^2)}\right|
+    = \frac{1}{x(1+nx^2)}
+    $$
+    Consider $x_n = 1/n$, then
+    $$
+    \left|f_n(x_n) - f(x_n)\right| = \frac{1}{(1/n)(1+n(1/n^2)} = \frac{1}{n/2} = \frac{n}{2}
+    $$
+    Which shows that no matter how big $n$ is, we can find $x = 1/n$ such that $|f_n(x) - f(x)| \ge 1/2$ meaning $\epsilon$ cannot be made smaller then $1/2$. So $f$ isn't uniformly continuous.
+  \item No, same logic as (b)
+  \item Yes, because $x \ge 1$ implies
+    $$
+    |f_n(x) - f(x)| = \frac{1}{x(1 + nx^2)} \le \frac{1}{n}
+    $$
+    Meaning forall $\epsilon > 0$, setting $N > 1/\epsilon$ implies every $n \ge N$ has $|f_n(x) - f(x)| \le 1/N < \epsilon$ for every $x \in (1,\infty)$.
+  }
 \end{solution}
 \begin{exercise}
 
@@ -90,11 +109,25 @@
   \TODO
 \end{solution}
 \begin{exercise}
-  Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5. (First, define a candidate for $f(x)$, and then argue that $f_{n} \rightarrow f$ uniformly.)
+  Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence). (First, define a candidate for $f(x)$, and then argue that $f_{n} \rightarrow f$ uniformly.)
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  First suppose $(f_n)$ converges uniformly to $f$ and set $N$ large enough that $n \ge N$ has $|f_n(x) - f(x)| < \epsilon/2$ for all $x$, then use the triangle inequality (where $m \ge N$ as well)
+  $$
+  |f_n(x) - f_m(x)| \le |f_n(x) - f(x)| + |f(x) - f_m(x)| < \epsilon/2 + \epsilon/2 = \epsilon.
+  $$
+  Second suppose we can find an $N$ so that every $n,m \ge N$ has $|f_n(x) - f_m(x)| < \epsilon$ for all $x$.
+  Fix $x$ and apply Theorem 2.6.4 to conclude the sequence $(f_n(x))$ converges to some limit $L$, and define $f(x) = L$. Doing this for all $x$ gives us the pointwise limit $f$. Now we show $(f_n) \to f$ uniformly using the fact that $|f_n(x) - f_m(x)| < \epsilon$ \emph{for all} $x$.
+  Let $n \ge N$, notice that \emph{for all} $m$
+  $$
+  |f_n(x) - f(x)| \le |f_n(x) - f_m(x)| + |f_m(x) - f(x)|
+  $$
+  Let $\epsilon_m = |f_m(x) - f(x)|$. for all $m \ge N$ we have $|f_n(x) - f_m(x)| < \epsilon$ and
+  $$
+  |f_n(x) - f(x)| \le \epsilon + \epsilon_m
+  $$
+  Since $\epsilon_m \to 0$ no matter what $x$ is (pointwise convergence) and the inequality is for all $m$ this implies $|f_n(x) - f(x)| \le \epsilon$ for all $x$ as desired.
 \end{solution}
 \begin{exercise}
   Assume $f_{n} \rightarrow f$ on a set $A$. Theorem 6.2.6 is an example of a typical type of question which asks whether a trait possessed by each $f_{n}$ is inherited by the limit function. Provide an example to show that all of the following propositions are false if the convergence is only assumed to be pointwise on $A$. Then go back and decide which are true under the stronger hypothesis of uniform convergence.

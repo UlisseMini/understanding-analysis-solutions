@@ -14,10 +14,10 @@
       \item Lower bound, $a \ge i$ forall $a \in A$
       \item Greatest lower bound, If $b$ is a lower bound on $A$ then $b \le i$
     }
-  \item Theorem: Suppose $i$ is a lower bound for $A$, it is the greatest lower bound if and only if forall $\epsilon>0$, there exists an $a\in A$ such that $i + \epsilon < a$. \par
-    Proof: \newline
-    $(\implies)$ Suppose $i = \inf A$, then any $i+\epsilon$ cannot be a lower bound since $i$ is defined as the greatest lower bound, and $i+\epsilon>i$. \newline
-    $(\impliedby)$ Suppose $j > i$ is a lower bound on $A$, then set $\epsilon = j-i$ and we have that $i+\epsilon = j$ is not a lower bound since there exists $a \in A$ such that $j > a$. therefore $i$ is the greatest lower bound.
+  \item Suppose $i$ is a lower bound for $A$, it is the greatest lower bound if and only if forall $\epsilon>0$, there exists an $a\in A$ such that $i + \epsilon < a$. \par
+    First suppose $i = \inf A$, then forall $\epsilon > 0$, $i+\epsilon$ cannot be a lower bound on $A$ because (ii) implies all lower bounds $b$ obey $b \le i$, but $i+\epsilon > i$ so it can't be a lower bound.
+
+    Second suppose forall $\epsilon > 0$ there exists an $a \in A$ such that $i+\epsilon < a$ to show (ii). In other words $i+\epsilon$ is not a lower bound for all $\epsilon$, which is the same as saying every lower bound $b$ must have $b \le i$ implying (ii).
   }
 \end{solution}
 
