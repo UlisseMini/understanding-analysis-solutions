@@ -16,8 +16,16 @@
 
 \begin{solution}
   \enum{
-  \item We would like to show $|a_{m+1} - a_{m+2} + \dots \pm a_{n}|$ becomes arbitrarily small. \TODO
-  \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$ we have $I_{n+1} \subseteq I_n$ since $(a_n)$ is decreasing. The nested interval property gives
+  \item Let $N \in \mathbf N$ be even and let $n \ge N$. because the series is alternating we have
+    $$
+    s_N \le s_n \le s_{N+1}
+    $$
+    Obviously $|s_{N+1} - s_N| = |a_N|$ can be made as small as we like by increasing $N$, setting $N$ large enough to make $|a_N| < \epsilon/2$ gives
+    $$
+    |s_m - s_n| \le |s_m - s_N| + |s_N - s_n| < \epsilon/2 + \epsilon/2 = \epsilon
+    $$
+    Which shows $(s_n)$ is cauchy, and hence converges by the Cauchy Criterion.
+  \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$, since $(a_n)$ is decreasing we have $I_{n+1} \subseteq I_n$. Applying the nested interval property gives
     $$\bigcap_{n=1}^\infty I_n \ne \emptyset$$
     Let $x \in \bigcap_{n=1}^\infty I_n$, since $a_n \in I_n$ and $x \in I_n$ the distance $|a_n - x|$ must be less then the length $|I_n|$. and since the length goes to zero $|a_n - x|$ can be made less then any $\epsilon$.
   \item If we can show $\lim s_{2n} = \lim s_{2n+1} = s$ that will imply $\lim s_n = s$ since each $s_n$ is either in $(s_{2n+1})$ or in $(s_{2n})$ as $n$ is must be even or odd.
@@ -52,33 +60,18 @@
   \item Converges by a comparison test with $\sum_{n=1}^\infty \frac{1}{2^n}$.
   \item Converges by a comparison test with $\sum_{n=1}^\infty \frac{1}{n^2}$.
   \item Diverges since $(n+1)/2n = 1/2 + 1/2n$ never gets smaller then $1/2$.
-  \item The first thing I notice is the series cannot converge absolutely (as then it would be harmonic).
-
-    Grouping terms gives
+  \item Grouping terms gives
     $$
-    \begin{aligned}
-    \frac{1}{n} + \frac{1}{n+1} - \frac{1}{n+2}
-    &= \frac{(n+1)(n+2) + n(n+2) - n(n+1)}{n(n+1)(n+2)} \\
-    &= \frac{(n^2 + 3n + 2) + (n^2 + 2n) - (n^2 + n)}{n(n+1)(n+2)} \\
-    &= \frac{n^2 + 4n + 2}{n(n+1)(n+2)}
-    \end{aligned}
+    \frac{1}{n} + \left(\frac{1}{n+1} - \frac{1}{n+2}\right) \ge \frac{1}{n}
     $$
-    Which diverges since
-    $$
-    \frac{n^2 + 4n + 2}{n(n+1)(n+2)} \ge \frac{n^2 + 4n + 2}{n^3} \ge \frac 1n
-    $$
-    In other words, If we take terms three at a time (a subsequence of the partial sums) grows faster then the harmonic series implying the subsequence (and thus the parent sequence) of partial sums diverges.
-
-    \TODO Find better proof
-  \item Intuitively this should diverge since it is a mixture of $1/n$ (divergent) and $1/n^2)$ (convergent). To make this rigorous examine the subsequence $(s_{2n})$
+    Which shows the subsequence $(s_{3n})$ diverges (via comparison test with the harmonic series) hence $(s_n)$ also diverge.
+  \item Intuitively this should diverge since it is a mixture of $1/n$ (divergent) and $1/n^2$ (convergent). To make this rigorous examine the subsequence $(s_{2n})$
     $$
     s_{2n} = 1 - 1/2^2 + 1/3 - 1/4^2 + \dots + 1/(2n)^2
     $$
-    We can the rearrange terms in the partial sum to get
-    $$
-    s_{2n} = \sum_{k=1}^{n} \frac{1}{2k - 1} - \sum_{k=1}^n \frac{1}{(2k)^2} \equiv t_n - v_n
-    $$
-    Now if $\lim(s_{2n})$ converges then $\lim(t_n - v_n)$ also converges. This is impossible however as $(t_n)$ diverging and $(v_n)$ converging would imply $\lim(t_n-v_n) + \lim(v_n) = \lim(t_n)$ converges by the ALT, but $(t_n)$ diverges so we have a contradiction. Thus $(s_{2n})$ diverges and so the parent sequence $(s_n)$ must also diverge.
+    Let $t_n = \sum_{k=1}^n \frac{1}{2k-1}$ and $v_n = \sum_{k=1}^n \frac{1}{(2k)^2}$ so $s_{2n} = t_n - v_n$.
+
+    A comparison test with the harmonic series (after some manipulation) shows that $(t_n)$ diverges, and p-series tells us $(v_n)$ converges. Therefor their difference $s_{2n} = t_n - v_n$ must diverge, which implies $(s_n)$ diverges as desired.
   }
 \end{solution}
 
@@ -257,7 +250,22 @@
 \end{exercise}
 
 \begin{solution}
+  I can't think of an example, so I'm going to prove some stuff about $(a_n)$ and $(b_n)$ to make finding an example easier.
+
+  Let $m_n = \min\{a_n, b_n\}$.
+  Clearly $(m_n)$ must take an infinite amount of $(a_n)$ and $(b_n)$ terms, as otherwise removing the finite terms would imply one of $\sum a_n$ or $\sum b_n$ converged.
+
+  Because $(m_n) \to 0$ and because $(m_n)$ contains an infinite amount of $(a_n)$ terms we can find $N$ large enough that $a_N < \epsilon$, because $(a_n)$ is decreasing this implies every $n \ge N$ has $a_n < \epsilon$, which means $(a_n) \to 0$. The same logic shows $(b_n) \to 0$.
+
+  If we forget about the decreasing requirement we can make $a_n$ alternate between $1/n$ and $1/n^2$ and have $b_n$ do the same, then $m_n = 1/n^2$ converges.
+
+  A similar example won't work here, since if $\sum a_{2n-1}$ converges then $a_{2n} < a_{2n-1}$ implies $\sum a_{2n}$ converges by the comparison test, combining these shows $\sum a_n$ converges. Therefor $(m_n)$ can't alternate terms, and we need to be more clever.
+
+  In fact, If $\sum a_{n_k}$ converges then every shifted sum $\sum a_{n_k+p}$ will converge by a similar argument as above. Meaning $\left(a_{n_k}\right)$ can't be periodic since that would make $(a_n)$ converge.
+
   \TODO
+
+  % TODO: Same exercise for functions? add appendix with my own exercises
 \end{solution}
 
 \begin{exercise}[Summation-by-parts]
