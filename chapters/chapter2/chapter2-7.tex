@@ -16,8 +16,16 @@
 
 \begin{solution}
   \enum{
-  \item We would like to show $|a_{m+1} - a_{m+2} + \dots \pm a_{n}|$ becomes arbitrarily small. \TODO
-  \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$ we have $I_{n+1} \subseteq I_n$ since $(a_n)$ is decreasing. The nested interval property gives
+  \item Let $N \in \mathbf N$ be even and let $n \ge N$. because the series is alternating we have
+    $$
+    s_N \le s_n \le s_{N+1}
+    $$
+    Obviously $|s_{N+1} - s_N| = |a_N|$ can be made as small as we like by increasing $N$, setting $N$ large enough to make $|a_N| < \epsilon/2$ gives
+    $$
+    |s_m - s_n| \le |s_m - s_N| + |s_N - s_n| < \epsilon/2 + \epsilon/2 = \epsilon
+    $$
+    Which shows $(s_n)$ is cauchy, and hence converges by the Cauchy Criterion.
+  \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$, since $(a_n)$ is decreasing we have $I_{n+1} \subseteq I_n$. Applying the nested interval property gives
     $$\bigcap_{n=1}^\infty I_n \ne \emptyset$$
     Let $x \in \bigcap_{n=1}^\infty I_n$, since $a_n \in I_n$ and $x \in I_n$ the distance $|a_n - x|$ must be less then the length $|I_n|$. and since the length goes to zero $|a_n - x|$ can be made less then any $\epsilon$.
   \item If we can show $\lim s_{2n} = \lim s_{2n+1} = s$ that will imply $\lim s_n = s$ since each $s_n$ is either in $(s_{2n+1})$ or in $(s_{2n})$ as $n$ is must be even or odd.
