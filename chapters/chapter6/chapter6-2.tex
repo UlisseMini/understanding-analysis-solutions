@@ -209,8 +209,26 @@
     $$
     Implying $f$ is bounded.
   \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
+
+    Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
+    I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, ie. that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
+
+    Pick $0<\epsilon<2\epsilon_0$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
+    $$
+    \begin{aligned}
+    \epsilon_0
+    &< |f(x_0) - f(x)| \\
+    &\le |f(x_0) - f_n(x_0)| + |f_n(x_0) - f_n(x)| + |f_n(x) - f(x)| \\
+    &< 2\epsilon + |f_n(x_0) - f_n(x)|
+    \end{aligned}
+    $$
+    Letting $\epsilon_0' = \epsilon_0-2\epsilon > 0$ we see $|f_n(x_0) - f_n(x)| > \epsilon_0'$ meaning $f_n$ is not continuous at $x_0$ for all $n \ge N$.
+
+    This doesn't show $f$ has finitely many discontinuities however, because the amount of discontinuities in $(f_n)$ may be increasing (as opposed to (d) where they are all bounded)
+
+    \TODO Finish, I think this one requires a counterexample, though this proof works for part (d)
+  \item False pointwise, see the counterexample in (c)
     \TODO
-  \item False pointwise, see (c)
   \item False pointwise when (using a modified version of Thomae's function for $f_n$)
     $$
     f_n(x) = \begin{cases}
@@ -232,7 +250,19 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  Given $\epsilon>0$ set $\delta>0$ such that $|x-y|<\delta$ implies $|f(x)-f(y)|<\epsilon$.
+  Then set $N > 1/\delta$ so that $n \ge N$ implies (since $1/n<\delta$)
+  $$
+  |f(x) - f_n(x)| = |f(x) - f(x+1/n)| < \epsilon
+  $$
+  Which shows $(f_n) \to f$ uniformly.
+
+  To see this doesn't work if $f$ is only continuous, consider $f : (0,1)\to\mathbf{R}$ defined by $f(x) = 1/x$.
+  We have
+  $$
+  |f(x)-f_n(x)| = \frac{1}{x} - \frac{1}{x+1/n} = \frac{1/n}{x(x+1/n)} = \frac{1}{x(nx+1)}
+  $$
+  Which given a fixed $n$ becomes arbitrarily big as $x$ goes to zero. hence $(f_n)$ does not converge uniformly.
 \end{solution}
 \begin{exercise}
   Let $\left(g_{n}\right)$ be a sequence of continuous functions that converges uniformly to $g$ on a compact set $K$. If $g(x) \neq 0$ on $K$, show $\left(1 / g_{n}\right)$ converges uniformly on $K$ to $1 / g$.
