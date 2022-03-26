@@ -120,7 +120,21 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  The definition of $f$ being uniformly differentiable tells us: for every $\epsilon > 0$ there exists a $\delta > 0$ such that
+  $$
+  \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon \quad \text{whenever $0<|x-y|<\delta$}
+  $$
+  We can use this to show continuity of $f'$ via a triangle inequality and exploiting the symmetry in $x,y$.
+  $$
+  |f'(x) - f'(y)|
+  < \left|f'(x) - \frac{f(x)-f(y)}{x-y}\right|
+  + \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right|
+  < \epsilon
+  $$
+  After picking $\delta$ so that every $|x-y|<\delta$ has
+  $$
+  \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon/2
+  $$
 \end{solution}
 \begin{exercise}
   Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence). (First, define a candidate for $f(x)$, and then argue that $f_{n} \rightarrow f$ uniformly.)
