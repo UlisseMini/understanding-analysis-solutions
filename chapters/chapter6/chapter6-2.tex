@@ -177,7 +177,8 @@
       0 &\text{otherwise}
     \end{cases}
     $$
-    \TODO
+    Now suppose $(f_n)$ converges to $f$ uniformly. Theorem 6.2.6 implies $f$ will be continuous, combining this with Theorem 4.4.7 we see that $f$ must be uniformly continuous if the domain $A$ is compact.
+    If $A$ is not compact this need not be the case, consider $A = (0,1)$ and $f_n(x) = 1/x = f(x)$. Clearly $(f_n) \to f$ uniformly (they're the same function!) but $f(x) = 1/x$ is not uniformly continuous on $A$.
   \item False pointwise when
     $$
     f_n(x)
@@ -188,7 +189,25 @@
     \quad\text{and}\quad
     f(x) = x
     $$
-    \TODO
+    Now suppose $(f_n) \to f$ uniformly.
+    We want to show $f$ is bounded, 
+    Let $M_n$ bound $f_n$, ie. $|f_n(x)|<M_n$ for all $x \in A$.
+    
+    Set $\epsilon=1$ and apply the Cauchy Criterion to get $N$ so $m \ge n > N$ implies
+    $$
+    |f_n(x) - f_m(x)| < 1
+    $$
+    Setting $n=N$ and rearranging gives
+    $$
+    |f_m(x)| < |f_N(x)| + \epsilon < M_N + \epsilon
+    $$
+    implying $f_m$ is bounded by $M_N$ when $m \ge N$.
+
+    Now set $\tilde N > N$ large enough that $m \ge N$ implies $|f(x)-f_m(x)|<1$ which, after rearranging gives
+    $$
+    |f(x)| < 1 + |f_m(x)| < 1 + M_N
+    $$
+    Implying $f$ is bounded.
   \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
     \TODO
   \item False pointwise, see (c)
