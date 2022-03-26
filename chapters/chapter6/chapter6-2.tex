@@ -169,7 +169,44 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item False pointwise when
+    $$
+    f_n(x) = \frac{1}{1+nx^2} \quad\text{and}\quad f(x) = \begin{cases}
+      1 &\text{if $x = 0$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    $$
+    \TODO
+  \item False pointwise when
+    $$
+    f_n(x)
+    = \begin{cases}
+      x &\text{if $x < n$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    \quad\text{and}\quad
+    f(x) = x
+    $$
+    \TODO
+  \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
+    \TODO
+  \item False pointwise, see (c)
+  \item False pointwise when (using a modified version of Thomae's function for $f_n$)
+    $$
+    f_n(x) = \begin{cases}
+      1 &\text{if $x = 0$} \\
+      \frac{n}{n+q} &\text{if $x = p/q$ (in lowest terms)} \\
+      0 &\text{otherwise}
+    \end{cases}
+    \quad\text{and}\quad
+    f(x) = \begin{cases}
+      1 &\text{if $x \in \mathbf{Q}$} \\
+      0 &\text{if $x \notin \mathbf{Q}$} \\
+    \end{cases}
+    $$
+    \TODO
+  }
 \end{solution}
 \begin{exercise}
   Let $f$ be uniformly continuous on all of $\mathbf{R}$, and define a sequence of functions by $f_{n}(x)=f\left(x+\frac{1}{n}\right)$. Show that $f_{n} \rightarrow f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\mathbf{R}$.
