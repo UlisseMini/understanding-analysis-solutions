@@ -250,7 +250,19 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  Given $\epsilon>0$ set $\delta>0$ such that $|x-y|<\delta$ implies $|f(x)-f(y)|<\epsilon$.
+  Then set $N > 1/\delta$ so that $n \ge N$ implies (since $1/n<\delta$)
+  $$
+  |f(x) - f_n(x)| = |f(x) - f(x+1/n)| < \epsilon
+  $$
+  Which shows $(f_n) \to f$ uniformly.
+
+  To see this doesn't work if $f$ is only continuous, consider $f : (0,1)\to\mathbf{R}$ defined by $f(x) = 1/x$.
+  We have
+  $$
+  |f(x)-f_n(x)| = \frac{1}{x} - \frac{1}{x+1/n} = \frac{1/n}{x(x+1/n)} = \frac{1}{x(nx+1)}
+  $$
+  Which given a fixed $n$ becomes arbitrarily big as $x$ goes to zero. hence $(f_n)$ does not converge uniformly.
 \end{solution}
 \begin{exercise}
   Let $\left(g_{n}\right)$ be a sequence of continuous functions that converges uniformly to $g$ on a compact set $K$. If $g(x) \neq 0$ on $K$, show $\left(1 / g_{n}\right)$ converges uniformly on $K$ to $1 / g$.
