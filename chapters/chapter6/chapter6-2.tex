@@ -55,7 +55,23 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Each $f_n$ is continuous at zero, but $f$ is not continuous at zero meaning (by Theorem 6.2.6) that $f_n$ does not converge to $f$ uniformly.
+  \item Each $g_n$ is continuous at zero, and the pointwise limit $g$ is also continuous at zero. Since we aren't contradicting 6.2.6 the convergence may or may not be uniform.
+
+    The definitions show $|g(x)-g_n(x)| < 1/n$ for all $x$ (max is at $x=1/(n+1)$).
+    Setting $N > 1/\epsilon$ gives (for all $n \ge N$ and for all $x \in \mathbf{R}$)
+    $$
+    |g(x)-g_n(x)| < \epsilon
+    $$
+    As desired, thus $(g_n) \to g$ uniformly.
+  \item Each $h_n$ is continuous at zero, and so is the pointwise limit $h$. 6.2.6 doesn't apply so we'll have to check if the convergence is uniform.
+    Notice that if $x_n = 1/n$ then
+    $$
+    |h(x_n) - h_n(x_n)| = 1 - 1/n
+    $$
+    For all $n$, meaning no matter how big $n$ is, we can't make $|h-h_n|<1/2$ for all $x$ implying $h_n$ \emph{does not} converge to $h$ uniformly.
+  }
 \end{solution}
 \begin{exercise}
   For each $n \in \mathbf{N}$ and $x \in[0, \infty)$, let
@@ -85,9 +101,7 @@
     $$
   \item They can't converge uniformly since it would contradict Theorem 6.2.6 as both $g_n$ and $h_n$ are continuous but the limit functions are not.
   \item
-    % TODO: Combine both into a single interval, the one I used for h_n is basically cheating
-
-    Over $[1,\infty)$ we have $h_n(x) = 1$ for all $n$, thus $|h_n(x) - 1| = 0$ so $h_n$ obviously converges uniformly.
+    Over $[1,\infty)$ we have $h_n(x) = h(x) = 1$ for all $n$, thus $|h_n(x) - h(x)| = 0$ for all $x \in [1,\infty)$ so $h_n$ converges uniformly.
 
     Now for $g_n$. Let $t \in [0,1)$, I claim $g_n(x) \to x$ uniformly over $[0, t)$ since
     $$
@@ -106,7 +120,21 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  The definition of $f$ being uniformly differentiable tells us: for every $\epsilon > 0$ there exists a $\delta > 0$ such that
+  $$
+  \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon \quad \text{whenever $0<|x-y|<\delta$}
+  $$
+  We can use this to show continuity of $f'$ via a triangle inequality and exploiting the symmetry in $x,y$.
+  $$
+  |f'(x) - f'(y)|
+  < \left|f'(x) - \frac{f(x)-f(y)}{x-y}\right|
+  + \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right|
+  < \epsilon
+  $$
+  After picking $\delta$ so that every $|x-y|<\delta$ has
+  $$
+  \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon/2
+  $$
 \end{solution}
 \begin{exercise}
   Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence). (First, define a candidate for $f(x)$, and then argue that $f_{n} \rightarrow f$ uniformly.)
@@ -141,7 +169,63 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item False pointwise when
+    $$
+    f_n(x) = \frac{1}{1+nx^2} \quad\text{and}\quad f(x) = \begin{cases}
+      1 &\text{if $x = 0$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    $$
+    Now suppose $(f_n)$ converges to $f$ uniformly. Theorem 6.2.6 implies $f$ will be continuous, combining this with Theorem 4.4.7 we see that $f$ must be uniformly continuous if the domain $A$ is compact.
+    If $A$ is not compact this need not be the case, consider $A = (0,1)$ and $f_n(x) = 1/x = f(x)$. Clearly $(f_n) \to f$ uniformly (they're the same function!) but $f(x) = 1/x$ is not uniformly continuous on $A$.
+  \item False pointwise when
+    $$
+    f_n(x)
+    = \begin{cases}
+      x &\text{if $x < n$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    \quad\text{and}\quad
+    f(x) = x
+    $$
+    Now suppose $(f_n) \to f$ uniformly.
+    We want to show $f$ is bounded, 
+    Let $M_n$ bound $f_n$, ie. $|f_n(x)|<M_n$ for all $x \in A$.
+    
+    Set $\epsilon=1$ and apply the Cauchy Criterion to get $N$ so $m \ge n > N$ implies
+    $$
+    |f_n(x) - f_m(x)| < 1
+    $$
+    Setting $n=N$ and rearranging gives
+    $$
+    |f_m(x)| < |f_N(x)| + \epsilon < M_N + \epsilon
+    $$
+    implying $f_m$ is bounded by $M_N$ when $m \ge N$.
+
+    Now set $\tilde N > N$ large enough that $m \ge N$ implies $|f(x)-f_m(x)|<1$ which, after rearranging gives
+    $$
+    |f(x)| < 1 + |f_m(x)| < 1 + M_N
+    $$
+    Implying $f$ is bounded.
+  \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
+    \TODO
+  \item False pointwise, see (c)
+  \item False pointwise when (using a modified version of Thomae's function for $f_n$)
+    $$
+    f_n(x) = \begin{cases}
+      1 &\text{if $x = 0$} \\
+      \frac{n}{n+q} &\text{if $x = p/q$ (in lowest terms)} \\
+      0 &\text{otherwise}
+    \end{cases}
+    \quad\text{and}\quad
+    f(x) = \begin{cases}
+      1 &\text{if $x \in \mathbf{Q}$} \\
+      0 &\text{if $x \notin \mathbf{Q}$} \\
+    \end{cases}
+    $$
+    \TODO
+  }
 \end{solution}
 \begin{exercise}
   Let $f$ be uniformly continuous on all of $\mathbf{R}$, and define a sequence of functions by $f_{n}(x)=f\left(x+\frac{1}{n}\right)$. Show that $f_{n} \rightarrow f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\mathbf{R}$.
