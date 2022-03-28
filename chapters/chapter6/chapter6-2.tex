@@ -326,7 +326,25 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Obvious by the triangle inequality and Cauchy Criterion
+  \item Let $f_n(x) = x = f(x)$ and $g_n(x) = x+1/n$. Suppose $n,m \ge N$ for some $N$, Cauchy gives us
+    $$
+    |f_ng_n - f_mg_m| = |x(1/n - 1/m)|
+    $$
+    Making $x$ large makes the error blow up regardless of how big $N$ is, thus $f_ng_n$ does not converge uniformly.
+  \item By the triangle inequality (same trick as for the product rule)
+    $$
+    \begin{aligned}
+      |f_ng_n - f_mg_m|
+      &\le |f_ng_n - f_ng_m| + |f_ng_m - f_mg_m| \\
+      &= |f_n|\cdot|g_n - g_m| + |g_m|\cdot |f_n-f_m| \\
+      &< M|g_n - g_m| + M|f_n-f_m| \\
+      &< \epsilon/2 + \epsilon/2 = \epsilon
+    \end{aligned}
+    $$
+    After setting $N$ big enough that $n,m \ge N$ implies $|f_n-f_m|<M/2\epsilon$ and $|g_n-g_m|<M/2\epsilon$.
+  }
 \end{solution}
 \begin{exercise}
   This exercise and the next explore partial converses of the Continuous Limit Theorem (Theorem 6.2.6). Assume $f_{n} \rightarrow f$ pointwise on $[a, b]$ and the limit function $f$ is continuous on $[a, b]$. If each $f_{n}$ is increasing (but not necessarily continuous), show $f_{n} \rightarrow f$ uniformly.
