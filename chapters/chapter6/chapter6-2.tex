@@ -208,12 +208,39 @@
     |f(x)| < 1 + |f_m(x)| < 1 + M_N
     $$
     Implying $f$ is bounded.
-  \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
+  \item False for pointwise and uniform convergence. Define
+    $$
+    f_n(x) = \begin{cases}
+      1/m &\text{if $x = 1/m$ and $m\le n$, $m \in\mathbf{N}$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    $$
+    and
+    $$
+    f(x) = \begin{cases}
+      1/m &\text{if $x=1/m$, $m \in \mathbf{N}$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    $$
+    The reason $(f_n) \to f$ uniformly is
+    $$
+    |f(x) - f_n(x)| = \left(
+      \begin{cases}
+        1/m &\text{if $x=1/m$ and $m > n$, $m \in \mathbf{N}$} \\
+        0 &\text{otherwise}
+      \end{cases}
+    \right)
+    < 1/{(n+1)}
+    $$
+    Each $f_n$ has exactly $n$ point discontinuities, but $f$ has countably many. Thus this is a counterexample.
+
+    Intuitively $f_n$ adds on finer and finer details of $f$, which is why it converges uniformly. But discontinuities can be as small/detailed as we want without screwing up uniform convergence. 
+  \item False pointwise since we can have each $(f_n)$ continuous (zero discontinuities) but have $f$ not be continuous (see (a) for an example).
 
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
     I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, ie. that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
 
-    Pick $0<\epsilon<2\epsilon_0$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
+    Pick $\epsilon<\epsilon_0/2$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
     $$
     \begin{aligned}
     \epsilon_0
@@ -224,11 +251,7 @@
     $$
     Letting $\epsilon_0' = \epsilon_0-2\epsilon > 0$ we see $|f_n(x_0) - f_n(x)| > \epsilon_0'$ meaning $f_n$ is not continuous at $x_0$ for all $n \ge N$.
 
-    This doesn't show $f$ has finitely many discontinuities however, because the amount of discontinuities in $(f_n)$ may be increasing (as opposed to (d) where they are all bounded)
-
-    \TODO Finish, I think this one requires a counterexample, though this proof works for part (d)
-  \item False pointwise, see the counterexample in (c)
-    \TODO
+    Now given discontinuities of $f$, applying the above process multiple times shows that \emph{eventually} $f_n$ will have every discontinuity of $f$, but $f_n$ has at most $M$ discontinuities, implying $f$ has at most $M$ discontinuities.
   \item False pointwise when (using a modified version of Thomae's function for $f_n$)
     $$
     f_n(x) = \begin{cases}
@@ -242,7 +265,11 @@
       0 &\text{if $x \notin \mathbf{Q}$} \\
     \end{cases}
     $$
-    \TODO
+    Now suppose $(f_n) \to f$ uniformly, In (d) we showed every discontinuity of $f$ is eventually a discontinuity of $f_n$, reworded this is saying (where $D_f$ is the set of discontinuities of $f$)
+    $$
+    D_f \subseteq \bigcup_{n=1}^\infty D_{f_{n}}
+    $$
+    Since each $D_{f_n}$ is countable, this implies $D_f$ is countable.
   }
 \end{solution}
 \begin{exercise}
@@ -269,7 +296,25 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let's examine the difference
+  $$
+  |1/g(x) - 1/g_n(x)|
+  = \left|\frac{g(x)-g_n(x)}{g(x)g_n(x)}\right|
+  = \left|g(x)-g_n(x)\right|\left|\frac{1}{g(x)g_n(x)}\right| 
+  $$
+  We'd like to bound the rightmost term.
+
+  Theorem 6.2.6 implies $g$ is continuous, and Theorem 4.4.1 implies $g(K)$ is compact, hence $|g(K)|$ has a minimum, call it $m$. This allows us to bound $|1/g(x)| < 1/m$.
+
+  To bound $1/g_n$ set $\epsilon$ small enough that $m-\epsilon>0$ then use uniform continuity to get $N$ such that $n \ge N$ has
+  $$
+  |g(x) - g_n(x)| < \epsilon
+  $$
+  Since $g_n(x) \in (g(x)-\epsilon, g(x)+\epsilon)$ we have $|g_n(x)| > |g(x)|-\epsilon$ and finally $|g(x)|>m$ implies $|g_n(x)|>m-\epsilon$ thus $|1/g_n(x)| < 1/(m-\epsilon)$ and so
+  $$
+  M = \frac{1}{m(m-\epsilon)} \implies |1/g(x) - 1/g_n(x)| < M|g(x)-g_n(x)|
+  $$
+  Given an $\epsilon$, setting $N$ big enough to make $|g(x)-g_n(x)| < M/\epsilon$ gives the desired result.
 \end{solution}
 \begin{exercise}
   Assume $\left(f_{n}\right)$ and $\left(g_{n}\right)$ are uniformly convergent sequences of functions.
@@ -281,7 +326,25 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Obvious by the triangle inequality and Cauchy Criterion
+  \item Let $f_n(x) = x = f(x)$ and $g_n(x) = x+1/n$. Suppose $n,m \ge N$ for some $N$, Cauchy gives us
+    $$
+    |f_ng_n - f_mg_m| = |x(1/n - 1/m)|
+    $$
+    Making $x$ large makes the error blow up regardless of how big $N$ is, thus $f_ng_n$ does not converge uniformly.
+  \item By the triangle inequality (same trick as for the product rule)
+    $$
+    \begin{aligned}
+      |f_ng_n - f_mg_m|
+      &\le |f_ng_n - f_ng_m| + |f_ng_m - f_mg_m| \\
+      &= |f_n|\cdot|g_n - g_m| + |g_m|\cdot |f_n-f_m| \\
+      &< M|g_n - g_m| + M|f_n-f_m| \\
+      &< \epsilon/2 + \epsilon/2 = \epsilon
+    \end{aligned}
+    $$
+    After setting $N$ big enough that $n,m \ge N$ implies $|f_n-f_m|<M/2\epsilon$ and $|g_n-g_m|<M/2\epsilon$.
+  }
 \end{solution}
 \begin{exercise}
   This exercise and the next explore partial converses of the Continuous Limit Theorem (Theorem 6.2.6). Assume $f_{n} \rightarrow f$ pointwise on $[a, b]$ and the limit function $f$ is continuous on $[a, b]$. If each $f_{n}$ is increasing (but not necessarily continuous), show $f_{n} \rightarrow f$ uniformly.
@@ -289,6 +352,12 @@
 
 \end{exercise}
 \begin{solution}
+  Suppose first that each $f_n$ is continuous.
+  Given $\epsilon > 0$ we can make $|f(x)-f_n(x)|<\epsilon$ when $n \ge N(x)$, since $f$ and $f_n$ are continuous at $x$ there exists a $\delta$-neighborhood where $y \in V_\delta(x)$ implies $|f(x)-f(y)|<\epsilon$ and $|f_n(x)-f_n(y)|<\epsilon$ so
+  $$
+  |f(y)-f_n(y)| \le |f(y) - f(x)| + |f(x) - f_n(x)| + |f_n(x) - f_n(y)| < 3\epsilon
+  $$
+  Note that $\delta$ depends on $x$ and on $n$.
   \TODO
 \end{solution}
 \begin{exercise}[Dini's Theorem]
@@ -299,7 +368,12 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item We want $(g_n) \to 0$ uniformly, where $g_n$ is continuous, $g_n(x)$ is decreasing and $g_n(x) \to 0$.
+  \item $x \in K_{n+1}$ by definition has $g_{n+1}(x) \ge \epsilon$, since $(g_n(x))$ is decreasing we must also have $g_{n}(x) \ge \epsilon$. Thus $K_{n+1} \subseteq K_n$. Now, if each $K_n \ne \emptyset$ the nested compact set property (Theorem 3.3.5) would imply there exists an $x_0 \in \bigcap_{n=1}^\infty K_n$. But this is impossible because $g_n(x_0) \to 0$ implies eventually $g_n(x_0)<\epsilon$.
+    Therefor since the compact set property doesn't apply, there must exist an $N$ with $K_N = \emptyset$, implying every $n \ge N$ has (by subsets) $K_n = \emptyset$ and thus $|g_n| < \epsilon$.
+  }
+  % TODO: Understand intuitively, I proved it but I have no idea why it's true
 \end{solution}
 \begin{exercise}[Cantor Function]
   Review the construction of the Cantor set $C \subseteq[0,1]$ from Section 3.1. This exercise makes use of results and notation from this discussion.
@@ -314,12 +388,16 @@
     f_{2}(x)= \begin{cases}(1 / 2) f_{1}(3 x) & \text { for } 0 \leq x \leq 1 / 3 \\ f_{1}(x) & \text { for } 1 / 3<x<2 / 3 \\ (1 / 2) f_{1}(3 x-2)+1 / 2 & \text { for } 2 / 3 \leq x \leq 1\end{cases}
     $$
     If we continue this process, show that the resulting sequence $\left(f_{n}\right)$ converges uniformly on $[0,1]$.
-  \item Let $f=\lim f_{n}$. Prove that $f$ is a continuous, increasing function on $[0,1]$ with $f(0)=0$ and $f(1)=1$ that satisfies $f^{\prime}(x)=0$ for all $x$ in the open set $[0,1] \backslash C$. Recall that the "length" of the Cantor set $C$ is 0 . Somehow, $f$ manages to increase from 0 to 1 while remaining constant on a set of "length 1."
+  \item Let $f=\lim f_{n}$. Prove that $f$ is a continuous, increasing function on $[0,1]$ with $f(0)=0$ and $f(1)=1$ that satisfies $f^{\prime}(x)=0$ for all $x$ in the open set $[0,1] \backslash C$. Recall that the ``length'' of the Cantor set $C$ is 0 . Somehow, $f$ manages to increase from 0 to 1 while remaining constant on a set of ``length 1.''
 
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item \TODO Sketch with tikz
+  \item \TODO I think we want to somehow apply the previous exercise, but I don't see how we can show $f$ is continuous... Maybe Cauchy is the way to go?
+  \item \TODO
+  }
 \end{solution}
 \begin{exercise}
   Recall that the Bolzano-Weierstrass Theorem (Theorem 2.5.5) states that every bounded sequence of real numbers has a convergent subsequence. An analogous statement for bounded sequences of functions is not true in general, but under stronger hypotheses several different conclusions are possible. One avenue is to assume the common domain for all of the functions in the sequence is countable. (Another is explored in the next two exercises.)
@@ -344,7 +422,10 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item For equicontinuous functions the same $\delta$ works for every function in the sequence, as opposed to individually being uniformly continuous where $\delta$ depends on $n$.
+  \item Not equicontinuous since as $n$ increases we need $\delta$ to be smaller, hence $\delta$ cannot be written independent of $n$. Each $g_n$ is uniformly continuous however (since $g_n$ is continuous on the compact set $[0,1]$).
+  }
 \end{solution}
 \begin{exercise}[Arzela-Ascoli Theorem]
   For each $n \in \mathbf{N}$, let $f_{n}$ be a function defined on $[0,1]$. If $\left(f_{n}\right)$ is bounded on $[0,1]$-that is, there exists an $M>0$ such that $\left|f_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$-and if the collection of functions $\left(f_{n}\right)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $\left(f_{n}\right)$ contains a uniformly convergent subsequence.
