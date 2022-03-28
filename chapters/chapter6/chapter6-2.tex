@@ -210,10 +210,13 @@
     Implying $f$ is bounded.
   \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
 
+    \TODO Finish, I think this one requires a counterexample, though this proof works for part (d)
+  \item False pointwise, see the counterexample in (c)
+
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
     I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, ie. that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
 
-    Pick $0<\epsilon<2\epsilon_0$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
+    Pick $\epsilon<\epsilon_0/2$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
     $$
     \begin{aligned}
     \epsilon_0
@@ -224,11 +227,7 @@
     $$
     Letting $\epsilon_0' = \epsilon_0-2\epsilon > 0$ we see $|f_n(x_0) - f_n(x)| > \epsilon_0'$ meaning $f_n$ is not continuous at $x_0$ for all $n \ge N$.
 
-    This doesn't show $f$ has finitely many discontinuities however, because the amount of discontinuities in $(f_n)$ may be increasing (as opposed to (d) where they are all bounded)
-
-    \TODO Finish, I think this one requires a counterexample, though this proof works for part (d)
-  \item False pointwise, see the counterexample in (c)
-    \TODO
+    Now given discontinuities of $f$, applying the above process multiple times shows that \emph{eventually} $f_n$ will have every discontinuity of $f$, but $f_n$ has at most $M$ discontinuities, implying $f$ has at most $M$ discontinuities.
   \item False pointwise when (using a modified version of Thomae's function for $f_n$)
     $$
     f_n(x) = \begin{cases}
