@@ -362,7 +362,12 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item We want $(g_n) \to 0$ uniformly, where $g_n$ is continuous, $g_n(x)$ is decreasing and $g_n(x) \to 0$.
+  \item $x \in K_{n+1}$ by definition has $g_{n+1}(x) \ge \epsilon$, since $(g_n(x))$ is decreasing we must also have $g_{n}(x) \ge \epsilon$. Thus $K_{n+1} \subseteq K_n$. Now, if each $K_n \ne \emptyset$ the nested compact set property (Theorem 3.3.5) would imply there exists an $x_0 \in \bigcap_{n=1}^\infty K_n$. But this is impossible because $g_n(x_0) \to 0$ implies eventually $g_n(x_0)<\epsilon$.
+    Therefor since the compact set property doesn't apply, there must exist an $N$ with $K_N = \emptyset$, implying every $n \ge N$ has (by subsets) $K_n = \emptyset$ and thus $|g_n| < \epsilon$.
+  }
+  % TODO: Understand intuitively, I proved it but I have no idea why it's true
 \end{solution}
 \begin{exercise}[Cantor Function]
   Review the construction of the Cantor set $C \subseteq[0,1]$ from Section 3.1. This exercise makes use of results and notation from this discussion.
