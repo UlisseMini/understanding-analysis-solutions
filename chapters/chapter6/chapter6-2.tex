@@ -269,7 +269,25 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let's examine the difference
+  $$
+  |1/g(x) - 1/g_n(x)|
+  = \left|\frac{g(x)-g_n(x)}{g(x)g_n(x)}\right|
+  = \left|g(x)-g_n(x)\right|\left|\frac{1}{g(x)g_n(x)}\right| 
+  $$
+  We'd like to bound the rightmost term.
+
+  Theorem 6.2.6 implies $g$ is continuous, and Theorem 4.4.1 implies $g(K)$ is compact, hence $|g(K)|$ has a minimum, call it $m$. This allows us to bound $|1/g(x)| < 1/m$.
+
+  To bound $1/g_n$ set $\epsilon$ small enough that $m-\epsilon>0$ then use uniform continuity to get $N$ such that $n \ge N$ has
+  $$
+  |g(x) - g_n(x)| < \epsilon
+  $$
+  Since $g_n(x) \in (g(x)-\epsilon, g(x)+\epsilon)$ we have $|g_n(x)| > |g(x)|-\epsilon$ and finally $|g(x)|>m$ implies $|g_n(x)|>m-\epsilon$ thus $|1/g_n(x)| < 1/(m-\epsilon)$ and so
+  $$
+  M = \frac{1}{m(m-\epsilon)} \implies |1/g(x) - 1/g_n(x)| < M|g(x)-g_n(x)|
+  $$
+  Given an $\epsilon$, setting $N$ big enough to make $|g(x)-g_n(x)| < M/\epsilon$ gives the desired result.
 \end{solution}
 \begin{exercise}
   Assume $\left(f_{n}\right)$ and $\left(g_{n}\right)$ are uniformly convergent sequences of functions.
