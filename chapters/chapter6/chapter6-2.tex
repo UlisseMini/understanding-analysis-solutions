@@ -208,9 +208,33 @@
     |f(x)| < 1 + |f_m(x)| < 1 + M_N
     $$
     Implying $f$ is bounded.
-  \item False when $f_n$ is the step function repeated $n$ times, then $f$ has infinitely many discontinuities.
+  \item False for pointwise and uniform convergence. Define
+    $$
+    f_n(x) = \begin{cases}
+      1/m &\text{if $x = 1/m$ and $m\le n$, $m \in\mathbf{N}$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    $$
+    and
+    $$
+    f(x) = \begin{cases}
+      1/m &\text{if $x=1/m$, $m \in \mathbf{N}$} \\
+      0 &\text{otherwise}
+    \end{cases}
+    $$
+    The reason $(f_n) \to f$ uniformly is
+    $$
+    |f(x) - f_n(x)| = \left(
+      \begin{cases}
+        1/m &\text{if $x=1/m$ and $m > n$, $m \in \mathbf{N}$} \\
+        0 &\text{otherwise}
+      \end{cases}
+    \right)
+    < 1/{(n+1)}
+    $$
+    Each $f_n$ has exactly $n$ point discontinuities, but $f$ has countably many. Thus this is a counterexample.
 
-    \TODO Finish, I think this one requires a counterexample, though this proof works for part (d)
+    Intuitively $f_n$ adds on finer and finer details of $f$, which is why it converges uniformly. But discontinuities can be as small/detailed as we want without screwing up uniform convergence. 
   \item False pointwise, see the counterexample in (c)
 
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
