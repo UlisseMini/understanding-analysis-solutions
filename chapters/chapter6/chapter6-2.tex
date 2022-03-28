@@ -235,7 +235,7 @@
     Each $f_n$ has exactly $n$ point discontinuities, but $f$ has countably many. Thus this is a counterexample.
 
     Intuitively $f_n$ adds on finer and finer details of $f$, which is why it converges uniformly. But discontinuities can be as small/detailed as we want without screwing up uniform convergence. 
-  \item False pointwise, see the counterexample in (c)
+  \item False pointwise, let \TODO counterexample
 
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
     I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, ie. that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
@@ -265,7 +265,11 @@
       0 &\text{if $x \notin \mathbf{Q}$} \\
     \end{cases}
     $$
-    \TODO
+    Now suppose $(f_n) \to f$ uniformly, In (d) we showed every discontinuity of $f$ is eventually a discontinuity of $f_n$, reworded this is saying (where $D_f$ is the set of discontinuities of $f$)
+    $$
+    D_f \subseteq \bigcup_{n=1}^\infty D_{f_{n}}
+    $$
+    Since each $D_{f_n}$ is countable, this implies $D_f$ is countable.
   }
 \end{solution}
 \begin{exercise}
