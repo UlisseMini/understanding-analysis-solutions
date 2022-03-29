@@ -278,15 +278,13 @@
 \begin{solution}
   Since $x_j = s_j - s_{j-1}$ we can rewrite the sum as
   $$
-  \begin{aligned}
-    &= \sum_{j=m}^n (s_j - s_{j-1})y_j \\
-    &= \sum_{j=m}^n s_j y_j - \sum_{j=m}^n s_{j-1} y_j \\
-    &= (s_my_m + \dots + s_ny_n) - (s_{m-1}y_m + \dots + s_{n-1}y_n)                  &&\text{Factor out each } s_j\\
-    &= s_n(y_n) - s_{m-1}(y_m) + s_m(y_m - y_{m+1}) + \dots + s_{n-1}(y_{n-1} - y_n)  &&\text{Add and subtract } s_ny_{n+1} \text{ for factoring} \\
-    &= s_n(y_{n+1}) - s_{m-1}(y_m) + s_m(y_m - y_{m+1}) + \dots + s_n(y_n - y_{n+1})  &&\text{Rewrite as a sum} \\
-    &= s_n(y_{n+1}) - s_{m-1}(y_m) + \sum_{j=m}^n s_j(y_j - y_{j+1})                  &&\text{Done :)} \\
-  \end{aligned}
+  \sum_{j=m}^n x_jy_j
+  = \sum_{j=m}^n y_j(s_j - s_{j-1})
+  = s_ny_{n+1} - s_my_{m-1} + \sum_{j=m}^n s_j(y_j - y_{j+1})
   $$
+  In the last part we combine each $s_jy_j$ term with the $-s_{j}y_{j+1}$ term which is next in the sum, then we add some correction terms for the start and ending points.
+
+  Note the symmetry here, we can turn a sum $\sum y_j(s_j-s_{j-1})$ into a sum $\sum s_j(y_j-y_{j+1})$ (at the cost of some correction terms). This is a useful pattern to keep in mind.
 \end{solution}
 
 \begin{exercise}[Abel's Test]
@@ -306,8 +304,6 @@
 \end{exercise}
 
 \begin{solution}
-  Intuitively, Abel's test is saying that multiplying by a positive decreasing sequence $(y_n)$ is basically the same as multiplying by a constant in that it doesn't effect convergence.
-
   \enum{
   \item Exercise 2.7.12 combined with $s_0=0$ gives
     $$
@@ -345,24 +341,24 @@
 
 \begin{solution}
   \enum{
-  \item Abel's test assumed $\sum x_n$ converged but did not require $\lim y_k = 0$. To prove it we use summation by parts to get
-    $$
-    \begin{aligned}
-    \sum_{k=1}^n x_ky_k
-    &= s_n y_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1})
-    \end{aligned}
-    $$
-    Clearly $(s_n y_{n+1}) \to 0$ since $|s_n| \le M$ and $(y_{n+1}) \to 0$. Now we show absolute convergence of the right hand side (note $|y_k - y_{k+1}| = (y_k - y_{k+1})$ as $(y_n)$ is decreasing)
+  \item
+    Abel's test gets it's convergence from $\sum x_n$ converging, while Dirichlet's test gets its convergence from $(y_n) \to 0$.
+    Expanding on that, the proof that the $\sum_{k=1}^n s_k(y_k-y_{k-1})$ term converges is the same in Abel and Dirichlet, but the proof that $s_ny_{n+1}$ differs depending on if we get our convergence from $(y_n)\to0$ and $(s_n)$ bounded, or $(s_n) \to s$ and $(y_n)$ bounded.
+
+    The proof is almost identical to Abel's test, bound $|s_n|<M$ and use the triangle inequality on the right hand side to get (note $y_k - y_{k+1} > 0$ because decreasing)
     $$
     \sum_{k=1}^n |s_k|(y_k - y_{k+1}) \le M \sum_{k=1}^n (y_k - y_{k+1}) = M(y_1 - y_{n+1}) \le My_1
     $$
-    Thus $\sum s_k(y_k - y_{k+1})$ converges absolutely and so finally
-    $$
-    s_n y_{n+1} + \sum_{k=1}^n s_k(y_k - y_{k+1}) = \sum_{k=1}^n x_ky_k
-    $$
-    converges.
-  \item Let $a_n \ge 0$ with $a_1 \ge a_2 \ge \dots \ge 0$ and $\lim a_n = 0$. The series $\sum (-1)^n \le 1$ is bounded, so Dirichlet's test implies $\sum (-1)^n a_n$ converges.
+    Thus $\sum s_k(y_k - y_{k+1})$ is bounded and increasing, so it converges by MCT.
+    To see the $s_ny_{n+1}$ term converges, simply note that $(y_n) \to 0$ and $|s_n|<M$.
 
-    In fact any periodic $b_n$ with $\sum b_n$ bounded has $\sum a_n b_n$ converging by Dirichlet.
+    Thus the original series converges, and furthermore
+    $$
+    \sum_{k=1}^\infty x_ky_k  = \sum_{k=1}^\infty s_k(y_k - y_{k+1})
+    $$
+    Because $(s_ny_{n+1}) \to 0$.
+  \item
+    Let $a_n \ge 0$ with $a_1 \ge a_2 \ge \dots \ge 0$ and $\lim a_n = 0$.
+    The series $\sum (-1)^n$ is bounded, so Dirichlet's test implies $\sum (-1)^n a_n$ converges.
   }
 \end{solution}
