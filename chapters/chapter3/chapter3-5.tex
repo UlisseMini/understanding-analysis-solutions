@@ -133,18 +133,20 @@
   }
 \end{solution}
 
-\begin{exercise}
-  \textbf{Theorem 3.5.4 (Baire's Theorem).} The set of real numbers $\mathbf{R}$ cannot be written as the countable union of nowhere-dense sets.
-
-  \textit{Proof.} For contradiction, assume that $E_{1}, E_{2}, E_{3}, \ldots$ are each nowhere-dense and satisfy $\mathbf{R}=\bigcup_{n=1}^{\infty} E_{n}$.
-
-  Finish the proof by finding a contradiction to the results in this section.
+\begin{exercise}[Baire's Theorem]
+  Prove set of real numbers $\mathbf{R}$ cannot be written as the countable union of nowhere-dense sets.
+  
+  To start, assume that $E_{1}, E_{2}, E_{3}, \ldots$ are each nowhere-dense and satisfy $\mathbf{R}=\bigcup_{n=1}^{\infty} E_{n}$ then find a contradiction to the results in this section.
 \end{exercise}
 
 \begin{solution}
-  The closure of each $E_n$ is a closed set which contains no nonempty open intervals, therefore we can apply Exercise 3.5.5 to conclude that
+  By the definition of $E_n$ being nowhere-dense, the closure $\overline{E_n}$ contains no nonempty open intervals meaning we can apply Exercise 3.5.5 to conclude that
   $$
   \bigcup_{n=1}^\infty \closure{E_n} \ne \mathbf{R}
   $$
-  finally since each $E_n \subseteq \closure{E_n}$ we have $\bigcup_{n=1}^\infty E_n \ne \mathbf{R}$.
+  Since each $E_n \subseteq \closure{E_n}$ we have
+  $$
+  \bigcup_{n=1}^\infty E_n \ne \mathbf{R}
+  $$
+  as desired.
 \end{solution}
