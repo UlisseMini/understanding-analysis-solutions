@@ -1,11 +1,16 @@
 \section{Taylor Series}
 
 \begin{exercise}
-  The derivation in Example 6.6.1 shows the Taylor series for $\arctan (x)$ is valid for all $x \in(-1,1)$. Notice, however, that the series also converges when $x=1$. Assuming that arctan $(x)$ is contimuous, explain why the value of the series at $x=1$ must necessarily be arctan(1). What interesting identity do we get in this case?
+  The derivation in Example 6.6.1 shows the Taylor series for $\arctan (x)$ is valid for all $x \in(-1,1)$. Notice, however, that the series also converges when $x=1$. Assuming that $\arctan(x)$ is contimuous, explain why the value of the series at $x=1$ must necessarily be $\arctan(1)$. What interesting identity do we get in this case?
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  Abel's theorem (Theorem 6.5.4) implies the series converges uniformly on $[0, 1]$.
+  Combined with (Theorem 6.2.6) we see function the series converges to must be continuous.
+  Taking limits shows this value must be $\arctan(1)$ giving the identity
+  $$
+  \arctan(1) = \frac{\pi}{4} = 1 - \frac 13 + \frac 15 - \frac 17 + \dots
+  $$
 \end{solution}
 \begin{exercise}
   Starting from one of the previously generated series in this section, use manipulations similar to those in Example 6.6.1 to find Taylor series representations for each of the following functions. For precisely what values of $x$ is each series representation valid?
