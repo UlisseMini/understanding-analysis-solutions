@@ -79,7 +79,21 @@
 \end{exercise}
 
 \begin{solution}
-  Recall from 3.5.3 that $\mathbf Q$ is an $F_\sigma$ set, suppose for contradiction that $\mathbf Q$ is also a $G_\delta$ set. Then $\mathbf Q$ and $\mathbf I$ would both be $F_\sigma$ sets containing no nonempty open intervals, by 3.5.5 we have $\mathbf Q \cup \mathbf I \ne \mathbf R$ which is a contradiction since obviously $\mathbf Q \cup \mathbf I = \mathbf R$.
+  Recall from 3.5.3 that $\mathbf Q$ is an $F_\sigma$ set,
+  suppose for contradiction that $\mathbf I$ were also an $F_\sigma$ set. Then we could write
+  $$
+  \mathbf{Q} = \bigcup_{n=1}^\infty F_n \quad\text{and}\quad \mathbf{I} = \bigcup_{n=1}^\infty F_n
+  $$
+  Each $F_n$ and $F_n'$ must contain no nonempty open intervals, since otherwise $F_n$ would contain irrationals and vise versa.
+  Combine the countable unions by setting $\tilde F_{2n} = F_n$ and $\tilde F_{2n-1} = F_n'$ to get
+  $$
+  \mathbf{R} = \mathbf{Q} \cup \mathbf{I} = \bigcup_{n=1}^\infty \tilde F_n
+  $$
+
+
+  But in 3.5.5 we showed
+  $$\mathbf{R} \ne \bigcup_{n=1}^\infty F_n$$
+  which gives our desired contradiction, hence $\mathbf{I}$ is not an $F_\sigma$ set and $\mathbf{Q}$ is not a $G_{\delta}$ set (take complements).
 \end{solution}
 
 \begin{exercise}
@@ -119,18 +133,20 @@
   }
 \end{solution}
 
-\begin{exercise}
-  \textbf{Theorem 3.5.4 (Baire's Theorem).} The set of real numbers $\mathbf{R}$ cannot be written as the countable union of nowhere-dense sets.
-
-  \textit{Proof.} For contradiction, assume that $E_{1}, E_{2}, E_{3}, \ldots$ are each nowhere-dense and satisfy $\mathbf{R}=\bigcup_{n=1}^{\infty} E_{n}$.
-
-  Finish the proof by finding a contradiction to the results in this section.
+\begin{exercise}[Baire's Theorem]
+  Prove set of real numbers $\mathbf{R}$ cannot be written as the countable union of nowhere-dense sets.
+  
+  To start, assume that $E_{1}, E_{2}, E_{3}, \ldots$ are each nowhere-dense and satisfy $\mathbf{R}=\bigcup_{n=1}^{\infty} E_{n}$ then find a contradiction to the results in this section.
 \end{exercise}
 
 \begin{solution}
-  The closure of each $E_n$ is a closed set which contains no nonempty open intervals, therefore we can apply Exercise 3.5.5 to conclude that
+  By the definition of $E_n$ being nowhere-dense, the closure $\overline{E_n}$ contains no nonempty open intervals meaning we can apply Exercise 3.5.5 to conclude that
   $$
   \bigcup_{n=1}^\infty \closure{E_n} \ne \mathbf{R}
   $$
-  finally since each $E_n \subseteq \closure{E_n}$ we have $\bigcup_{n=1}^\infty E_n \ne \mathbf{R}$.
+  Since each $E_n \subseteq \closure{E_n}$ we have
+  $$
+  \bigcup_{n=1}^\infty E_n \ne \mathbf{R}
+  $$
+  as desired.
 \end{solution}
