@@ -11,13 +11,13 @@
   \enum{
   \item We have $i = \inf A$ if and only if
     \enumr{
-      \item Lower bound, $a \ge i$ forall $a \in A$
+      \item Lower bound, $a \ge i$ for all $a \in A$
       \item Greatest lower bound, If $b$ is a lower bound on $A$ then $b \le i$
     }
-  \item Suppose $i$ is a lower bound for $A$, it is the greatest lower bound if and only if forall $\epsilon>0$, there exists an $a\in A$ such that $i + \epsilon < a$. \par
-    First suppose $i = \inf A$, then forall $\epsilon > 0$, $i+\epsilon$ cannot be a lower bound on $A$ because (ii) implies all lower bounds $b$ obey $b \le i$, but $i+\epsilon > i$ so it can't be a lower bound.
+  \item Suppose $i$ is a lower bound for $A$, it is the greatest lower bound if and only if for all $\epsilon>0$, there exists an $a\in A$ such that $i + \epsilon > a$. \par
+    First suppose $i = \inf A$, then for all $\epsilon > 0$, $i+\epsilon$ cannot be a lower bound on $A$ because (ii) implies all lower bounds $b$ obey $b \le i$, therefore there must be some $a \in A$ such that $i+\epsilon > a$.
 
-    Second suppose forall $\epsilon > 0$ there exists an $a \in A$ such that $i+\epsilon < a$ to show (ii). In other words $i+\epsilon$ is not a lower bound for all $\epsilon$, which is the same as saying every lower bound $b$ must have $b \le i$ implying (ii).
+    Second suppose for all $\epsilon > 0$ there exists an $a \in A$ such that $i+\epsilon > a$. In other words $i+\epsilon$ is not a lower bound for all $\epsilon$, which is the same as saying every lower bound $b$ must have $b \le i$ implying (ii).
   }
 \end{solution}
 
