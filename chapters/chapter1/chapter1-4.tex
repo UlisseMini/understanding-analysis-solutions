@@ -110,7 +110,10 @@
 \begin{solution}
   \enum{
   \item $A = \mathbf{Q} \cap (0, 1)$, $B = \mathbf{I} \cap (0, 1)$. $A \cap B = \emptyset$, $\sup A = \sup B = 1$ and $1 \notin A$, $1 \notin B$.
-  \item Impossible. $\bigcap_{n=1}^\infty J_n$ is the same as asking what happens to $J_n$ as $n$ goes to $\infty$. since every $J_n$ is nonempty, $\bigcap_{n=1}^\infty = J_\infty$ must have an uncountably infinite number of elements.
+  \item Defining $J_i = (a_i, b_i)$, $A = \{a_n : n \in \mathbf{N}\}$, $B = \{b_n : n \in \mathbf{N}\}$, $\bigcap_{n=1}^\infty J_n$ will at least contain $(\sup A, \inf B)$. Thus, a necessary condition to meet the request is $\sup A = \inf B$.
+
+  $J_i = (-2^{-i}, 2^{-i})$ satisfies this condition ($\sup A = \inf B = 0$) and by inspection, $\bigcap_{n=1}^\infty J_n = \{0\}$, which meets the request.
+
   \item $L_n = [n, \infty)$ has $\bigcap_{n=1}^\infty L_n = \emptyset$
   \item Impossible. Let $J_n = \bigcap_{k=1}^n I_k$ and observe the following
     \enumr{
