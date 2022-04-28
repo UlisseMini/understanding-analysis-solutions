@@ -161,7 +161,7 @@
 
 \begin{solution}
   \enum{
-  \item If $c = \sup A = \inf B$ then $a \le c \le b$ is obvious. So we must only prove $\sup A = \inf B$. If $\sup A < \inf B$ then we can find $c$ between $A$ and $B$ implying $A \cup B \ne \mathbf{R}$. If $\sup A > \inf B$ then we can find $a$ such that $a > b$ by subtracting $\epsilon > 0$ and using the least upper/lower bound facts, similarly to Lemma 1.3.8. Thus $\sup A$ must equal $\inf B$ since we have shown both alternatives are impossible.
+  \item If $c = \sup A = \inf B$ then $a \le c \le b$ is obvious. So we must only prove $\sup A = \inf B$. If $\sup A < \inf B$ then consider $c=\frac{\sup A + \inf B}{2}$. $c > \sup A$ and therefore $c \notin A$; similarly $c < \inf B$ and therefore $c \notin B$, implying $A \cup B \ne \mathbf{R}$. If $\sup A > \inf B$ then we can find $a$ such that $a > b$ by subtracting $\epsilon > 0$ and using the least upper/lower bound facts, similarly to Lemma 1.3.8. Thus $\sup A$ must equal $\inf B$ since we have shown both alternatives are impossible.
   \item Let $B = \{x \mid e < x,\forall e\in E\}$ and let $A = B^c$. Clearly $a < b$ so the cut property applies. We have $a \le c \le b$ and must show the two conditions for $c = \sup E$
     \enumr{
     \item Since $E \subseteq A$, $a \le c$ implies $e \le c$ thus $c$ is an upper bound.
