@@ -70,7 +70,7 @@ Give an example of a vercongent sequence. Is there an example of a vercongent se
   \enum{
   \item Find a collage in the United States with no students over seven feet tall.
   \item Find a collage in the United States with no professors that only give grades of A or B.
-  \item Find a collage in the United States with at least one student under six feet tall.
+  \item Show that all collages in the United States have at least one student under six feet tall.
   }
 \end{solution}
 
@@ -157,10 +157,10 @@ Give an example of a vercongent sequence. Is there an example of a vercongent se
 
 \begin{solution}
   \enum{
-  \item No.
-  \item Yes. as any finite number of zeros $K$ would lead to a contradiction when $M > K$.
-  \item No, consider $(0,1,0,\dots)$ from (a).
-  \item A sequence is not zero-heavy if there exists an $M \in \mathbf{N}$ such that for all $N \in \mathbf{N}$ there exists an $n \in \mathbf{N}$ such that $N \le n \le N + M$ but $x_n \ne 0$.
+  \item Yes. Choose $M = 1$; since the sequence has a 0 in every two spaces, for all $N$ either $x_n = 0$ or $x_{n + 1} = 0$.
+  \item Yes. If there were a finite number of zeros, with the last zero at position $K$, then choosing $N > K$ would lead to a contradiction.
+  \item No, consider $(0,1,0,1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0,\dots)$ where the gap between 0's grows indefinitely. For any value of $M$, for large enough $N$ the gap between zeros will be greater than $M$. Then we simply choose $N$ so that $x_N$ is the first $1$ in a streak of at least $M + 1$ 1's.
+  \item A sequence is not zero-heavy if for all $M \in \mathbf{N}$, there exists  some $N \in \mathbf{N}$ such that for all $n \in \mathbf{N}, N \le n \le N + M$, $x_n \ne 0$.
   }
 \end{solution}
 
