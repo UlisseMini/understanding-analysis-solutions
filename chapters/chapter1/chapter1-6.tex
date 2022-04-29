@@ -160,12 +160,12 @@ then $S \sim \mathbf R$. Define $f : P(\mathbf N) \rightarrow S$ as $f(x) = (a_1
     $\bigcup_{l=0}^\infty \mathcal A_l = \mathcal A$
     is countable. Thus, if $P(\mathbf N)$ contains an uncountable antichain, ``most" sets in the antichain must be infinite (in that there will be uncountably many sets in the antichain will be infinite, whereas only countably many sets in the antichain will be finite).
 
-    This observation inspires the following construction, using the irrationals $\mathbf I$ and a variant of the set $S$ from Exercise 1.6.4. Define the set
-    $$\mathcal A = \left\{ \{10n + d(x, n) : n \in \mathbf N\}: x \in \mathbf I\right\}$$
-    where $d(x, n)$ is the $n$'th digit in the decimal expansion of $x$. (No irrational number will have two equivalent decimal representations, since an irrational number has a non-terminating decimal expansion.) In this manner, each element of $\mathcal A$ encodes a particular irrational number, in a similar way that each element of $S$ encodes a particular real number through its binary expansion.
+    This observation inspires the following construction, using a variant of the set $S$ from Exercise 1.6.4. Define the set
+    $$\mathcal A = \left\{ \{10n + d(x, n) : n \in \mathbf N\}: x \in (0, 1)\right\}$$
+    where $d(x, n)$ is the $n$'th digit in the decimal expansion of $x$. To avoid the issue of some numbers having two equivalent decimal representations, always use the representation with repeating 9's. In this manner, each element of $\mathcal A$ encodes a particular real number, in a similar way that each element of $S$ encodes a particular real number through its binary expansion.
 
-    Note that each element of $\mathcal A$ is infinite. Note also that since any two distinct irrational numbers will differ in at least one place in their decimal expansions, the corresponding elements in $\mathcal A$ will differ there as well, and hence $\mathcal A$ is an antichain.
+    Note that each element of $\mathcal A$ is infinite. Note also that since any two distinct real numbers will differ in at least one place in their decimal expansions, the corresponding elements in $\mathcal A$ will differ there as well, and hence $\mathcal A$ is an antichain.
 
-    Formally, let $x_1, x_2$ be two irrational numbers, $A_1, A_2$ be the elements of $\mathcal A$ corresponding to $x_1, x_2$ respectively, and $n$ be the first decimal position where $x_1$ and $x_2$ differ. Then $10n + d(x_1, n)$ will be in $A_1$ but not $A_2$, and $10n + d(x_2, n)$ will be in $A_2$ but not $A_1$. Thus, neither $A_1 \subseteq A_2$ nor $A_2 \subseteq A_1$. Since $I$ is uncountable, $\mathcal A$ is an uncountable antichain in $P(\mathbf N)$.
+    Formally, let $x_1, x_2$ be two distinct real numbers, $A_1, A_2$ be the elements of $\mathcal A$ corresponding to $x_1, x_2$ respectively, and $n$ be the first decimal position where $x_1$ and $x_2$ differ. Then $10n + d(x_1, n)$ will be in $A_1$ but not $A_2$, and $10n + d(x_2, n)$ will be in $A_2$ but not $A_1$. Thus, neither $A_1 \subseteq A_2$ nor $A_2 \subseteq A_1$. Since $(0, 1)$ is uncountable, $\mathcal A$ is an uncountable antichain in $P(\mathbf N)$.
   }
 \end{solution}
