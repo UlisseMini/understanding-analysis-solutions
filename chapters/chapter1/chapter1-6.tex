@@ -126,14 +126,20 @@
 \end{exercise}
 
 \begin{solution}
-  I will show $P(\mathbf N) \sim [0, 1]$ then use 1.5.3 to conclude $P(\mathbf N) \sim \mathbf R$.
+Recall from Exercise 1.6.4 that if
+  $$
+  S=\left\{\left(a_{1}, a_{2}, a_{3}, \ldots\right): a_{n}=0 \text { or } 1\right\}
+  $$
+then $S \sim \mathbf R$. Define $f : P(\mathbf N) \rightarrow S$ as $f(x) = (a_1, a_2, \ldots)$ where $a_i = 1$ if $i \in x$ and $a_i = 0$ otherwise. $f$ is thus a one-to-one, onto map between $P(\mathbf N)$ and $S$, hence $P(\mathbf N) \sim S$. Since $\sim$ is an equivalence relation, $P(\mathbf N) \sim \mathbf R$.
 
-  Let $A \subseteq \mathbf N$ and let $a_n$ be the nth smallest element of $A$.
-  We can write $a_n$ via the digit representation as $a_n = d_1d_2d_3\dots d_m$, concatinating the digits of every $a_n$ in order gives a possibly infinite sequence of digits $d_1d_2d_3\dots$
+%   Partial solution below:
+%   I will show $P(\mathbf N) \sim [0, 1]$ then use 1.5.3 to conclude $P(\mathbf N) \sim \mathbf R$.
 
-  This process is clearly 1-1, however it is not onto as $\{1, 2\}$ and $\{12\}$ both give the same digits. Thus $P(\mathbf N)$ is ``greater then or equal'' $\mathbf{R}$, if we show a 1-1 map $\mathbf R \to P(\mathbf{N})$ we can complete the proof using 1.5.11.
+%   Let $A \subseteq \mathbf N$ and let $a_n$ be the nth smallest element of $A$.
+%   We can write $a_n$ via the digit representation as $a_n = d_1d_2d_3\dots d_m$, concatinating the digits of every $a_n$ in order gives a possibly infinite sequence of digits $d_1d_2d_3\dots$
 
-  \TODO Finish (or take a different approach)
+%   This process is clearly 1-1, however it is not onto as $\{1, 2\}$ and $\{12\}$ both give the same digits. Thus $P(\mathbf N)$ is ``greater then or equal'' $\mathbf{R}$, if we show a 1-1 map $\mathbf R \to P(\mathbf{N})$ we can complete the proof using 1.5.11.
+
 \end{solution}
 
 \begin{exercise}
