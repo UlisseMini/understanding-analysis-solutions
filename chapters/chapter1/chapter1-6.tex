@@ -126,14 +126,20 @@
 \end{exercise}
 
 \begin{solution}
-  I will show $P(\mathbf N) \sim [0, 1]$ then use 1.5.3 to conclude $P(\mathbf N) \sim \mathbf R$.
+Recall from Exercise 1.6.4 that if
+  $$
+  S=\left\{\left(a_{1}, a_{2}, a_{3}, \ldots\right): a_{n}=0 \text { or } 1\right\}
+  $$
+then $S \sim \mathbf R$. Define $f : P(\mathbf N) \rightarrow S$ as $f(x) = (a_1, a_2, \ldots)$ where $a_i = 1$ if $i \in x$ and $a_i = 0$ otherwise. $f$ is thus a one-to-one, onto map between $P(\mathbf N)$ and $S$, hence $P(\mathbf N) \sim S$. Since $\sim$ is an equivalence relation, $P(\mathbf N) \sim \mathbf R$.
 
-  Let $A \subseteq \mathbf N$ and let $a_n$ be the nth smallest element of $A$.
-  We can write $a_n$ via the digit representation as $a_n = d_1d_2d_3\dots d_m$, concatinating the digits of every $a_n$ in order gives a possibly infinite sequence of digits $d_1d_2d_3\dots$
+%   Partial solution below:
+%   I will show $P(\mathbf N) \sim [0, 1]$ then use 1.5.3 to conclude $P(\mathbf N) \sim \mathbf R$.
 
-  This process is clearly 1-1, however it is not onto as $\{1, 2\}$ and $\{12\}$ both give the same digits. Thus $P(\mathbf N)$ is ``greater then or equal'' $\mathbf{R}$, if we show a 1-1 map $\mathbf R \to P(\mathbf{N})$ we can complete the proof using 1.5.11.
+%   Let $A \subseteq \mathbf N$ and let $a_n$ be the nth smallest element of $A$.
+%   We can write $a_n$ via the digit representation as $a_n = d_1d_2d_3\dots d_m$, concatinating the digits of every $a_n$ in order gives a possibly infinite sequence of digits $d_1d_2d_3\dots$
 
-  \TODO Finish (or take a different approach)
+%   This process is clearly 1-1, however it is not onto as $\{1, 2\}$ and $\{12\}$ both give the same digits. Thus $P(\mathbf N)$ is ``greater then or equal'' $\mathbf{R}$, if we show a 1-1 map $\mathbf R \to P(\mathbf{N})$ we can complete the proof using 1.5.11.
+
 \end{solution}
 
 \begin{exercise}
@@ -150,8 +156,16 @@
   \item The set of functions from $\{0, 1\}$ to $\mathbf{N}$ is the same as $\mathbf N^2$ which we found was countable in Exercise 1.5.9.
   \item This is the same as an infinite list of zeros and ones which we showed was uncountable in Exercise 1.6.4.
   \item Let $\mathcal A$ be an antichain of $P(\mathbf N)$, let $\mathcal A_l$ be the sets in $\mathcal A$ of size $l$.
-    Each $\mathcal A_l$ is countable since $\mathcal A_l \subseteq \mathbf N^l$ is countable (shown in 1.5.9). Therefor the countable union
+    For finite $l$, $\mathcal A_l$ is countable since $\mathcal A_l \subseteq \mathbf N^l$ is countable (shown in 1.5.9). Therefore the countable union
     $\bigcup_{l=0}^\infty \mathcal A_l = \mathcal A$
-    is countable. Meaning no uncountable antichain exists as every antichain is countable.
+    is countable. Thus, if $P(\mathbf N)$ contains an uncountable antichain, ``most" sets in the antichain must be infinite (in that there will be uncountably many sets in the antichain will be infinite, whereas only countably many sets in the antichain will be finite).
+
+    This observation inspires the following construction, using a variant of the set $S$ from Exercise 1.6.4. Define the set
+    $$\mathcal A = \left\{ \{10n + d(x, n) : n \in \mathbf N\}: x \in (0, 1)\right\}$$
+    where $d(x, n)$ is the $n$'th digit in the decimal expansion of $x$. To avoid the issue of some numbers having two equivalent decimal representations, always use the representation with repeating 9's. In this manner, each element of $\mathcal A$ encodes a particular real number, in a similar way that each element of $S$ encodes a particular real number through its binary expansion.
+
+    Note that each element of $\mathcal A$ is infinite. Note also that since any two distinct real numbers will differ in at least one place in their decimal expansions, the corresponding elements in $\mathcal A$ will differ there as well, and hence $\mathcal A$ is an antichain.
+
+    Formally, let $x_1, x_2$ be two distinct real numbers, $A_1, A_2$ be the elements of $\mathcal A$ corresponding to $x_1, x_2$ respectively, and $n$ be the first decimal position where $x_1$ and $x_2$ differ. Then $10n + d(x_1, n)$ will be in $A_1$ but not $A_2$, and $10n + d(x_2, n)$ will be in $A_2$ but not $A_1$. Thus, neither $A_1 \subseteq A_2$ nor $A_2 \subseteq A_1$. Since $(0, 1)$ is uncountable, $\mathcal A$ is an uncountable antichain in $P(\mathbf N)$.
   }
 \end{solution}
