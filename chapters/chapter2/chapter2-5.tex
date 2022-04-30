@@ -142,8 +142,9 @@
   \enum{
   \item $(1,2,\dots)$ has zero peak terms, $(1, 0, 1/2, 2/3, 3/4, \dots)$ has a single peak term, $(2, 1, 1/2, 2/3, \dots)$ has two peak terms (a similar argument works for $k$ peak terms) and $(1,1/2,1/3,\dots)$ has infinitely many peak terms.
     The sequence $(1, -1/2, 1/3, -1/4, \dots)$ has infinitely many peak terms, but is not monotone.
-  \item The sequence of peak terms is monotonic decreasing, thus if the parent sequence is bounded we have found a subsequence which converges, hence proving BW.
-    (If there aren't infinitely many peak terms, then take the sequence of valley terms)
+  \item Note that the (possibly finite) sequence of peak terms is monotonic decreasing. There are two possibilities - either there are infinitely many peak terms, or only finitely many. If there are infinitely many peak terms, simply take the subsequence of peak terms; if the parent sequence is bounded we have found a subsequence which converges (by the Monotone Convergence Theorem), hence proving BW in this case.
+
+  If there are finitely many peak terms, let the last peak term be at position $k$. Consider the terms after the last peak term. Since after this point there are no more peak terms, then for every term $x_n$ there must be at least one term $x_m \geq x_n$ where $m > n > k$. Therefore we can define the monotone subsequence $x'$ as $x'_1 = x_{k + 1}$, $x'_n$ as the first term after $x'_{n - 1}$ such that $x'_n > x'_{n-1}$. By MCT this subsequence converges, hence proving BW in this case as well.
   }
 \end{solution}
 
