@@ -311,20 +311,20 @@
     Which cannot be made smaller then $\epsilon = 1/2$.
 
     The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. therefore the maximum point is at $m=n$.
-  \item Intuitively, in order for $\lim _{m, n \rightarrow \infty} a_{m n}$ to exist, neither iterated limit can diverge to infinity - otherwise, $a_{mn}$ can also diverge to infinity, by holding letting the index that causes divergence to grow while holding the other index fixed. Therefore, we must rely on each iterated limit diverging due to oscillation.
+  \item Intuitively, in order for $\lim _{m, n \to \infty} a_{m n}$ to exist, neither iterated limit can diverge to infinity - otherwise, $a_{mn}$ can also diverge to infinity, by holding letting the index that causes divergence to grow while holding the other index fixed. Therefore, we must rely on each iterated limit diverging due to oscillation.
 
-  The key additional ``ability'' that $\lim _{m, n \rightarrow \infty}$ gives over an iterated limit is that both $m$ and $n$ can be forced to grow big at the same time, whereas with an iterated limit only one of them is forced to grow big.
+  The key additional ``ability'' that $\lim _{m, n \to \infty}$ gives over an iterated limit is that both $m$ and $n$ can be forced to grow big at the same time, whereas with an iterated limit only one of them is forced to grow big.
   Define
     $$ \min(a, b) = \begin{cases}
       a &\text{if } a < b \\
       b &\text{otherwise}
     \end{cases}
     $$
-In other words, $\min(a, b)$ picks the smaller of $a$ and $b$. Note that since iterated limits can only increase one of $m$ and $n$, $\min(m, n)$ can't be increased indefinitely - but with $\lim _{m, n \rightarrow \infty}$, it can. Thus, the idea is to introduce oscillation in the sequence, then use $\min(m, n)$ to cause the oscillation to die out. Define
+In other words, $\min(a, b)$ picks the smaller of $a$ and $b$. Note that since iterated limits can only increase one of $m$ and $n$, $\min(m, n)$ can't be increased indefinitely - but with $\lim _{m, n \to \infty}$, it can. Thus, the idea is to introduce oscillation in the sequence, then use $\min(m, n)$ to cause the oscillation to die out. Define
 $$ a_{mn} = \frac{(-1)^{m + n}}{\min(m, n)}$$
 
-For a fixed $m$, once $n>m$, $a_{mn}$ will oscillate between $1/m$ and $-1/m$, and thus $\lim_{n \rightarrow \infty} a_{mn}$ does not exist.
-Similar reasoning shows that for a fixed $n$, $\lim_{m \rightarrow \infty} a_{mn}$ does not exist either. But clearly $\lim _{m, n \rightarrow \infty} a_{mn} = 0$.
+For a fixed $m$, once $n>m$, $a_{mn}$ will oscillate between $1/m$ and $-1/m$, and thus $\lim_{n \to \infty} a_{mn}$ does not exist.
+Similar reasoning shows that for a fixed $n$, $\lim_{m \to \infty} a_{mn}$ does not exist either. But clearly $\lim_{m, n \to \infty} a_{mn} = 0$.
 
 
   \item
@@ -342,8 +342,8 @@ Similar reasoning shows that for a fixed $n$, $\lim_{m \rightarrow \infty} a_{mn
     $$
     |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a| < (\epsilon-\epsilon') + \epsilon' = \epsilon
     $$
-    And we are done. The key is that we can make $|b_{m} - a_{mn}|$ as small as we want \emph{independent of m}, so we take the limit as $n \to \infty$ to show $|b_m - a| \le |a_{mn} - a|$
+    And we are done. The key is that we can make $|b_{m} - a_{mn}|$ as small as we want \emph{independent of m}, so we take the limit as $n \to \infty$ to show $|b_m - a| \le |a_{mn} - a|$.
     % TODO: Replace proof by taking limit of both sides?
-  \item Let $b_m = \lim_{n \to \infty} (a_{mn})$ and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$, A similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
+  \item Let $b_m = \lim_{n \to \infty} (a_{mn})$, $c_n = \lim_{m \to \infty} (a_{mn})$, and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$; a similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
   }
 \end{solution}
