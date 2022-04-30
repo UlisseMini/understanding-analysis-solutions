@@ -47,8 +47,10 @@
 \end{exercise}
 
 \begin{solution}
-  Let $\epsilon > 0$, set $N$ so that $|x_n - l| < \epsilon/4$ and $|z_n - l| < \epsilon/4$, then use the triangle inequality to see $|x_n - z_n| < |x_n-l|+|l-z_n|<\epsilon/2$ then apply it again to get
-  $$|y_n - l| \le |y_n - x_n| + |x_n - l| < \epsilon/2 + \epsilon/4 < \epsilon$$
+  Let $\epsilon > 0$, set $N$ so that $|x_n - l| < \epsilon/4$ and $|z_n - l| < \epsilon/4$. Use the triangle inequality to see $|x_n - z_n| < |x_n-l|+|l-z_n|<\epsilon/2$.
+  Note that since $x_n \leq y_n \leq z_n$, $|y_n - x_n| = y_n - x_n \leq z_n - x_n = |z_n - x_n|$.
+  Apply the triangle inequality again to get
+  $$|y_n - l| \le |y_n - x_n| + |x_n - l| \leq |z_n - x_n| + |x_n - l|< \epsilon/2 + \epsilon/4 < \epsilon$$
 \end{solution}
 
 \begin{exercise}
@@ -71,7 +73,7 @@
     &= 1
     \end{aligned}
     $$
-    Showing $a_n^2 \to 0$ is easy so I've omitted it 
+    Showing $a_n^2 \to 0$ is easy so I've omitted it
   \item Apply the ALT
     $$
     \begin{aligned}
