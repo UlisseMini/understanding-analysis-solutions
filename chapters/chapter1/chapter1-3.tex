@@ -33,7 +33,7 @@
 
 \begin{solution}
   \enum{
-  \item Let $B = \{0\}$ we have $\inf B = 0$ and $\sup B = 0$ thus $\inf B \le \sup B$.
+  \item Let $B = \{0\}$ we have $\inf B = 0$ and $\sup B = 0$ thus $\inf B \ge \sup B$.
   \item Impossible, finite sets must contain their infimum and supremum.
   \item Let $B = \{r \in \mathbf{Q} \mid 1 < r \le 2\}$ we have $\inf B = 1 \notin B$ and $\sup B = 2 \in B$.
   }
@@ -161,7 +161,7 @@
 
 \begin{solution}
   \enum{
-  \item If $c = \sup A = \inf B$ then $a \le c \le b$ is obvious. So we must only prove $\sup A = \inf B$. If $\sup A < \inf B$ then we can find $c$ between $A$ and $B$ implying $A \cup B \ne \mathbf{R}$. If $\sup A > \inf B$ then we can find $a$ such that $a > b$ by subtracting $\epsilon > 0$ and using the least upper/lower bound facts, similarly to Lemma 1.3.8. Thus $\sup A$ must equal $\inf B$ since we have shown both alternatives are impossible.
+  \item If $c = \sup A = \inf B$ then $a \le c \le b$ is obvious. So we must only prove $\sup A = \inf B$. If $\sup A < \inf B$ then consider $c=\frac{\sup A + \inf B}{2}$. $c > \sup A$ and therefore $c \notin A$; similarly $c < \inf B$ and therefore $c \notin B$, implying $A \cup B \ne \mathbf{R}$. If $\sup A > \inf B$ then we can find $a$ such that $a > b$ by subtracting $\epsilon > 0$ and using the least upper/lower bound facts, similarly to Lemma 1.3.8. Thus $\sup A$ must equal $\inf B$ since we have shown both alternatives are impossible.
   \item Let $B = \{x \mid e < x,\forall e\in E\}$ and let $A = B^c$. Clearly $a < b$ so the cut property applies. We have $a \le c \le b$ and must show the two conditions for $c = \sup E$
     \enumr{
     \item Since $E \subseteq A$, $a \le c$ implies $e \le c$ thus $c$ is an upper bound.
@@ -169,7 +169,10 @@
     }
 
     Note: Using (a) here would be wrong, it assumes the axiom of completeness so we would be making a circular argument.
-  \item $A = \{r \in \mathbf{Q} \mid r^2 < 2\}$, $B = A^c$ does not satisfy the cut property in $\mathbf{Q}$ since $\sqrt 2 \notin \mathbf{Q}$
+
+  \item $A = \{r \in \mathbf{Q} \mid r^2 < 2 \text{ or } r < 0\}$, $B = A^c$ does not satisfy the cut property in $\mathbf{Q}$ since $\sqrt{2} \notin \mathbf{Q}$.
+
+  (Alternatively, $A = \{r \in \mathbf{Q} \mid r^3 < 2\}$ can be used to avoid needing to single out negative numbers in defining $A$, but requires a proof that $\sqrt[3]{2}$ is irrational - left to the reader.)
   }
 \end{solution}
 
