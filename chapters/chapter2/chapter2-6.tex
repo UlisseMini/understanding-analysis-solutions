@@ -68,7 +68,17 @@
 
 \begin{solution}
   \enum{
-  \item Yes, since $|(a_n - b_n) - (a_m - b_m)| \le |a_n - a_m| + |b_m - b_n| < \epsilon/2 + \epsilon/2 = \epsilon$
+  \item Yes. Note that by the Triangle Inequality, \[
+    |a_n - a_m| + |b_m - b_n| + |a_m - b_m|
+    \geq |a_n - b_n| \Rightarrow |a_n - a_m| + |b_m - b_n| \geq |a_n - b_n| - |b_m - a_m|
+  \]
+  and \[
+    |a_m - a_n| + |b_n - b_m| + |a_n - b_m|
+    \geq |a_m - b_m| \Rightarrow |a_n - a_m| + |b_m - b_n| \geq |a_m - b_m| - |b_n - a_n|
+  \]
+  therefore
+  \[ |c_n - c_m| = \big| |a_n - b_n| - |a_m - b_m| \big | \leq |a_n - a_m| + |b_m - b_n| < \epsilon/2 + \epsilon/2 = \epsilon\]
+
   \item No, if $a_n = 1$ then $(-1)^na_n$ diverges, and thus is not Cauchy.
   \item No, if $a_n = 1 - (-1)^n/n$ then $[[a_n]]$ fluctuates between $0$ and $1$ and so cannot be Cauchy.
   }
