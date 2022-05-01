@@ -262,20 +262,53 @@ and since \(\sum 1/(2n-1)\) diverges by comparison against a multiple of the har
 \end{exercise}
 
 \begin{solution}
-  I can't think of an example, so I'm going to prove some stuff about $(a_n)$ and $(b_n)$ to make finding an example easier.
-
   Let $m_n = \min\{a_n, b_n\}$.
   Clearly $(m_n)$ must take an infinite amount of $(a_n)$ and $(b_n)$ terms, as otherwise removing the finite terms would imply one of $\sum a_n$ or $\sum b_n$ converged.
 
-  Because $(m_n) \to 0$ and because $(m_n)$ contains an infinite amount of $(a_n)$ terms we can find $N$ large enough that $a_N < \epsilon$, because $(a_n)$ is decreasing this implies every $n \ge N$ has $a_n < \epsilon$, which means $(a_n) \to 0$. The same logic shows $(b_n) \to 0$.
+    The key insight is that as long as \(a_n, b_n > 0\), we can simply repeat terms in one sequence (while letting \(m_n\) be governed by the other sequence) for as long as we want - say, until we have enough terms to e.g. sum to 1. Then we can switch the roles of the sequences.
+    To start with the construction, take some converging series with all terms positive - say, \(m_n = 1/2^n\).
+    Then, define the first few terms of \(m_n\), \(a_n\), and \(b_n\) as:
 
-  If we forget about the decreasing requirement we can make $a_n$ alternate between $1/n$ and $1/n^2$ and have $b_n$ do the same, then $m_n = 1/n^2$ converges.
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+n   &1 &2 &3 &[4, 4 + 8 = 12)& [12, 12 + 2^{11}) & [12 + 2^{11}, 12 + 2^{11} + 2^{12 + 2^{11}})\\ \hline
+m_n &1/2 &1/4 & 1/8 & 1/2^n & 1/2^n & 1/2^n \\ \hline
+\min\{a_n, b_n\} &a_n &b_n & b_n & a_n & b_n & a_n\\ \hline
+a_n &1/2 & 1/2 & 1/2 & 1/2^n & 1/2^{11} & 1/2^n\\ \hline
+b_n &1 & 1/4 & 1/8 & 1/8 & 1/2^n & 1/2^{12 + 2^{11}}\\ \hline
+\end{array}
+\]
 
-  A similar example won't work here, since if $\sum a_{2n-1}$ converges then $a_{2n} < a_{2n-1}$ implies $\sum a_{2n}$ converges by the comparison test, combining these shows $\sum a_n$ converges. Therefor $(m_n)$ can't alternate terms, and we need to be more clever.
+Specifically, \(\min\{a_n, b_n\}\) will alternate between following \(a_n\) and \(b_n\). Every ``block'' of the sequence (examples: each of the last three columns) that isn't being followed by \(\min\{a_n, b_n\}\) sums to 1.
+Since each block is finite, \(\min\{a_n, b_n\}\) will alternate between \(a_n\) and \(b_n\) infinitely, and thus both \(\sum a_n\) and \(\sum b_n\) will diverge.
 
-  In fact, If $\sum a_{n_k}$ converges then every shifted sum $\sum a_{n_k+p}$ will converge by a similar argument as above. Meaning $\left(a_{n_k}\right)$ can't be periodic since that would make $(a_n)$ converge.
+For the sake of completeness, \(a_n\) and \(b_n\) are defined more formally below.
+Let \(k_1 = 1\), \(k_n = k_{n-1} + 2^{k_{n-1} - 1}\). Then
+\[
+    a_n = \begin{cases}
+        1/2^n & \text{ if } k_{2p - 1} \leq n < k_{2p} \\
+        1/2^{k_{2p} - 1} &\text{ if } k_{2p} \leq n < k_{2p + 1}
+    \end{cases}
+\text{ and }
+    b_n = \begin{cases}
+        1/2^n & \text{ if } k_{2p} \leq n < k_{2p + 1} \\
+        1/2^{k_{2p - 1} - 1} &\text{ if } k_{2p - 1} \leq n < k_{2p}
+    \end{cases}
+\]
 
-  \TODO
+
+% Preliminary results/requirements on a_n and b_n:
+%   Let $m_n = \min\{a_n, b_n\}$.
+%   Clearly $(m_n)$ must take an infinite amount of $(a_n)$ and $(b_n)$ terms, as otherwise removing the finite terms would imply one of $\sum a_n$ or $\sum b_n$ converged.
+
+%   Because $(m_n) \to 0$ and because $(m_n)$ contains an infinite amount of $(a_n)$ terms we can find $N$ large enough that $a_N < \epsilon$, because $(a_n)$ is decreasing this implies every $n \ge N$ has $a_n < \epsilon$, which means $(a_n) \to 0$. The same logic shows $(b_n) \to 0$.
+
+%   If we forget about the decreasing requirement we can make $a_n$ alternate between $1/n$ and $1/n^2$ and have $b_n$ do the same, then $m_n = 1/n^2$ converges.
+
+%   A similar example won't work here, since if $\sum a_{2n-1}$ converges then $a_{2n} < a_{2n-1}$ implies $\sum a_{2n}$ converges by the comparison test, combining these shows $\sum a_n$ converges. Therefor $(m_n)$ can't alternate terms, and we need to be more clever.
+
+%   In fact, If $\sum a_{n_k}$ converges then every shifted sum $\sum a_{n_k+p}$ will converge by a similar argument as above. Meaning $\left(a_{n_k}\right)$ can't be periodic since that would make $(a_n)$ converge.
 
   % TODO: Same exercise for functions? add appendix with my own exercises
 \end{solution}
