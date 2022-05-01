@@ -235,7 +235,14 @@
 \begin{solution}
   \enum{
   \item Rewriting the terms as $a_n = (1 + 1/n)$ and using the result from 2.4.10 implies the product diverges since $\sum 1/n$ diverges.
-  \item Converges by the monotone convergence theorem since the partial products are decreasin and greater then zero.
+  \item Converges by the monotone convergence theorem since the partial products are decreasing and greater then zero. To show that the product converges to zero, the key insight is to rewrite each term \(a_n = (2n -1) / (2n) = 1 / (2n/(2n - 1)) = 1/b_n\), where \(b_n = 2n / (2n -1)\). Then the partial products
+\[
+    p_n = \prod^n_{i = 1} a_n = \frac{1}{\prod^n_{i = 1} b_n}
+\]
+But
+\[\prod^n_{i=1}b_n = \prod^n_{i=1} \left(1 + \frac{1}{2n - 1}\right)\]
+and since \(\sum 1/(2n-1)\) diverges by comparison against a multiple of the harmonic series, \(\prod b_n\) diverges. Thus, to show there exists some \(N\) so that \(n \geq N\) implies \(p_n < \epsilon\), simply take \(N\) large enough so that \(\prod^n_{i = 1} b_n > 1/\epsilon\).
+
   \item In compontent form we have
     $$
     a_n
@@ -244,7 +251,7 @@
     = 1 + \frac{(2n)^2 - ((2n)^2 - 1)}{(2n)^2 - 1}
     = 1 + \frac{1}{(2n)^2 - 1}
     $$
-    And since $\sum 1/((2n)^2 - 1)$ converges by a comparison test with $1/n^2$ 2.4.10 implies
+    And since $\sum 1/((2n)^2 - 1)$ converges by a comparison test with $1/n^2$, exercise 2.4.10 implies
     $$\prod_{n=1}^\infty \left(1 + \frac{1}{(2n)^2 - 1}\right)$$
     also converges.
   }
