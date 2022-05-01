@@ -105,10 +105,15 @@
 \begin{solution}
   \enum{
   \item $x_n = 1/n$ and $y_n = 1/n$ have their respective series diverge, but $\sum x_ny_n = \sum 1/n^2$ converges since it is a p-series with $p > 1$.
-  \item Let $x_n = (-1)^n/n$ and $y_n = (-1)^n$. $\sum x_n$ converges but $\sum x_ny_n = \sum 1/n$ diverges. 
+  \item Let $x_n = (-1)^n/n$ and $y_n = (-1)^n$. $\sum x_n$ converges but $\sum x_ny_n = \sum 1/n$ diverges.
   \item Impossible as the algebraic limit theorem for series implies $\sum(x_n+y_n) - \sum x_n = \sum y_n$ converges.
-  \item Impossible as the alternating series test implies it converges.
+  \item The sequence
+  \[x_n = \begin{cases}
+      \frac{1}{n} \text{ if } n \text{ even} \\
+      0 \text{ otherwise}
+  \end{cases}\]
   }
+   diverges for the same reason the harmonic series does.
 \end{solution}
 
 \begin{exercise}
