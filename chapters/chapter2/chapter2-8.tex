@@ -131,7 +131,26 @@ and thus \(\sum^\infty_{j=1}\sum^\infty_{i=1}a_{ij}\) converges to \(S\).
 \end{exercise}
 
 \begin{solution}
-    \TODO
+\enum{
+    \item Note that \(\sum^n_{i=1}\sum^n_{j=1}a_{ij}\) contains all of the terms of \(\sum^\infty_{k=2}d_k\), and thus by comparison to \(\sum^n_{i=1}\sum^n_{j=1}|a_{ij}|\), \(\sum^\infty_{k=2}|d_k|\) must converge.
+
+    \item What we need to show is that for all \(\epsilon>0\) there exists \(N\) such that for all \(n > N\), \(|S - \sum^n_{k=2}d_k| < \epsilon\). Note first that \( \sum^n_{k=2}d_k \) contains all the elements of \(s_{pp}\) when \(p \leq n / 2\), and that \(s_{qq}\) contains all the elements of \(\sum^n_{k=2}d_k\) as long as \(q \geq n-1\).
+
+    Since \((s_{nn}) \to S\), for arbitrary \(\epsilon_1 > 0\) we can choose \(n_1\) large enough such that \(|s_{n_1 n_1} - S| < \epsilon_1\). If we choose \(N = 2n\) then whenever \(n > N\), \(\sum^n_{k=2}d_k\) will contain all terms in \(s_{n_1}s_{n_1}\), and if we choose \(m = n - 1\) then \(s_{mm}\) will contain all terms in \(\sum^n_{k=2}d_k\). Thus
+    \[ \sum^n_{k=2}|d_k| - t_{n_1n_1} \leq t_{mm} - t_{n_1n_1} \]
+where \(t_{nn}\) was defined near the start of the proof of Theorem 2.8.1.
+Moreover since \(t_{nn}\) converges (as proved in Exercise 2.8.3a) and is thus a Cauchy sequence, for arbitrary \(\epsilon_2 > 0\), we can also choose \(n_1\) large enough to ensure for any \(m_1 > n_1\), \(t_{m_1 m_1} - t_{n_1 n_1} < \epsilon_2\).
+
+Putting it all together, choosing \(\epsilon_1 = \epsilon_2 = \epsilon/2\), \(n_1\) large enough to satisfy the two conditions discussed above, and \(N = 2n_1\):
+\[ \begin{aligned}
+\abs{S - \sum^n_{k=2}d_k} &\leq |S - s_{n_1n_1}| + \abs{\sum^n_{k=2}d_k - s_{n_1n_1}} \\
+&< \epsilon_1 + \abs{\sum^n_{k=2}|d_k| - t_{n_1n_1}} \\
+&\leq \epsilon_1 + t_{mm} - t_{n_1n_1} < \epsilon_1 + \epsilon_2 \\
+&= \epsilon
+\end{aligned}
+\]
+completing the proof.
+}
 \end{solution}
 
 \begin{exercise}
