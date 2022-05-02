@@ -167,5 +167,12 @@ where, as before, \(d_k = a_1 b_{k-1} + a_2 b_{k-2} + \cdots + a_{k-1} b_1\).
 \end{exercise}
 
 \begin{solution}
-    \TODO
+\enum{
+\item
+    Let \(\sum^\infty_{i=1}|a_i|\) converge to \(A'\) and \(\sum^\infty_{j=1}|b_j|\) converge to \(B'\).
+By the Algebraic Limit Theorem for Series,
+ \[\sum^\infty_{i=1}\sum^\infty_{j=1}|a_i b_j| = \sum^\infty_{i=1}\left(|a_i|\sum^\infty_{j=1}|b_j|\right) = \left(\sum^\infty_{i=1}|a_i|\right)\left(\sum^\infty_{j=1}|b_j|\right) = A'B' \]
+
+ \item Theorem 2.8.1 shows that \(\lim_{n \to \infty} s_{nn} = \sum^\infty_{i=1}\sum^\infty_{j=1}a_i b_j\) which by the same manipulation as used in part (a), equals \(AB\). By Theorem 2.8.1 the rest of the problem is solved.
+}
 \end{solution}
