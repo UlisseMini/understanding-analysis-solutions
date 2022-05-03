@@ -1,0 +1,178 @@
+\section{Double Summations and Products of Infinite Series}
+
+\begin{exercise}
+    Using the particular array \(a_{ij}\) from Section 2.1, compute \(\lim_{n \to \infty} s_{nn}\). How does this value compare to the two iterated values for the
+sum already computed?
+\end{exercise}
+
+\begin{solution}
+By inspection \(s_{nn} = -2 + 1/2^{n - 1}\), so \(\lim_{n \to \infty} s_{nn} = -2\). This is the same as the result when fixing \(j\) and summing down each column, since each column series has finitely many non-zero elements.
+\end{solution}
+
+\begin{exercise}
+    Show that if the iterated series
+    \[ \sum^\infty_{i = 1} \sum^\infty_{j=1} \left| a_{ij} \right| \]
+    converges (meaning that for each fixed \(i \in \mathbf{N}\) the series \(\sum^\infty_{j=1}|a_{ij}|\) converges to some real number \(b_i\), and the series \(\sum^\infty_{i=1}b_i\) converges as well), then the iterated series
+    \[\sum^\infty_{i=1} \sum^\infty_{j=1} a_{ij}\]
+    converges.
+\end{exercise}
+
+\begin{solution}
+    Since \(\sum^\infty_{j=1}|a_{ij}|\) converges, \(c_i = \sum^\infty_{j=1}a_{ij}\) converges as well; moreover \(|c_i| \leq |b_i|\), so \(\sum^\infty_{i=1}c_i\) converges by comparison with \(\sum^\infty_{i=1}|b_i|\).
+\end{solution}
+
+\begin{exercise}
+Define
+\[
+    t_{mn}=  \sum^m_{i=1}\sum^n_{j=1}|a_{ij}|
+\]
+\enum{
+    \item Prove that \((t_{nn})\) converges.
+    \item Now, use the fact that \((t_{nn})\) is a Cauchy sequence to argue that \((s_{nn})\) converges.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item Note that \(t_{nn}\) is monotone increasing; moreover
+    \[
+         \sum^\infty_{i=1}\sum^\infty_{j=1}|a_{ij}|
+    \geq \sum^\infty_{i=1}\sum^n_{j=1}     |a_{ij}|
+    \geq \sum^n_{i=1}     \sum^n_{j=1}     |a_{ij}| = t_{nn}
+    \]
+    and therefore \(t_{nn}\) is bounded; by the Monotone Convergence Theorem \(t_{nn}\) converges.
+
+    \item Since \((t_{nn})\) is a Cauchy sequence, for any \(\epsilon > 0\) there exists \(N\) such that if \(p>q>N\),
+     \[
+\begin{aligned}
+    \epsilon > \left| t_{pp} - t_{qq} \right| &= \left| \sum^p_{i=1} \sum^p_{j=1} |a_{ij}| - \sum^q_{i=1} \sum^q_{j=1} |a_{ij}| \right| \\
+    &= \left| \sum^p_{i=q+1} \sum^p_{j=1} |a_{ij}| + \sum^q_{i=1} \sum^p_{j=q+1} |a_{ij}|  + \sum^q_{i=1} \sum^q_{j=1} |a_{ij}| - \sum^q_{i=1} \sum^q_{j=1} |a_{ij}| \right| \\
+    &= \left| \sum^p_{i=q+1} \sum^p_{j=1} |a_{ij}| + \sum^q_{i=1} \sum^p_{j=q+1} |a_{ij}|  \right| \\
+    &\geq \left|\sum^p_{i=q+1} \sum^p_{j=1} a_{ij}  + \sum^q_{i=1} \sum^p_{j=q+1} a_{ij} \right| \\
+    &= \left| \sum^p_{i=q+1} \sum^p_{j=1} a_{ij} + \sum^q_{i=1} \sum^p_{j=q+1} a_{ij}  + \sum^q_{i=1} \sum^q_{j=1} a_{ij} - \sum^q_{i=1} \sum^q_{j=1} a_{ij} \right|\\
+    &= \left|\sum^p_{i=1} \sum^p_{j=1} a_{ij} - \sum^q_{i=1} \sum^q_{j=1} a_{ij} \right| \\
+    &= \left|s_{pp} - s_{qq}\right|
+\end{aligned}
+\]
+
+and therefore \(s_{nn}\) is also a Cauchy sequence and thus converges.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+    \item Let \(\epsilon > 0\) be arbitrary and argue that there exists an \(N_1 \in \mathbf{N}\) such that \(m, n \geq N_1\) implies \(B - \frac{\epsilon}{2} < t_{mn} \leq B\).
+    \item Now, show that there exists an \(N\) such that
+    \[|s_{mn} - S| < \epsilon\]
+    for all \(m, n \geq N\).
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item \(t_{mn} \leq B\) follows from the fact that \(B\) is an upper bound on \(\{t_{mn} : m, n \in \mathbf{N}\}\).
+    Lemma 1.3.8 indicates that there exists some \(p, q\) such that \(t_{pq} > B - \epsilon/2\), and since \(p_1 \leq p_2 \text{ and } q_1 \leq q_2 \implies t_{p_1q_1} \leq t_{p_2q_2}\), we can choose \(N_1 = \max\{p, q\}\).
+
+    \item By the triangle inequality, \(|s_{mn} - S| \leq |s_{mn} - s_{nn}| + |s_{nn} - S|\). Letting \(n' = \min\{n, m\}\) and \(m' = \max\{n, m\}\),
+\[
+    \left|s_{mn} - s_{nn}\right| = \left| \sum^{m'}_{i=n'} \sum^n_{j=1} a_{ij} \right| \leq \sum^{m'}_{i=n'} \sum^n_{j=1} |a_{ij}| = \left|t_{mn} - t_{nn}\right| \leq \frac{\epsilon}{2}
+\]
+from Exercise 2.8.4a), as long as \(m,n \geq N_1\). Since \(S = \lim_{n\to\infty} s_{nn}\) there exists \(N_2\) such that for \(n \geq N_2\), \(|s_{nn} - S| < \epsilon/2\); thus picking \(N = \max\{N_1, N_2\}\) ensures
+    \[|s_{mn} - S| < \epsilon\]
+    for all \(m, n \geq N\).
+
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+    \item Show that for all \(m \geq N\)
+    \[|(r_1 + r_2 + \cdots + r_m) - S| \leq \epsilon\]
+    Conclude that the iterated sum \(\sum^\infty_{i=1}\sum^\infty_{j=1}a_{ij}\) converges to \(S\).
+
+    \item Finish the proof by showing that the other iterated sum, \(\sum^\infty_{j=1}\sum^\infty_{i=1}a_{ij}\), converges to \(S\) as well. Notice that the same argument can be used once it is established that, for each fixed column \(j\), the sum \(\sum^\infty_{i=1}a_{ij}\) converges to some real number \(c_j\).
+
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+\item For any given \(m\), there must be some \(N_3\) such that for \(n > N_3\), \(k \in \mathbf{N} \leq m\),
+\[ \left| r_k - \sum^n_{j=1} a_{kj}\right| < \frac{\epsilon}{2m} \]
+
+Then there must exist some \(N\) such that when \(m,n \geq N\),
+
+\[
+\begin{aligned}
+    \left| \sum^m_{i=1} r_i - S \right|
+    & \leq \left|\sum^m_{i=1}r_i - \sum^m_{i=1}\sum^n_{j=1}a_{ij}\right| + \left|\sum^m_{i=1}\sum^n_{j=1}a_{ij} - S \right|\\
+    &= \left|\sum^m_{i=1} \left(r_i - \sum^n_{j=1}a_{ij}\right)\right| + \left|s_{mn} - S \right|\\
+    & \leq \sum^m_{i=1}\left| r_k - \sum^n_{j=1} a_{kj}\right| + \left|s_{mn} - S \right| \\
+    &< \sum^m_{i=1} \left(\frac{\epsilon}{2m}\right) + \frac{\epsilon}{2} = \epsilon
+\end{aligned}
+\]
+
+and thus \(\sum^\infty_{i=1}\sum^\infty_{j=1}a_{ij}\) converges to \(S\).
+
+\item \(\sum^\infty_{i=1}|a_{ij}|\) converges for any fixed \(j\) by comparison with \(\sum^\infty_{i=1}\sum^\infty_{k=1}|a_{ik}|\) which converges by the hypothesis, and thus \(\sum^\infty_{i=1}a_{ij}\) converges to some real number \(c_j\).
+Then a similar argument to (a) can be used to show that there must be some \(N\)such that when \(n \geq N\),
+    \[\left|\sum^n_{j=1}c_j - S\right| \leq \epsilon\]
+and thus \(\sum^\infty_{j=1}\sum^\infty_{i=1}a_{ij}\) converges to \(S\).
+}
+
+\end{solution}
+
+\begin{exercise}
+\enum{
+    \item Assuming the hypothesis - and hence the conclusion - of Theorem 2.8.1, show that \(\sum^\infty_{k=2}d_k\) converges absolutely.
+
+    \item Imitate the strategy in the proof of Theorem 2.8.1 to show that \(\sum^\infty_{k=2}d_k\) converges to \(S = \lim_{n\to\infty}s_{nn}\).
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item Note that \(\sum^n_{i=1}\sum^n_{j=1}a_{ij}\) contains all of the terms of \(\sum^\infty_{k=2}d_k\), and thus by comparison to \(\sum^n_{i=1}\sum^n_{j=1}|a_{ij}|\), \(\sum^\infty_{k=2}|d_k|\) must converge.
+
+    \item What we need to show is that for all \(\epsilon>0\) there exists \(N\) such that for all \(n > N\), \(|S - \sum^n_{k=2}d_k| < \epsilon\). Note first that \( \sum^n_{k=2}d_k \) contains all the elements of \(s_{pp}\) when \(p \leq n / 2\), and that \(s_{qq}\) contains all the elements of \(\sum^n_{k=2}d_k\) as long as \(q \geq n-1\).
+
+    Since \((s_{nn}) \to S\), for arbitrary \(\epsilon_1 > 0\) we can choose \(n_1\) large enough such that \(|s_{n_1 n_1} - S| < \epsilon_1\). If we choose \(N = 2n\) then whenever \(n > N\), \(\sum^n_{k=2}d_k\) will contain all terms in \(s_{n_1}s_{n_1}\), and if we choose \(m = n - 1\) then \(s_{mm}\) will contain all terms in \(\sum^n_{k=2}d_k\). Thus
+    \[ \sum^n_{k=2}|d_k| - t_{n_1n_1} \leq t_{mm} - t_{n_1n_1} \]
+where \(t_{nn}\) was defined near the start of the proof of Theorem 2.8.1.
+Moreover since \(t_{nn}\) converges (as proved in Exercise 2.8.3a) and is thus a Cauchy sequence, for arbitrary \(\epsilon_2 > 0\), we can also choose \(n_1\) large enough to ensure for any \(m_1 > n_1\), \(t_{m_1 m_1} - t_{n_1 n_1} < \epsilon_2\).
+
+Putting it all together, choosing \(\epsilon_1 = \epsilon_2 = \epsilon/2\), \(n_1\) large enough to satisfy the two conditions discussed above, and \(N = 2n_1\):
+\[ \begin{aligned}
+\abs{S - \sum^n_{k=2}d_k} &\leq |S - s_{n_1n_1}| + \abs{\sum^n_{k=2}d_k - s_{n_1n_1}} \\
+&< \epsilon_1 + \abs{\sum^n_{k=2}|d_k| - t_{n_1n_1}} \\
+&\leq \epsilon_1 + t_{mm} - t_{n_1n_1} < \epsilon_1 + \epsilon_2 \\
+&= \epsilon
+\end{aligned}
+\]
+completing the proof.
+}
+\end{solution}
+
+\begin{exercise}
+    Assume that \(\sum^\infty_{i=1}a_i\) converges absolutely to \(A\), and \(\sum^\infty_{j=1}b_j\) converges absolutely to \(B\).
+
+\enum{
+    \item Show that the iterated sum \(\sum^\infty_{i=1}\sum^\infty_{j=1}|a_i b_j|\) converges so that we may apply Theorem 2.8.1.
+    \item Let \(s_{nn} = \sum^n_{i=1}\sum^n_{j=1}a_i b_j\), and prove that \(\lim_{n \to \infty} s_{nn} = AB\). Conclude that
+\[
+    \sum^\infty_{i=1}\sum^\infty_{j=1}a_i b_j = \sum^\infty_{j=1}\sum^\infty_{i=1}a_ib_j = \sum^\infty_{k=2}d_k = AB,
+\]
+where, as before, \(d_k = a_1 b_{k-1} + a_2 b_{k-2} + \cdots + a_{k-1} b_1\).
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+\item
+    Let \(\sum^\infty_{i=1}|a_i|\) converge to \(A'\) and \(\sum^\infty_{j=1}|b_j|\) converge to \(B'\).
+By the Algebraic Limit Theorem for Series,
+ \[\sum^\infty_{i=1}\sum^\infty_{j=1}|a_i b_j| = \sum^\infty_{i=1}\left(|a_i|\sum^\infty_{j=1}|b_j|\right) = \left(\sum^\infty_{i=1}|a_i|\right)\left(\sum^\infty_{j=1}|b_j|\right) = A'B' \]
+
+ \item Theorem 2.8.1 shows that \(\lim_{n \to \infty} s_{nn} = \sum^\infty_{i=1}\sum^\infty_{j=1}a_i b_j\) which by the same manipulation as used in part (a), equals \(AB\). By Theorem 2.8.1 the rest of the problem is solved.
+}
+\end{solution}
