@@ -114,8 +114,8 @@
 \begin{solution}
   \enum{
   \item $f(x) = 1/x$ and $x_n = 1/n$ has $f(x_n)$ diverging, hence $f(x_n)$ is not Cauchy.
-  \item Impossible since for all $\epsilon > 0$ we can find an $N$ so that all $n \ge N$ has $|x_n - x_m| < \delta$ (since $x_n$ is cauchy) implying $|f(x_n) - f(x_m)| < \epsilon$ and thus $f(x_n)$ is Cauchy. (Uniform continuity is needed for the $\forall n \ge N$ part)
-  \item Impossible since $[0,\infty)$ is closed $(x_n) \to x \in [0,\infty)$ implying $f(x_n) \to f(x)$ since $f$ is continuous, thus $f(x_n)$ is a cauchy sequence.
+  \item Impossible since for all $\epsilon > 0$ we can find an $N$ so that all $n \ge N$ has $|x_n - x_m| < \delta$ (since $x_n$ is Cauchy) implying $|f(x_n) - f(x_m)| < \epsilon$ and thus $f(x_n)$ is Cauchy. (Uniform continuity is needed for the $\forall n \ge N$ part)
+  \item Impossible since $[0,\infty)$ is closed $(x_n) \to x \in [0,\infty)$ implying $f(x_n) \to f(x)$ since $f$ is continuous, thus $f(x_n)$ is a Cauchy sequence.
   }
 \end{solution}
 
@@ -239,7 +239,7 @@
 \end{exercise}
 
 \begin{solution}
-  A fact we'll use is that $g(A) \subseteq B$ if and only if $A \subseteq g^{-1}(B)$. Which is true since 
+  A fact we'll use is that $g(A) \subseteq B$ if and only if $A \subseteq g^{-1}(B)$. Which is true since
   $$
   g(A) \subseteq B \implies A \subseteq g^{-1}(g(A)) \subseteq g^{-1}(B)
   \quad\text{and}\quad
@@ -282,7 +282,7 @@
   \item Let $\epsilon > 0$ and set $N$ large enough that $n,m \ge N$ has $|x_n - x_m| < \delta$ implying $|f(x_n) - f(x_m)| < \epsilon$ by the uniformly continuity of $f$.
   \item Define $g(a) = \lim_{x \to a} g(x)$ and $g(b) = \lim_{x \to b} g(x)$ if both limits exist, then $g$ is continuous on $[a,b]$ meaning it is uniformly continuous on $[a,b]$ by Theorem 4.4.7, and thus is uniformly continuous the subset $(a,b)$.
 
-    If $f$ were uniformly continuous $(a,b)$ cauchy sequences are preserved meaning the sequential definition for functional limits (Theorem 4.2.3) implies the limits $\lim_{x \to a} g(x)$ and $\lim_{x \to b} g(x)$ exist.
+    If $f$ were uniformly continuous $(a,b)$ Cauchy sequences are preserved meaning the sequential definition for functional limits (Theorem 4.2.3) implies the limits $\lim_{x \to a} g(x)$ and $\lim_{x \to b} g(x)$ exist.
   }
 \end{solution}
 

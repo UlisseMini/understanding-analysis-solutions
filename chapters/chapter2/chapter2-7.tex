@@ -24,7 +24,7 @@
     $$
     |s_m - s_n| \le |s_m - s_N| + |s_N - s_n| < \epsilon/2 + \epsilon/2 = \epsilon
     $$
-    Which shows $(s_n)$ is cauchy, and hence converges by the Cauchy Criterion.
+    Which shows $(s_n)$ is Cauchy, and hence converges by the Cauchy Criterion.
   \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$, since $(a_n)$ is decreasing we have $I_{n+1} \subseteq I_n$. Applying the nested interval property gives
     $$\bigcap_{n=1}^\infty I_n \ne \emptyset$$
     Let $x \in \bigcap_{n=1}^\infty I_n$, since $a_n \in I_n$ and $x \in I_n$ the distance $|a_n - x|$ must be less then the length $|I_n|$. and since the length goes to zero $|a_n - x|$ can be made less then any $\epsilon$.
@@ -86,7 +86,7 @@
   Suppose $a_n, b_n \ge 0$, $a_n \le b_n$ and define $s_n = a_1 + \dots + a_n$, $t_n = b_1 + \dots + b_n$.
 
   \enum{
-  \item We have $|a_{m+1} + \dots + a_n| \le |b_{m+1} + \dots + b_n| < \epsilon$ implying $\sum_{n=1}^\infty a_n$ converges by the cauchy criterion.
+  \item We have $|a_{m+1} + \dots + a_n| \le |b_{m+1} + \dots + b_n| < \epsilon$ implying $\sum_{n=1}^\infty a_n$ converges by the Cauchy criterion.
     The other direction is analogous, if $(s_n)$ diverges then $(t_n)$ must also diverge since $s_n \le t_n$.
   \item Since $(t_n) \to t$. This implies that $s_n$ is bounded, and since $s_n \le t_n$ implies $s_n \le t$ by the order limit theorem, we can use the monotone convergence theorem to conclude $(s_n)$ converges.
   }
@@ -105,7 +105,7 @@
 \begin{solution}
   \enum{
   \item $x_n = 1/n$ and $y_n = 1/n$ have their respective series diverge, but $\sum x_ny_n = \sum 1/n^2$ converges since it is a p-series with $p > 1$.
-  \item Let $x_n = (-1)^n/n$ and $y_n = (-1)^n$. $\sum x_n$ converges but $\sum x_ny_n = \sum 1/n$ diverges. 
+  \item Let $x_n = (-1)^n/n$ and $y_n = (-1)^n$. $\sum x_n$ converges but $\sum x_ny_n = \sum 1/n$ diverges.
   \item Impossible as the algebraic limit theorem for series implies $\sum(x_n+y_n) - \sum x_n = \sum y_n$ converges.
   \item Impossible as the alternating series test implies it converges.
   }
