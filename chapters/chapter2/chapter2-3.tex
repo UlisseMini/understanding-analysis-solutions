@@ -47,8 +47,10 @@
 \end{exercise}
 
 \begin{solution}
-  Let $\epsilon > 0$, set $N$ so that $|x_n - l| < \epsilon/4$ and $|z_n - l| < \epsilon/4$, then use the triangle inequality to see $|x_n - z_n| < |x_n-l|+|l-z_n|<\epsilon/2$ then apply it again to get
-  $$|y_n - l| \le |y_n - x_n| + |x_n - l| < \epsilon/2 + \epsilon/4 < \epsilon$$
+  Let $\epsilon > 0$, set $N$ so that $|x_n - l| < \epsilon/4$ and $|z_n - l| < \epsilon/4$. Use the triangle inequality to see $|x_n - z_n| < |x_n-l|+|l-z_n|<\epsilon/2$.
+  Note that since $x_n \leq y_n \leq z_n$, $|y_n - x_n| = y_n - x_n \leq z_n - x_n = |z_n - x_n|$.
+  Apply the triangle inequality again to get
+  $$|y_n - l| \le |y_n - x_n| + |x_n - l| \leq |z_n - x_n| + |x_n - l|< \epsilon/2 + \epsilon/4 < \epsilon$$
 \end{solution}
 
 \begin{exercise}
@@ -71,7 +73,7 @@
     &= 1
     \end{aligned}
     $$
-    Showing $a_n^2 \to 0$ is easy so I've omitted it 
+    Showing $a_n^2 \to 0$ is easy so I've omitted it
   \item Apply the ALT
     $$
     \begin{aligned}
@@ -128,7 +130,7 @@
   \lim\left(\frac{-2}{1 + \sqrt{1 + 2/n}}\right) = \frac{-2}{1 + \sqrt{1 + \lim\left(2/n\right)}} = \frac{-2}{1 + \sqrt{1 + 0}} = -1
   $$
 
-  Stepping back the key to this technique is removing the radicals via a difference of squares, then dividing both sides by the growthrate $n$ and applying the ALT.
+  Stepping back the key to this technique is removing the radicals via a difference of squares, then dividing both sides by the growth rate $n$ and applying the ALT.
 \end{solution}
 
 \begin{exercise}
@@ -147,7 +149,9 @@
   \item $(x_n) = n$ and $(y_n) = -n$ diverge but $x_n + y_n = 0$ converges
   \item Impossible, the algebraic limit theorem implies $\lim (x_n + y_n) - \lim (x_n) = \lim y_n$ therefore $(y_n)$ must converge if $(x_n)$ and $(x_n + y_n)$ converge.
   \item $b_n = 1/n$ has $b_n \to 0$ and $1/b_n$ diverges. If $b_n \to b \ne 0$ then $1/b_n \to 1/b$, but since $b = 0$ ALT doesn't apply.
-  \item Impossible, letting $|b_n| \le M$ we have $|a_n - b_n| \le |a_n - M|$ being bounded, which is impossible since $a_n$ is unbounded and shifting by a constant $M$ cannot not change that.
+  \item Impossible, $|b_n|$ is convergent and therefore bounded (Theorem 2.3.2) so $|b_n| \le M_1$, and $|a_n - b_n| \le M_2$ is bounded, therefore
+  $$|a_n| \leq |a_n - b_n| + |b_n| \le M_1 + M_2$$
+  must be bounded.
   \item $b_n = n$ and $a_n = 0$ works. However if $(a_n) \to a$, $a \ne 0$ and $(a_nb_n) \to p$ then the ALT would imply $(b_n) \to p/a$.
   }
 \end{solution}
@@ -307,7 +311,17 @@
     Which cannot be made smaller then $\epsilon = 1/2$.
 
     The reason you would think to set $m=n$ is in trying to maximize $mn/(m^2 + n^2)$ notice if $m>n$ then $mn>n^2$ so we are adding more to the numerator then the denominator, hence the ratio is increasing. And if $m<n$ then the ratio is decreasing. therefore the maximum point is at $m=n$.
-  \item \TODO
+  \item Intuitively, in order for $\lim _{m, n \to \infty} a_{m n}$ to exist, neither iterated limit can diverge to infinity - otherwise, $a_{mn}$ can also diverge to infinity, by holding letting the index that causes divergence to grow while holding the other index fixed. Therefore, we must rely on each iterated limit diverging due to oscillation.
+
+  The key additional ``ability'' that $\lim _{m, n \to \infty}$ gives over an iterated limit is that both $m$ and $n$ can be forced to grow big at the same time, whereas with an iterated limit only one of them is forced to grow big.
+
+  Note that since iterated limits can only increase one of $m$ and $n$, $\min\{m, n\}$ can't be increased indefinitely - but with $\lim _{m, n \to \infty}$, it can. Thus, the idea is to introduce oscillation in the sequence, then use $\min\{m, n\}$ to cause the oscillation to die out. Define
+$$ a_{mn} = \frac{(-1)^{m + n}}{\min\{m, n\}}$$
+
+For a fixed $m$, once $n>m$, $a_{mn}$ will oscillate between $1/m$ and $-1/m$, and thus $\lim_{n \to \infty} a_{mn}$ does not exist.
+Similar reasoning shows that for a fixed $n$, $\lim_{m \to \infty} a_{mn}$ does not exist either. But clearly $\lim_{m, n \to \infty} a_{mn} = 0$.
+
+
   \item
     Choose $\epsilon > 0$ and let $0 < \epsilon' < \epsilon$.
     We need to find $N$ so that $|b_m - a| < \epsilon$ for all $m > N$.
@@ -323,8 +337,8 @@
     $$
     |b_m - a| \le |b_m - a_{mn}| + |a_{mn} - a| < (\epsilon-\epsilon') + \epsilon' = \epsilon
     $$
-    And we are done. The key is that we can make $|b_{m} - a_{mn}|$ as small as we want \emph{independent of m}, so we take the limit as $n \to \infty$ to show $|b_m - a| \le |a_{mn} - a|$
+    And we are done. The key is that we can make $|b_{m} - a_{mn}|$ as small as we want \emph{independent of m}, so we take the limit as $n \to \infty$ to show $|b_m - a| \le |a_{mn} - a|$.
     % TODO: Replace proof by taking limit of both sides?
-  \item Let $b_m = \lim_{n \to \infty} (a_{mn})$ and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$, A similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
+  \item Let $b_m = \lim_{n \to \infty} (a_{mn})$, $c_n = \lim_{m \to \infty} (a_{mn})$, and $a = \lim_{m,n\to\infty} (a_{mn})$. In (d) we showed $(b_m) \to a$; a similar argument shows $(c_n) \to a$. Thus all three limits are equal to $a$.
   }
 \end{solution}
