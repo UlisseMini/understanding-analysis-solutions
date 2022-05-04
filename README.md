@@ -1,6 +1,6 @@
-# Understanding Analysis Solutions ([PDF](https://ulissemini.github.io/understanding-analysis-solutions/main.pdf))
+# Understanding Analysis Solutions ([PDF](https://uli.rocks/abbott/))
 
-Solutions for understanding analysis second edition. See the pdf [here](https://ulissemini.github.io/understanding-analysis-solutions/main.pdf)
+Solutions for understanding analysis second edition. See the pdf [here](https://uli.rocks/abbott/)
 
 Build using `pdflatex main.tex`
 
