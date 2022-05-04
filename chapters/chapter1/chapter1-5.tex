@@ -284,7 +284,7 @@
     % TODO: Figure out the intuition behind this ^^, how does someone come up with this argument?!?
     And since $f$ is injective $f(A_j) \cap f(A_k) = f(A_j\cap A_k) = f(\emptyset) = \emptyset$.
   \item $f(A) = B$ because $f\left(\bigcup_{n=1}^\infty A_n\right) = \bigcup_{n=1}^\infty f(A_n)$ thus $f : A \to B$ is onto. ($B$ was basically defined as the range of $f$)
-  \item Every time $g$ fails to be onto, there is some $x \in X$ where we can't find a $y \in Y$ with $g(y) = x$. Since $A_1 = X \setminus g(Y) \subseteq A$ every time this happens $x$ is in $A$. Therefor if we constrain ourselves to $A' = X \setminus A$ every $x \in A'$ has a $y \in Y$ with $g(y) = x$. If $y$ were in $B = \bigcup_{n=1}^\infty f(A_n)$ then $y \in f(A_n)$ for some $n$, but this is impossible as it would imply $x \in A_{n+1} \subseteq A$ which it isn't! Therefor $y \in Y \setminus B = B'$.
+  \item Every time $g$ fails to be onto, there is some $x \in X$ where we can't find a $y \in Y$ with $g(y) = x$. Since $A_1 = X \setminus g(Y) \subseteq A$ every time this happens $x$ is in $A$. Therefore if we constrain ourselves to $A' = X \setminus A$ every $x \in A'$ has a $y \in Y$ with $g(y) = x$. If $y$ were in $B = \bigcup_{n=1}^\infty f(A_n)$ then $y \in f(A_n)$ for some $n$, but this is impossible as it would imply $x \in A_{n+1} \subseteq A$ which it isn't! Therefore $y \in Y \setminus B = B'$.
   }
   \TODO Where was pairwise disjointness needed? did I make a mistake?
 \end{solution}

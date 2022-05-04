@@ -71,7 +71,7 @@
     $$
     Let $t_n = \sum_{k=1}^n \frac{1}{2k-1}$ and $v_n = \sum_{k=1}^n \frac{1}{(2k)^2}$ so $s_{2n} = t_n - v_n$.
 
-    A comparison test with the harmonic series (after some manipulation) shows that $(t_n)$ diverges, and p-series tells us $(v_n)$ converges. Therefor their difference $s_{2n} = t_n - v_n$ must diverge, which implies $(s_n)$ diverges as desired.
+    A comparison test with the harmonic series (after some manipulation) shows that $(t_n)$ diverges, and p-series tells us $(v_n)$ converges. Therefore their difference $s_{2n} = t_n - v_n$ must diverge, which implies $(s_n)$ diverges as desired.
   }
 \end{solution}
 
@@ -168,7 +168,7 @@
   \enum{
   \item True since $(a_n) \to 0$ so eventually $a_n^2 \le |a_n|$ meaning $\sum a_n^2$ converges by a comparsion test with $\sum |a_n|$.
   \item False, let $a_n = (-1)^n/{\sqrt n}$ and $b_n = (-1)^n/{\sqrt n}$. $\sum a_n$ converges by the alternating series test, but $\sum a_nb_n = \sum 1/n$ diverges.
-  \item True, suppose $(n^2a_n)$ converges, since $(n^2 a_n) \to 0$ we have $|n^2 a_n| < 1$ for $n > N$, implying $|a_n| < 1/n^2$. But if $|a_n| < 1/n^2$ then a comparsion test with $1/n^2$ implies $a_n$ converges absolutely, contradicting the assumption that $a_n$ converges conditionally. Therefor $\sum n^2a_n$ must diverge.
+  \item True, suppose $(n^2a_n)$ converges, since $(n^2 a_n) \to 0$ we have $|n^2 a_n| < 1$ for $n > N$, implying $|a_n| < 1/n^2$. But if $|a_n| < 1/n^2$ then a comparsion test with $1/n^2$ implies $a_n$ converges absolutely, contradicting the assumption that $a_n$ converges conditionally. Therefore $\sum n^2a_n$ must diverge.
   }
 \end{solution}
 
@@ -259,7 +259,7 @@
 
   If we forget about the decreasing requirement we can make $a_n$ alternate between $1/n$ and $1/n^2$ and have $b_n$ do the same, then $m_n = 1/n^2$ converges.
 
-  A similar example won't work here, since if $\sum a_{2n-1}$ converges then $a_{2n} < a_{2n-1}$ implies $\sum a_{2n}$ converges by the comparison test, combining these shows $\sum a_n$ converges. Therefor $(m_n)$ can't alternate terms, and we need to be more clever.
+  A similar example won't work here, since if $\sum a_{2n-1}$ converges then $a_{2n} < a_{2n-1}$ implies $\sum a_{2n}$ converges by the comparison test, combining these shows $\sum a_n$ converges. Therefore $(m_n)$ can't alternate terms, and we need to be more clever.
 
   In fact, If $\sum a_{n_k}$ converges then every shifted sum $\sum a_{n_k+p}$ will converge by a similar argument as above. Meaning $\left(a_{n_k}\right)$ can't be periodic since that would make $(a_n)$ converge.
 

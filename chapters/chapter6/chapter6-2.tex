@@ -190,9 +190,9 @@
     f(x) = x
     $$
     Now suppose $(f_n) \to f$ uniformly.
-    We want to show $f$ is bounded, 
+    We want to show $f$ is bounded,
     Let $M_n$ bound $f_n$, ie. $|f_n(x)|<M_n$ for all $x \in A$.
-    
+
     Set $\epsilon=1$ and apply the Cauchy Criterion to get $N$ so $m \ge n > N$ implies
     $$
     |f_n(x) - f_m(x)| < 1
@@ -234,7 +234,7 @@
     $$
     Each $f_n$ has exactly $n$ point discontinuities, but $f$ has countably many. Thus this is a counterexample.
 
-    Intuitively $f_n$ adds on finer and finer details of $f$, which is why it converges uniformly. But discontinuities can be as small/detailed as we want without screwing up uniform convergence. 
+    Intuitively $f_n$ adds on finer and finer details of $f$, which is why it converges uniformly. But discontinuities can be as small/detailed as we want without screwing up uniform convergence.
   \item False pointwise since we can have each $(f_n)$ continuous (zero discontinuities) but have $f$ not be continuous (see (a) for an example).
 
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
@@ -300,7 +300,7 @@
   $$
   |1/g(x) - 1/g_n(x)|
   = \left|\frac{g(x)-g_n(x)}{g(x)g_n(x)}\right|
-  = \left|g(x)-g_n(x)\right|\left|\frac{1}{g(x)g_n(x)}\right| 
+  = \left|g(x)-g_n(x)\right|\left|\frac{1}{g(x)g_n(x)}\right|
   $$
   We'd like to bound the rightmost term.
 
@@ -371,7 +371,7 @@
   \enum{
   \item We want $(g_n) \to 0$ uniformly, where $g_n$ is continuous, $g_n(x)$ is decreasing and $g_n(x) \to 0$.
   \item $x \in K_{n+1}$ by definition has $g_{n+1}(x) \ge \epsilon$, since $(g_n(x))$ is decreasing we must also have $g_{n}(x) \ge \epsilon$. Thus $K_{n+1} \subseteq K_n$. Now, if each $K_n \ne \emptyset$ the nested compact set property (Theorem 3.3.5) would imply there exists an $x_0 \in \bigcap_{n=1}^\infty K_n$. But this is impossible because $g_n(x_0) \to 0$ implies eventually $g_n(x_0)<\epsilon$.
-    Therefor since the compact set property doesn't apply, there must exist an $N$ with $K_N = \emptyset$, implying every $n \ge N$ has (by subsets) $K_n = \emptyset$ and thus $|g_n| < \epsilon$.
+    Therefore since the compact set property doesn't apply, there must exist an $N$ with $K_N = \emptyset$, implying every $n \ge N$ has (by subsets) $K_n = \emptyset$ and thus $|g_n| < \epsilon$.
   }
   % TODO: Understand intuitively, I proved it but I have no idea why it's true
 \end{solution}
