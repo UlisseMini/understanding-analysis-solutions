@@ -24,10 +24,10 @@
 
 \begin{solution}
   \enum{
-  \item $x_n = (-1)^n/n$ is cauchy by Theorem 2.6.2.
-  \item Impossible since all cauchy sequences converge.
-  \item Impossible, If a subsequence was cauchy it would converge, implying the subsequence would be bounded and therefore the parent sequence would be bounded (because it is monotone) and thus would converge.
-  \item $(2, 1/2, 3, 1/3, \dots)$ has subsequence $(1/2, 1/3, \dots)$ which is cauchy.
+  \item $x_n = (-1)^n/n$ is Cauchy by Theorem 2.6.2.
+  \item Impossible since all Cauchy sequences converge and are therefore bounded.
+  \item Impossible, if a subsequence was Cauchy it would converge, implying the subsequence would be bounded and therefore the parent sequence would be bounded (because it is monotone) and thus would converge.
+  \item $(2, 1/2, 3, 1/3, \dots)$ has subsequence $(1/2, 1/3, \dots)$ which is Cauchy.
   }
 \end{solution}
 
@@ -68,9 +68,19 @@
 
 \begin{solution}
   \enum{
-  \item Yes, since $|(a_n - b_n) - (a_m - b_m)| \le |a_n - a_m| + |b_m - b_n| < \epsilon/2 + \epsilon/2 = \epsilon$
-  \item No, if $a_n = 1$ then $(-1)^na_n$ diverges, and thus is not cauchy.
-  \item No, if $a_n = 1 - (-1)^n/n$ then $[[a_n]]$ fluctuates between $0$ and $1$ and so cannot be cauchy.
+  \item Yes. Note that by the Triangle Inequality, \[
+    |a_n - a_m| + |b_m - b_n| + |a_m - b_m|
+    \geq |a_n - b_n| \Rightarrow |a_n - a_m| + |b_m - b_n| \geq |a_n - b_n| - |b_m - a_m|
+  \]
+  and \[
+    |a_m - a_n| + |b_n - b_m| + |a_n - b_m|
+    \geq |a_m - b_m| \Rightarrow |a_n - a_m| + |b_m - b_n| \geq |a_m - b_m| - |b_n - a_n|
+  \]
+  therefore
+  \[ |c_n - c_m| = \big| |a_n - b_n| - |a_m - b_m| \big | \leq |a_n - a_m| + |b_m - b_n| < \epsilon/2 + \epsilon/2 = \epsilon\]
+
+  \item No, if $a_n = 1$ then $(-1)^na_n$ diverges, and thus is not Cauchy.
+  \item No, if $a_n = 1 - (-1)^n/n$ then $[[a_n]]$ fluctuates between $0$ and $1$ and so cannot be Cauchy.
   }
 \end{solution}
 
@@ -136,10 +146,10 @@
     Pick $K$ such that for $k \ge K$ we have $|x_{n_k} - x| < \epsilon$.
     Since $(x_n)$ is increasing and $x_n \le x$ every $n \ge n_K$ satisfies $|x_n - x| < \epsilon$ as well.
     Thus $(x_n)$ converges, completing the proof.
-  \item We're basically going to use the cauchy criterion as a replacement for NIP in the proof of BW.
-    Recall we had $I_{n+1} \subseteq I_n$ with $a_{n_k} \in I_k$, we will show $a_{n_k}$ is cauchy.
+  \item We're basically going to use the Cauchy criterion as a replacement for NIP in the proof of BW.
+    Recall we had $I_{n+1} \subseteq I_n$ with $a_{n_k} \in I_k$, we will show $a_{n_k}$ is Cauchy.
 
-    The length of $I_k$ is $M(1/2)^{k-1}$ by construction, so clearly $|a_{n_k} - a_{n_j}| < M(1/2)^{N-1}$ for $k,j \ge N$, implying $(a_{n_k})$ converges by the cauchy criterion.
+    The length of $I_k$ is $M(1/2)^{k-1}$ by construction, so clearly $|a_{n_k} - a_{n_j}| < M(1/2)^{N-1}$ for $k,j \ge N$, implying $(a_{n_k})$ converges by the Cauchy criterion.
 
     We needed the Archimedean Property to conclude $M(1/2)^{N-1} \in \mathbf{Q}$ can be made smaller then any $\epsilon \in \mathbf{R}^+$.
   \item The Archimedean Property is true for $\mathbf{Q}$ meaning it cannot prove AoC which is only true for $\mathbf{R}$. (If we did, then we would have proved AoC for $\mathbf{Q}$ which is obviously false.)

@@ -24,7 +24,7 @@
     $$
     |s_m - s_n| \le |s_m - s_N| + |s_N - s_n| < \epsilon/2 + \epsilon/2 = \epsilon
     $$
-    Which shows $(s_n)$ is cauchy, and hence converges by the Cauchy Criterion.
+    Which shows $(s_n)$ is Cauchy, and hence converges by the Cauchy Criterion.
   \item Let $I_1$ be the interval $[a_1 - a_2, a_1]$ and in general $I_n = [a_n - a_{n+1}, a_n]$, since $(a_n)$ is decreasing we have $I_{n+1} \subseteq I_n$. Applying the nested interval property gives
     $$\bigcap_{n=1}^\infty I_n \ne \emptyset$$
     Let $x \in \bigcap_{n=1}^\infty I_n$, since $a_n \in I_n$ and $x \in I_n$ the distance $|a_n - x|$ must be less then the length $|I_n|$. and since the length goes to zero $|a_n - x|$ can be made less then any $\epsilon$.
@@ -71,7 +71,7 @@
     $$
     Let $t_n = \sum_{k=1}^n \frac{1}{2k-1}$ and $v_n = \sum_{k=1}^n \frac{1}{(2k)^2}$ so $s_{2n} = t_n - v_n$.
 
-    A comparison test with the harmonic series (after some manipulation) shows that $(t_n)$ diverges, and p-series tells us $(v_n)$ converges. Therefor their difference $s_{2n} = t_n - v_n$ must diverge, which implies $(s_n)$ diverges as desired.
+    A comparison test with the harmonic series (after some manipulation) shows that $(t_n)$ diverges, and p-series tells us $(v_n)$ converges. Therefore their difference $s_{2n} = t_n - v_n$ must diverge, which implies $(s_n)$ diverges as desired.
   }
 \end{solution}
 
@@ -86,7 +86,7 @@
   Suppose $a_n, b_n \ge 0$, $a_n \le b_n$ and define $s_n = a_1 + \dots + a_n$, $t_n = b_1 + \dots + b_n$.
 
   \enum{
-  \item We have $|a_{m+1} + \dots + a_n| \le |b_{m+1} + \dots + b_n| < \epsilon$ implying $\sum_{n=1}^\infty a_n$ converges by the cauchy criterion.
+  \item We have $|a_{m+1} + \dots + a_n| \le |b_{m+1} + \dots + b_n| < \epsilon$ implying $\sum_{n=1}^\infty a_n$ converges by the Cauchy criterion.
     The other direction is analogous, if $(s_n)$ diverges then $(t_n)$ must also diverge since $s_n \le t_n$.
   \item Since $(t_n) \to t$. This implies that $s_n$ is bounded, and since $s_n \le t_n$ implies $s_n \le t$ by the order limit theorem, we can use the monotone convergence theorem to conclude $(s_n)$ converges.
   }
@@ -173,7 +173,7 @@
   \enum{
   \item True since $(a_n) \to 0$ so eventually $a_n^2 \le |a_n|$ meaning $\sum a_n^2$ converges by a comparsion test with $\sum |a_n|$.
   \item False, let $a_n = (-1)^n/{\sqrt n}$ and $b_n = (-1)^n/{\sqrt n}$. $\sum a_n$ converges by the alternating series test, but $\sum a_nb_n = \sum 1/n$ diverges.
-  \item True, suppose $(n^2a_n)$ converges, since $(n^2 a_n) \to 0$ we have $|n^2 a_n| < 1$ for $n > N$, implying $|a_n| < 1/n^2$. But if $|a_n| < 1/n^2$ then a comparsion test with $1/n^2$ implies $a_n$ converges absolutely, contradicting the assumption that $a_n$ converges conditionally. Therefor $\sum n^2a_n$ must diverge.
+  \item True, suppose $(n^2a_n)$ converges, since $(n^2 a_n) \to 0$ we have $|n^2 a_n| < 1$ for $n > N$, implying $|a_n| < 1/n^2$. But if $|a_n| < 1/n^2$ then a comparsion test with $1/n^2$ implies $a_n$ converges absolutely, contradicting the assumption that $a_n$ converges conditionally. Therefore $\sum n^2a_n$ must diverge.
   }
 \end{solution}
 
