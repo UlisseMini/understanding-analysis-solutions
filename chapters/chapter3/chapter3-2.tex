@@ -263,13 +263,13 @@
 \end{exercise}
 
 \begin{solution}
-  Let $A \ne \emptyset$ be open and closed, and suppose for contradiction that $A \ne \mathbf R$ and $r \notin A$.
+  Let $A \ne \emptyset$ be open and closed, and suppose for contradiction that $A \ne \mathbf R$ and $r \notin A$. Note that every closed set must contain its supremum and infimum, but Exercise 3.2.4b shows that every open set cannot contain its supremum or its infimum; thus \(A\) must be unbounded.
 
-  $A \cap (-\infty, r)$ is open and closed since $A \cap (-\infty, r)$ is an intersection of open sets, and $A \cap (-\infty, r) = A \cap (-\infty, r]$ (since $r \notin A$) is an intersection of closed sets.
+  $A \cap (-\infty, r)$ is open and closed since $A \cap (-\infty, r)$ is an intersection of open sets, and $A \cap (-\infty, r) = A \cap (-\infty, r]$ (since $r \notin A$) is an intersection of closed sets. Moreover, since \(A\) is unbounded below, \(A \cap (-\infty, r) \ne \emptyset\).
 
   Attempting to take $s = \sup A \cap (-\infty, r)$ gives a contradiction, since $s \in A \cap (-\infty, r)$ (because closed and bounded above) we can find $\epsilon > 0$ with $V_\epsilon(s) \subseteq A \cap (-\infty, r)$ (because open) which contradictions $s$ being an upper bound of $A \cap (-\infty, r)$.
 
-  therefore if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
+  Therefore if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
 \end{solution}
 
 \begin{exercise}
