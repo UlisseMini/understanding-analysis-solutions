@@ -122,12 +122,12 @@
 
 \begin{solution}
   \enum{
-  \item Every $x_n \in L$ is $x_n = \lim_{m\to\infty} a_{mn}$ for $a_{mn} \in A$. meaning if $\lim x_n = x \notin L$ then for $n > N$ and $m > M$ we have
+  \item Every $x_n \in L$ is $x_n = \lim_{m\to\infty} a_{mn}$ for $a_{mn} \in A$. Meaning if $\lim x_n = x$ then for $n > N$ and $m > M$ we have
     $$
     |a_{mn} - x| \le |a_{mn} - x_n| + |x_n - x| < \epsilon/2 + \epsilon/2 = \epsilon
     $$
-    For $n > \max\{N, M\}$ we get $|a_{nn} - x| < \epsilon$ meaning $x \in L$ since $x$ is a limit point of $A$.
-  \item Let $x_n \in A \cup L$ and $x = \lim x_n$. since $x_n$ is infinite there must be at least one subsequence $(x_{n_k}) \to x$ which is either all in $A$ or all in $L$.
+    and thus \(x\) is a limit point of \(A\), so \(x \in L\).
+  \item Let $x_n \in A \cup L$ and $x = \lim x_n$. Since $x_n$ is infinite there must be at least one subsequence $(x_{n_k}) \to x$ which is either all in $A$ or all in $L$.
     If every $x_{n_k} \in L$ then we know $x \in L$ from (a), and if every $x_{n_k} \in A$ then $x \in L$ aswell.
   }
 \end{solution}
