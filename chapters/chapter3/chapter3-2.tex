@@ -246,13 +246,16 @@
   $$(-\infty, s) \cap A = \bigcup_{n=1}^\infty (-\infty, s+1/n) \cap A$$
   is countable by \ref{ex:countable_union}. therefore $(s, \infty) \cap A$ must be uncountable.
 
-  The definition of infimum implies $(-\infty, s+\epsilon) \cap A$ is uncountable for all $\epsilon > 0$, We will show there exists an $\epsilon > 0$ with $s+\epsilon \in B$.
+  We now know that \(B\) is nonempty. Assume that \(B\) is bounded; we'll address the unbounded case later. We can show that \(L= \{x: x \in A, x < \inf B\}\) is countable or finite (i.e.\ not uncountable) by contradiction; suppose \(L\) is uncountable. Then we can find a nonempty set \(C \subseteq L\) containing the real numbers that divide \(L\) into two uncountable sets (the same relationship between \(B\) and \(A\)), and clearly \(C \subseteq B\). But \(L\) is disjoint from \(B\), since every \(x \in L\) is strictly less than every element in \(B\). Thus, a contradiction, and \(L\) is countable. Therefore, \(\inf B \notin B\), and a similar argument shows \(\sup B \notin B\).
 
-  Suppose the converse, if $(s+\epsilon, \infty)$ is countable for all $\epsilon > 0$, then \ref{ex:countable_union} would imply that
-  $$\bigcup_{n=1}^\infty (s+1/n, \infty) = (s, \infty)$$
-  is countable, which is impossible since it would imply $A$ is countable. therefore there exists an $\epsilon > 0$ with $(s+\epsilon, \infty) \cap A$ uncountable and $(-\infty, s+\epsilon) \cap A$ uncountable, meaning $s+\epsilon \in B$.
+  We now argue that \(B = (l, h)\), where \(l = \inf B\) if \(B\) is bounded below and \(-\infty\) otherwise, and \(h\) = \(\sup B\) if \(B\) is bounded above and \(+\infty\) otherwise. By definition if \(b \in B\) then \(l < b < h\) in both the bounded and unbounded cases, so we simply need to show that if \(l < b < h\), then \(b \in B\). We can show this by proving that \(h > b \implies \{x : x \in A, x > b\}\) is uncountable, and a similar statement for \(l < b\).
 
-  Now we know $B$ is nonempty, pick any $s \in B$ we must show there exists an $\epsilon > 0$ with $V_\epsilon(b) \subseteq B$. If $(-\infty, s) \cap A$ is uncountable we automatically have that $(-\infty, s+\epsilon) \cap A$ is uncountable. Which is true when $\epsilon > 0$ is small enough that $(s+\epsilon, \infty) \cap A$ is uncountable. We can do this using \ref{ex:countable_union} as before.
+    Suppose \(h = \sup B\) and \(b < h\). Then by Lemma 1.3.8 there must be some \(c \in B\) satisfying \(h - (h - b) < c\), or \(c > b\). Since \(\{x : x \in A, x > c\}\) is uncountable, \(\{x : x \in A, x > b\}\) must be uncountable as well.
+
+    Now suppose \(h = \infty\), and \(b < h\) (which isn't really a restriction on \(b\)). Since \(B\) must be unbounded above, there must be some \(c \in B\) such that \(c > b\), and the same logic as before shows that \(\{x : x \in A, x > b\}\) must be uncountable.
+
+    Similar logic can be used for the lower bound side of the proof. What is left is only to tie up loose ends and show that \((l, h)\) is always open. If \(l\) and \(h\) are both finite or both infinite, then \(B\) is an open interval or \(\mathbf{R}\) respectively, and those have both been shown to be open. If \(h\) is infinite, then for \(b \in (l, \infty)\), take \(\epsilon = b - l\) and \(V_\epsilon \in (l, \infty)\) and thus \((l, \infty)\) is open; similarly \((-\infty, h)\) is open.
+
 \end{solution}
 
 \begin{exercise}
