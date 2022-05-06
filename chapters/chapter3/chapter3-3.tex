@@ -110,14 +110,28 @@
 
 \begin{solution}
   \enum{
-  \item Define $2A = A+A = \{x+y : x,y \in A\}$, $C_1 = [0, 1/3] \cup [2/3, 1]$ has
-    $$2C_1 = (2[0,1/3]) \cup (2[2/3, 1]) \cup ([0,1/3] + [2/3, 1])$$
-    It's obvious that $2[0,1/3] = [0,2/3]$ and $2[2/3, 1] = [4/3, 2]$ now consider the last term, let $x \in [0,1/3]$ be fixed and let $y \in [2/3, 1]$ vary. obviously $x+y \in [2/3, 4/3]$ therefore adding the endpoints to compute $[0,1/3]+[2/3,1]=[2/3,4/3]$ works!
-    % TODO: Rewrite this explanation at the top, unifying stupid 2*. and .+. notation for closed intervals
+  \item Note that \([a, b] + [c, d] = [a + c, b+d]\).
+Recall $C_1 = [0, 1/3] \cup [2/3, 1]$; we have
+    \[
+        \begin{aligned}
+        C_1 + C_1 &= ([0,1/3] + [0,1/3]) \cup ([2/3,1] + [2/3,1]) \cup ([0,1/3] + [2/3,1]) \\
+        &= [0, 2/3] \cup [4/3, 2] \cup [2/3,4/3] \\
+        &= [0, 2]
+        \end{aligned}
+    \]
 
-    This means that $2C_1 = [0,2/3] \cup [4/3, 2] \cup [2/3, 4/3] = [0, 2]$!
+    We prove the general case through induction; the base case has been demonstrated above. Define \(A + r = \{x+r : x \in A\}\), \(r \cdot A = \{rx : x \in A\}\) for \(r \in \mathbf{R}\). Note that \([a,b] + c = [a + c, b+c]\) and \(r \cdot (A + B) = r \cdot A + r \cdot B\).
 
-    \TODO Induction
+    The inductive hypothesis is that \(C_n + C_n = [0, 2]\).  Let \(C_{n+1}' = C_n \cup (C_n + 2) = 3 \cdot C_{n + 1}\). Then
+    \[ \begin{aligned}
+        C_{n+1}' + C_{n+1}' &= (C_n + C_n) \cup (C_n + (C_n + 2)) \cup ((C_n + 2) + (C_n + 2)) \\
+        &= [0, 2] \cup ([0, 2] + 2) \cup ([0, 2] + 4)\\
+        &= [0, 6]
+        \end{aligned}
+\]
+    \[\frac{1}{3} \cdot (C_{n+1}' + C_{n+1}')  = C_{n+1} + C_{n+1} = \frac{1}{3}\cdot [0,6] = [0,2] \]
+    and the inductive step is complete.
+
   \item Since $C$ is compact, there exists a subsequence $(x_{n_k}) \to x$ with $x \in C$. Now since $x_{n_k} + y_{n_k} = s$ for all $k$, we have $\lim y_{n_k} = \lim s - x_{n_k} = s - x$. Now since each $y_{n_k} \in C$ the limit $y = s - x \in C$ as well, thus we have found $x,y\in C$ with $x+y = s$.
   }
 \end{solution}
