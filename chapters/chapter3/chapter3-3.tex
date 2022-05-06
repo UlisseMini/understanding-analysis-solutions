@@ -88,12 +88,13 @@
 
 \begin{solution}
   \enum{
-  \item Compact
-  \item Closed, since if $a+b \in A+B$ then we can find sequences $(a_n) \to a$ and $(b_n) \to b$ in $A$ and $B$ respectively, with $(a_n + b_n)$ contained in $A+B$ and $(a_n + b_n) \to a+b$.
+  \item Compact, but not closed (\(\mathbf{R}\) is closed)
+  \item Closed and compact, since if $a+b \in A+B$ then we can find sequences $(a_n) \to a$ and $(b_n) \to b$ in $A$ and $B$ respectively, with $(a_n + b_n)$ contained in $A+B$ and $(a_n + b_n) \to a+b$. Moreover if \(A\) and \(B\) are both bounded, then so is \(A + B\).
   \item Compact, since letting $K_n = \bigcap_{k=1}^n A_{k}$ gives $K_{n} \subseteq K_{n-1}$, we also have $K_n \ne \emptyset$ since every finite intersection is known to be nonempty. Applying the Nested Compact Set Property allows us to conclude
     $$
     \bigcap_{n=1}^\infty A_n = \bigcap_{n=1}^\infty K_n \ne \emptyset
     $$
+  Not closed, e.g. let \(A_n = [n, \infty)\)
   }
 \end{solution}
 
