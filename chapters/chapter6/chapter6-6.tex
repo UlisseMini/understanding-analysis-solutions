@@ -1,7 +1,7 @@
 \section{Taylor Series}
 
 \begin{exercise}
-  The derivation in Example 6.6.1 shows the Taylor series for $\arctan (x)$ is valid for all $x \in(-1,1)$. Notice, however, that the series also converges when $x=1$. Assuming that $\arctan(x)$ is contimuous, explain why the value of the series at $x=1$ must necessarily be $\arctan(1)$. What interesting identity do we get in this case?
+  The derivation in Example 6.6.1 shows the Taylor series for $\arctan (x)$ is valid for all $x \in(-1,1)$. Notice, however, that the series also converges when $x=1$. Assuming that $\arctan(x)$ is continuous, explain why the value of the series at $x=1$ must necessarily be $\arctan(1)$. What interesting identity do we get in this case?
 
 \end{exercise}
 \begin{solution}
@@ -21,7 +21,43 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum {
+  \item We know $\cos(x) = 1 - x^2/2 + x^4/4! - \dots$ on all of $\mathbf{R}$ so
+    $$
+    x\cos(x^2)
+    = x - \frac{x^5}{2!} + \frac{x^9}{4!} - \frac{x^{13}}{6!} + \dots
+    = \sum_{n=0}^\infty (-1)^n \frac{x^{4n+1}}{(2n)!}
+    $$
+  \item
+    Since
+    $$
+    \frac{x}{(1+4x^2)^2} = \frac{\mathrm d}{\mathrm dx}\, \frac{- 1/8}{1 + 4x^2}
+    $$
+    We can use the geometric series then differentiate
+    $$
+    \frac{-1/8}{1 - (-4x^2)} = (-1/8)\sum_{n=0}^\infty (-4x^2)^n = \sum_{n=0}^\infty \frac{(-1)^{n+1} (4x^2)^n}{8}
+    $$
+    Is valid when $|4x^2|<1$ or $|x| < 1/2$, differentiating gives
+    $$
+    \frac{x}{(1 - 4x^2)^2}
+    \stackrel{?}{=} \sum_{n=0}^\infty \frac{(-1)^{n+1} 8x\cdot n(4x^2)^{n-1}}{8}
+    = \sum_{n=0}^\infty (-1)^{n+1} xn(4x^2)^{n-1}
+    $$
+    Every $|x|<1/2$ converges by the ratio test, meaning the right-hand series converges for all $x \in (-1/2,1/2)$.
+    Checking endpoints $x=1/2$ gives $\sum (-1)^{n+1}n/2$ which clearly doesn't converge, similarly $x=-1/2$ doesn't converge.
+
+    Finally, we must show our differentiated series converges to the right thing. Let $f_m = \sum_{n=0}^m (-1)^{n+1}xn(4^2)^{n-1}$ and $f(x) = x/{(1+4x^2)}$. We have $(f_m') \to f'$ uniformly (by construction via geometric series), and since $(f_m)$ and $f$ agree at $x=0$ ($f_m(0) \to 0$ and $f(0) = 0$) we must have $(f_m) \to f$ uniformly.
+  \item
+    We know the Taylor series for $\log(1 + x)$ is
+    $$
+    \log(1 + x) = x - \frac 12 x^2 + \frac 13 x^3 - \dots = \sum_{n=1}^\infty \frac {(-1)^n x^n}{n}
+    $$
+    Which converges on $(-1, 1]$. Substituting $x^2$ for $x$ gives
+    $$
+    \log(1 + x^2) = \sum_{n=1}^\infty \frac{(-1)^n x^{2n}}{n}
+    $$
+    Which converges on $[0, 1]$.
+  }
 \end{solution}
 \begin{exercise}
   Derive the formula for the Taylor coefficients given in Theorem 6.6.2.
