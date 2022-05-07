@@ -64,7 +64,14 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+  We are given $f(x) = \sum_{n=0}^\infty a_nx^n$ defined on some nontrivial interval $(-R,R)$. $a_0 = f(0)$ by definition, now applying Theorem 6.5.7 we get
+  $$
+  f'(x) = \sum_{n=1}^\infty a_nnx^{n-1}
+  $$
+  and $f'(0) = a_1\cdot 1$ by definition of $f'$, continue like this applying 6.5.7 each time to get
+  $$
+  a_n = \frac{f^{(n)}(0)}{n!}
+  $$
 \end{solution}
 \begin{exercise}
   Explain how Lagrange's Remainder Theorem can be modified to prove
@@ -73,7 +80,7 @@
   $$
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $E_N(x) = \log(1+x) - \left(x - \frac 12 x^2 + \frac 13 x^3 - \dots \pm \frac 1n x^n\right)$ \TODO
 \end{solution}
 \begin{exercise}
 
@@ -84,7 +91,21 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item $f(x) = e^{x} = \sum_{n=0}^\infty x^n/n!$ from $f^{(n)}(0) = 1$
+  \item Differentiating the series is valid by Theorem 6.5.7
+    $$f'(x) = \sum_{n=1}^\infty \frac{nx^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \sum_{n=0}^\infty \frac{x^n}{n!}$$
+  \item Let $s_n = \sum_{k=0}^n x^k/k!$ and $t_n = \sum_{k=0}^n (-1)^k x^k/k!$ then a quick computation (by computer) gives
+    $$ 
+    \begin{aligned}
+      s_2t_2 &= 1 - x^{2} \\
+      s_3t_3 &= \frac{x^{4}}{4} + 1 \\
+      s_4t_4 &= - \frac{x^{6}}{36} - \frac{x^{4}}{12} + 1 \\
+      s_5t_5 &= \frac{x^{8}}{576} + \frac{x^{6}}{72} + 1
+    \end{aligned}
+    $$
+    This leads us to conjecture \TODO
+  }
 \end{solution}
 \begin{exercise}
   Review the proof that $g^{\prime}(0)=0$ for the function
