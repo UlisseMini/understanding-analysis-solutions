@@ -234,7 +234,7 @@
 \begin{solution}
   Our primary tool will be that countably infinite unions preserve countability (see Exercise \ref{ex:countable_union}).
 
-  Consider \(B_1 = \{x \in \mathbf{R} : (-\infty, x) \cap A \text{ is uncountable}\}\). \(B_1\) must be nonempty; otherwise, $A = \bigcup^\infty_{n=1} (-\infty, n) \cap A$ is a union of countable or finite sets, which by \ref{ex:countable_union} means that \(A\) is countable (which it isn't). Note that if \(x \in B_1,\ y>x\), then \(y \in B_1\). Moreover, \(\exists \epsilon > 0\) so that \(x - \epsilon \in B_1\); we can prove this by contradiction. If there is no such \(\epsilon\), then \((-\infty, x - 1/n) \cap A\)  must be countable for all \(n \in \mathbf{N}\); by \ref{ex:countable_union},
+  Consider \(B_1 = \{x \in \mathbf{R} : (-\infty, x) \cap A \text{ is uncountable}\}\). \(B_1\) must be nonempty; otherwise, $A = \bigcup^\infty_{n=1} (-\infty, n) \cap A$ is a union of countable or finite sets, which by \ref{ex:countable_union} means that \(A\) is countable (which it isn't). Note that if \(x \in B_1\) and \(y>x\), then \(y \in B_1\). Moreover, \(\exists \epsilon > 0\) so that \(x - \epsilon \in B_1\); we can prove this by contradiction. If there is no such \(\epsilon\), then \((-\infty, x - 1/n) \cap A\)  must be countable for all \(n \in \mathbf{N}\); by \ref{ex:countable_union},
   \[
   \bigcup_{n=1}^\infty (-\infty, x - 1/n) \cap A = (-\infty, x) \cap A
   \]
