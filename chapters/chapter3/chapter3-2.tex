@@ -122,12 +122,12 @@
 
 \begin{solution}
   \enum{
-  \item Every $x_n \in L$ is $x_n = \lim_{m\to\infty} a_{mn}$ for $a_{mn} \in A$. meaning if $\lim x_n = x \notin L$ then for $n > N$ and $m > M$ we have
+  \item Every $x_n \in L$ is $x_n = \lim_{m\to\infty} a_{mn}$ for $a_{mn} \in A$. Meaning if $\lim x_n = x$ then for $n > N$ and $m > M$ we have
     $$
     |a_{mn} - x| \le |a_{mn} - x_n| + |x_n - x| < \epsilon/2 + \epsilon/2 = \epsilon
     $$
-    For $n > \max\{N, M\}$ we get $|a_{nn} - x| < \epsilon$ meaning $x \in L$ since $x$ is a limit point of $A$.
-  \item Let $x_n \in A \cup L$ and $x = \lim x_n$. since $x_n$ is infinite there must be at least one subsequence $(x_{n_k}) \to x$ which is either all in $A$ or all in $L$.
+    and thus \(x\) is a limit point of \(A\), so \(x \in L\).
+  \item Let $x_n \in A \cup L$ and $x = \lim x_n$. Since $x_n$ is infinite there must be at least one subsequence $(x_{n_k}) \to x$ which is either all in $A$ or all in $L$.
     If every $x_{n_k} \in L$ then we know $x \in L$ from (a), and if every $x_{n_k} \in A$ then $x \in L$ aswell.
   }
 \end{solution}
@@ -148,7 +148,7 @@
   \enum{
   \item Closed, since the closure of a set is closed.
   \item Open since $B$ being closed implies $B^c$ is open and thus $A \cap B^c$ is open as it is an intersection of open sets.
-  \item Demorgan's laws give $(A^c \cup B)^c = A \cap B^c$ which is the same as (b)
+  \item De Morgan's laws give $(A^c \cup B)^c = A \cap B^c$ which is the same as (b)
   \item Both since $(A \cap B) \cup (A^c \cap B) = \mathbf{R}$
   \item Neither in general. Note that $\closure{A}^c \ne \closure{A^c}$ consider how $A = \{1/n : n \in \mathbf{N}\}$ has $\closure{A^c} = \mathbf{R}$ but $\closure{A}^c \ne \mathbf{R}$.
   }
@@ -200,7 +200,7 @@
   \enumr{
   \item Cannot exist because taking any sequence $(x_n)$ BW tells us there exists a convergent subsequence.
   \item $\mathbf Q \cap [0,1]$ is countable and has no isolated points.
-  \item Impossible, let $A \subseteq \mathbf{R}$ and let $x$ be an isolated point of $A$. From the definition there exists a $\delta>0$ with $V_\delta(x) \cap A = \{x\}$. in Exercise 1.5.3 we proved there cannot exist an uncountable collection of disjoint open intervals, meaning we cannot have an uncountable set of isolated points as we can map them to open sets in a 1-1 fashion.
+  \item Impossible, let $A \subseteq \mathbf{R}$ and let $x$ be an isolated point of $A$. From the definition there exists a $\delta>0$ with $V_\delta(x) \cap A = \{x\}$. in Exercise 1.5.6 we proved there cannot exist an uncountable collection of disjoint open intervals, meaning we cannot have an uncountable set of isolated points as we can map them to open sets in a 1-1 fashion.
   }
 \end{solution}
 
@@ -232,27 +232,15 @@
 \end{exercise}
 
 \begin{solution}
-  % TODO: Refactor using lemmas, get rid of ugly s = \pm \infty case
-  Our primary tool will be that countably infinite unions preserve countability (see Exercise \ref{ex:countable_union}). First we will find an $s \in B$, then we will find a neighborhood with $V_\epsilon(s) \subseteq B$.
+  Our primary tool will be that countably infinite unions preserve countability (see Exercise \ref{ex:countable_union}).
 
-  Let $s = \inf \{x \in \mathbf{R} : (-\infty, x) \cap A \text{ is uncountable}\}$, we know $s$ is finite since if $s = \infty$ then every $(-\infty, n) \cap A$ being countable would imply $A$ was countable by \ref{ex:countable_union}.
-  And if $s = -\infty$ then every $(-\infty, -n) \cap A$ being uncountable implies $\exists n$ with $(-n, \infty) \cap A$ uncountable as otherwise
-  $$
-  \bigcup_{n=1}^\infty (-n, \infty) \cap A = A
-  $$
-  would be countable.
+  Consider \(B_1 = \{x \in \mathbf{R} : (-\infty, x) \cap A \text{ is uncountable}\}\). \(B_1\) must be nonempty; otherwise, $A = \bigcup^\infty_{n=1} (-\infty, n) \cap A$ is a union of countable or finite sets, which by \ref{ex:countable_union} means that \(A\) is countable (which it isn't). Note that if \(x \in B_1\) and \(y>x\), then \(y \in B_1\). Moreover, \(\exists \epsilon > 0\) so that \(x - \epsilon \in B_1\); we can prove this by contradiction. If there is no such \(\epsilon\), then \((-\infty, x - 1/n) \cap A\)  must be countable for all \(n \in \mathbf{N}\); by \ref{ex:countable_union},
+  \[
+  \bigcup_{n=1}^\infty (-\infty, x - 1/n) \cap A = (-\infty, x) \cap A
+  \]
+  is also countable, a contradiction. Therefore, \(B_1\) is open. Now note that \(B_1\) must be of the form \((-\infty, b_1)\), where \(b_1 = \inf B_1\) (or \(-\infty\) if \(\inf B_1\) is undefined). Similarly, \(B_2 = \{x \in \mathbf{R} : (x, \infty) \cap A \text{ is uncountable}\}\) is of the form \((b_2, \infty)\).
 
-  Now assume $s$ is finite, we know
-  $$(-\infty, s) \cap A = \bigcup_{n=1}^\infty (-\infty, s+1/n) \cap A$$
-  is countable by \ref{ex:countable_union}. therefore $(s, \infty) \cap A$ must be uncountable.
-
-  The definition of infimum implies $(-\infty, s+\epsilon) \cap A$ is uncountable for all $\epsilon > 0$, We will show there exists an $\epsilon > 0$ with $s+\epsilon \in B$.
-
-  Suppose the converse, if $(s+\epsilon, \infty)$ is countable for all $\epsilon > 0$, then \ref{ex:countable_union} would imply that
-  $$\bigcup_{n=1}^\infty (s+1/n, \infty) = (s, \infty)$$
-  is countable, which is impossible since it would imply $A$ is countable. therefore there exists an $\epsilon > 0$ with $(s+\epsilon, \infty) \cap A$ uncountable and $(-\infty, s+\epsilon) \cap A$ uncountable, meaning $s+\epsilon \in B$.
-
-  Now we know $B$ is nonempty, pick any $s \in B$ we must show there exists an $\epsilon > 0$ with $V_\epsilon(b) \subseteq B$. If $(-\infty, s) \cap A$ is uncountable we automatically have that $(-\infty, s+\epsilon) \cap A$ is uncountable. Which is true when $\epsilon > 0$ is small enough that $(s+\epsilon, \infty) \cap A$ is uncountable. We can do this using \ref{ex:countable_union} as before.
+  Note that \(B_1 \cup B_2 = \mathbf{R}\); therefore \(b_1 > b_2\) and so \(B = B_1 \cap B_2 \neq \emptyset\). Moreover since \(B_1\) and \(B_2\) are both open, so is \(B\).
 \end{solution}
 
 \begin{exercise}
@@ -260,13 +248,13 @@
 \end{exercise}
 
 \begin{solution}
-  Let $A \ne \emptyset$ be open and closed, and suppose for contradiction that $A \ne \mathbf R$ and $r \notin A$.
+  Let $A \ne \emptyset$ be open and closed, and suppose for contradiction that $A \ne \mathbf R$ and $r \notin A$. Note that every closed set must contain its supremum and infimum, but Exercise 3.2.4b shows that every open set cannot contain its supremum or its infimum; thus \(A\) must be unbounded.
 
-  $A \cap (-\infty, r)$ is open and closed since $A \cap (-\infty, r)$ is an intersection of open sets, and $A \cap (-\infty, r) = A \cap (-\infty, r]$ (since $r \notin A$) is an intersection of closed sets.
+  $A \cap (-\infty, r)$ is open and closed since $A \cap (-\infty, r)$ is an intersection of open sets, and $A \cap (-\infty, r) = A \cap (-\infty, r]$ (since $r \notin A$) is an intersection of closed sets. Moreover, since \(A\) is unbounded below, \(A \cap (-\infty, r) \ne \emptyset\).
 
   Attempting to take $s = \sup A \cap (-\infty, r)$ gives a contradiction, since $s \in A \cap (-\infty, r)$ (because closed and bounded above) we can find $\epsilon > 0$ with $V_\epsilon(s) \subseteq A \cap (-\infty, r)$ (because open) which contradictions $s$ being an upper bound of $A \cap (-\infty, r)$.
 
-  therefore if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
+  Therefore if $A \ne \emptyset$ we must have $A = \mathbf{R}$. The converse is simple, suppose $A \ne \mathbf{R}$ is open and closed, this happens iff $A^c$ is open and closed, but since $A^c \ne \emptyset$ we have $A^c = \mathbf{R}$ implying $A = \emptyset$.
 \end{solution}
 
 \begin{exercise}
@@ -309,7 +297,7 @@
   \item $(a,b] = \bigcap_{n=1}^\infty (a, b+1/n) = \bigcup_{n=1}^\infty [a+1/n, b]$
   \item Let $r_n$ be an enumeration of $\mathbf Q$ (possible since $\mathbf Q$ is countable), we have
     $$\mathbf Q = \bigcup_{n=1}^\infty [r_n, r_n]$$
-    Applying demorgan's laws combined with the complement of a closed set being open we get
+    Applying De Morgan's laws combined with the complement of a closed set being open we get
     $$\mathbf Q^c = \bigcap_{n=1}^\infty [r_n, r_n]^c$$
   }
 \end{solution}
