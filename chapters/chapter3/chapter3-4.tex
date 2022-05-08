@@ -115,7 +115,11 @@ and thus the Cantor-like set has zero length.
 
 \begin{solution}
   \enum{
-  \item \TODO
+  \item \(O\) is a union of an arbitrary collection of open sets and therefore is open; therefore \(O^c = F\) is closed. \(O\) contains all rational numbers, therefore \(F\) must consist only of irrational numbers. Intuitively, \(F\) must be nonempty, because the sum of the lengths of the intervals in \(O\) is 2 and can't cover the infinite real line - but the properties of interval lengths haven't been rigorously defined, and maybe something weird can happen (e.g. Banach-Tarski paradox), so it's best to prove it.
+
+  Let \(O_n = \bigcup^n_{i=1} V_{\epsilon_i}(r_i)\), \(F_n = O_n^c\), and \(G_n = F_n \cap [1, 3)\). Clearly \(G_{n} \supseteq G_{n+1}\) and \(G_n\) is compact, so if we can show \(G_n\) is always nonempty, we can use the Nested Compact Set Property to show \(F = \bigcap^\infty_{n=1} F_n \supseteq \bigcap^\infty_{n=1} G_n\) is nonempty.
+
+  Consider the set \(M = \{m / 2^{n-1} : m \in \mathbf{N}\} \cup [1, 3)\), a set of evenly spaced numbers with \(1/2^{n-1}\) between each number. Some arithmetic shows that there are \(2^{n}\) elements in \(M\). Since the length of \(O_i\) is \(1/2^{i-1}\), there can only be at most \(2^{n-i}\) elements of \(M\) in \(O_i\), and therefore \(2^{n} - 1\) elements of \(M\) in \(O\). Since \(G_n \supseteq M \backslach O\), \(G_n\) is nonempty, completing the proof.
   \item \TODO
   \item \TODO
   }
