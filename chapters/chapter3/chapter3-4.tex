@@ -119,9 +119,30 @@ and thus the Cantor-like set has zero length.
 
   Let \(O_n = \bigcup^n_{i=1} V_{\epsilon_i}(r_i)\), \(F_n = O_n^c\), and \(G_n = F_n \cap [1, 3)\). Clearly \(G_{n} \supseteq G_{n+1}\) and \(G_n\) is compact, so if we can show \(G_n\) is always nonempty, we can use the Nested Compact Set Property to show \(F = \bigcap^\infty_{n=1} F_n \supseteq \bigcap^\infty_{n=1} G_n\) is nonempty.
 
-  Consider the set \(M = \{m / 2^{n-1} : m \in \mathbf{N}\} \cup [1, 3)\), a set of evenly spaced numbers with \(1/2^{n-1}\) between each number. Some arithmetic shows that there are \(2^{n}\) elements in \(M\). Since the length of \(O_i\) is \(1/2^{i-1}\), there can only be at most \(2^{n-i}\) elements of \(M\) in \(O_i\), and therefore \(2^{n} - 1\) elements of \(M\) in \(O\). Since \(G_n \supseteq M \backslach O\), \(G_n\) is nonempty, completing the proof.
+  Consider the set \(M = \{m / 2^{n-1} : m \in \mathbf{N}\} \cup [1, 3)\), a set of evenly spaced numbers with \(1/2^{n-1}\) between each number. Some arithmetic shows that there are \(2^{n}\) elements in \(M\). Since the length of \(O_i\) is \(1/2^{i-1}\), there can only be at most \(2^{n-i}\) elements of \(M\) in \(O_i\), and therefore \(2^{n} - 1\) elements of \(M\) in \(O\). Since \(G_n \supseteq M \backslash O\), \(G_n\) is nonempty, completing the proof.
   \item Since \(F\) contains no rational numbers, and any nonempty open interval will contain rational numbers (since \(\mathbf{Q}\) is dense in \(\mathbf{R}\)), \(F\) cannot contain any open interval. The proof that \(F\) is totally disconnected is the same as that for \(\mathbf{I}\) in Exercise 3.4.7b.
-  \item \TODO
+  \item It is possible for \(F\) to be not perfect; we will construct a sequence \((r_n)\) which isolates \(\sqrt{2}\). Start with any enumeration of the rational numbers \(q_n\). Let \(k = 0\) for now (this definition makes more sense later). Define the first three terms of \(r_n\) as follows:
+
+\begin{itemize}
+    \item Choose \(V_{\epsilon_1} = V_{\epsilon_{3k + 1}} = (\alpha_0, \beta_0)\) so that \(\beta_0 \in (\sqrt{2} - 1/2^{3k + 5}, \sqrt{2}) = (\sqrt{2} - 1/32, \sqrt{2})\). To enforce this, choose \(\sqrt{2} - 1/2 - 1/32 < r_1 < \sqrt{2} - 1/2\)
+    \item Choose \(V_{\epsilon_2} = V_{\epsilon_{3k + 2}} = (\gamma_0, \delta_0)\) so that \(\gamma_0 \in (\sqrt{2}, \sqrt{2} + 1/2^{3k + 5}) = (\sqrt{2}, \sqrt{2} + 1/32)\). To enforce this, choose \(\sqrt{2} + 1/4 < r_2 < \sqrt{2} + 1/4 + 1/32\)
+    \item Find the first \(q_i\) so that \(q_i \notin \{r_1, r_2\}\) and \(\sqrt{2} \notin V_{\epsilon_3}(q_i)\) (this may be \(q_1\)), and let \(r_3 = q_i\). ``Defer'' any \(q_j\) which were skipped over because \(\sqrt{2} \in V_3{q_i}\) by putting them (in order) into a new sequence \((d_n)\).
+\end{itemize}
+
+We've now surrounded \(\sqrt{2}\), and left only \(\pm 1/32\) of space around \(\sqrt{2}\). More specifically, \(V_{1/2}(\sqrt{2})\) is completely in \(O\), except for \(\sqrt{2}\) itself and at most a neighbourhood \(V_{1/32}(\sqrt{2})\). The remainder of \((r_n)\) will alternate between further decreasing the neighbourhood around \(\sqrt{2}\) (so that eventually \(F\) will contain \(\sqrt{2}\) as an isolated point) and taking values from \((q_n)\). For \(k \in \mathbf{N}\):
+
+\begin{itemize}
+    \item Choose \(V_{\epsilon_{3k + 1}} = (\alpha_k, \beta_k)\) so that \(\beta_k \in (\sqrt{2} - 1 / 2^{3k + 5}, \sqrt{2})\); this ensures that \(\alpha_k < \sqrt{2} - 1/2^{3k} = \sqrt{2} - 1/2 ^ {3(k-1) + 3} < \beta_{k-1} \in (\sqrt{2} - 1/2^{3(k-1) + 5}, \sqrt{2})\) and that \(V_{\epsilon_{3k + 1}}\) overlaps with \(V_{\epsilon_{3(k-1) + 1}}\). To enforce this, choose  \(\sqrt{2} - 1/2^{3k+1} - 1/2^{3k + 5} < r_{3k + 1} < \sqrt{2} - 1 / 2^{3k + 1} \).
+
+    \item Choose \(V_{\epsilon_{3k + 2}} = (\gamma_k, \delta_k)\) so that \(\gamma_k \in (\sqrt{2}, \sqrt{2} + 1 / 2^{3k + 5})\); this ensures that \(\delta_k > \sqrt{2} + 1/2^{3k + 1} = \sqrt{2} + 1/2 ^ {3(k-1) + 4} > \gamma_{k-1} \in (\sqrt{2}, \sqrt{2} + 1/2^{3(k-1) + 5})\) and that \(V_{\epsilon_{3k + 2}}\) overlaps with \(V_{\epsilon_{3(k-1) + 2}}\). To enforce this, choose  \(\sqrt{2} + 1/2^{3k+2} < r_{3k + 2} < \sqrt{2} + 1 / 2^{3k + 2} + 1/2^{3k + 5} \).
+
+    \item Choose \(r_{3k + 3}\) to be the first unused and defined element of \((d_n)\) so that \(\sqrt{2} \notin V_{\epsilon_{3k + 3}}(r_{3k + 3})\). If no such element exists, choose \(r_{3k + 3}\) to be the first unused element of \((q_n)\), again so that \(\sqrt{2} \notin V_{\epsilon_{3k + 3}}(r_{3k + 3})\), and defer any unused elements of \(q_n\) by appending them to the sequence \((d_n)\).
+\end{itemize}
+
+Through this construction, every element of \((q_n)\) is either used immediately or deferred to \((d_n)\), and every element of \((d_n)\) is eventually used; therefore \((r_n)\) contains all rational numbers. Moreover by construction \(\sqrt{2} \in F\), but no other numbers in \(V_{1/2}(\sqrt{2})\) are in \(F\); therefore \(\sqrt{2}\) is an isolated point in \(F\) and \(F\) is not perfect.
+
+\TODO Construct \((r_n)\) so that \(F\) is perfect, or prove it's impossible to do so
   }
+
 \end{solution}
 
