@@ -101,7 +101,9 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+For a set \(A \subseteq \mathbf{R}\) define \(-A = \{-x : x \in A\}\). Note that if \(A\) is closed (open), then so is \(-A\), and if \(A\) is a \(F_\sigma\) set (\(G_\delta\)), so is \(-A\).
+
+Define \(I^+ = \mathbf{I} \cap [0, \infty)\), \(I^- = \mathbf{I} \cap (-\infty, 0]\) , and \(Q^+\) and \(Q^-\) be defined similarly for \(\mathbf{Q}\). Consider the set \(A = I^+ \cup Q^-\). If \(A\) is a \(F_\sigma\) set, then by Exercise 3.5.2 so is \(A \cap [0, \infty) = I^+\), but so is \(I^+ \cup -I^+ = I^+ \cup I^- = \mathbf{I}\), which is a contradiction. Similarly, \(A\) being a \(G_\delta\) set implies \(A \cap (-\infty, 0] = Q^-\) and \(Q^- \cup -Q^- = \mathbf{Q}\) are both \(G_\delta\) sets, a contradiction.
 \end{solution}
 
 \begin{exercise}
