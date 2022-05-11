@@ -23,8 +23,8 @@
   \enum {
   \item Countable, since two countable union can be written as a single countable union over the diagonal (see Exercise 1.2.4). Another way of seeing this is that we can form a bijection between $\mathbf N$ and $\mathbf N^2$, therefore a double infinite union can be written as a single infinite union.
   \item Finite
-  \item Countable, by the same logic as in (a) we can write two countable intersections as a single countable intersection.
   \item Finite
+  \item Countable, by the same logic as in (a) we can write two countable intersections as a single countable intersection.
   }
 \end{solution}
 
@@ -47,11 +47,11 @@
 \end{exercise}
 
 \begin{solution}
-  Because $G_1$ is open there exists an open interval $(a_1,b_1) \subseteq G_1$, letting $[-c_1, c_1]$ be a closed interval contained in $(a_1, b_1)$ gives $I_1 \subseteq G_1$ as desired.
+  Because $G_1$ is open there exists an open interval $(a_1,b_1) \subseteq G_1$, letting $[c_1, d_1]$ be a closed interval contained in $(a_1, b_1)$ gives $I_1 \subseteq G_1$ as desired.
 
-  Now suppose $I_{n} \subseteq G_{n}$. because $G_{n+1}$ is dense and $(-c_{n}, c_{n}) \cap G_{n+1}$ is open there exists an interval $(a_{n+1}, b_{n+1}) \subseteq G_n \cap (-c_{n-1}, c_{n-1})$. Letting $[-c_{n+1}, c_{n+1}] \subseteq (a_{n+1}, b_{n+1})$ gives us our new closed interval.
+  Now suppose $I_{n} \subseteq G_{n}$. because $G_{n+1}$ is dense and $(c_{n}, d_{n}) \cap G_{n+1}$ is open there exists an interval $(a_{n+1}, b_{n+1}) \subseteq G_n \cap (c_{n}, d_{n})$. Letting $[c_{n+1}, d_{n+1}] \subseteq (a_{n+1}, b_{n+1})$ gives us our new closed interval.
 
-  This gives us our collection of sets with $I_{n+1} \subseteq I_n$, $I_n \subseteq G_n$ and $I_n \ne \emptyset$ allowing us to apply the nested interval property to conclude
+  This gives us our collection of sets with $I_{n+1} \subseteq I_n$, $I_n \subseteq G_n$ and $I_n \ne \emptyset$ allowing us to apply the Nested Interval Property to conclude
   $$
   \bigcap_{n=1}^\infty I_n \ne \emptyset
   $$
@@ -82,7 +82,7 @@
   Recall from 3.5.3 that $\mathbf Q$ is an $F_\sigma$ set,
   suppose for contradiction that $\mathbf I$ were also an $F_\sigma$ set. Then we could write
   $$
-  \mathbf{Q} = \bigcup_{n=1}^\infty F_n \quad\text{and}\quad \mathbf{I} = \bigcup_{n=1}^\infty F_n
+  \mathbf{Q} = \bigcup_{n=1}^\infty F_n \quad\text{and}\quad \mathbf{I} = \bigcup_{n=1}^\infty F_n'
   $$
   Each $F_n$ and $F_n'$ must contain no nonempty open intervals, since otherwise $F_n$ would contain irrationals and vise versa.
   Combine the countable unions by setting $\tilde F_{2n} = F_n$ and $\tilde F_{2n-1} = F_n'$ to get
@@ -101,7 +101,9 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+For a set \(A \subseteq \mathbf{R}\) define \(-A = \{-x : x \in A\}\). Note that if \(A\) is closed (open), then so is \(-A\), and if \(A\) is a \(F_\sigma\) set (\(G_\delta\)), so is \(-A\).
+
+Define \(I^+ = \mathbf{I} \cap [0, \infty)\), \(I^- = \mathbf{I} \cap (-\infty, 0]\) , and \(Q^+\) and \(Q^-\) be defined similarly for \(\mathbf{Q}\). Consider the set \(A = I^+ \cup Q^-\). If \(A\) is a \(F_\sigma\) set, then by Exercise 3.5.2 so is \(A \cap [0, \infty) = I^+\), but so is \(I^+ \cup -I^+ = I^+ \cup I^- = \mathbf{I}\), which is a contradiction. Similarly, \(A\) being a \(G_\delta\) set implies \(A \cap (-\infty, 0] = Q^-\) and \(Q^- \cup -Q^- = \mathbf{Q}\) are both \(G_\delta\) sets, a contradiction.
 \end{solution}
 
 \begin{exercise}
@@ -129,7 +131,7 @@
   \item between, since $A$ is dense in $[0,5]$ but not in all of $\mathbf R$.
   \item nowhere-dense since $\closure{B} = B \cup \{0\}$ contains no nonempty open intervals
   \item dense since $\closure{\mathbf I} = \mathbf R$
-  \item between since $\closure{C} = [0,1]$
+  \item nowhere-dense since the Cantor set is closed, so \(\closure{C} = C\), and \(C\) contains no intervals
   }
 \end{solution}
 
