@@ -11,9 +11,27 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item By the Sequential Criterion for Functional Limits, since \(\lim_{x\to c} f(x) = L\), \(\lim_{x\to c} g(x) = M\), all sequences \((x_n) \to c\) have \(f(x_n) \to L\) and \(g(x_n) \to M\), which implies that \(f(x_n) + g(x_n) \to L + M\) by the Algebraic Limit Theorem, which implies that \(\lim_{x \to c} [f(x) + g(x)] = L + M\).
+
+  \item For arbitrary \(\epsilon > 0\), let \(\epsilon' = \epsilon/2\). Identify \(\delta_f\) so that \(0 < |x - c| < \delta_f \) implies \(|f(x) - L| < \epsilon'\). Identify \(\delta_g\) so that \(0 < |x - c| < \delta_g \) implies \(\abs{g(x) - M} < \epsilon'\).
+
+  Choose \(\delta = \min \{\delta_f, \delta_g\}\), then \(0 < |x-c| < \delta\) implies \[
+      \begin{aligned}
+      |f(x) + g(x) - (L + M)| &=|f(x) - L + g(x) -  M| \leq |f(x) - L| + |g(x) - M| \\
+      &< 2 \epsilon' = \epsilon
+      \end{aligned}
+    \], as desired.
+
+  \item By the Sequential Criterion for Functional Limits, since \(\lim_{x\to c} f(x)= L\), \(\lim_{x\to c} g(x) = M\), all sequences \((x_n) \to c\) have \(f(x_n) \to L\) and \(g(x_n) \to M\), which implies that \(f(x_n) g(x_n) \to LM\) by the Algebraic Limit Theorem, and \(\lim_{x \to c} [f(x) g(x)] = L M\).
+
+  For arbitrary \(\epsilon > 0\), let \(\epsilon_f = \epsilon / 2M\) and \(\epsilon_g = \epsilon / 2(|L| + \epsilon)\). Identify \(\delta_f\) so that \(0 < |x - c| < \delta_f \) implies \(|f(x) - L| < \epsilon_f\). Identify \(\delta_g\) so that \(0 < |x - c| < \delta_g \) implies \(\abs{g(x) - M} < \epsilon_g\).
+
+  Choose \(\delta = \min \{\delta_f, \delta_g\}\), then \(0 < |x-c| < \delta\) implies
+  \[ \begin{aligned}
+|f(x)g(x) - LM| &=|f(g-M) + (f-L)M| \leq |f||g-M| + |f-L||M| \\
+& < (|L| + \epsilon)\epsilon_g + \epsilon_f |M| = \epsilon/2 + \epsilon/2  = \epsilon
+  \end{aligned}\]
+  , as desired.
   }
 \end{solution}
 
