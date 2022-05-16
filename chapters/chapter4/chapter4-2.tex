@@ -93,7 +93,7 @@
   \enum{
   \item \(\delta = 13\)
   \item \(\delta = 1\)
-  \item \(\epsilon = 1/90\) - any \(\delta > 0\) will lead to \(1 / [[x]]\) ranging from \(1/9\) to \(1/10\), so \(\epsilon = 1/9 - 1/10\) is impossible to achieve. 
+  \item \(\epsilon = 1/90\) - any \(\delta > 0\) will lead to \(1 / [[x]]\) ranging from \(1/9\) to \(1/10\), so \(\epsilon = 1/9 - 1/10\) is impossible to achieve.
   }
 \end{solution}
 
@@ -109,10 +109,19 @@
 
 \begin{solution}
   \enum{
-  \item \TODO
-  \item \TODO
-  \item \TODO
-  \item \TODO
+  \item Choose \(\delta = \epsilon / 3\)
+  \item Choose \(\delta = \sqrt[3]{\epsilon}\)
+  \item Choose \(\delta = \min\{\epsilon / 6, 1\}\), then note \(\delta^2 \leq \delta\), so if \(|x - 2| < \delta\) then
+  \[
+      \begin{aligned}
+      &\abs{(x - 2 + 2)^2 + (x -2 + 2) -1 -5} = \abs{(x-2)^2 + 4(x-2) + 4 + (x-2) + 2 -1-5} \\
+      \leq& \abs{6(x-2)} < \epsilon
+      \end{aligned}
+  \] as desired.
+  \item Let \(\delta = \min\{6\epsilon, 1\}\), then if \(|x - 3| < \delta\) then \[
+        \abs{\frac{1}{x} - \frac{1}{3}} = \frac{|3-x|}{3x} \leq \frac{|3-x|}{6} < \epsilon
+    \]
+    as desired.
   }
 \end{solution}
 
