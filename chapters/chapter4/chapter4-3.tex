@@ -15,11 +15,18 @@
     $$
     |x^{1/3} - c^{1/3}| = |x - c| \cdot |x^{2/3} + x^{1/3}c^{1/3} + c^{2/3}|
     $$
-    We can bound $|x^{2/3} + x^{1/3}c^{1/3} + c^{2/3}| \le |x^{2/3}| + |x^{1/3}c^{1/3}| + |c^{2/3}| \le |c^{2/3}|$ to get
+    If we choose \(\delta < c\) then \(0 < |x| < 2|c|\). Keeping in mind that if \(a > b > 0\) then \(\sqrt[3]{a} > \sqrt[3]{b}\), we can now bound
+    \[
+        \begin{aligned}
+        |x^{2/3} + x^{1/3}c^{1/3} + c^{2/3}| &\le |x^{2/3}| + |x^{1/3}c^{1/3}| + |c^{2/3}| \\
+        &\le 2^{2/3}|c^{2/3}| + 2^{1/3}|c^{2/3}| + |c^{2/3}| \\
+            &= K
+        \end{aligned}
+    \] where \(K\) is a constant. Then
     $$
-    |x^{1/3} - c^{1/3}| \le |x - c| \cdot |c^{2/3}|
+    |x^{1/3} - c^{1/3}| \le |x - c| \cdot K
     $$
-    Setting $\delta = \frac{\epsilon}{|c^{2/3}|}$ gives $|x^{1/3} - c^{1/3}| \le \epsilon$ completing the proof.
+    Setting $\delta = \frac{\epsilon}{K}$ gives $|x^{1/3} - c^{1/3}| \le \epsilon$ completing the proof.
   }
 \end{solution}
 
