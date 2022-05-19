@@ -88,12 +88,13 @@
 
 \begin{solution}
   \enum{
-  \item Compact
-  \item Closed, since if $a+b \in A+B$ then we can find sequences $(a_n) \to a$ and $(b_n) \to b$ in $A$ and $B$ respectively, with $(a_n + b_n)$ contained in $A+B$ and $(a_n + b_n) \to a+b$.
+  \item Compact, but not closed (\(\mathbf{R}\) is closed)
+  \item Closed and compact, since if $a+b \in A+B$ then we can find sequences $(a_n) \to a$ and $(b_n) \to b$ in $A$ and $B$ respectively, with $(a_n + b_n)$ contained in $A+B$ and $(a_n + b_n) \to a+b$. Moreover if \(A\) and \(B\) are both bounded, then so is \(A + B\).
   \item Compact, since letting $K_n = \bigcap_{k=1}^n A_{k}$ gives $K_{n} \subseteq K_{n-1}$, we also have $K_n \ne \emptyset$ since every finite intersection is known to be nonempty. Applying the Nested Compact Set Property allows us to conclude
     $$
     \bigcap_{n=1}^\infty A_n = \bigcap_{n=1}^\infty K_n \ne \emptyset
     $$
+  Not closed, e.g. let \(A_n = [n, \infty)\)
   }
 \end{solution}
 
@@ -109,14 +110,28 @@
 
 \begin{solution}
   \enum{
-  \item Define $2A = A+A = \{x+y : x,y \in A\}$, $C_1 = [0, 1/3] \cup [2/3, 1]$ has
-    $$2C_1 = (2[0,1/3]) \cup (2[2/3, 1]) \cup ([0,1/3] + [2/3, 1])$$
-    It's obvious that $2[0,1/3] = [0,2/3]$ and $2[2/3, 1] = [4/3, 2]$ now consider the last term, let $x \in [0,1/3]$ be fixed and let $y \in [2/3, 1]$ vary. obviously $x+y \in [2/3, 4/3]$ therefore adding the endpoints to compute $[0,1/3]+[2/3,1]=[2/3,4/3]$ works!
-    % TODO: Rewrite this explanation at the top, unifying stupid 2*. and .+. notation for closed intervals
+  \item Recall the definition for sets \(A\) and \(B\), \(A + B = \{x + y: x \in A, \ y \in B\}\). Note that \([a, b] + [c, d] = [a + c, b+d]\).
+Recall $C_1 = [0, 1/3] \cup [2/3, 1]$; we have
+    \[
+        \begin{aligned}
+        C_1 + C_1 &= ([0,1/3] + [0,1/3]) \cup ([2/3,1] + [2/3,1]) \cup ([0,1/3] + [2/3,1]) \\
+        &= [0, 2/3] \cup [4/3, 2] \cup [2/3,4/3] \\
+        &= [0, 2]
+        \end{aligned}
+    \]
 
-    This means that $2C_1 = [0,2/3] \cup [4/3, 2] \cup [2/3, 4/3] = [0, 2]$!
+    We prove the general case through induction; the base case has been demonstrated above. Define \(A + r = \{x+r : x \in A\}\), \(r \cdot A = \{rx : x \in A\}\) for \(r \in \mathbf{R}\). Note that \([a,b] + c = [a + c, b+c]\) and \(r \cdot (A + B) = r \cdot A + r \cdot B\).
 
-    \TODO Induction
+    The inductive hypothesis is that \(C_n + C_n = [0, 2]\). We can complete the inductive step by noticing that if we scale up \(C_{n+1}\) a factor of 3, we simply get two copies of \(C_n\), with one being offset 2 away; this ultimately makes it easy to express \(C_{n+1}\) in terms of \(C_n\). Let \(C_{n+1}' = C_n \cup (C_n + 2) = 3 \cdot C_{n + 1}\) be this upscaled \(C_{n+1}\). Then
+    \[ \begin{aligned}
+        C_{n+1}' + C_{n+1}' &= (C_n + C_n) \cup (C_n + (C_n + 2)) \cup ((C_n + 2) + (C_n + 2)) \\
+        &= [0, 2] \cup ([0, 2] + 2) \cup ([0, 2] + 4)\\
+        &= [0, 6]
+        \end{aligned}
+\]
+    \[\frac{1}{3} \cdot (C_{n+1}' + C_{n+1}')  = C_{n+1} + C_{n+1} = \frac{1}{3}\cdot [0,6] = [0,2] \]
+    and the inductive step is complete.
+
   \item Since $C$ is compact, there exists a subsequence $(x_{n_k}) \to x$ with $x \in C$. Now since $x_{n_k} + y_{n_k} = s$ for all $k$, we have $\lim y_{n_k} = \lim s - x_{n_k} = s - x$. Now since each $y_{n_k} \in C$ the limit $y = s - x \in C$ as well, thus we have found $x,y\in C$ with $x+y = s$.
   }
 \end{solution}
@@ -189,8 +204,8 @@
 \begin{solution}
   \enum{
   \item $\mathbf{N}$ and $\{V_1(n) : n \in \mathbf{N}\}$ has no finite subcover since each $V_1(n)$ covers exactly one $n \in \mathbf{N}$, meaning there are no subcovers at all!
-  \item $\mathbf{Q} \cap [0,1]$ and $\{O(x) : x \in \mathbf{Q}\cap[0,1]\}$ where $O(x) = V_{\frac 12|x-y|}(x)$ for $y \in \mathbf{Q}^c\cap [0,1]$ since any finite subcover $\{O(x_1), \dots, O(x_n)\}$ has $V_\epsilon(y) \notin O(x_i)$ for all $i$ when $\epsilon = \min_i\{\frac 12 |y - x_i|\}$. Thus the density theorem gives an $x \in V_\epsilon(y)$ with $x \in \mathbf{Q} \cap [0, 1]$ where $x$ is not in the finite cover.
-    \TODO clean this up
+  \item $\mathbf{Q} \cap [0,1]$: Choose some \(y \in \mathbf{Q}^c \cap [0, 1]\), for example \(y = \sqrt{2}/2\). Consider the open cover \(\{(-1, y)\} \cup \{(y + 1/n, 2) : n \in \mathbf{N}\}\). Since \(\mathbf{Q}\) is dense in \(\mathbf{R}\), for any finite subcover there must be some rational number \(q \in (y, y + 1/n)\) where \(n\) is finite.
+
   \item The Cantor is compact
   \item $K = \{1 + 1/2^2 + 1/3^2 + \dots + 1/n^2 : n \in \mathbf N\}$ and $\left\{V_{\frac 12 |x-L|}(x) : x \in K\right\}$ for $L = \pi^2/6$ since any finite cover $\left\{V_{\frac 12 |x_1-L|}(x_1), \dots, V_{\frac 12 |x_n-L|}(x_n)\right\}$, letting$\epsilon = \min\{\frac 12|x_i - L||\}$ will make $V_{\epsilon}(L)$ not in the finite cover, meaning there exists an $x \in V_\epsilon(L)$ with $x \in K$ (since $K$ gets arbitrarily close to $L$) but $x$ not in the finite cover.
   \item \{1, 1/2, 2/3, 3/4, 4/5, \dots\} is compact
