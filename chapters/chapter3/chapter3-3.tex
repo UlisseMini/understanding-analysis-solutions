@@ -110,7 +110,7 @@
 
 \begin{solution}
   \enum{
-  \item Note that \([a, b] + [c, d] = [a + c, b+d]\).
+  \item Recall the definition for sets \(A\) and \(B\), \(A + B = \{x + y: x \in A, \ y \in B\}\). Note that \([a, b] + [c, d] = [a + c, b+d]\).
 Recall $C_1 = [0, 1/3] \cup [2/3, 1]$; we have
     \[
         \begin{aligned}
@@ -122,7 +122,7 @@ Recall $C_1 = [0, 1/3] \cup [2/3, 1]$; we have
 
     We prove the general case through induction; the base case has been demonstrated above. Define \(A + r = \{x+r : x \in A\}\), \(r \cdot A = \{rx : x \in A\}\) for \(r \in \mathbf{R}\). Note that \([a,b] + c = [a + c, b+c]\) and \(r \cdot (A + B) = r \cdot A + r \cdot B\).
 
-    The inductive hypothesis is that \(C_n + C_n = [0, 2]\).  Let \(C_{n+1}' = C_n \cup (C_n + 2) = 3 \cdot C_{n + 1}\). Then
+    The inductive hypothesis is that \(C_n + C_n = [0, 2]\). We can complete the inductive step by noticing that if we scale up \(C_{n+1}\) a factor of 3, we simply get two copies of \(C_n\), with one being offset 2 away; this ultimately makes it easy to express \(C_{n+1}\) in terms of \(C_n\). Let \(C_{n+1}' = C_n \cup (C_n + 2) = 3 \cdot C_{n + 1}\) be this upscaled \(C_{n+1}\). Then
     \[ \begin{aligned}
         C_{n+1}' + C_{n+1}' &= (C_n + C_n) \cup (C_n + (C_n + 2)) \cup ((C_n + 2) + (C_n + 2)) \\
         &= [0, 2] \cup ([0, 2] + 2) \cup ([0, 2] + 4)\\
