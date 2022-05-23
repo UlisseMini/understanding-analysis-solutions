@@ -252,15 +252,27 @@ Let
 \begin{solution}
   \enum{
   \item Let $\delta = \epsilon/c$ to get $|f(x) - f(y)| \le c|x-y| < \epsilon$ whenever $|x-y|<\delta$. (This is the general proof, we could make it shorter by letting $\delta=\epsilon$ since $0<c<1$)
-  \item We want $|y_n - y_m| < \epsilon$. since $0 < c < 1$ we have $|y_{n+1} - y_{m+1}| \le c|y_n - y_m|$,
-    implying $|y_n - y_m| \le c^m|y_{n-m+1} - y_1|$. Thus if we can bound $|y_k - y_1| \le M$ we will be done.
+  \item We want $|y_n - y_m| < \epsilon$. Since $0 < c < 1$ we have $|y_{n+1} - y_{m+1}| \le c|y_n - y_m|$,
+    implying $|y_n - y_m| \le c^m|y_{n-m+1} - y_1|$. Thus if we can bound $|y_k - y_1| \le M$ for some constant \(M\) (which may depend on \(y_1\)) we will be done, by choosing \(m\) large enough so that \(c^m \leq \epsilon / M\).
 
-    \TODO
+    In general, \(|y_{a+1} - y_a| \leq c |y_a - y_{a-1}|\), so
+    \[\begin{aligned}
+        |y_k - y_1| &\leq |y_1 - y_2| + |y_2 - y_3| + \cdots + |y_{k-1} - y_k| \\
+        &\leq |y_1 - y_2| + c|y_1 - y_2| + \cdots + c^{k-2} |y_1 - y_2| \\
+        & = |y_1 - y_2| \sum^{k-2}_{i=0} c^i \\
+        & < |y_1 - y_2| \sum^\infty_{i=0} c^i = \frac{|y_1 - y_2| }{1 - c}
+     \end{aligned}
+    \]
+    which is bounded, hence proved.
+  \item Since \(f\) is continuous, \(f(\lim_{n \to \infty} y_n)\) = \(\lim_{n \to \infty} f(y_n)\) which is just the same as \(y\) shifted one element forward, so clearly \(\lim f(y_n) = y\), showing that \(y\) is a fixed point.
 
+  Now, consider two similar sequences \((a_n) \to a\) and \((b_n) \to b\) where \(a_1,b_1 \in \mathbf{R}\),  \(a_{n+1} = f(a_n)\), and \(b_{n+1} = f(b_n)\). By the Algebraic Limit Theorem \(b = a + \lim_{n \to \infty} b_n - a_n\). Now note
+  \[
+    \lim_{n \to \infty} b_n - a_n  \leq\lim_{n \to \infty} \abs{b_n - a_n}  \leq\lim_{n \to \infty} c^{n-1}|b_1 - a_1| = 0
+      \]
+      Therefore \(a = b\); this implies that regardless of our starting choice of \(y_1\) we will end up at the same fixed point \(y\). In particular, for a given fixed point \(z\), if we start at \(z_1=z\) then clearly \(\lim_{n \to \infty} z_n= z\) but also \(\lim_{n \to \infty} z_n = y\) and therefore \(z = y\) and \(y\) is a unique fixed point.
 
-    Note that showing $|y_n - y_{n-1}|$ goes to zero is not enough for general Cauchy sequences, consider $a_n = \ln n$ as a counterexample: $|a_n - a_{n-1}| = \left|\ln(1 - 1/n)\right|$ goes to zero but $(a_n)$ is not Cauchy.
-  \item \TODO
-  \item \TODO
+  \item See (c)
   }
 \end{solution}
 
