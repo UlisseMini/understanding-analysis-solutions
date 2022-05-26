@@ -151,7 +151,20 @@
   Assume $f$ is continuous on an interval containing zero and differentiable for all $x \neq 0$. If $\lim _{x \rightarrow 0} f^{\prime}(x)=L$, show $f^{\prime}(0)$ exists and equals $L$.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $\delta > 0$ be such that $|f'(x) - L| < \epsilon$ whenever $0<|x|<\delta$,
+  Fix an $x \in (0,\delta)$ and apply MVT on $(0,\delta)$ (possible since $f$ is differentiable on $(0,\delta)$) to get $c \in (0,\delta)$ with
+  $$
+  \frac{f(x) - f(0)}{x - 0} = f'(c)
+  $$
+  Subtracting $L$ from both sides and taking absolute values we see
+  $$
+  \left|\frac{f(x) - f(0)}{x - 0} - L\right| = \left|f'(c) - L\right| < \epsilon
+  $$
+  Since $x$ was arbitrary this holds for every $x \in (0,\delta)$, the same logic shows the inequality for every $x \in (-\delta,0)$. Therefor every $0 < |x| < \delta$ has
+  $$
+  \left|\frac{f(x) - f(0)}{x - 0} - L\right| < \epsilon
+  $$
+  Meaning the limit defining $f'(0)$ exists and equals $L$.
 \end{solution}
 
 \begin{exercise}
