@@ -144,7 +144,7 @@
   $$
   f'(c) = \frac{f(x) - f(y)}{x - y} = \frac{x - y}{x - y} = 1
   $$
-  But we know $f'(c) \ne 1$, therefore finding more then one fixed point is impossible.
+  But we know $f'(c) \ne 1$, therefore finding more than one fixed point is impossible.
 \end{solution}
 
 \begin{exercise}
@@ -168,7 +168,7 @@
 \end{solution}
 
 \begin{exercise}
-  Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hospital's Rule under this stronger hypothesis.
+  Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hopital's Rule under this stronger hypothesis.
 \end{exercise}
 \begin{solution}
   Let $(x_n)$ be a sequence approaching $a$ and apply MVT on $[x_n,a]$ to find $c_n,d_n \in (x_n,a)$ with
@@ -226,14 +226,13 @@
   &\to \text{does not exist, just like } \lim_{x \to 0} 1/x
   \end{aligned}
   $$
-  L'Hospital's rule for $0/0$ would apply if $f'/g'$ existed. but when it doesn't exist $f/g$ may still exist, that's a bit surprising.
-  % TODO: I feel I'm missing something here
+  L'Hopital's rule for $0/0$ would apply if $f'/g'$ existed. But when it doesn't exist $f/g$ may still exist. Put another way, the converse of L'Hopital's rule does not hold.
 \end{solution}
 
 \begin{exercise}
   \enum{
-  \item Use the Generalized Mean Value Theorem to furnish a proof of the $0 / 0$ case of L'Hospital's Rule (Theorem 5.3.6).
-  \item If we keep the first part of the hypothesis of Theorem 5.3.6 the same but we assume that
+  \item Use the Generalized Mean Value Theorem to furnish a proof of the $0 / 0$ case of L'Hopital's Rule (Theorem 5.3.6).
+  \item If we keep the first part of the hypothesis of Theorem 5.3.6 the same, but we assume that
     $$
     \lim _{x \rightarrow a} \frac{f^{\prime}(x)}{g^{\prime}(x)}=\infty
     $$
