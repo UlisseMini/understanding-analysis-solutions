@@ -293,6 +293,36 @@
   (Compare this to Exercise 5.2.6(b).)
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $\epsilon > 0$ and choose $\delta_1 > 0$ so every $|h| < \delta_1$ has 
+  $$
+  \left|\frac{f(a+h) - f(a)}{h} - f'(a)\right| < \epsilon
+  $$
+  Choose $\delta_2 > 0$ so every $0<|x-a|<\delta_2$ has $|f''(x)-f''(a)|<\epsilon$ (this is where we use the continuity of $f''$ at $a$.) and set $\delta = \min\{\delta_1,\delta_2\}$.
+
+  Without loss of generality assume $h > 0$, apply MVT on $(a,a+h)$ to get $c \in (a,a+h)$ with
+  $$
+  \frac{f(a+h) - f(a)}{h} = f'(c)
+  $$
+  Likewise MVT on $(a-h,a)$ gives $d \in (a-h,a)$ with
+  $$
+  \frac{f(a) - f(a-h)}{h} = f'(d)
+  $$
+  Meaning for this specific $h$ our estimate for $f''(a)$ is
+  $$
+  \frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} = \frac{f'(c) - f'(d)}{h}
+  $$
+  Note that $d < a < c$ and $|c-d| < h$, the right-hand side is essentially a central difference estimate for $f''(a)$. We can prove this using the mean value theorem on $(d,c)$ to get a $c' \in (d,c)$ with
+  $$
+  \frac{f'(c) - f'(d)}{h} = f''(c')
+  $$
+  Recall our choice of $\delta$ ensures that $|x-c|<\delta$ implies $|f''(x)-f''(a)|<\epsilon$, setting $x=c'$ (note $|c'-a|<\delta$) gives (putting everything together)
+  $$
+  \begin{aligned}
+  \left|\frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} - f''(a)\right| 
+  &= \left|\frac{f'(c) - f'(d)}{h} - f''(a)\right| \\
+  &= \left|f''(c') - f''(a)\right| \\
+  &< \epsilon.
+  \end{aligned}
+  $$
 \end{solution}
 
