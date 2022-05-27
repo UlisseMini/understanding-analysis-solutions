@@ -244,7 +244,45 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  % TODO: Remove h, use (a,x) with x>a and WOLG.
+  \enum{
+  \item Let $f,g$ be continuous functions with $f(a) = g(a) = 0$ and $f'(x) \ne 0$, $g'(x) \ne 0$, suppose
+    $$
+    \lim_{x\to a} \frac{f'(x)}{g'(x)} = L
+    $$
+    We would like to show $\lim_{x\to a} \frac{f(x)}{g(x)} = L$. Choose $\epsilon > 0$ then let $\delta > 0$ be such that
+    $$
+    \left|\frac{f'(x)}{g'(x)} - L\right| < \epsilon
+    $$
+    Let $0 < h < \delta$ apply the generalized mean value theorem on $(a,a+h)$ to get a $c \in (a,a+h)$ with
+    $$
+    \frac{f(a+h)-f(a)}{g(a+h)-g(a)} = \frac{f'(c)}{g'(c)}
+    $$
+    Subtract $L$ from both sides and take absolute values, (and use $f(a) = g(a) = 0$) to get
+    $$
+    \left|\frac{f(a+h)}{g(a+h)} - L\right| < \epsilon
+    $$
+    Since $h$ was an arbitrary number less than $\delta$, and since we could just as easily have applied MVT to $(a-h,a)$ we have
+    $$
+    \left|\frac{f(x)}{g(x)} - L\right| < \epsilon, (0 < |x| < \delta)
+    \implies
+    \lim_{x\to a} \frac{f(a+h)}{g(a+h)} = L
+    $$
+    as desired.
+  \item Choose $M > 0$ and let $\delta > 0$ be such that $0<|x-a|<\delta$ implies $f'(x)/g'(x) > M$. Let $0 < h < \delta$ be arbitrary, then apply MVT on $(a,a+h)$ to get $c \in (a,a+h)$ with
+    $$
+    \frac{f(a+h)}{g(a+h)} = \frac{f'(c)}{g'(c)}
+    $$
+    Since $f'(c)/g'(c) > M$, this implies
+    $$
+    \frac{f(a+h)}{g(a+h)} > M
+    $$
+    for all $0 < h < \delta$, but again, we could just as easily apply this reasoning to $(a-h,a)$ (getting $f(a-h)/g(a-h) > M$). So, after a change of variables removing $h$ we have, for all $x$ with $0 < |x-a| < \delta$
+    $$
+    \frac{f(x)}{g(x)} > M
+    $$
+    Which is clearly the same as saying $\lim_{x\to a} f(x)/g(x) = \infty$.
+  }
 \end{solution}
 
 \begin{exercise}
