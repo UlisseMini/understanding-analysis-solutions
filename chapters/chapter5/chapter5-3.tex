@@ -144,18 +144,31 @@
   $$
   f'(c) = \frac{f(x) - f(y)}{x - y} = \frac{x - y}{x - y} = 1
   $$
-  But we know $f'(c) \ne 1$, therefore finding more then one fixed point is impossible.
+  But we know $f'(c) \ne 1$, therefore finding more than one fixed point is impossible.
 \end{solution}
 
 \begin{exercise}
   Assume $f$ is continuous on an interval containing zero and differentiable for all $x \neq 0$. If $\lim _{x \rightarrow 0} f^{\prime}(x)=L$, show $f^{\prime}(0)$ exists and equals $L$.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $\delta > 0$ be such that $|f'(x) - L| < \epsilon$ whenever $0<|x|<\delta$,
+  Fix an $x \in (0,\delta)$ and apply MVT on $(0,\delta)$ (possible since $f$ is differentiable on $(0,\delta)$) to get $c \in (0,\delta)$ with
+  $$
+  \frac{f(x) - f(0)}{x - 0} = f'(c)
+  $$
+  Subtracting $L$ from both sides and taking absolute values we see
+  $$
+  \left|\frac{f(x) - f(0)}{x - 0} - L\right| = \left|f'(c) - L\right| < \epsilon
+  $$
+  Since $x$ was arbitrary this holds for every $x \in (0,\delta)$, the same logic shows the inequality for every $x \in (-\delta,0)$. Therefor every $0 < |x| < \delta$ has
+  $$
+  \left|\frac{f(x) - f(0)}{x - 0} - L\right| < \epsilon
+  $$
+  Meaning the limit defining $f'(0)$ exists and equals $L$.
 \end{solution}
 
 \begin{exercise}
-  Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hospital's Rule under this stronger hypothesis.
+  Assume $f$ and $g$ are as described in Theorem 5.3.6, but now add the assumption that $f$ and $g$ are differentiable at $a$, and $f^{\prime}$ and $g^{\prime}$ are continuous at $a$ with $g^{\prime}(a) \neq 0$. Find a short proof for the $0 / 0$ case of L'Hopital's Rule under this stronger hypothesis.
 \end{exercise}
 \begin{solution}
   Let $(x_n)$ be a sequence approaching $a$ and apply MVT on $[x_n,a]$ to find $c_n,d_n \in (x_n,a)$ with
@@ -213,14 +226,13 @@
   &\to \text{does not exist, just like } \lim_{x \to 0} 1/x
   \end{aligned}
   $$
-  L'Hospital's rule for $0/0$ would apply if $f'/g'$ existed. but when it doesn't exist $f/g$ may still exist, that's a bit surprising.
-  % TODO: I feel I'm missing something here
+  L'Hopital's rule for $0/0$ would apply if $f'/g'$ existed. But when it doesn't exist $f/g$ may still exist. Put another way, the converse of L'Hopital's rule does not hold.
 \end{solution}
 
 \begin{exercise}
   \enum{
-  \item Use the Generalized Mean Value Theorem to furnish a proof of the $0 / 0$ case of L'Hospital's Rule (Theorem 5.3.6).
-  \item If we keep the first part of the hypothesis of Theorem 5.3.6 the same but we assume that
+  \item Use the Generalized Mean Value Theorem to furnish a proof of the $0 / 0$ case of L'Hopital's Rule (Theorem 5.3.6).
+  \item If we keep the first part of the hypothesis of Theorem 5.3.6 the same, but we assume that
     $$
     \lim _{x \rightarrow a} \frac{f^{\prime}(x)}{g^{\prime}(x)}=\infty
     $$
@@ -231,7 +243,44 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Let $f,g$ be continuous functions with $f(a) = g(a) = 0$ and $f'(x) \ne 0$, $g'(x) \ne 0$ around $a$, suppose
+    $$
+    \lim_{x\to a} \frac{f'(x)}{g'(x)} = L
+    $$
+    We would like to show $\lim_{x\to a} \frac{f(x)}{g(x)} = L$. Choose $\epsilon > 0$ then let $\delta > 0$ be such that
+    $$
+    \left|\frac{f'(x)}{g'(x)} - L\right| < \epsilon
+    $$
+    Let $x \in (a,a+\delta)$ and apply the generalized mean value theorem on $(a,x)$ to get a $c \in (a,x)$ with
+    $$
+    \frac{f(x)-f(a)}{g(x)-g(a)} = \frac{f'(c)}{g'(c)}
+    $$
+    Subtract $L$ from both sides and take absolute values, (and use $f(a) = g(a) = 0$) to get
+    $$
+    \left|\frac{f(x)}{g(x)} - L\right| < \epsilon
+    $$
+    We could do the same process starting from $x \in (a-\delta,a)$ as well, thus, for all $0 < |x| < \delta$ we have
+    $$
+    \left|\frac{f(x)}{g(x)} - L\right| < \epsilon
+    $$
+    Implying $\lim_{x\to a} \frac{f(x)}{g(x)} = L$ as desired.
+
+    An interesting thing to note is that \emph{the same $\delta$} works for both $f'(x)/g'(x)$ and for $f(x)/g(x)$. In other words, $f(x)/g(x)$ converges to $L$ at least as fast as $f'(x)/g'(x)$ does.
+  \item Choose $M > 0$ and let $\delta > 0$ be such that $0<|x-a|<\delta$ implies $f'(x)/g'(x) > M$. Let $x \in (a,a+\delta)$ be arbitrary, then apply MVT on $(a,x)$ to get $c \in (a,x)$ with
+    $$
+    \frac{f(x)}{g(x)} = \frac{f'(c)}{g'(c)}
+    $$
+    Since $0<|c-a|<\delta$ we have $f'(c)/g'(c) > M$ and thus
+    $$
+    \frac{f(x)}{g(x)} > M
+    $$
+    for all $x \in (a,a+\delta)$, but again, we could just as easily apply this reasoning to $(a-\delta,a)$. So in general, all $x$ with $0 < |x-a| < \delta$ satisfy
+    $$
+    \frac{f(x)}{g(x)} > M
+    $$
+    Which is clearly the same as saying $\lim_{x\to a} f(x)/g(x) = \infty$.
+  }
 \end{solution}
 
 \begin{exercise}
@@ -242,6 +291,36 @@
   (Compare this to Exercise 5.2.6(b).)
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let $\epsilon > 0$ and choose $\delta_1 > 0$ so every $|h| < \delta_1$ has 
+  $$
+  \left|\frac{f(a+h) - f(a)}{h} - f'(a)\right| < \epsilon
+  $$
+  Choose $\delta_2 > 0$ so every $0<|x-a|<\delta_2$ has $|f''(x)-f''(a)|<\epsilon$ (this is where we use the continuity of $f''$ at $a$.) and set $\delta = \min\{\delta_1,\delta_2\}$.
+
+  Without loss of generality assume $h > 0$, apply MVT on $(a,a+h)$ to get $c \in (a,a+h)$ with
+  $$
+  \frac{f(a+h) - f(a)}{h} = f'(c)
+  $$
+  Likewise MVT on $(a-h,a)$ gives $d \in (a-h,a)$ with
+  $$
+  \frac{f(a) - f(a-h)}{h} = f'(d)
+  $$
+  Meaning for this specific $h$ our estimate for $f''(a)$ is
+  $$
+  \frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} = \frac{f'(c) - f'(d)}{h}
+  $$
+  Note that $d < a < c$ and $|c-d| < h$, the right-hand side is essentially a central difference estimate for $f''(a)$. We can prove this using the mean value theorem on $(d,c)$ to get a $c' \in (d,c)$ with
+  $$
+  \frac{f'(c) - f'(d)}{h} = f''(c')
+  $$
+  Recall our choice of $\delta$ ensures that $|x-c|<\delta$ implies $|f''(x)-f''(a)|<\epsilon$, setting $x=c'$ (note $|c'-a|<\delta$) gives (putting everything together)
+  $$
+  \begin{aligned}
+  \left|\frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} - f''(a)\right| 
+  &= \left|\frac{f'(c) - f'(d)}{h} - f''(a)\right| \\
+  &= \left|f''(c') - f''(a)\right| \\
+  &< \epsilon.
+  \end{aligned}
+  $$
 \end{solution}
 
