@@ -97,21 +97,30 @@
 \end{exercise}
 \begin{solution}
   \enum{
-  \item First suppose $h$ is differentiable at $a$, then we can define $l(x) = \frac{h(x)-h(a)}{x-a}$ for $x \ne a$ and set $l(a) = h'(a)$. $l$ is continuous at $a$ thus we have shown one direction.
+  \item First suppose $h$ is differentiable at $a$, then we can define
+    $$
+    l(x) = \begin{cases}
+      \frac{h(x)-h(a)}{x-a} &{x \ne a} \\
+      h'(a) &{x = a}
+    \end{cases}
+    $$
+    Since $\lim_{x\to a} l(x) = l(a)$, $l$ is continuous at $a$.
 
-    Now suppose $l : A \to \mathbf{R}$ exists and satisfies $h(x) - h(a) = l(x)(x-a)$, then dividing by $(x-a)$ and taking limits gives $h'(a) = l(a)$.
+    Now suppose $l : A \to \mathbf{R}$ exists and satisfies $h(x) - h(a) = l(x)(x-a)$, dividing by $(x-a)$ gives
+    $$
+    \frac{h(x)-h(a)}{x-a} = l(x) \quad(x \ne a)
+    $$
+    Taking the limit of both sides as $x \to a$ gives $h'(a) = l(a)$ (keep in mind the constraint $x \ne a$ makes no difference for the limit).
   \item Let $f$ be differentiable at $a$ and $g$ be differentiable at $f(a)$. we will show $g(f(x))$ is differentiable at $a$ with derivative $g'(f(a))f'(a)$.
 
     Multiply the top and bottom by $f(y)-f(a)$ to get
     $$
     (g \circ f)'(a) = \lim_{y \to a} \frac{g(f(y)) - g(f(a))}{f(y)-f(a)} \cdot \frac{f(y)-f(a)}{y-a}
     $$
-    We're almost done, the right hand side is $f'(a)$ we just need to evaluate the nested limit on the left. Define $l(y) = \frac{g(y) - g(f(a))}{y - f(a)}$ and $l(a) = g'(f(a))$ then we have a product of continuous functions so
+    We're almost done, the right hand side is $f'(a)$ we just need to evaluate the nested limit on the left. Define $l(y) = \frac{g(y) - g(f(a))}{y - f(a)}$ and $l(a) = g'(f(a))$ then we have a product of continuous functions so we can use the algebraic limit theorem
     $$
     \lim_{y \to a} l(f(y)) \cdot \frac{f(y)-f(a)}{y-a} = g'(f(a)) \cdot f'(a)
     $$
-
-    \TODO Proof as intended, this is the same as the proof in Theorem 5.2.5.
   }
 \end{solution}
 
