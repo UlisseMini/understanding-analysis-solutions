@@ -15,11 +15,18 @@
     $$
     |x^{1/3} - c^{1/3}| = |x - c| \cdot |x^{2/3} + x^{1/3}c^{1/3} + c^{2/3}|
     $$
-    We can bound $|x^{2/3} + x^{1/3}c^{1/3} + c^{2/3}| \le |x^{2/3}| + |x^{1/3}c^{1/3}| + |c^{2/3}| \le |c^{2/3}|$ to get
+    If we choose \(\delta < c\) then \(0 < |x| < 2|c|\). Keeping in mind that if \(a > b > 0\) then \(\sqrt[3]{a} > \sqrt[3]{b}\), we can now bound
+    \[
+        \begin{aligned}
+        |x^{2/3} + x^{1/3}c^{1/3} + c^{2/3}| &\le |x^{2/3}| + |x^{1/3}c^{1/3}| + |c^{2/3}| \\
+        &\le 2^{2/3}|c^{2/3}| + 2^{1/3}|c^{2/3}| + |c^{2/3}| \\
+            &= K
+        \end{aligned}
+    \] where \(K\) is a constant. Then
     $$
-    |x^{1/3} - c^{1/3}| \le |x - c| \cdot |c^{2/3}|
+    |x^{1/3} - c^{1/3}| \le |x - c| \cdot K
     $$
-    Setting $\delta = \frac{\epsilon}{|c^{2/3}|}$ gives $|x^{1/3} - c^{1/3}| \le \epsilon$ completing the proof.
+    Setting $\delta = \frac{\epsilon}{K}$ gives $|x^{1/3} - c^{1/3}| \le \epsilon$ completing the proof.
   }
 \end{solution}
 
@@ -118,12 +125,11 @@
     And set $g(x) = -f(x)$. we have $f(x) + g(x) = 0$ which is continuous at zero, and we have $f(x)g(x) = -f(x)^2 = -1$ which is also continuous at zero.
   \item Impossible, since it would imply that $(f + g) - f = g$ is continuous at zero (sum of continuous functions is continuous).
   \item Let $f(x) = 0$, then $f(x)g(x) = 0$ is continuous at zero for any $g(x)$.
-  \item Have $f + 1/f = \frac{f^2 + 1}{f}$, let $g = f^2 + 1$ and $h = 1/f$ (note that $h$ is discontinuous). If $g$ is continuous (possible in cases where the square removes a signed jump discontinuity) then the only way for $gh$ to be continuous is for $g \to 0$ so that $gh \to 0$ (think of $x\sin(1/x)$ as an example) which is impossible since $g \ge 1$.
-    If $g$ is not continuous then $gh$ is discontinuous since $g \ge 1$ we only make $h$ ``more discontinuous''
-    % IDEA: Use logs? analyze continuity of log(f^2 + 1) - log(f) instead
-    % This argument might work but it requires a bunch of lemmas that are implicitly assumed
+  \item
+Let
+    \[f(x) = \begin{cases}2 &\text{ if } x \ge 0 \\ 1/2 &\text{ if } x < 0\end{cases}\]
+    Then \(f(x) + 1/f(x) = 2.5\) is continuous at zero.
 
-    \TODO Finish, make rigorous
   \item Impossible, if $[f(x)]^3$ was continuous at zero then $\left([f(x)]^3\right)^{1/3} = f(x)$ would also be continuous at zero since the composition of continuous functions is continuous
   }
 \end{solution}
@@ -246,15 +252,27 @@
 \begin{solution}
   \enum{
   \item Let $\delta = \epsilon/c$ to get $|f(x) - f(y)| \le c|x-y| < \epsilon$ whenever $|x-y|<\delta$. (This is the general proof, we could make it shorter by letting $\delta=\epsilon$ since $0<c<1$)
-  \item We want $|y_n - y_m| < \epsilon$. since $0 < c < 1$ we have $|y_{n+1} - y_{m+1}| \le c|y_n - y_m|$,
-    implying $|y_n - y_m| \le c^m|y_{n-m+1} - y_1|$. Thus if we can bound $|y_k - y_1| \le M$ we will be done.
+  \item We want $|y_n - y_m| < \epsilon$. Since $0 < c < 1$ we have $|y_{n+1} - y_{m+1}| \le c|y_n - y_m|$,
+    implying $|y_n - y_m| \le c^m|y_{n-m+1} - y_1|$. Thus if we can bound $|y_k - y_1| \le M$ for some constant \(M\) (which may depend on \(y_1\)) we will be done, by choosing \(m\) large enough so that \(c^m \leq \epsilon / M\).
 
-    \TODO
+    In general, \(|y_{a+1} - y_a| \leq c |y_a - y_{a-1}|\), so
+    \[\begin{aligned}
+        |y_k - y_1| &\leq |y_1 - y_2| + |y_2 - y_3| + \cdots + |y_{k-1} - y_k| \\
+        &\leq |y_1 - y_2| + c|y_1 - y_2| + \cdots + c^{k-2} |y_1 - y_2| \\
+        & = |y_1 - y_2| \sum^{k-2}_{i=0} c^i \\
+        & < |y_1 - y_2| \sum^\infty_{i=0} c^i = \frac{|y_1 - y_2| }{1 - c}
+     \end{aligned}
+    \]
+    which is bounded, hence proved.
+  \item Since \(f\) is continuous, \(f(\lim_{n \to \infty} y_n)\) = \(\lim_{n \to \infty} f(y_n)\) which is just the same as \(y\) shifted one element forward, so clearly \(\lim f(y_n) = y\), showing that \(y\) is a fixed point.
 
+  Now, consider two similar sequences \((a_n) \to a\) and \((b_n) \to b\) where \(a_1,b_1 \in \mathbf{R}\),  \(a_{n+1} = f(a_n)\), and \(b_{n+1} = f(b_n)\). By the Algebraic Limit Theorem \(b = a + \lim_{n \to \infty} b_n - a_n\). Now note
+  \[
+    \lim_{n \to \infty} b_n - a_n  \leq\lim_{n \to \infty} \abs{b_n - a_n}  \leq\lim_{n \to \infty} c^{n-1}|b_1 - a_1| = 0
+      \]
+      Therefore \(a = b\); this implies that regardless of our starting choice of \(y_1\) we will end up at the same fixed point \(y\). In particular, for a given fixed point \(z\), if we start at \(z_1=z\) then clearly \(\lim_{n \to \infty} z_n= z\) but also \(\lim_{n \to \infty} z_n = y\) and therefore \(z = y\) and \(y\) is a unique fixed point.
 
-    Note that showing $|y_n - y_{n-1}|$ goes to zero is not enough for general Cauchy sequences, consider $a_n = \ln n$ as a counterexample: $|a_n - a_{n-1}| = \left|\ln(1 - 1/n)\right|$ goes to zero but $(a_n)$ is not Cauchy.
-  \item \TODO
-  \item \TODO
+  \item See (c)
   }
 \end{solution}
 
@@ -300,7 +318,28 @@
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+    \item Using the notation from Exercise 3.2.14, note that \(F^o,F^c,\) and \(\overline{F^c} / F^c\) are disjoint but their union is \(\mathbf{R}\); moreover \(F^o \cup \overline{F^c} / F^c = F\). Let \(d(x)\) denote Dirichlet's function (1 on rationals, 0 on irrationals), and consider
+    \[ f(x) = \begin{cases}
+        d(x) & x \in F^o \\
+        2 & x \in \overline{F^c} \backslash F^c \\
+        3 & x \in F^c
+    \end{cases}
+    \]
+    If \(x \in F^o\) (which is open) then we can find \(V_\epsilon(x) \subseteq F^o\) where there will be both irrational and rational numbers, indicating that \(f\) is discontinuous over \(F^o\).
+
+    If \(x \in \overline{F^c} \backslash F^c\), \(x\) must be a limit point of \(F^c\), and therefore all \(V_\epsilon(x)\) will intersect \(F^c\) at some point, and thus \(f(y) = 3\) for some \(y \in V_\epsilon(x)\), preventing \(f\) from being continuous in \(\overline{F^c} \backslash F^c\).
+
+    If \(x \in F^c\) (which is open) then we can find \(V_\epsilon(x) \subseteq F^c\) which is a constant 3, and therefore \(f\) is continuous over \(F^c\). Thus, \(f\) is discontinous only over \(F\).
+
+    \item Define
+    \[f(x) = d(x) \left(\inf \{|x - a| : a \in F^c\}\right)\]
+
+    \(f(x) = 0\) for \(x \in F^c\) and by choosing \(\delta = \epsilon > 0\) we will have \(\inf \{|y - a| : a \in F^c\} < \epsilon\) for \(y \in V_\delta(x)\) (simply consider \(a = x\)) implying \(f\) is continuous over \(F^c\).
+
+    Since \(F\) is open, for any given \(x \in F\) we can find \(\alpha > 0\) so that \(\inf \{|y - a| : a \in F^c\} > \gamma > 0\) for all \(y \in V_\alpha(x)\). (One way to do this is by choosing \(\beta\) so that \(V_\beta(x) \subseteq F\), taking \(\alpha = \beta / 2\), noting that \(\{a : \exists y \in V_\alpha(x) \text{ such that } |y - a| < \alpha \} = V_\beta(x)\), and concluding that \(a \in F^c \implies a \notin V_\beta(x) \implies \forall y \in V_\alpha(x),\ |y - a| \geq \alpha \).)
+    Then since for any \(V_\delta(x)\), there must be points \(y_1, y_2\) where \(d(y_1) = 1,\ d(y_2) = 0\), it must be impossible to satisfy the definition of continuity for \(\epsilon < \gamma\) (since in the \(\delta\)-neighbourhood of \(x\), \(f(x)\) will jump by at least that amount between rational and irrational numbers), and therefore \(f\) is discontinuous for any \(x \in F\).
+  }
 \end{solution}
 
 
