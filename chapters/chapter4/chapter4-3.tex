@@ -318,7 +318,28 @@ Let
 \end{exercise}
 
 \begin{solution}
-  \TODO
+  \enum{
+    \item Using the notation from Exercise 3.2.14, note that \(F^o,F^c,\) and \(\overline{F^c} / F^c\) are disjoint but their union is \(\mathbf{R}\); moreover \(F^o \cup \overline{F^c} / F^c = F\). Let \(d(x)\) denote Dirichlet's function (1 on rationals, 0 on irrationals), and consider
+    \[ f(x) = \begin{cases}
+        d(x) & x \in F^o \\
+        2 & x \in \overline{F^c} \backslash F^c \\
+        3 & x \in F^c
+    \end{cases}
+    \]
+    If \(x \in F^o\) (which is open) then we can find \(V_\epsilon(x) \subseteq F^o\) where there will be both irrational and rational numbers, indicating that \(f\) is discontinuous over \(F^o\).
+
+    If \(x \in \overline{F^c} \backslash F^c\), \(x\) must be a limit point of \(F^c\), and therefore all \(V_\epsilon(x)\) will intersect \(F^c\) at some point, and thus \(f(y) = 3\) for some \(y \in V_\epsilon(x)\), preventing \(f\) from being continuous in \(\overline{F^c} \backslash F^c\).
+
+    If \(x \in F^c\) (which is open) then we can find \(V_\epsilon(x) \subseteq F^c\) which is a constant 3, and therefore \(f\) is continuous over \(F^c\). Thus, \(f\) is discontinous only over \(F\).
+
+    \item Define
+    \[f(x) = d(x) \left(\inf \{|x - a| : a \in F^c\}\right)\]
+
+    \(f(x) = 0\) for \(x \in F^c\) and by choosing \(\delta = \epsilon > 0\) we will have \(\inf \{|y - a| : a \in F^c\} < \epsilon\) for \(y \in V_\delta(x)\) (simply consider \(a = x\)) implying \(f\) is continuous over \(F^c\).
+
+    Since \(F\) is open, for any given \(x \in F\) we can find \(\alpha > 0\) so that \(\inf \{|y - a| : a \in F^c\} > \gamma > 0\) for all \(y \in V_\alpha(x)\). (One way to do this is by choosing \(\beta\) so that \(V_\beta(x) \subseteq F\), taking \(\alpha = \beta / 2\), noting that \(\{a : \exists y \in V_\alpha(x) \text{ such that } |y - a| < \alpha \} = V_\beta(x)\), and concluding that \(a \in F^c \implies a \notin V_\beta(x) \implies \forall y \in V_\alpha(x),\ |y - a| \geq \alpha \).)
+    Then since for any \(V_\delta(x)\), there must be points \(y_1, y_2\) where \(d(y_1) = 1,\ d(y_2) = 0\), it must be impossible to satisfy the definition of continuity for \(\epsilon < \gamma\) (since in the \(\delta\)-neighbourhood of \(x\), \(f(x)\) will jump by at least that amount between rational and irrational numbers), and therefore \(f\) is discontinuous for any \(x \in F\).
+  }
 \end{solution}
 
 
