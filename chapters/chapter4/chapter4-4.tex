@@ -211,19 +211,9 @@
 \end{exercise}
 
 \begin{solution}
-  Note both $f$ and $g$ are bounded since they are uniformly continuous (Pick $x \in A$ and $\epsilon$ then cover with $\delta$-length intervals) so we can let $|f(x)| \le M$ and $|g(x)| \le M$.
-
   \enumr{
   \item $f(x) + g(x)$ is clearly uniformly continuous
-  \item Similar to the continuous proof of $f(x)g(x)$ being continuous
-    $$
-    \begin{aligned}
-      |f(x)g(x) - f(y)g(y)|
-      &\le |f(x)g(x) - f(x)g(y)| + |f(x)g(y) - f(y)g(y)| \\
-      &\le M|g(x) - g(y)| + M|f(x) - f(y)| \\
-      &< M\left(\frac{\epsilon}{2M} + \frac{\epsilon}{2M}\right) = \epsilon
-    \end{aligned}
-    $$
+  \item \(f(x) = g(x) = x\) are individually uniformly continuous over \(\mathbf{R}\) but \(f(x)g(x) = x^2\) is not.
   \item False, consider $f(x)=1$ and $g(x) = x$ over $(0,1)$. Both are uniformly continuous on $(0,1)$ but $f/g = 1/x$ is not.
   \item Want $|f(g(x)) - f(g(y))|<\epsilon$. Since $f$ is uniformly continuous we can find an $\alpha > 0$ so that
     $$|g(x) - g(y)| < \alpha \implies |f(g(x))-f(g(y))| < \epsilon$$
