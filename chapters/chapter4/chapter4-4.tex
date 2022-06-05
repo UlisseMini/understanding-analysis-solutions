@@ -76,8 +76,12 @@
 \begin{solution}
   \enum{
   \item True, the Algebraic Limit Theorem implies $1/f$ is continuous (well defined since $f > 0$) and the Extreme Value Theorem implies $1/f$ attains a maximum and minimum and so is bounded.
-  \item Let $\epsilon = 1$ and choose $\delta > 0$ so that $|x - y| < \delta$ implies $|f(x)-f(y)|<\epsilon$. Partition $A$ into $P = \{x_0, \dots, x_n\}$ where each interval is smaller then $\delta$ (ie. $\forall k,\; x_k - x_{k-1} < \delta$).
-    Let $y \in A$ be arbitrary, we have $|y - x_0| < n\delta$ meaning $|f(y) - f(x_0)| < n\epsilon$ by the triangle inequality. Meaning every $y \in A$ has $f(y) \in (f(x_0)-n, f(x_0)+n)$ and so $f(A)$ is bounded.
+  \item Let $\epsilon = 1$ and choose $\delta > 0$ so that $|x - y| < \delta$ implies $|f(x)-f(y)|<\epsilon$. Define the set \(X = \{x_0, \dots, x_n\}\) consisting of evenly spaced values \(x_i\), ranging from \(x_0 = \inf A\) to \(x_n =\sup A\), with the spacing between each value less than \(\delta/2\) (i.e. \(\forall k,\; x_k - x_{k-1} < \delta/2\)). Now define the set \(P = \{p_0, \dots, p_m\}\) where for each \(x_i \in X\), we add one element \(p_i \in A \cap V_{\delta/2}(x)\), if \(A \cap V_{\delta/2}(x) \neq \emptyset\) (and do not add anything if \(A \cap V_{\delta/2}(x) = \emptyset\)).
+
+  Now, every element \(a \in A\) is at most \(\delta\) from an element \(p \in P\) (i.e. \(|a - x| < \delta\)). To see this, for any \(a \in A\), there must be some \(x_i \in X\) so that \(|a - x_i| < \delta / 2\), and since \(A \cap V_{\delta/2}(x) \neq \emptyset\) (it at least contains \(a\)), there must also be an element \(p_i\in P\) so that \(|x_i - p| < \delta /2\). By the Triangle Inequality, \(|a - p| < \delta\) for some \(p \in P\).
+
+  Noting that \(P \subseteq A\) is finite, we can consider \(M = \max (f(P))\). Let $a \in A$ be arbitrary, and identify the nearest \(p \in P\). We have $|a - p| < \delta$ so \(|f(y) - f(p)| < \epsilon\) and since \(f(p) \leq M\), \(f(a) < \epsilon + M\), completing the proof.
+
   \item Any function with finite range preserves compact sets, since all finite sets are compact. Meaning dirichlet's function
     $$
     g(x) = \begin{cases}
