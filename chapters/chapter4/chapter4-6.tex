@@ -31,7 +31,12 @@
   Given a countable set $A=\left\{a_{1}, a_{2}, a_{3}, \ldots\right\}$, define $f\left(a_{n}\right)=1 / n$ and $f(x)=0$ for all $x \notin A$. Find $D_{f}$.
 \end{exercise}
 \begin{solution}
-  \TODO
+  To find $D_f$ consider $x \in D_f$ for the two cases $x \in A$ and $x \notin A$.
+  If $x \in A$ then $f$ is not continuous, since $f(x) > 0$ but for any $\delta > 0$ we can find $y \in V_\delta(x)$ with $y \notin A$ (because $A$ is countable, $A^c$ must be dense) hence there is an unavoidable error of $|f(x)-f(y)| = f(x) > 0$.
+
+  Now consider $x \notin A$, using the sequential criterion for continuity notice every sequence $(x_n) \to x$ has $f(x_n) \to 0$ (since if $x_n \in A$ converge to $0$ as $n \to \infty$, and $x_n \notin A$ are always $0$), now since $f(x)=0$ this shows $f$ is continuous at $x \notin A$.
+
+  Together we've shown $D_f = A$. Setting $A = \mathbf{Q}$ and using a particular ordering recovers Thomae's function. Hence we can view this as a generalization of Thomae's function for arbitrary countable sets.
 \end{solution}
 
 \begin{exercise}
