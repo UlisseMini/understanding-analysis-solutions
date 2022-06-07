@@ -2,14 +2,29 @@
 
 
 \begin{exercise}
-  Using modifications of these functions, construct a function $f: \mathbf{R} \rightarrow \mathbf{R}$ so that
+  Using modifications of Dirichlet and Thomae's functions, construct a function $f: \mathbf{R} \rightarrow \mathbf{R}$ so that
   \enum{
   \item $D_{f}=\mathbf{Z}^{c}$.
   \item $D_{f}=\{x: 0<x \leq 1\}$.
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+  \item Modify the function continuous only at zero to be continuous around integers.
+    $$
+    f(x) = \begin{cases}
+      x - [[x]] &\text{if $x \in \mathbf{Q}$} \\
+      0 &\text{if $x \in \mathbf{I}$}
+    \end{cases}
+    $$
+  \item Just $1/x$ with any value for $0$
+    $$
+    g(x) = \begin{cases}
+      1/x &\text{if $x \ne 0$} \\
+      0   &\text{if $x = 0$}
+    \end{cases}
+    $$
+  }
 \end{solution}
 
 \begin{exercise}
