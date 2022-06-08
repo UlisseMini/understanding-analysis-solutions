@@ -1,0 +1,130 @@
+\section{Sets of Discontinuity}
+
+
+\begin{exercise}
+  Using modifications of Dirichlet and Thomae's functions, construct a function $f: \mathbf{R} \rightarrow \mathbf{R}$ so that
+  \enum{
+  \item $D_{f}=\mathbf{Z}^{c}$.
+  \item $D_{f}=\{x: 0<x \leq 1\}$.
+  }
+\end{exercise}
+\begin{solution}
+  \enum{
+  \item Modify the function continuous only at zero to be continuous around integers.
+    $$
+    f(x) = \begin{cases}
+      x - [[x]] &\text{if $x \in \mathbf{Q}$} \\
+      0 &\text{if $x \in \mathbf{I}$}
+    \end{cases}
+    $$
+  \item Just $1/x$ with any value for $0$
+    $$
+    g(x) = \begin{cases}
+      1/x &\text{if $x \ne 0$} \\
+      0   &\text{if $x = 0$}
+    \end{cases}
+    $$
+  }
+\end{solution}
+
+\begin{exercise}
+  Given a countable set $A=\left\{a_{1}, a_{2}, a_{3}, \ldots\right\}$, define $f\left(a_{n}\right)=1 / n$ and $f(x)=0$ for all $x \notin A$. Find $D_{f}$.
+\end{exercise}
+\begin{solution}
+  To find $D_f$ consider $x \in D_f$ for the two cases $x \in A$ and $x \notin A$.
+  If $x \in A$ then $f$ is not continuous, since $f(x) > 0$ but for any $\delta > 0$ we can find $y \in V_\delta(x)$ with $y \notin A$ (because $A$ is countable, $A^c$ must be dense) hence there is an unavoidable error of $|f(x)-f(y)| = f(x) > 0$.
+
+  Now consider $x \notin A$, using the sequential criterion for continuity notice every sequence $(x_n) \to x$ has $f(x_n) \to 0$ (since if $x_n \in A$ converge to $0$ as $n \to \infty$, and $x_n \notin A$ are always $0$), now since $f(x)=0$ this shows $f$ is continuous at $x \notin A$.
+
+  Together we've shown $D_f = A$. Setting $A = \mathbf{Q}$ and using a particular ordering recovers Thomae's function. Hence we can view this as a generalization of Thomae's function for arbitrary countable sets.
+\end{solution}
+
+\begin{exercise}
+  State a similar definition for the left-hand limit
+  $$
+  \lim _{x \rightarrow c^{-}} f(x)=L
+  $$
+\end{exercise}
+\begin{solution}
+  For all $\epsilon > 0$ there exists a $\delta > 0$ such that $0 < c-x < \delta$ implies $|f(x)-L|<\epsilon$.
+\end{solution}
+
+\begin{exercise}
+  Given $f: A \rightarrow \mathbf{R}$ and a limit point $c$ of $A, \lim _{x \rightarrow c} f(x)=L$ if and only if
+  $$
+  \lim _{x \rightarrow c^{-}} f(x)=L \quad \text { and } \quad \lim _{x \rightarrow c^{+}} f(x)=L .
+  $$
+  Supply a proof for this proposition.
+\end{exercise}
+\begin{solution}
+  Let $\epsilon > 0$, pick $\delta_1$ so $0 < x-c < \delta_1$ implies $|f(x)-L|<\epsilon$, pick $\delta_2$ so $0 < c-x < \delta_2$ implies $|f(x)-L|<\epsilon$. Finally, set $\delta = \min\{\delta_1, \delta_2\}$ to get $|f(x)-L|<\epsilon$ when $0 < |x-c| < \delta$, as desired.
+\end{solution}
+
+\begin{exercise}
+  Prove that the only type of discontinuity a monotone function can have is a jump discontinuity.
+\end{exercise}
+\begin{solution}
+  Let $f$ be monotone and assume $f$ is increasing. For some $c$ we want to show $\lim_{x \to c^{-}} f(x)$ and $\lim_{x \to c^{+}} f(x)$ exist.
+
+  Let $\epsilon > 0$ and set $L = \sup\{f(x) : x < c\}$, by the definition of $\sup$, $L-\epsilon$ is not an upper bound for $\{f(x) : x < c\}$, hence there exists a $\delta_1 > 0$ with $f(c-\delta_1) > L-\epsilon$, thus $0 < c-x < \delta_1$ implies $|f(x)-L| < \epsilon$ (this is where we use the fact that $f$ is increasing!), hence the lower limit exists. Likewise for $M = \inf\{f(x) : x > c\}$ we get $\delta_2 > 0$ with $0 < x-c < \delta_2$ implying $|f(x)-M|<\epsilon$, hence the upper limit exists.
+
+  Putting these together, we see that $f$ is continuous at $c$ if and only if $L = M$. In other words, the only possible discontinuity is a jump discontinuity $L \ne M$.
+\end{solution}
+
+\begin{exercise}
+  Construct a bijection between the set of jump discontinuities of a monotone function $f$ and a subset of $\mathbf{Q}$. Conclude that $D_{f}$ for a monotone function $f$ must either be finite or countable, but not uncountable.
+\end{exercise}
+\begin{solution}
+  In 4.6.5 we showed every $c \in D_f$ is a jump discontinuity, i.e. both sided limits $L$ and $M$ exist and $L \ne M$. Pick some $r \in (L,M) \cap \mathbf{Q}$ and assign $f(c) = r$. Continue like this to define a bijection $f : D_f \to Q$ where $Q \subseteq \mathbf{Q}$. Thus $D_f$ must be finite or countable.
+\end{solution}
+
+\begin{exercise}
+  In Section 4.1 we constructed functions where the set of discontinuity was $\mathbf{R}$ (Dirichlet's function), $\mathbf{R} \backslash\{0\}$ (modified Dirichlet function), and $\mathbf{Q}$ (Thomae's function).
+
+  \enum{
+  \item Show that in each of the above cases we get an $F_{\sigma}$ set as the set where the function is discontinuous.
+  \item Show that the two sets of discontinuity in Exercise $4.6 .1$ are $F_{\sigma}$ sets.
+  }
+\end{exercise}
+\begin{solution}
+  \enum{
+  \item $\mathbf{R}$ is closed, so it is in $F_\sigma$, $\mathbf{R} \setminus \{0\} = \bigcup_{n=1}^\infty \mathbf{R} \setminus (-1/n, 1/n)$ is in $F_\sigma$ since $\mathbf{R}\setminus (-1/n,1/n)$ is closed, and finally $\mathbf{Q}$ is in $F_\sigma$ since $\mathbf{Q} = \bigcup_{n=1}^\infty \{r_n\}$ (where $r_n$ enumerate $\mathbf{Q}$, all countable sets are $F_\sigma$ sets.)
+  \item Recall countable unions of $F_\sigma$ sets are $F_\sigma$ (see 3.5.2) and that open intervals are $F_\sigma$ sets, meaning $\mathbf{Z}^c = \bigcup_{z\in\mathbf{Z}} (z,z+1)$ is an $F_\sigma$ set. As for $\{x : 0 < x \le 1\} = (0, 1]$ I refer you to 3.5.3 (b).
+  }
+\end{solution}
+
+\begin{exercise}
+  Prove that, for a fixed $\alpha>0$, the set $D_{f}^{\alpha}$ is closed.
+\end{exercise}
+\begin{solution}
+  We do this by showing the complement is open. Let $x \in \left(D_f^\alpha\right)^c$, by the definition of $\alpha$-continuity there exists a $\delta > 0$ such that $y,z \in V_\delta(x)$ have $|f(y)-f(z)|<\alpha$. To see openness notice $V_{\delta/2}(x) \subseteq \left(D_f^\alpha\right)^c$ since any $x' \in V_{\delta/2}(x)$ is $\alpha$-continuous with $\delta' = \delta/2$.
+\end{solution}
+
+\begin{exercise}
+  If $\alpha<\alpha^{\prime}$, show that $D_{f}^{\alpha^{\prime}} \subseteq D_{f}^{\alpha}$.
+\end{exercise}
+\begin{solution}
+  This is obvious. If $|f(y)-f(z)| < \alpha$ and $\alpha < \alpha'$ clearly $|f(y)-f(z)|<\alpha'$ as well. Increasing $\alpha$ only makes the condition less strict.
+\end{solution}
+
+\begin{exercise}
+  Let $\alpha>0$ be given. Show that if $f$ is continuous at $x$, then it is $\alpha$-continuous at $x$ as well. Explain how it follows that $D_{f}^{\alpha} \subseteq D_{f}$.
+\end{exercise}
+\begin{solution}
+  Let $\epsilon = \alpha/2$ and use continuity to get $\delta>0$ with $0<|x-y|<\delta$ implying $|f(x)-f(y)|<\alpha/2$, which shows every $y,z \in V_{\delta}(x)$ satisfies $|f(y)-f(z)| < \alpha$ by the triangle inequality. Thus $f$ is $\alpha$-continuous at $x$.
+
+  The negation of ``continuous at $x$ implies $\alpha$-continuous at $x$'' is ``not $\alpha$-continuous at $x$ implies not continuous at $x$'', hence $D_f^\alpha \subseteq D_f$.
+\end{solution}
+
+\begin{exercise}
+  Show that if $f$ is not continuous at $x$, then $f$ is not $\alpha$-continuous for some $\alpha>0$. Now explain why this guarantees that
+  $$
+  D_{f}=\bigcup_{n=1}^{\infty} D_{f}^{\alpha_{n}}
+  $$
+  where $\alpha_{n}=1 / n$.
+\end{exercise}
+\begin{solution}
+  Negating the definition of $f$ being continuous at $x$, we see $f$ is \emph{not} continuous at $x$ iff there exists an $\epsilon_0 > 0$ such that no $\delta > 0$ satisfies $|f(x)-f(y)|<\epsilon$ for all $0<|x-y|<\delta$. Once $\alpha_n < \epsilon_0$ (i.e. $n > 1/\epsilon_0$) we will have $x \in D_f^{\alpha_n}$.
+
+  (This completes the proof that $D_f$ is an $F_\sigma$ set!)
+\end{solution}
