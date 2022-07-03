@@ -129,6 +129,9 @@ You could go through the grunt work of verifying that this meets the requirement
 
   Show that if $f$ is continuous on an interval $[a, b]$ and one-to-one, then $f^{-1}$ is also continuous.
 \end{exercise}
+
 \begin{solution}
-  \TODO
+Define a function \(f\) to be strictly increasing (decreasing) on $A$ if $f(x) < f(y)$ (\(f(x) > f(y)\)) for all $x<y$ in $A$, and define strictly monotone to mean either strictly increasing or strictly decreasing. It's easy to show by contradiction using IVT that a one-to-one continuous function \(f\) must be strictly monotone, and similarly so is \(f^{-1}\). Moreover, if \(f\) is strictly increasing then so is \(f^{-1}\), and if \(f\) is strictly decreasing then so is \(f^{-1}\).
+
+We now show that \(f^{-1}\) satisfies the intermediate value property. Assume for now that \(f\) is strictly increasing - the proof for the case of strictly decreasing is similar. Consider \(f(x_1) = y_1 < f(x_2) = y_2\) and any \(L\) between \(f^{-1}(y_1)\) and \(f^{-1}(y_2)\), i.e. \(x_1 < L < x_2\); we need to show there is some \(y_3 \in [y_1, y_2]\) such that \(f^{-1}(y_3) = L\); clearly \(y_3 = f(L)\) works. By Exercise 4.5.3, this shows \(f^{-1}(x)\) is continuous.
 \end{solution}
