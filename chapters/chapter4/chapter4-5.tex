@@ -70,7 +70,7 @@
   }
 \end{exercise}
 \begin{solution}
-  Let $f$ be continuous, and let $L \in (f(a), f(b))$, we must find $c \in (a,b)$ with $f(c) = L$.
+  Let $f$ be continuous, and let $L \in (f(a), f(b))$, we must find $c \in (a,b)$ with $f(c) = L$. (If \(f(a) > f(b)\) then instead consider \(f'(x) = -f(x)\) and \(L' = -L\))
 
   \enum{
   \item Let $c = \sup \{x : f(x) \le L\}$. $f(c) < L$ is not possible since we could find $\delta$ small enough that $f(c+\delta) < L$ contradicting $c$ being an upper bound. And $f(c) > L$ is impossible since we could find $\delta$ small enough that $f(c-\delta) > L$ contradicting $c$ being the least upper bound (since we found a smaller upper bound). Thus we must have $f(c) = L$ completing the proof.
