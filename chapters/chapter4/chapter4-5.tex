@@ -121,7 +121,7 @@ You could go through the grunt work of verifying that this meets the requirement
   Let $f$ be a continuous function on the closed interval $[0,1]$ with range also contained in $[0,1]$. Prove that $f$ must have a fixed point; that is, show $f(x)=x$ for at least one value of $x \in[0,1]$.
 \end{exercise}
 \begin{solution}
-  \TODO
+    Since 0 and 1 are both in the range of \(f\), choose \(a\) and \(b\) such that \(f(a) = 0\) and \(f(b) = 1\). Define \(g(x) = f(x) - x\); clearly \(g\) is continuous, \(g(a) = 0 - a = -a \leq 0\), and \(g(b) = 1 - b \geq 0\). By IVT there must be some \(c \in [a, b]\) so that \(g(c) = 0\) and hence \(f(c) = c\).
 \end{solution}
 
 \begin{exercise}[Inverse functions]
