@@ -13,17 +13,26 @@
   \item Modify the function continuous only at zero to be continuous around integers.
     $$
     f(x) = \begin{cases}
-      x - [[x]] &\text{if $x \in \mathbf{Q}$} \\
+      x - \text{round}(x) &\text{if $x \in \mathbf{Q}$} \\
       0 &\text{if $x \in \mathbf{I}$}
     \end{cases}
     $$
-  \item Just $1/x$ with any value for $0$
+where \(\text{round}(x)\) rounds \(x\) to the nearest integer.
+
+  \item Modify the function continuous only at zero to be continuous below 0 and above 1. Let
     $$
-    g(x) = \begin{cases}
-      1/x &\text{if $x \ne 0$} \\
-      0   &\text{if $x = 0$}
+    d(x) = \begin{cases}
+      x &\text{if $x \in \mathbf{Q}$} \\
+      0   &\text{if $x \in \mathbf{I}$}
     \end{cases}
     $$
+then \[
+    g(x) = \begin{cases}
+        0 & \text{if } x \leq 0 \\
+        d(x) & \text{if } 0 < x \leq 1 \\
+        2 & \text{if } 1 < x
+    \end{cases}
+\]
   }
 \end{solution}
 
