@@ -214,6 +214,8 @@
   \enumr{
   \item $f(x) + g(x)$ is clearly uniformly continuous
   \item \(f(x) = g(x) = x\) are individually uniformly continuous over \(\mathbf{R}\) but \(f(x)g(x) = x^2\) is not.
+
+    Note this counterexample only works when $A$ is unbounded. If $A$ is bounded you can prove $f(x)g(x)$ must be uniformly continuous the same way you prove the product rule.
   \item False, consider $f(x)=1$ and $g(x) = x$ over $(0,1)$. Both are uniformly continuous on $(0,1)$ but $f/g = 1/x$ is not.
   \item Want $|f(g(x)) - f(g(y))|<\epsilon$. Since $f$ is uniformly continuous we can find an $\alpha > 0$ so that
     $$|g(x) - g(y)| < \alpha \implies |f(g(x))-f(g(y))| < \epsilon$$
