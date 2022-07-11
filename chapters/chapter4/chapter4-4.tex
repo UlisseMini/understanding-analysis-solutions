@@ -82,6 +82,8 @@
 
   Noting that \(P \subseteq A\) is finite, we can consider \(M = \max (f(P))\). Let $a \in A$ be arbitrary, and identify the nearest \(p \in P\). We have $|a - p| < \delta$ so \(|f(y) - f(p)| < \epsilon\) and since \(f(p) \leq M\), \(f(a) < \epsilon + M\), completing the proof.
 
+  Alternative proof approach: \(\bar{A}\) is closed, bounded, and thus compact. Extend the definition of \(f\) to cover limit points of \(A\) via a limit on \(f\); these limits exist since \(f\) is uniformly continuous (\TODO write explicit proof). The extended \(f\) is continuous, and thus preserves the compactness of \(\bar{A}\); therefore \(f(A)\) is bounded.
+
   \item Any function with finite range preserves compact sets, since all finite sets are compact. Meaning Dirichlet's function
     $$
     g(x) = \begin{cases}
