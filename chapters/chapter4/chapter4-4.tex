@@ -60,7 +60,7 @@
   \le 2
   $$
   For $(0, 1]$ consider $x_n = 1/n$ and $y_n = 1/2n$. we have $|x_n - y_n| \to 0$ but
-  $$|f(x_n) - f(y_n)| = |n - 2n| = n$$
+  $$|f(x_n) - f(y_n)| = |n^2 - 4n^2| = 3n^2$$
   is unbounded, hence $f$ is not uniformly continuous on $(0, 1]$ by Theorem 4.4.5.
 \end{solution}
 
@@ -76,9 +76,15 @@
 \begin{solution}
   \enum{
   \item True, the Algebraic Limit Theorem implies $1/f$ is continuous (well defined since $f > 0$) and the Extreme Value Theorem implies $1/f$ attains a maximum and minimum and so is bounded.
-  \item Let $\epsilon = 1$ and choose $\delta > 0$ so that $|x - y| < \delta$ implies $|f(x)-f(y)|<\epsilon$. Partition $A$ into $P = \{x_0, \dots, x_n\}$ where each interval is smaller then $\delta$ (ie. $\forall k,\; x_k - x_{k-1} < \delta$).
-    Let $y \in A$ be arbitrary, we have $|y - x_0| < n\delta$ meaning $|f(y) - f(x_0)| < n\epsilon$ by the triangle inequality. Meaning every $y \in A$ has $f(y) \in (f(x_0)-n, f(x_0)+n)$ and so $f(A)$ is bounded.
-  \item Any function with finite range preserves compact sets, since all finite sets are compact. Meaning dirichlet's function
+  \item Let $\epsilon = 1$ and choose $\delta > 0$ so that $|x - y| < \delta$ implies $|f(x)-f(y)|<\epsilon$. Define the set \(X = \{x_0, \dots, x_n\}\) consisting of evenly spaced values \(x_i\), ranging from \(x_0 = \inf A\) to \(x_n =\sup A\), with the spacing between each value less than \(\delta/2\) (i.e. \(\forall k,\; x_k - x_{k-1} < \delta/2\)). Now define the set \(P = \{p_0, \dots, p_m\}\) where for each \(x_i \in X\), we add one element \(p_i \in A \cap V_{\delta/2}(x)\), if \(A \cap V_{\delta/2}(x) \neq \emptyset\) (and do not add anything if \(A \cap V_{\delta/2}(x) = \emptyset\)).
+
+  Now, every element \(a \in A\) is at most \(\delta\) from an element \(p \in P\) (i.e. \(|a - x| < \delta\)). To see this, for any \(a \in A\), there must be some \(x_i \in X\) so that \(|a - x_i| < \delta / 2\), and since \(A \cap V_{\delta/2}(x) \neq \emptyset\) (it at least contains \(a\)), there must also be an element \(p_i\in P\) so that \(|x_i - p| < \delta /2\). By the Triangle Inequality, \(|a - p| < \delta\) for some \(p \in P\).
+
+  Noting that \(P \subseteq A\) is finite, we can consider \(M = \max (f(P))\). Let $a \in A$ be arbitrary, and identify the nearest \(p \in P\). We have $|a - p| < \delta$ so \(|f(y) - f(p)| < \epsilon\) and since \(f(p) \leq M\), \(f(a) < \epsilon + M\), completing the proof.
+
+  Alternative proof approach: \(\bar{A}\) is closed, bounded, and thus compact. Extend the definition of \(f\) to cover limit points of \(A\) via a limit on \(f\); these limits exist since \(f\) is uniformly continuous (\TODO write explicit proof). The extended \(f\) is continuous, and thus preserves the compactness of \(\bar{A}\); therefore \(f(A)\) is bounded.
+
+  \item Any function with finite range preserves compact sets, since all finite sets are compact. Meaning Dirichlet's function
     $$
     g(x) = \begin{cases}
       1 &\text{ if } x \in \mathbf{Q} \\
@@ -170,7 +176,8 @@
       \draw (1/3, 0) -- (2/3, 1);
       \draw (2/3, 1) -- (1, 1);
     \end{tikzpicture}
-  \item Impossible. for each $y \in \{0,1\}$ we can make a convergent sequence $(x_n) \to x$ so that $f(x_n) \to y$ but since $y \notin (0,1)$ we must have $x \notin (0, 1]$. But since $(0,1]$ only has a single ``escape'' point (a limit point outside the set) we run into a contradiction.
+  \item Consider \(g(x) = \sin(1/x) (1-x)\) over \(x \in (0, 1]\); clearly \(g(x)\)  is continuous over this interval. The \(1-x\) term bounds \(g(x)\) to \((-1, 1)\), while the \(\sin(1/x)\) ensures that \(g(x)\) will approach this bound arbitrarily close as \(x \to 0\). Thus, the range of \(g(x)\) is \((-1, 1)\).
+  We now just need to shape this to \((0, 1)\) by defining \(f(x) = (g(x) + 1) / 2\).
   }
 \end{solution}
 
@@ -206,19 +213,11 @@
 \end{exercise}
 
 \begin{solution}
-  Note both $f$ and $g$ are bounded since they are uniformly continuous (Pick $x \in A$ and $\epsilon$ then cover with $\delta$-length intervals) so we can let $|f(x)| \le M$ and $|g(x)| \le M$.
-
   \enumr{
   \item $f(x) + g(x)$ is clearly uniformly continuous
-  \item Similar to the continuous proof of $f(x)g(x)$ being continuous
-    $$
-    \begin{aligned}
-      |f(x)g(x) - f(y)g(y)|
-      &\le |f(x)g(x) - f(x)g(y)| + |f(x)g(y) - f(y)g(y)| \\
-      &\le M|g(x) - g(y)| + M|f(x) - f(y)| \\
-      &< M\left(\frac{\epsilon}{2M} + \frac{\epsilon}{2M}\right) = \epsilon
-    \end{aligned}
-    $$
+  \item \(f(x) = g(x) = x\) are individually uniformly continuous over \(\mathbf{R}\) but \(f(x)g(x) = x^2\) is not.
+
+    Note this counterexample only works when $A$ is unbounded. If $A$ is bounded you can prove $f(x)g(x)$ must be uniformly continuous the same way you prove the product rule.
   \item False, consider $f(x)=1$ and $g(x) = x$ over $(0,1)$. Both are uniformly continuous on $(0,1)$ but $f/g = 1/x$ is not.
   \item Want $|f(g(x)) - f(g(y))|<\epsilon$. Since $f$ is uniformly continuous we can find an $\alpha > 0$ so that
     $$|g(x) - g(y)| < \alpha \implies |f(g(x))-f(g(y))| < \epsilon$$
@@ -292,7 +291,12 @@
 \end{exercise}
 
 \begin{solution}
-  Let $f$ be continuous on $K$, and choose $\epsilon > 0$. We can create the open cover $\{V_{\delta_x}(x) : x \in K\}$ where $\delta_x$ is chosen so every $y \in V_\delta(x)$ has $|f(x)-f(y)|<\epsilon/2$.
-  Now since $K$ is compact there exists a finite subcover $\{V_{\delta_1}(x_1), \dots, V_{\delta_n}(x_n)\}$ (ordered, $x_k < x_{k+1}$) with $K \subseteq \bigcup_{k=1}^n V_{\delta_k}(x_k)$. Let $\delta = \min\{\delta_1, \dots, \delta_n\}$, if $x,y \in  K$ with $|x-y| < \delta$ then either both $x,y \in V_{\delta_k}(x_k)$ so $|f(x)-f(y)|<\epsilon/2$ or
-  $x \in V_{\delta_k}$ and $y \in V_{\delta_{k+1}}$ meaning we can find an $m \in V_{\delta_k}(x_k) \cap V_{\delta_{k+1}}(x_{k+1})$ with $|f(x)-f(y)|\le |f(x)-f(m)|+|f(m)-f(y)|<\epsilon/2+\epsilon/2=\epsilon$. (The intersection is nonempty because there cannot be gaps between $V_{\delta_k}(x_k)$ and $V_{\delta_{k+1}}(x_{k+1})$.)
+  Let $f$ be continuous on $K$, and choose $\epsilon > 0$. We can create the open cover $\{V_{\delta_x / 2}(x) : x \in K\}$ where $\delta_x$ is chosen so every $y \in V_\delta(x)$ has $|f(x)-f(y)|<\epsilon/2$.
+  Now since $K$ is compact there exists a finite subcover $O = \{V_{\delta_1 / 2}(x_1), \dots, V_{\delta_n / 2}(x_n)\}$ with $K \subseteq \bigcup_{k=1}^n V_{\delta_k / 2}(x_k)$.
+
+  Let $\delta = \min\{\delta_1, \dots, \delta_n\} / 2$ and choose arbitrary \(x \in K\). Since \(O\) is an open cover of \(K\), there must be some \(V_{\delta_i / 2} (x_i) \ni x\). Now suppose \(y \in K\) so that \(|x - y| < \delta\). Then
+  \[|x - y| < \delta \leq \delta_i / 2 \text { and } |x - x_i| < \delta_i / 2 \implies |y - x_i| < \delta_i\]
+
+  Also, \(|x - x_i| < \delta_i / 2 < \delta_i\). Since \(f\) is continuous at \(x_i\), this implies \(|f(y) - f(x_i)| < \epsilon / 2\) and \(|f(x) - f(x_i)| < \epsilon / 2\), so by the Triangle Inequality \(|f(x) - f(y)| < \epsilon\).
+
 \end{solution}
