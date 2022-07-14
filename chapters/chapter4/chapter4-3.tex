@@ -282,11 +282,11 @@ Let
 \end{exercise}
 
 \begin{solution}
-  Let $x \in \mathbf R$ and let $a \in F$ be the element of $F$ closest to $x$ (must exist since $F$ is closed), we have $0 \le g(y) \le |y-a|$ and $g(x) = |x-a|$ thus $-|x-a| \le g(y)-g(x) \le |y-a|-|x-a|$ so
+  Let $x \in \mathbf R$ and let $a \in F$ be the element of $F$ closest to $x$ (must exist since $F$ is closed), we have $0 \le g(y) \le |y-a|$ and $g(x) = |x-a|$. Similarly, let $b \in F$ be the element of $F$ closest to $y$. For the rest of the argument to make sense, we need to pick $a$ as our comparison point if $|x-a| \le |y-b|$ or $b$ otherwise. Suppose, without loss of generality, that we pick $a$. Thus, not only $-|x-a| \le g(y)-g(x) \le |y-a|-|x-a|$ but also $|x-a| \le |y-b| \implies 0 \le g(y) - g(x)$. This allows us to write
   $$|g(y) - g(x)| \le ||y-a| - |x-a||$$
   Applying the bound from Exercise 1.2.6 (d) we get
   $$||y-a|-|x-a|| \le |(y-a) - (x-a)| = |y-x| < \delta$$
-  Setting $\delta = \epsilon$ gives $|g(x)-g(y)|<\epsilon$ as desired.
+  Setting $\delta = \epsilon$ gives $|g(x)-g(y)|<\epsilon$ as desired. If we had to pick $b$, the argument is the same just replacing $y$ with $x$ and vice-versa.
 
   To see $g(x) \ne 0$ for $x \notin F$ notice that $F^c$ is open so there exists an $\alpha>0$ so that $V_\alpha(x) \cap F = \emptyset$ meaning $g(x) \ge \alpha$ and so $g(x) \ne 0$.
 \end{solution}
