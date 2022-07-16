@@ -135,8 +135,10 @@
 \begin{solution}
   \enum{
   \item All $a > 0$, if $a = 0$ we get the step function and $a < 0$ gives an asymptote
-  \item Differentiable for all $a > 0$, though the derivative won't be continuous if $a \in (0, 1)$ since then $ax^{a-1}$ has an asymptote at zero while the $\le 0$ branch is still zero.
-  \item The first derivative is $ax^{a-1}$ which we need to be differentiable at zero, so $a > 1$. 
+  \item At zero, if the derivative exists, then the one-sided limit from above
+  \[\lim_{x \to 0^+} \frac{x^a}{x} = \lim_{x \to 0^+} x^{a-1}\]
+        must exist and be equal to zero (to match the limit from below). Thus \(a > 1\) is necessary, and in this case the derivative will be continuous.
+  \item The first derivative is $ax^{a-1}$, and its derivative at zero must be zero, so $a > 2$.
   }
 \end{solution}
 
