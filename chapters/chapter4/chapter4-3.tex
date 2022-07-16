@@ -282,7 +282,7 @@ Let
 \end{exercise}
 
 \begin{solution}
-  Let $x \in \mathbf R$ and let $a \in F$ be the element of $F$ closest to $x$ (must exist since $F$ is closed), we have $0 \le g(y) \le |y-a|$ and $g(x) = |x-a|$. Similarly, let $b \in F$ be the element of $F$ closest to $y$. For the rest of the argument to make sense, we need to pick $a$ as our comparison point if $|x-a| \le |y-b|$ or $b$ otherwise. Suppose, without loss of generality, that we pick $a$. Thus, not only $-|x-a| \le g(y)-g(x) \le |y-a|-|x-a|$ but also $|x-a| \le |y-b| \implies 0 \le g(y) - g(x)$. This allows us to write
+  Let $x \in \mathbf R$ and let $a \in F$ be the element of $F$ closest to $x$ (must exist since $F$ is closed), we have $0 \le g(y) \le |y-a|$ and $g(x) = |x-a|$. Similarly, let $b \in F$ be the element of $F$ closest to $y$. For the rest of the argument to make sense, we need to pick $a$ as our comparison point if $|x-a| \le |y-b|$ or $b$ otherwise. Suppose, without loss of generality, that we pick $a$. Thus, not only $g(y)-g(x) \le |y-a|-|x-a|$ but also $|x-a| \le |y-b| \implies 0 \le g(y) - g(x)$. This allows us to write
   $$|g(y) - g(x)| \le ||y-a| - |x-a||$$
   Applying the bound from Exercise 1.2.6 (d) we get
   $$||y-a|-|x-a|| \le |(y-a) - (x-a)| = |y-x| < \delta$$
