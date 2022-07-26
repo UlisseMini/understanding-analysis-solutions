@@ -164,6 +164,10 @@ By the mean value theorem, there must be some \(d \in (0, 1)\) where \(\abs{f'(d
   \left|\frac{f(x) - f(0)}{x - 0} - L\right| < \epsilon
   $$
   Meaning the limit defining $f'(0)$ exists and equals $L$.
+
+  Alternative proof using L'Hospital's rule: Let \(g(x) = f(x) - f(0)\) (and note that they have the same derivatives and are both continuous), then
+  \[f'(0) = g'(0) = \lim_{x \to 0} \frac{g(x)}{x} = \lim_{x \to 0}\frac{g'(x)}{1} = L\]
+  (A modified function is necessary to ensure \(\lim_{x \to 0} g(x) = 0\).)
 \end{solution}
 
 \begin{exercise}
