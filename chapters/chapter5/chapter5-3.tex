@@ -22,12 +22,11 @@
     \left|\frac{f(x)-f(y)}{x-y}\right| = |f'(c)| \le M
     $$
     Since $x,y$ were arbitrary this shows $f$ is Lipschitz.
-  \item For $f$ to be contractive we need some $c \in (0, 1)$ with $|f(x)-f(y)| \le c|x-y|$.
-    Set
-    $$c = \sup \{|f'(x)| : x \in [a,b]\}$$
-    Clearly $|f'(x)| \le c$, now apply the Extreme Value Theorem to find $d \in [a,b]$ with $|f'(d)| = c$, which implies $c < 1$ since $|f'(d)| < 1$.
 
-    Now apply the MVT as in (a) to bound $|f(x) - f(y)| \le c|x-y|$, which shows $f$ is contractive.
+  \item For $f$ to be contractive we need some $c \in (0, 1)$ with $|f(x)-f(y)| \le c|x-y|$.
+Let \(x\) and \(y\) be arbitrary, and consider
+    \[c = \left|\frac{f(x) - f(y)}{x -y} \right|\]
+By the mean value theorem, there must be some \(d \in (0, 1)\) where \(\abs{f'(d)} = c\). But since \(x\) and \(y\) are arbitrary and \(\abs{f'(d)} < 1\), we must have \(c < 1\) always, and therefore \(f\) is contractive.
   }
 \end{solution}
 
@@ -291,7 +290,7 @@
   (Compare this to Exercise 5.2.6(b).)
 \end{exercise}
 \begin{solution}
-  Let $\epsilon > 0$ and choose $\delta_1 > 0$ so every $|h| < \delta_1$ has 
+  Let $\epsilon > 0$ and choose $\delta_1 > 0$ so every $|h| < \delta_1$ has
   $$
   \left|\frac{f(a+h) - f(a)}{h} - f'(a)\right| < \epsilon
   $$
@@ -316,7 +315,7 @@
   Recall our choice of $\delta$ ensures that $|x-c|<\delta$ implies $|f''(x)-f''(a)|<\epsilon$, setting $x=c'$ (note $|c'-a|<\delta$) gives (putting everything together)
   $$
   \begin{aligned}
-  \left|\frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} - f''(a)\right| 
+  \left|\frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} - f''(a)\right|
   &= \left|\frac{f'(c) - f'(d)}{h} - f''(a)\right| \\
   &= \left|f''(c') - f''(a)\right| \\
   &< \epsilon.
