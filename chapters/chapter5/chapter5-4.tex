@@ -1,0 +1,63 @@
+\section{A Continuous Nowhere-Differentiable Function}
+
+\begin{exercise}
+    Sketch a graph of \((1/2)h(2x)\) on \([-2,3]\). Give a qualitative description of the functions
+    \[h_n(x) = \frac{1}{2^n}h(2^n x)\] as \(n\) gets larger.
+\end{exercise}
+
+\begin{exercise}
+ Fix $x \in \mathbf{R}$. Argue that the series
+\[
+\sum_{n=0}^{\infty} \frac{1}{2^{n}} h\left(2^{n} x\right)
+\]
+converges and thus $g(x)$ is properly defined.
+
+\end{exercise}
+
+\begin{exercise}
+Taking the continuity of $h(x)$ as given, reference the proper theorems from Chapter 4 that imply that the finite sum
+\[
+g_{m}(x)=\sum_{n=0}^{m} \frac{1}{2^{n}} h\left(2^{n} x\right)
+\]
+is continuous on $\mathbf{R}$.
+\end{exercise}
+
+\begin{exercise}
+As the graph in Figure 5.7 suggests, the structure of $g(x)$ is quite intricate. Answer the following questions, assuming that $g(x)$ is indeed continuous.
+\enum{
+\item How do we know $g$ attains a maximum value $M$ on $[0,2]$ ? What is this value?
+\item Let $D$ be the set of points in $[0,2]$ where $g$ attains its maximum. That is $D=\{x \in[0,2]: g(x)=M\}$. Find one point in $D$.
+\item Is $D$ finite, countable, or uncountable?
+}
+\end{exercise}
+
+\begin{exercise}
+Show that
+$$
+\frac{g\left(x_{m}\right)-g(0)}{x_{m}-0}=m+1
+$$
+and use this to prove that $g^{\prime}(0)$ does not exist.
+\end{exercise}
+
+\begin{exercise}
+\enum{
+\item Modify the previous argument to show that $g^{\prime}(1)$ does not exist. Show that $g^{\prime}(1 / 2)$ does not exist.
+\item Show that $g^{\prime}(x)$ does not exist for any rational number of the form $x=$ $p / 2^{k}$ where $p \in \mathbf{Z}$ and $k \in \mathbf{N} \cup\{0\}$.
+}
+
+\end{exercise}
+
+\begin{exercise}
+\enum{
+    \item First prove the following general lemma: Let $f$ be defined on an open interval $J$ and assume $f$ is differentiable at $a \in J$. If $\left(a_{n}\right)$ and $\left(b_{n}\right)$ are sequences satisfying $a_{n}<a<b_{n}$ and $\lim a_{n}=\lim b_{n}=a$, show
+$$
+f^{\prime}(a)=\lim _{n \rightarrow \infty} \frac{f\left(b_{n}\right)-f\left(a_{n}\right)}{b_{n}-a_{n}} .
+$$
+    \item Now use this lemma to show that $g^{\prime}(x)$ does not exist.
+}
+
+\end{exercise}
+
+\begin{exercise}
+Review the argument for the nondifferentiability of $g(x)$ at nondyadic points. Does the argument still work if we replace $g(x)$ with the summation $\sum_{n=0}^{\infty}\left(1 / 2^{n}\right) h\left(3^{n} x\right)$ ? Does the argument work for the function $\sum_{n=0}^{\infty}\left(1 / 3^{n}\right) h\left(2^{n} x\right) ?$
+\end{exercise}
