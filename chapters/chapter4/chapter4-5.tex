@@ -4,13 +4,7 @@
   Show how the Intermediate Value Theorem follows as a corollary to preservation of connected sets (Theorem 4.5.2).
 \end{exercise}
 \begin{solution}
-  Let $f$ be a continuous function defined over $[a,b]$. And let $L$ be a real number such that $f(a) < L < f(b)$.
-
-  Define $A = \{x \in [a,b] : f(x) \le L\}$ and $B = \{x \in [a,b] : f(x) > L\}$. $A,B$ are clearly disjoint, they are also nonempty since $a \in A$ and $b \in B$. Since $[a,b]$ is connected there exists a sequence in $A$ or $B$ with limit in the other. Let $(x_n)$ be such a sequence, I claim $(x_n) \to x$ with $f(x) = L$.
-
-  $(x_n)$ cannot be contained in $A$ since $f(x_n) \le L$ implies $f(x) \le L$ and $x \in A$ ($A$ is closed)
-
-  If $(x_n)$ is contained in $B$ then $f(x_n) > L$ implies $f(x) \ge L$ by the Order Limit Theorem. But since $x \in A$ we have $f(x) \le A$ as well. Thus $f(x) = L$ completing the proof.
+  Since \([a, b]\) is connected, so too must be \(f([a, b])\), which must be an interval containing both \(f(a)\) and \(f(b)\); therefore \([f(a), f(b)]\) (or \([f(b), f(a)]\) if \(f(b) < f(a)\)) is a subset of \(f([a, b])\), completing the proof.
 \end{solution}
 
 \begin{exercise}
@@ -67,17 +61,16 @@
   }
 \end{exercise}
 \begin{solution}
-  Let $f$ be continuous, and let $L \in (f(a), f(b))$, we must find $c \in (a,b)$ with $f(c) = L$.
+  Let $f$ be continuous, and let $L \in (f(a), f(b))$, we must find $c \in (a,b)$ with $f(c) = L$. (If \(f(a) > f(b)\) then instead consider \(f'(x) = -f(x)\) and \(L' = -L\))
 
   \enum{
   \item Let $c = \sup \{x : f(x) \le L\}$. $f(c) < L$ is not possible since we could find $\delta$ small enough that $f(c+\delta) < L$ contradicting $c$ being an upper bound. And $f(c) > L$ is impossible since we could find $\delta$ small enough that $f(c-\delta) > L$ contradicting $c$ being the least upper bound (since we found a smaller upper bound). Thus we must have $f(c) = L$ completing the proof.
 
     A detail we glossed over is $c \in (a,b)$, which can be seen since $f(b) > L$ and $f(a) < L$ has $f(a+\delta) < L$ meaning $a$ cannot be the least upper bound.
   \item Let $I_0 = [a,b]$ and bisect into two intervals, let $I_1$ be the interval where $L$ is still between $f$ at the endpoints.
-    Continue like this to get a sequence $I_n \subseteq I_{n+1}$, $I_n \ne \emptyset$ and let $c \in \bigcap_{n=1}^\infty I_n$.
-    If $f(c) \ne L$ is impossible since we would eventually remove it. Thus $f(c) = L$
+    Continue like this to get a sequence $I_n \subseteq I_{n-1}$, $I_n \ne \emptyset$, and let $c \in \bigcap_{n=1}^\infty I_n$.
 
-    \TODO Make rigorous
+ Suppose for contradiction that \(f(c) < L\); then there must be some \(\epsilon > 0\) so that \(V_\epsilon(f(c)) < L\). Since \(f\) is continuous, there must also be some \(\delta\) so that \(f(V_\delta(c)) < L\) - but this contradicts our construction in that one endpoint of \(I_n\) is mapped to a number greater than \(L\), no matter how large \(n\) gets and how small \(I_n\) is as a result. A similar argument shows \(f(c)\) cannot be larger than \(L\), and therefore \(f(c) = L\).
   }
 \end{solution}
 
@@ -90,14 +83,36 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+\item Let \(g(x) = f(x) - f(x + 1/2)\) and note that \(g(x)\) is continuous over \([0, 1/2]\). Note also that \(g(0) = f(0) - f(1/2) = -g(1/2) = f(1/2) - f(1)\), and therefore we can apply IVT to \(g(x)\) over \([0, 1/2]\) to conclude that there must be a root of \(g(x)\), and therefore \(f(x) = f(x + 1/2)\), for some \(x \in [0, 1/2]\).
+
+\item Let \(g(x) = f(x) - f(x + 1/n)\) and note that \(g(x)\) is continuous over \([0, \frac{n-1}{n}]\). Note also that \(g(0) = -\sum^{n-1}_{i=1} g(i/n)\), and since $g(0)$ and $\sum^{n-1}_{i=1} g(i/n)$ have opposite sign there must be some natural number \(1 \leq i \leq n-1\) where \(g(i/n)\) is opposite in sign from \(g(0)\), at which point we can apply IVT in a similar fashion to part (a) and find a root of \(g(x)\), completing the proof.
+
+\item Consider
+\[f(x) = \begin{cases}
+      -10 (x - 0) + 0 & 0 < x \leq 1/5 \\
+      15 (x - 1/5) - 2 & 1/5 < x \leq 2/5 \\
+      -10 (x - 2/5) + 1 & 2/5 < x \leq 3/5 \\
+      15 (x - 3/5) - 1 & 3/5 < x \leq 4/5 \\
+      -10 (x - 4/5) + 2 & 4/5 < x \leq 1 \\
+\end{cases}\]
+You could go through the grunt work of verifying that this meets the requirements, but it's easier to just plot the function (see graphic) - the function takes a corner every 1/5 along \(x\).
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\draw (0,0) -- (1,-1) -- (2, 1/2)  -- (3, -1/2) -- (4, 1) -- (5, 0);
+\end{tikzpicture}
+\end{figure}
+}
+
 \end{solution}
 
 \begin{exercise}
   Let $f$ be a continuous function on the closed interval $[0,1]$ with range also contained in $[0,1]$. Prove that $f$ must have a fixed point; that is, show $f(x)=x$ for at least one value of $x \in[0,1]$.
 \end{exercise}
 \begin{solution}
-  \TODO
+    Since 0 and 1 are both in the range of \(f\), choose \(a\) and \(b\) such that \(f(a) = 0\) and \(f(b) = 1\). Define \(g(x) = f(x) - x\); clearly \(g\) is continuous, \(g(a) = 0 - a = -a \leq 0\), and \(g(b) = 1 - b \geq 0\). By IVT there must be some \(c \in [a, b]\) so that \(g(c) = 0\) and hence \(f(c) = c\).
 \end{solution}
 
 \begin{exercise}[Inverse functions]
@@ -105,6 +120,9 @@
 
   Show that if $f$ is continuous on an interval $[a, b]$ and one-to-one, then $f^{-1}$ is also continuous.
 \end{exercise}
+
 \begin{solution}
-  \TODO
+Define a function \(f\) to be strictly increasing (decreasing) on $A$ if $f(x) < f(y)$ (\(f(x) > f(y)\)) for all $x<y$ in $A$, and define strictly monotone to mean either strictly increasing or strictly decreasing. It's easy to show by contradiction using IVT that a one-to-one continuous function \(f\) must be strictly monotone, and similarly so is \(f^{-1}\). Moreover, if \(f\) is strictly increasing then so is \(f^{-1}\), and if \(f\) is strictly decreasing then so is \(f^{-1}\).
+
+We now show that \(f^{-1}\) satisfies the intermediate value property. Assume for now that \(f\) is strictly increasing - the proof for the case of strictly decreasing is similar. Consider \(f(x_1) = y_1 < f(x_2) = y_2\) and any \(L\) between \(f^{-1}(y_1)\) and \(f^{-1}(y_2)\), i.e. \(x_1 < L < x_2\); we need to show there is some \(y_3 \in [y_1, y_2]\) such that \(f^{-1}(y_3) = L\); clearly \(y_3 = f(L)\) works. By Exercise 4.5.3, this shows \(f^{-1}(x)\) is continuous.
 \end{solution}
