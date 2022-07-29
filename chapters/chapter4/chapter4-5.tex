@@ -4,16 +4,7 @@
   Show how the Intermediate Value Theorem follows as a corollary to preservation of connected sets (Theorem 4.5.2).
 \end{exercise}
 \begin{solution}
-  Let $f$ be a continuous function defined over $[a,b]$. And let $L$ be a real number such that $f(a) < L < f(b)$.
-
-  Define $A = \{x \in [a,b] : f(x) \le L\}$ and $B = \{x \in [a,b] : f(x) > L\}$. $A,B$ are clearly disjoint, they are also nonempty since $a \in A$ and $b \in B$. Since $[a,b]$ is connected there exists a sequence in $A$ or $B$ with limit in the other. Let $(x_n)$ be such a sequence, I claim $(x_n) \to x$ with $f(x) = L$.
-
-  $(x_n)$ cannot be contained in $A$ since $f(x_n) \le L$ implies $f(x) \le L$ and $x \in A$ ($A$ is closed)
-
-  If $(x_n)$ is contained in $B$ then $f(x_n) > L$ implies $f(x) \ge L$ by the Order Limit Theorem. But since $x \in A$ we have $f(x) \le A$ as well. Thus $f(x) = L$ completing the proof.
-
-  Alternative proof which takes advantage of how connected sets in \(\mathbf{R}\) are intervals: Since \([a, b]\) is connected, so too must be \(f([a, b])\), which must be an interval containing both \(f(a)\) and \(f(b)\); therefore \([f(a), f(b)]\) (or \([f(b), f(a)]\) if \(f(b) < f(a)\)) is a subset of \(f([a, b])\), completing the proof.
-
+  Since \([a, b]\) is connected, so too must be \(f([a, b])\), which must be an interval containing both \(f(a)\) and \(f(b)\); therefore \([f(a), f(b)]\) (or \([f(b), f(a)]\) if \(f(b) < f(a)\)) is a subset of \(f([a, b])\), completing the proof.
 \end{solution}
 
 \begin{exercise}
