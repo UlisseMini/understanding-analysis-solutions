@@ -135,8 +135,10 @@
 \begin{solution}
   \enum{
   \item All $a > 0$, if $a = 0$ we get the step function and $a < 0$ gives an asymptote
-  \item Differentiable for all $a > 0$, though the derivative won't be continuous if $a \in (0, 1)$ since then $ax^{a-1}$ has an asymptote at zero while the $\le 0$ branch is still zero.
-  \item The first derivative is $ax^{a-1}$ which we need to be differentiable at zero, so $a > 1$. 
+  \item At zero, if the derivative exists, then the one-sided limit from above
+  \[\lim_{x \to 0^+} \frac{x^a}{x} = \lim_{x \to 0^+} x^{a-1}\]
+        must exist and be equal to zero (to match the limit from below). Thus \(a > 1\) is necessary, and in this case the derivative will be continuous.
+  \item The first derivative is $ax^{a-1}$, and its derivative at zero must be zero, so $a > 2$.
   }
 \end{solution}
 
@@ -226,6 +228,18 @@
     Fix $0 < h < \delta$, since $x$ can be as big as we want we can make $|3xh + 2h^2| > \epsilon$.
     As no fixed $\delta$ works $x^3$ is not uniformly differentiable.
 
+    \item We need to show that \(\lim_{x \to y} f'(x) = f'(y)\). Now, if we choose \(\delta\) small enough such that when \(\abs{x - y} < \delta\), both
+    \[\abs{f'(x) - \frac{f(x) - f(y)}{x - y}} < \frac{\epsilon}{2}\]
+    and
+    \[\abs{\frac{f(x) - f(y)}{x - y} - f'(y)} < \frac{\epsilon}{2}\]
+    (this is possible because \(f\) is uniformly differentiable), then we have
+    \[\begin{aligned}
+    f'(x) - f'(y) &= f'(x) -\frac{f(x) - f(y)}{x - y} + \frac{f(x) - f(y)}{x - y} - f'(y) \\
+    & \leq \abs{f'(x) - \frac{f(x) - f(y)}{x - y}} +\abs{\frac{f(x) - f(y)}{x - y} - f'(y)}  < \epsilon
+    \end{aligned}
+    \]
+    as desired.
+
   \item
     Consider the counterexample $f(x) = x^2\sin(1/x)$ over $[0,1]$ (where $f(0) = 0$).
     $f$ is differentiable over $[0,1]$ but not uniformly differentiable.
@@ -274,12 +288,14 @@
     $$
     Thus $f'(0) = 1/2$, pick any $\delta$ and I can find $x \in V_\delta(0)$ with $f'(x) \le 0$.
     To be explicit define $x_n = 1/(2\pi n)$ so that $f'(x_n) = -1/2$ then pick $n$ large enough so $x_n \in V_\delta(0)$.
-  \item This isn't saying derivatives are continuous, it's saying \emph{if the limit exists} then $L = f'(0)$.
-    Attempting to use $x^2\sin(1/x)$ again as a counterexample doesn't work as the limit doesn't exist.
-    And modifying it into $x^{2.5}\sin(1/x)$ (so the limit exists) makes $L = f'(0)$.
+  \item
+    A direct proof using L'Hospital's rule: continuity of $f$ forces the limit of the quotient to be $0/0$.
+    $$
+    f'(0) = \lim_{x \to 0} \frac{f(x) - f(0)}{x} = \lim_{x \to 0} f'(x) = L
+    $$
+    In general a corollary of L'Hospital's rule is that derivatives can only have \emph{essential} discontinuities, discontinuities where $\lim_{x \to c} f'(x)$ doesn't exist.
 
-    Pick $\delta > 0$, By IVP for any $y \in (f'(0), f'(\delta))$ I can find $x \in (0, \delta)$ with $f'(x) = y$.
-    Thus $L \ne f'(0)$ is impossible as I can always find values of $x \in (-\delta,\delta)$ such that $|f'(x) - f'(0)|$ is as small as I want.
+    Alternatively you can see this by contradiction. Derivatives obeying the IVP rules out jump discontinuities, and removable discontinuities may be ruled out by $\epsilon$-$\delta$ing.
   }
 \end{solution}
 
