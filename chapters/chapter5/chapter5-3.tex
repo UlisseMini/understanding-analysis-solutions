@@ -22,12 +22,11 @@
     \left|\frac{f(x)-f(y)}{x-y}\right| = |f'(c)| \le M
     $$
     Since $x,y$ were arbitrary this shows $f$ is Lipschitz.
-  \item For $f$ to be contractive we need some $c \in (0, 1)$ with $|f(x)-f(y)| \le c|x-y|$.
-    Set
-    $$c = \sup \{|f'(x)| : x \in [a,b]\}$$
-    Clearly $|f'(x)| \le c$, now apply the Extreme Value Theorem to find $d \in [a,b]$ with $|f'(d)| = c$, which implies $c < 1$ since $|f'(d)| < 1$.
 
-    Now apply the MVT as in (a) to bound $|f(x) - f(y)| \le c|x-y|$, which shows $f$ is contractive.
+  \item For $f$ to be contractive we need some $c \in (0, 1)$ with $|f(x)-f(y)| \le c|x-y|$.
+Let \(x\) and \(y\) be arbitrary, and consider
+    \[c = \left|\frac{f(x) - f(y)}{x -y} \right|\]
+By the mean value theorem, there must be some \(d \in (0, 1)\) where \(\abs{f'(d)} = c\). But since \(x\) and \(y\) are arbitrary and \(\abs{f'(d)} < 1\), we must have \(c < 1\) always, and therefore \(f\) is contractive.
   }
 \end{solution}
 
@@ -151,20 +150,9 @@
   Assume $f$ is continuous on an interval containing zero and differentiable for all $x \neq 0$. If $\lim _{x \rightarrow 0} f^{\prime}(x)=L$, show $f^{\prime}(0)$ exists and equals $L$.
 \end{exercise}
 \begin{solution}
-  Let $\delta > 0$ be such that $|f'(x) - L| < \epsilon$ whenever $0<|x|<\delta$,
-  Fix an $x \in (0,\delta)$ and apply MVT on $(0,\delta)$ (possible since $f$ is differentiable on $(0,\delta)$) to get $c \in (0,\delta)$ with
-  $$
-  \frac{f(x) - f(0)}{x - 0} = f'(c)
-  $$
-  Subtracting $L$ from both sides and taking absolute values we see
-  $$
-  \left|\frac{f(x) - f(0)}{x - 0} - L\right| = \left|f'(c) - L\right| < \epsilon
-  $$
-  Since $x$ was arbitrary this holds for every $x \in (0,\delta)$, the same logic shows the inequality for every $x \in (-\delta,0)$. Therefor every $0 < |x| < \delta$ has
-  $$
-  \left|\frac{f(x) - f(0)}{x - 0} - L\right| < \epsilon
-  $$
-  Meaning the limit defining $f'(0)$ exists and equals $L$.
+  Using L'Hospital's rule: Let \(g(x) = f(x) - f(0)\) (and note that they have the same derivatives and are both continuous), then
+  \[f'(0) = g'(0) = \lim_{x \to 0} \frac{g(x)}{x} = \lim_{x \to 0}\frac{g'(x)}{1} = L\]
+  (A modified function is necessary to ensure \(\lim_{x \to 0} g(x) = 0\).)
 \end{solution}
 
 \begin{exercise}
@@ -291,7 +279,7 @@
   (Compare this to Exercise 5.2.6(b).)
 \end{exercise}
 \begin{solution}
-  Let $\epsilon > 0$ and choose $\delta_1 > 0$ so every $|h| < \delta_1$ has 
+  Let $\epsilon > 0$ and choose $\delta_1 > 0$ so every $|h| < \delta_1$ has
   $$
   \left|\frac{f(a+h) - f(a)}{h} - f'(a)\right| < \epsilon
   $$
@@ -316,7 +304,7 @@
   Recall our choice of $\delta$ ensures that $|x-c|<\delta$ implies $|f''(x)-f''(a)|<\epsilon$, setting $x=c'$ (note $|c'-a|<\delta$) gives (putting everything together)
   $$
   \begin{aligned}
-  \left|\frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} - f''(a)\right| 
+  \left|\frac{f(a+h)-2 f(a)+f(a-h)}{h^{2}} - f''(a)\right|
   &= \left|\frac{f'(c) - f'(d)}{h} - f''(a)\right| \\
   &= \left|f''(c') - f''(a)\right| \\
   &< \epsilon.
