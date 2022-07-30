@@ -64,7 +64,7 @@ To find a point in \(D\) we can repeatedly only consider the lower maximum inter
 \[a_n = \frac{1}{2} + \frac{1}{6} \frac{4^n-1}{4^n},\ a_n + b_n = \frac{1}{2} + \frac{4^n + 5}{6}\]
 Both \(a_n\) and \(a_n + b_n\) approach \(1/2 + 1/6 = 2/3\), so we might conjecture \(2/3 \in D\). Indeed, \(2/3\) is in every \([a_n, a_n + b_n]\), and therefore \(2/3\) is a point in \(D\).
 
-\item \(D\) is uncountable; we will use an argument similar to showing that the Cantor set is uncountable - by mapping all sequences \(x_n\) of infinite 0s and 1s to a unique point in \(D\). Construct a sequence of intervals \(I_n\) as such: If \(x_n = 0\) then take the first cycle of \(f_n(x)\) which is in \(I_{n-1}\) and define \(I_n\) to be the maximum interval of \(f_n(x)\) in that cycle; if \(x_n = 1\) then take the second cycle. (For completeness, define \(I_0 = [1/2, 3/2]\).) By the Nested Interval Property the infinite intersection of these intervals yields a point in \(D\), while clearly each unique sequence \(x_n\) will map to a unique point in \(D\). Since the set of all \(x_n\) is uncountable, so too is \(D\). 
+\item \(D\) is uncountable; we will use an argument similar to showing that the Cantor set is uncountable - by mapping all sequences \(x_n\) of infinite 0s and 1s to a unique point in \(D\). Construct a sequence of intervals \(I_n\) as such: If \(x_n = 0\) then take the first cycle of \(f_n(x)\) which is in \(I_{n-1}\) and define \(I_n\) to be the maximum interval of \(f_n(x)\) in that cycle; if \(x_n = 1\) then take the second cycle. (For completeness, define \(I_0 = [1/2, 3/2]\).) By the Nested Interval Property the infinite intersection of these intervals yields a point in \(D\), while clearly each unique sequence \(x_n\) will map to a unique point in \(D\). Since the set of all \(x_n\) is uncountable, so too is \(D\).
 
 }
 \end{solution}
@@ -76,6 +76,15 @@ $$
 $$
 and use this to prove that $g^{\prime}(0)$ does not exist.
 \end{exercise}
+
+\begin{solution}
+Note that \(h_n(x_m) = x_m\) for \(0 \leq n \leq x_m\) and \(h_n(x_m) = 0\) for \(n > x_m\), therefore \(g(x_m) = (m + 1) x_m\). Clearly \(g(0) = 0\) , so
+\[\frac{g\left(x_{m}\right)-g(0)}{x_{m}-0}=m+1\]
+
+If \(g'(0)\) existed, then
+\[\lim_{x \to 0} \frac{g(x)-g(0)}{x-0}\]
+would be well defined. But we've just identified a sequence \(x_m\) approaching 0 for which this expression grows without bound, and hence this limit cannot exist, and therefore \(g'(0)\) does not exist.
+\end{solution}
 
 \begin{exercise}
 \enum{
