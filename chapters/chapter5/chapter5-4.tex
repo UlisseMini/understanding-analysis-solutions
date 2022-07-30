@@ -78,7 +78,7 @@ and use this to prove that $g^{\prime}(0)$ does not exist.
 \end{exercise}
 
 \begin{solution}
-Note that \(h_n(x_m) = x_m\) for \(0 \leq n \leq x_m\) and \(h_n(x_m) = 0\) for \(n > x_m\), therefore \(g(x_m) = (m + 1) x_m\). Clearly \(g(0) = 0\) , so
+Note that \(h_n(x_m) = x_m\) for \(0 \leq n \leq m\) and \(h_n(x_m) = 0\) for \(n > m\), therefore \(g(x_m) = (m + 1) x_m\). Clearly \(g(0) = 0\) , so
 \[\frac{g\left(x_{m}\right)-g(0)}{x_{m}-0}=m+1\]
 
 If \(g'(0)\) existed, then
@@ -91,8 +91,23 @@ would be well defined. But we've just identified a sequence \(x_m\) approaching 
 \item Modify the previous argument to show that $g^{\prime}(1)$ does not exist. Show that $g^{\prime}(1 / 2)$ does not exist.
 \item Show that $g^{\prime}(x)$ does not exist for any rational number of the form $x=$ $p / 2^{k}$ where $p \in \mathbf{Z}$ and $k \in \mathbf{N} \cup\{0\}$.
 }
-
 \end{exercise}
+
+\begin{solution}
+\enum{
+    \item Let \(x_m = 1 + 1/2^m\) with \(m \geq 0\). Then \(h_0(x_m) = 1 - 1/2^m\), \(h_n(x_m) = 1/2^m\) for \(1 \leq n \leq m\), and \(h_n(x_m) = 0\) for \(n > m\). \(g(1) = 1\), so
+    \[\frac{g(x_m) - g(1)}{x_m - 1} = \frac{1 - 1/2^m + m/2^m - 1}{1/2^m} = m-1\]
+    and for the same reason as in Exercise 5.4.5, \(g'(1)\) does not exist.
+
+    \(h_0(x)\) is differentiable at \(1/2\), so we can instead consider whether \((g - h_0)(x)\) is differentiable at \(1/2\). But since \(h_n(x) = 2h_{n+1}(x/2)\), \(g(x) = 2(g-h_0)(x/2)\). Since \(g'(1)\) does not exist, both \(g-h_0\) and \(g\) are not differentiable at \(1/2\).
+
+    \item Note that \(h_n(x)\) is only non-differentiable at points of the form \(q/2^n\) where \(q \in \mathbf{Z}\). Express \(x\) in lowest form, so that \(p\) is odd, and consider
+    \[i(x) = g(x) - \sum^{k-1}_{n=0}h_n(x) = \sum^\infty_{n=k}h_k(x)\]
+    which is differentiable at \(x\) if and only iff \(g\) is as well. Since \(h_{a+b}(x) = h_a(2^b x) / 2^b\),
+    \[i(x) = \frac{1}{2^k} \sum^\infty_{n=0} h_0(2^k x) = \frac{1}{2^k}g(2^k x) = \frac{1}{2^k}g(p)\]
+    We've shown that \(g\) is not differentiable at 0 or 1, and since \(g\) is periodic it's easy to show it's not differentiable at any \(p \in \mathbf{Z}\), completing the proof.
+}
+\end{solution}
 
 \begin{exercise}
 \enum{
