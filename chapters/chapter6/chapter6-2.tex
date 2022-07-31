@@ -136,6 +136,10 @@
   $$
   \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon/2
   $$
+
+  Alternative proof: Let \(y_n = x + 1/n\), and consider the sequence of functions
+  \[f'_n(x) = \frac{f(x) - f(y_n)}{x - y_n}\]
+  Each \(f'_n(x)\) is continuous, and uniform differentiability implies that \(f'_n\) uniformly converges to \(f'(x)\); hence \(f'(x)\) is continuous by Theorem 6.2.6.
 \end{solution}
 \begin{exercise}
   Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence). (First, define a candidate for $f(x)$, and then argue that $f_{n} \rightarrow f$ uniformly.)
