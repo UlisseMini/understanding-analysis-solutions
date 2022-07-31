@@ -1,0 +1,157 @@
+\section{A Continuous Nowhere-Differentiable Function}
+
+\begin{exercise}
+    Sketch a graph of \((1/2)h(2x)\) on \([-2,3]\). Give a qualitative description of the functions
+    \[h_n(x) = \frac{1}{2^n}h(2^n x)\] as \(n\) gets larger.
+\end{exercise}
+
+\begin{solution}
+\((1/2)h(2x)\) looks like \(h(x)\) shrunk down by a factor of 2 - both the amplitude and the period of the sawtooth are halved. Similarly, \(h_n(x)\) looks like \(h(x)\) shrunk down by a factor of \(2^n\).
+\end{solution}
+
+\begin{exercise}
+ Fix $x \in \mathbf{R}$. Argue that the series
+\[
+\sum_{n=0}^{\infty} \frac{1}{2^{n}} h\left(2^{n} x\right)
+\]
+converges and thus $g(x)$ is properly defined.
+\end{exercise}
+
+\begin{solution}
+\(h_n(x) \leq 1/2^n\) and we know \(\sum^\infty_{n=0} 1/2^n\) converges, so by the comparison test (Theorem 2.7.4) \(g(x)\) is properly defined.
+\end{solution}
+
+\begin{exercise}
+Taking the continuity of $h(x)$ as given, reference the proper theorems from Chapter 4 that imply that the finite sum
+\[
+g_{m}(x)=\sum_{n=0}^{m} \frac{1}{2^{n}} h\left(2^{n} x\right)
+\]
+is continuous on $\mathbf{R}$.
+\end{exercise}
+\begin{solution}
+The Composition of Continuous Functions (Theorem 4.3.9) ensure \(h(2^n x)\) is continuous, and the various parts of the Algebraic Continuity Theorem (Theorem 4.3.2) ensure their combinations to form \(g_m(x)\) is continuous.
+\end{solution}
+
+\begin{exercise}
+As the graph in Figure 5.7 suggests, the structure of $g(x)$ is quite intricate. Answer the following questions, assuming that $g(x)$ is indeed continuous.
+\enum{
+\item How do we know $g$ attains a maximum value $M$ on $[0,2]$? What is this value?
+\item Let $D$ be the set of points in $[0,2]$ where $g$ attains its maximum. That is $D=\{x \in[0,2]: g(x)=M\}$. Find one point in $D$.
+\item Is $D$ finite, countable, or uncountable?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+    \item \([0,2]\) is a compact set, so by the Extreme Value Theorem \(g\) must have a maximum. Since the infinite series defining \(g\) converges (and converges absolutely, for that matter), we are free to use associativity to analyze it. Group the terms in pairs, so that \(f_0(x) = h_0(x) + h_1(x)\) and in general \(f_n(x) = h_{2n}(x) + h_{2n + 1}(x)\). Note that over \([0,2]\),
+\[
+    f_0(x) = \begin{cases}
+        2x & x \leq 1/2 \\
+        1 & 1/2 \leq x \leq 3/2 \\
+        -2x + 4 & 3/2 \leq x
+    \end{cases}
+     \]
+and in particular, \(f_0(x)\) reaches a maximum of 1 over \([1/2, 3/2]\), an interval of length 1. Now, \(f_1(x)\) looks like a repeated \(f_0(x)\) scaled down a factor of 4, and therefore has a period of \(2 / 4 = 1/2\) and a maximum value of \(1/4\) over an interval of length \(1/4\). Since the period of \(f_1(x)\) is less than half the length of the interval \([1/2, 3/2]\), there must be one cycle of \(f_1(x)\) fully within \([1/2, 3/2]\), and therefore the maximum value of \(f_0(x) + f_1(x)\) is \(1 + 1/4\). (One cycle is when the function starts at 0, goes to a maximum and plateaus, then comes back down to 0.)
+
+A scaling argument between \(f_n\) and \(f_{n+1}\) can then be used to show that \(\max g(x) > \sum^n_{k=0} \frac{1}{4^k}\) for all \(n \in \mathbf{N}\). However,
+\[g(x) = \sum^\infty_{k=0} f_k(x) \leq \sum^\infty_{k=0} \frac{1}{4^k} = 4/3\]
+and therefore \(\max g(x) = 4/3\).
+
+\item For this we'll need to track the intervals where \(f_n(x)\) reaches its maximum more carefully. Note that the endpoints of each cycle in \(f_n(x)\) are also endpoints of cycles in \(f_{n+1}(x)\).
+
+Some computation shows that if one of the cycles of \(f_n(x)\) reaches its maximum over the interval \([a_n, a_n + b_n]\), then there will be two cycles in \(f_{n+1}(x)\) which cover \([a_n, a_n + b_n / 2]\) and \([a_n + b_n/2, a_n + b_n]\), leading to \(f_{n+1}(x)\) having maximum intervals in \([a_n + b_n/8, a_n + 3b_n/8]\) and \([a_n + 5b_n/8, a_n + 7b_n/8]\).
+
+To find a point in \(D\) we can repeatedly only consider the lower maximum interval at each iteration of \(f_n(x)\). Defining \(a_0 = 1/2,\ b_0 = 1\), and \(a_{n+1} =a_n + b_n/8,\ b_{n+1} = b_n/4\), clearly \(b_n = 1/4^n\). \(a_n\) is (nearly) a geometric series, with
+\[a_n = \frac{1}{2} + \frac{1}{6} \frac{4^n-1}{4^n},\ a_n + b_n = \frac{1}{2} + \frac{4^n + 5}{6}\]
+Both \(a_n\) and \(a_n + b_n\) approach \(1/2 + 1/6 = 2/3\), so we might conjecture \(2/3 \in D\). Indeed, \(2/3\) is in every \([a_n, a_n + b_n]\), and therefore \(2/3\) is a point in \(D\).
+
+\item \(D\) is uncountable; we will use an argument similar to showing that the Cantor set is uncountable - by mapping all sequences \(x_n\) of infinite 0s and 1s to a unique point in \(D\). Construct a sequence of intervals \(I_n\) as such: If \(x_n = 0\) then take the first cycle of \(f_n(x)\) which is in \(I_{n-1}\) and define \(I_n\) to be the maximum interval of \(f_n(x)\) in that cycle; if \(x_n = 1\) then take the second cycle. (For completeness, define \(I_0 = [1/2, 3/2]\).) By the Nested Interval Property the infinite intersection of these intervals yields a point in \(D\), while clearly each unique sequence \(x_n\) will map to a unique point in \(D\). Since the set of all \(x_n\) is uncountable, so too is \(D\).
+
+}
+\end{solution}
+
+\begin{exercise}
+Show that
+$$
+\frac{g\left(x_{m}\right)-g(0)}{x_{m}-0}=m+1
+$$
+and use this to prove that $g^{\prime}(0)$ does not exist.
+\end{exercise}
+
+\begin{solution}
+Note that \(h_n(x_m) = x_m\) for \(0 \leq n \leq m\) and \(h_n(x_m) = 0\) for \(n > m\), therefore \(g(x_m) = (m + 1) x_m\). Clearly \(g(0) = 0\) , so
+\[\frac{g\left(x_{m}\right)-g(0)}{x_{m}-0}=m+1\]
+
+If \(g'(0)\) existed, then
+\[\lim_{x \to 0} \frac{g(x)-g(0)}{x-0}\]
+would be well defined. But we've just identified a sequence \(x_m\) approaching 0 for which this expression grows without bound, and hence this limit cannot exist, and therefore \(g'(0)\) does not exist.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Modify the previous argument to show that $g^{\prime}(1)$ does not exist. Show that $g^{\prime}(1 / 2)$ does not exist.
+\item Show that $g^{\prime}(x)$ does not exist for any rational number of the form $x=$ $p / 2^{k}$ where $p \in \mathbf{Z}$ and $k \in \mathbf{N} \cup\{0\}$.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item Let \(x_m = 1 + 1/2^m\) with \(m \geq 0\). Then \(h_0(x_m) = 1 - 1/2^m\), \(h_n(x_m) = 1/2^m\) for \(1 \leq n \leq m\), and \(h_n(x_m) = 0\) for \(n > m\). \(g(1) = 1\), so
+    \[\frac{g(x_m) - g(1)}{x_m - 1} = \frac{1 - 1/2^m + m/2^m - 1}{1/2^m} = m-1\]
+    and for the same reason as in Exercise 5.4.5, \(g'(1)\) does not exist.
+
+    \(h_0(x)\) is differentiable at \(1/2\), so we can instead consider whether \((g - h_0)(x)\) is differentiable at \(1/2\). But since \(h_n(x) = 2h_{n+1}(x/2)\), \(g(x) = 2(g-h_0)(x/2)\). Since \(g'(1)\) does not exist, both \(g-h_0\) and \(g\) are not differentiable at \(1/2\).
+
+    \item Note that \(h_n(x)\) is only non-differentiable at points of the form \(q/2^n\) where \(q \in \mathbf{Z}\). Express \(x\) in lowest form, so that \(p\) is odd, and consider
+    \[i(x) = g(x) - \sum^{k-1}_{n=0}h_n(x) = \sum^\infty_{n=k}h_k(x)\]
+    which is differentiable at \(x\) if and only iff \(g\) is as well. Since \(h_{a+b}(x) = h_a(2^b x) / 2^b\),
+    \[i(x) = \frac{1}{2^k} \sum^\infty_{n=0} h_0(2^k x) = \frac{1}{2^k}g(2^k x) = \frac{1}{2^k}g(p)\]
+    We've shown that \(g\) is not differentiable at 0 or 1, and since \(g\) is periodic it's easy to show it's not differentiable at any \(p \in \mathbf{Z}\), completing the proof.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+    \item First prove the following general lemma: Let $f$ be defined on an open interval $J$ and assume $f$ is differentiable at $a \in J$. If $\left(a_{n}\right)$ and $\left(b_{n}\right)$ are sequences satisfying $a_{n}<a<b_{n}$ and $\lim a_{n}=\lim b_{n}=a$, show
+$$
+f^{\prime}(a)=\lim _{n \rightarrow \infty} \frac{f\left(b_{n}\right)-f\left(a_{n}\right)}{b_{n}-a_{n}} .
+$$
+    \item Now use this lemma to show that $g^{\prime}(x)$ does not exist.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item Keeping in mind the Sequential Criterion for Functional Limits (Theorem 4.2.3),
+\[ \begin{aligned}
+\lim_{n \rightarrow \infty} \frac{f(b_n)-f(a_n)}{b_n-a_n} &= \lim_{n \to \infty} \frac{f(b_n) - f(a)}{b_n-a} \frac{b_n-a}{b_n-a_n} + \lim_{n\to\infty} \frac{f(a) - f(a_n)}{a-a_n} \frac{a-a_n}{b_n-a_n}\\
+&= f'(a)\lim_{n\to\infty} \frac{b_n-a}{b_n-a_n} + f'(a) \lim_{n\to\infty} \frac{a-a_n}{b_n-a_n} \\
+&= f'(a) \left(\lim_{n\to\infty} \frac{b_n - a + a - a_n}{b_n-a_n}\right) \\
+&= f'(a)
+\end{aligned} \]
+
+\item I claim that
+\[\frac{g(y_{n+1}) - g(x_{n+1})}{y_{n+1} - x_{n+1}} = \frac{g(y_n) - g(x_n)}{y_n - x_n} \pm 1 \quad \forall n \geq 0 \]
+To see this, note first that \(h_n\) is a straight line with slope -1 or 1 between \(p_n / 2^n\) and \((p_n + 1) / 2^n\), and therefore
+\[\frac{h_n(b) - h_n(a)}{b-a} = \pm 1 \quad \forall a,b \in \left[\frac{p_n}{2^n}, \frac{p_n+1}{2^n}\right]\]
+Note also that \(h_n(k) = 0\) when \(k\) is of the form \(p/2^{n-1}\) with \(p \in \mathbf{Z}\). This fact, combined with how we chose \(x_n\) and \(y_n\) so that \([x_{n+1}, y_{n+1}] \subset [x_n, y_n]\) means we can use the above constant for each term in \(g\) as it appears.
+
+\[ \begin{aligned}
+\frac{g(y_{n+1}) - g(x_{n+1})}{y_{n+1} - x_{n+1}} &= \sum^{n+1}_{k=0} \frac{h_k(y_{n+1}) - h_k(x_{n+1})}{y_{n+1} - x_{n+1}} \\
+&= \frac{h_{n+1}(y_{n+1}) - h_{n+1}(x_{n+1})}{y_{n+1} - x_{n+1}} + \sum^{n}_{k=0} \frac{h_k(y_{n+1}) - h_k(x_{n+1})}{y_{n+1} - x_{n+1}} \\
+&= \pm 1 + \sum^{n}_{k=0} \frac{h_k(y_n) - h_k(x_n)}{y_n - x_n} \\
+&= \frac{g(y_n) - g(x_n)}{y_n - x_n} \pm 1
+\end{aligned} \]
+This implies that \[\lim_{n \to \infty} \frac{g(y_n) - g(x_n)}{y_n - x_n} \] does not exist, since the difference between consecutive elements does not converge to zero, and therefore by our lemma in part (a), \(g\) is not differentiable at \(x\).
+}
+
+\end{solution}
+
+\begin{exercise}
+Review the argument for the nondifferentiability of $g(x)$ at nondyadic points. Does the argument still work if we replace $g(x)$ with the summation $\sum_{n=0}^{\infty}(1 / 2^{n}) h_n(3^{n} x)$? Does the argument work for the function $\sum_{n=0}^{\infty}(1 / 3^{n}) h_n(2^{n} x)$?
+\end{exercise}
+
+\begin{solution}
+The critical part to showing that \(g(x)\) is not differentiable at nondyadic points was showing that
+\[\frac{h_{n+1}(y_{n+1}) - h_{n+1}(x_{n+1})}{y_{n+1} - x_{n+1}}\]
+does not converge to zero, preventing the limit defining the derivative to exist. For the case \(\sum_{n=0}^{\infty}(1 / 2^{n}) h_n(3^{n} x)\), the above term would diverge to infinity, since \(y_n-x_n\) would decrease by a factor of 3 on each iteration while \(h_n(y_n) - h_n(x_n)\) would only decrease by a factor of 2. For similar reasons, in the case of \(\sum_{n=0}^{\infty}(1 / 3^{n}) h_n(2^{n} x) \), the above term would converge to 0, and the argument is no longer valid.
+\end{solution}
