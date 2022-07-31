@@ -147,5 +147,11 @@ This implies that \[\lim_{n \to \infty} \frac{g(y_n) - g(x_n)}{y_n - x_n} \] doe
 \end{solution}
 
 \begin{exercise}
-Review the argument for the nondifferentiability of $g(x)$ at nondyadic points. Does the argument still work if we replace $g(x)$ with the summation $\sum_{n=0}^{\infty}\left(1 / 2^{n}\right) h\left(3^{n} x\right)$ ? Does the argument work for the function $\sum_{n=0}^{\infty}\left(1 / 3^{n}\right) h\left(2^{n} x\right) ?$
+Review the argument for the nondifferentiability of $g(x)$ at nondyadic points. Does the argument still work if we replace $g(x)$ with the summation $\sum_{n=0}^{\infty}(1 / 2^{n}) h_n(3^{n} x)$? Does the argument work for the function $\sum_{n=0}^{\infty}(1 / 3^{n}) h_n(2^{n} x)$?
 \end{exercise}
+
+\begin{solution}
+The critical part to showing that \(g(x)\) is not differentiable at nondyadic points was showing that
+\[\frac{h_{n+1}(y_{n+1}) - h_{n+1}(x_{n+1})}{y_{n+1} - x_{n+1}}\]
+does not converge to zero, preventing the limit defining the derivative to exist. For the case \(\sum_{n=0}^{\infty}(1 / 2^{n}) h_n(3^{n} x)\), the above term would diverge to infinity, since \(y_n-x_n\) would decrease by a factor of 3 on each iteration while \(h_n(y_n) - h_n(x_n)\) would only decrease by a factor of 2. For similar reasons, in the case of \(\sum_{n=0}^{\infty}(1 / 3^{n}) h_n(2^{n} x) \), the above term would converge to 0, and the argument is no longer valid.
+\end{solution}
