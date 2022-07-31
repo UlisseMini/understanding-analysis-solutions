@@ -117,8 +117,34 @@ f^{\prime}(a)=\lim _{n \rightarrow \infty} \frac{f\left(b_{n}\right)-f\left(a_{n
 $$
     \item Now use this lemma to show that $g^{\prime}(x)$ does not exist.
 }
-
 \end{exercise}
+
+\begin{solution}
+\enum{
+    \item Keeping in mind the Sequential Criterion for Functional Limits (Theorem 4.2.3),
+\[ \begin{aligned}
+\lim_{n \rightarrow \infty} \frac{f(b_n)-f(a_n)}{b_n-a_n} &= \lim_{n \to \infty} \frac{f(b_n) - f(a)}{b_n-a} \frac{b_n-a}{b_n-a_n} + \lim_{n\to\infty} \frac{f(a) - f(a_n)}{a-a_n} \frac{a-a_n}{b_n-a_n}\\
+&= f'(a)\lim_{n\to\infty} \frac{b_n-a}{b_n-a_n} + f'(a) \lim_{n\to\infty} \frac{a-a_n}{b_n-a_n} \\
+&= f'(a) \left(\lim_{n\to\infty} \frac{b_n - a + a - a_n}{b_n-a_n}\right) \\
+&= f'(a)
+\end{aligned} \]
+
+\item I claim that
+\[\frac{g(y_{n+1}) - g(x_{n+1})}{y_{n+1} - x_{n+1}} = \frac{g(y_n) - g(x_n)}{y_n - x_n} \pm 1 \quad \forall n \geq 0 \]
+To see this, note first that \(h_n\) is a straight line with slope -1 or 1 between \(p_n / 2^n\) and \((p_n + 1) / 2^n\), and therefore
+\[\frac{h_n(b) - h_n(a)}{b-a} = \pm 1 \quad \forall a,b \in \left[\frac{p_n}{2^n}, \frac{p_n+1}{2^n}\right]\]
+Note also that \(h_n(k) = 0\) when \(k\) is of the form \(p/2^{n-1}\) with \(p \in \mathbf{Z}\). This fact, combined with how we chose \(x_n\) and \(y_n\) so that \([x_{n+1}, y_{n+1}] \subset [x_n, y_n]\) means we can use the above constant for each term in \(g\) as it appears.
+
+\[ \begin{aligned}
+\frac{g(y_{n+1}) - g(x_{n+1})}{y_{n+1} - x_{n+1}} &= \sum^{n+1}_{k=0} \frac{h_k(y_{n+1}) - h_k(x_{n+1})}{y_{n+1} - x_{n+1}} \\
+&= \frac{h_{n+1}(y_{n+1}) - h_{n+1}(x_{n+1})}{y_{n+1} - x_{n+1}} + \sum^{n}_{k=0} \frac{h_k(y_{n+1}) - h_k(x_{n+1})}{y_{n+1} - x_{n+1}} \\
+&= \pm 1 + \sum^{n}_{k=0} \frac{h_k(y_n) - h_k(x_n)}{y_n - x_n} \\
+&= \frac{g(y_n) - g(x_n)}{y_n - x_n} \pm 1
+\end{aligned} \]
+This implies that \[\lim_{n \to \infty} \frac{g(y_n) - g(x_n)}{y_n - x_n} \] does not exist, since the difference between consecutive elements does not converge to zero, and therefore by our lemma in part (a), \(g\) is not differentiable at \(x\).
+}
+
+\end{solution}
 
 \begin{exercise}
 Review the argument for the nondifferentiability of $g(x)$ at nondyadic points. Does the argument still work if we replace $g(x)$ with the summation $\sum_{n=0}^{\infty}\left(1 / 2^{n}\right) h\left(3^{n} x\right)$ ? Does the argument work for the function $\sum_{n=0}^{\infty}\left(1 / 3^{n}\right) h\left(2^{n} x\right) ?$
