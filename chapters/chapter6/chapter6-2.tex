@@ -182,8 +182,10 @@
       0 &\text{otherwise}
     \end{cases}
     $$
-    Now suppose $(f_n)$ converges to $f$ uniformly. Theorem 6.2.6 implies $f$ will be continuous, combining this with Theorem 4.4.7 we see that $f$ must be uniformly continuous if the domain $A$ is compact.
-    If $A$ is not compact this need not be the case, consider $A = (0,1)$ and $f_n(x) = 1/x = f(x)$. Clearly $(f_n) \to f$ uniformly (they're the same function!) but $f(x) = 1/x$ is not uniformly continuous on $A$.
+    Now suppose $(f_n)$ converges to $f$ uniformly. We have
+    \[|f(x) - f(y)| \leq |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)| \]
+    By uniform convergence to \(f\), we can fix \(n\) large enough so that the first and last terms are both less than \(\epsilon / 3\). Then since \(f_n\) is uniformly continuous, we can choose \(\delta\) so that \(|x - y| < \delta\) implies the middle term is less than \(\epsilon / 3\), and that \(|f(x) - f(y)| < \epsilon\), implying \(f\) is uniformly continuous.
+
   \item False pointwise when
     $$
     f_n(x)
