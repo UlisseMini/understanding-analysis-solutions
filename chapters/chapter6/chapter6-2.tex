@@ -291,12 +291,12 @@
   $$
   Which shows $(f_n) \to f$ uniformly.
 
-  To see this doesn't work if $f$ is only continuous, consider $f : (0,1)\to\mathbf{R}$ defined by $f(x) = 1/x$.
+  To see this doesn't work if $f$ is only continuous, consider $f(x) = x^2$.
   We have
-  $$
-  |f(x)-f_n(x)| = \frac{1}{x} - \frac{1}{x+1/n} = \frac{1/n}{x(x+1/n)} = \frac{1}{x(nx+1)}
-  $$
-  Which given a fixed $n$ becomes arbitrarily big as $x$ goes to zero. hence $(f_n)$ does not converge uniformly.
+\[
+|f(x)-f_n(x)| = \abs{x^2 - \left(x + \frac{1}{n}\right)^2} = \abs{\frac{2x}{n} + \frac{1}{n^2}}
+\]
+  which given a fixed $n$, becomes arbitrarily big as $x$ goes to infinity. Hence $(f_n)$ does not converge uniformly.
 \end{solution}
 \begin{exercise}
   Let $\left(g_{n}\right)$ be a sequence of continuous functions that converges uniformly to $g$ on a compact set $K$. If $g(x) \neq 0$ on $K$, show $\left(1 / g_{n}\right)$ converges uniformly on $K$ to $1 / g$.
