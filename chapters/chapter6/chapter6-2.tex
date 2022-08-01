@@ -146,21 +146,21 @@
 
 \end{exercise}
 \begin{solution}
-  First suppose $(f_n)$ converges uniformly to $f$ and set $N$ large enough that $n \ge N$ has $|f_n(x) - f(x)| < \epsilon/2$ for all $x$, then use the triangle inequality (where $m \ge N$ as well)
+  In the forward direction, suppose $(f_n)$ converges uniformly to $f$ and set $N$ large enough that $n \ge N$ has $|f_n(x) - f(x)| < \epsilon/2$ for all $x$, then use the triangle inequality (where $m \ge N$ as well)
   $$
   |f_n(x) - f_m(x)| \le |f_n(x) - f(x)| + |f(x) - f_m(x)| < \epsilon/2 + \epsilon/2 = \epsilon.
   $$
-  Second suppose we can find an $N$ so that every $n,m \ge N$ has $|f_n(x) - f_m(x)| < \epsilon$ for all $x$.
-  Fix $x$ and apply Theorem 2.6.4 to conclude the sequence $(f_n(x))$ converges to some limit $L$, and define $f(x) = L$. Doing this for all $x$ gives us the pointwise limit $f$. Now we show $(f_n) \to f$ uniformly using the fact that $|f_n(x) - f_m(x)| < \epsilon$ \emph{for all} $x$.
+  In the reverse direction, suppose we can find an $N$ so that every $n,m \ge N$ has $|f_n(x) - f_m(x)| < \epsilon /2$ for all $x$.
+  Fix $x$ and apply Theorem 2.6.4 to conclude the sequence $(f_n(x))$ converges to some limit $L$, and define $f(x) = L$. Doing this for all $x$ gives us the pointwise limit $f$. Now we show $(f_n) \to f$ uniformly using the fact that $|f_n(x) - f_m(x)| < \epsilon / 2$ \emph{for all} $x$.
   Let $n \ge N$, notice that \emph{for all} $m$
   $$
   |f_n(x) - f(x)| \le |f_n(x) - f_m(x)| + |f_m(x) - f(x)|
   $$
-  Let $\epsilon_m = |f_m(x) - f(x)|$. for all $m \ge N$ we have $|f_n(x) - f_m(x)| < \epsilon$ and
+  For all $m \ge N$ we have $|f_n(x) - f_m(x)| < \epsilon / 2$ and
   $$
-  |f_n(x) - f(x)| \le \epsilon + \epsilon_m
+  |f_n(x) - f(x)| < \epsilon/2 + |f_m(x) - f(x)|
   $$
-  Since $\epsilon_m \to 0$ no matter what $x$ is (pointwise convergence) and the inequality is for all $m$ this implies $|f_n(x) - f(x)| \le \epsilon$ for all $x$ as desired.
+  For any \(x\) we can choose \(m\) large enough to ensure $|f_m(x) - f(x)| < \epsilon / 2$ (pointwise convergence), and since the inequality is for all $m$ this implies $|f_n(x) - f(x)| \le \epsilon$ for all $x$ as desired.
 \end{solution}
 \begin{exercise}
   Assume $f_{n} \rightarrow f$ on a set $A$. Theorem 6.2.6 is an example of a typical type of question which asks whether a trait possessed by each $f_{n}$ is inherited by the limit function. Provide an example to show that all of the following propositions are false if the convergence is only assumed to be pointwise on $A$. Then go back and decide which are true under the stronger hypothesis of uniform convergence.
