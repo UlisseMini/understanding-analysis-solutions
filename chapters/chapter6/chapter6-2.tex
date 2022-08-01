@@ -359,14 +359,29 @@
 
 \end{exercise}
 \begin{solution}
-  Suppose first that each $f_n$ is continuous.
-  Given $\epsilon > 0$ we can make $|f(x)-f_n(x)|<\epsilon$ when $n \ge N(x)$, since $f$ and $f_n$ are continuous at $x$ there exists a $\delta$-neighborhood where $y \in V_\delta(x)$ implies $|f(x)-f(y)|<\epsilon$ and $|f_n(x)-f_n(y)|<\epsilon$ so
-  $$
-  |f(y)-f_n(y)| \le |f(y) - f(x)| + |f(x) - f_n(x)| + |f_n(x) - f_n(y)| < 3\epsilon
-  $$
-  Note that $\delta$ depends on $x$ and on $n$.
-  \TODO
+\(f\) is continuous and therefore will map \([a, b]\) to a closed interval \([c, d]\). By the Order Limit Theorem, we also know that \(f\) must be increasing - just compare the sequence \(\lim_{n \to \infty} f_n(x_1)\) to \(\lim_{n \to \infty} f_n(x_2)\) when \(x_2 > x_1\).
+
+The key implication of \(f_n\) and \(f\) being increasing is that there is a bound to how fast the error \(\abs{f - f_n}\) can grow with respect to \(x\), which is proportional to how fast \(f\) grows. Intuitively, if we have \(f > f_n\) and want the error to grow as fast as possible with respect to \(x\), all we can do is hold \(f_n\) constant. Alternatively, if we have \(f < f_n\), \(f_n\) can't go too far above \(f\) since \(f\) needs to catch up eventually.
+
+More formally, for \(\epsilon > 0\), define \(y_1, y_2, y_3, \dots, y_n\) to evenly split up \([c, d]\) into intervals of size at most \(\epsilon_1 = \epsilon / 5\). (In other words, \(y_1 = c\), \(y_n=d\), \(y_{k+2} - y_{k+1} = y_{k+1} - y_k < \epsilon_1\).) Since \(f\) is increasing, we can define \(x_1, \dots, x_n\) so that \(f(x_k) = y_k\).
+
+Since \(f_n \to f\), we can find \(M_k\) so that \(m_k > M_k\) implies \(\abs{y_k - f_{m_k}(x_k)} < \epsilon_1\). Let \(M = \max\{M_1, M_2, \dots, M_n\}\). Now, let \(m > M\) be arbitrary.
+ Keeping in mind that \(f_m\) is increasing, we can bound \(f_m(x_{i+1}) - f_m(x_i)\) by
+\[ \begin{aligned}
+f_m(x_{i+1}) - f_m(x_i) &= |f_m(x_{i+1}) - f_m(x_i)| \\
+    &\leq |f_m(x_{i+1}) - y_{i+1}| + |y_{i+1} - y_i| + |y_i - f_m(x_i)| \\
+    &< \epsilon_1 + \epsilon_1 + \epsilon_1 = 3 \epsilon_1
+\end{aligned} \]
+
+Now consider \(\abs{f(x) - f_m(x)} \quad x \in [x_i, x_{i+1}]\) with \(i\) arbitrary.
+ Since \(f\) is increasing, \(y_i \leq f(x) \leq y_{i+1}\), so \(f(x) - y_i < \epsilon_1\). Similarly \(f_m(x) - f_m(x_i) \leq f_m(x_{i+1}) - f_m(x_i) < 3\epsilon_1\). Finally, we have
+ \[\begin{aligned}
+ \abs{f(x) - f_m(x)} &= \abs{f(x) - y_i} + \abs{y_i - f_m(x_i)} + \abs{f_m(x) - f_m(x_i)} \\
+ &< \epsilon_1 + \epsilon_1 + 3\epsilon_1 = \epsilon
+ \end{aligned} \]
+ Since \(m\) and \(i\) were arbitrary, this completes the proof.
 \end{solution}
+
 \begin{exercise}[Dini's Theorem]
   Assume $f_{n} \rightarrow f$ pointwise on a compact set $K$ and assume that for each $x \in K$ the sequence $f_{n}(x)$ is increasing. Follow these steps to show that if $f_{n}$ and $f$ are continuous on $K$, then the convergence is uniform.
   \enum {
