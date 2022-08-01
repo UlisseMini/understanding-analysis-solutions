@@ -197,7 +197,7 @@
     f(x) = x
     $$
     Now suppose $(f_n) \to f$ uniformly.
-    We want to show $f$ is bounded,
+    We want to show $f$ is bounded.
     Let $M_n$ bound $f_n$, ie. $|f_n(x)|<M_n$ for all $x \in A$.
 
     Set $\epsilon=1$ and apply the Cauchy Criterion to get $N$ so $m \ge n > N$ implies
@@ -245,9 +245,9 @@
   \item False pointwise since we can have each $(f_n)$ continuous (zero discontinuities) but have $f$ not be continuous (see (a) for an example).
 
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
-    I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, ie. that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
+    I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, i.e.\ that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
 
-    Pick $\epsilon<\epsilon_0/2$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
+    Pick $\epsilon<\epsilon_0/2$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. Applying the three way triangle inequality gives
     $$
     \begin{aligned}
     \epsilon_0
@@ -272,7 +272,7 @@
       0 &\text{if $x \notin \mathbf{Q}$} \\
     \end{cases}
     $$
-    Now suppose $(f_n) \to f$ uniformly, In (d) we showed every discontinuity of $f$ is eventually a discontinuity of $f_n$, reworded this is saying (where $D_f$ is the set of discontinuities of $f$)
+    Now suppose $(f_n) \to f$ uniformly. In (d) we showed every discontinuity of $f$ is eventually a discontinuity of $f_n$; reworded this is saying (where $D_f$ is the set of discontinuities of $f$)
     $$
     D_f \subseteq \bigcup_{n=1}^\infty D_{f_{n}}
     $$
