@@ -453,7 +453,7 @@ Moreover, since \(C_m \subseteq C_n\) for \(m \geq n\), we can make the stronger
 
 Finally, we can show by induction that \(f_n(x)\) is constant over \([0,1]\backslash C_n\), implying that \(f\) is constant and \(f'(x) = 0\) over \([0,1] \backslash C\).
   }
-  
+
 \end{solution}
 \begin{exercise}
   Recall that the Bolzano-Weierstrass Theorem (Theorem 2.5.5) states that every bounded sequence of real numbers has a convergent subsequence. An analogous statement for bounded sequences of functions is not true in general, but under stronger hypotheses several different conclusions are possible. One avenue is to assume the common domain for all of the functions in the sequence is countable. (Another is explored in the next two exercises.)
@@ -467,7 +467,15 @@ Finally, we can show by induction that \(f_n(x)\) is constant over \([0,1]\backs
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item Since \(f_n\) is bounded, \((f_n(x_1))\) is a bounded sequence, so by Bolzano-Weierstrauss \((f_n(x_1))\) has a convergent subsequence which uses \(f_{n_k}\).
+
+    \item Same reason as (a)
+    \item Let \(f_{2,k}\) represent the subsequence of functions generated in part (b), and keep in mind that this subsequence of functions continues to converge pointwise at \(x_1\). We can then repeat this process, finding a subsequence of functions while considering \(f_{2,k}(x_3)\), and repeat for every element in \(A\).
+
+    If \(A\) were finite, we could simply take the last sequence and we would be done. But since \(A\) is countably infinite, there is no last element; we need to be a bit more careful. Instead of picking a particular subsequence, define a new subsequence of functions \((g_n)\), with \(g_n = f_{n,n}\) (where \(f_{a,b}\) is the \(b\)'th element of the sequence of functions \(f_{a,k}\)). For any fixed \(q\), the sequence \(g_n(x_q)\) is guarenteed to converge, since after \(q\) elements the sequence consists solely of elements from \(f_{q,k}\) which converges at \(x_q\).
+}
+
 \end{solution}
 \begin{exercise}
   A sequence of functions $\left(f_{n}\right)$ defined on a set $E \subseteq \mathbf{R}$ is called equicontinuous if for every $\epsilon>0$ there exists a $\delta>0$ such that $\left|f_{n}(x)-f_{n}(y)\right|<\epsilon$ for all $n \in \mathbf{N}$ and $|x-y|<\delta$ in $E$.
