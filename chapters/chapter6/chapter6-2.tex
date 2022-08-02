@@ -492,7 +492,7 @@ Finally, we can show by induction that \(f_n(x)\) is constant over \([0,1]\backs
   }
 \end{solution}
 \begin{exercise}[Arzela-Ascoli Theorem]
-  For each $n \in \mathbf{N}$, let $f_{n}$ be a function defined on $[0,1]$. If $\left(f_{n}\right)$ is bounded on $[0,1]$-that is, there exists an $M>0$ such that $\left|f_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$-and if the collection of functions $\left(f_{n}\right)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $\left(f_{n}\right)$ contains a uniformly convergent subsequence.
+  For each $n \in \mathbf{N}$, let $f_{n}$ be a function defined on $[0,1]$. If $\left(f_{n}\right)$ is bounded on $[0,1]$\textemdash that is, there exists an $M>0$ such that $\left|f_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$\textemdash  and if the collection of functions $\left(f_{n}\right)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $\left(f_{n}\right)$ contains a uniformly convergent subsequence.
   \enum {
   \item Use Exercise 6.2.13 to produce a subsequence $\left(f_{n_{k}}\right)$ that converges at every rational point in $[0,1]$. To simplify the notation, set $g_{k}=f_{n_{k}}$. It remains to show that $\left(g_{k}\right)$ converges uniformly on all of $[0,1]$.
   \item Let $\epsilon>0$. By equicontinuity, there exists a $\delta>0$ such that
@@ -513,5 +513,18 @@ Finally, we can show by induction that \(f_n(x)\) is constant over \([0,1]\backs
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+\item ...is this actually a question? The rational numbers in \([0,1]\) are countable, so the results from Exercise 6.2.13 can be applied.
+
+\item \(r_i\) is a rational number, so \(g_n(r_i)\) is a Cauchy sequence, and we can find \(N_i\) for each \(r_i\) where \(s,t>N_i\) ensures \(\abs{g_s(r_i) - g_t(r_i)} <\epsilon/3\). Then just have \(N = \max \{N_1,N_2,\dots, N_m\}\).
+ We need \(\left\{r_{1}, r_{2}, \ldots, r_{m}\right\}\) to be finite so that the final operation of taking the maximum of all \(N_i\) is valid.
+
+\item We have
+ \[
+\abs{g_n(x) - g_m(x)} \leq \abs{g_n(x) - g_n(a)} + \abs{g_n(a) - g_m(a)} + \abs{g_m(a) - g_m(x)}
+\]
+where \(a\) is some rational number.
+The first and last terms can be made less than \(\epsilon/3\) by continuity of \(g_n\) and \(g_m\) and by choosing \(a\) close enough to \(x\), while the middle term can be made less than \(\epsilon/3\) from part (b).
+
+}
 \end{solution}
