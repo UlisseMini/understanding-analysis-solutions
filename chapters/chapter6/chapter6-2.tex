@@ -439,8 +439,21 @@ The case for \([2/3, 1]\) is similar.
 
 Given this, it should be clear that for \(m \geq n\), \(\abs{f_m(x) - f_n(x)} < 1/2^n\). Since we can make \(1/2^n\) arbitrarily small by increasing \(n\), we can readily conclude that \(f_n\) satisfies Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence), and hence \(f_n\) converges uniformly.
 
-  \item \TODO
+  \item \(f_n(0) = 0\) and \(f_n(1) = 1\) can easily be proven with induction, and imply that each \(f_n\) is continuous.  Since each \(f_n\) is continuous, by the Continuous Limit Theorem \(f\) is continuous. One of the sub-results from Exercise 6.2.10 was that all \(f_n\) increasing implies \(f\) is increasing, which can be applied here to show \(f\) is increasing. Since \(f_n(0)\) and \(f_n(1)\) are constant with respect to \(n\), \(f(0) = 0\) and \(f(1) = 1\).
+
+  Observe that for any \(n\), \(f_{n+1}(x) = f_n(x)\) for \(x \in [0,1]\backslash C_n\). To prove this formally, we can use induction. By definition \(f_{n+1} = f_n(x)\) over \((1/3, 2/3)\). Focusing on \([0, 1/3]\), we have
+\begin{align*}
+   &\frac{1}{2} f_n(3x) = f_n(x) \text{ over } [0,1/3] \backslash C_n\\
+   \Longleftrightarrow &\frac{1}{2} f_n(3x) = \frac{1}{2}f_{n-1}(3x) \text{ over } [0, 1/3] \backslash \left(C_{n-1} / 3\right)\\
+   \Longleftrightarrow & f_n(x) = f_{n-1}(x) \text{ over } [0,1] \backslash C_{n-1}\\
+\end{align*}
+which is the inductive hypothesis. The case over \([2/3, 1]\) is similar.
+
+Moreover, since \(C_m \subseteq C_n\) for \(m \geq n\), we can make the stronger statement \(f(x) = f_{m}(x) = f_n(x)\) for \(x \in [0,1]\backslash C_n\) and \(m \geq n\).
+
+Finally, we can show by induction that \(f_n(x)\) is constant over \([0,1]\backslash C_n\), implying that \(f\) is constant and \(f'(x) = 0\) over \([0,1] \backslash C\).
   }
+  
 \end{solution}
 \begin{exercise}
   Recall that the Bolzano-Weierstrass Theorem (Theorem 2.5.5) states that every bounded sequence of real numbers has a convergent subsequence. An analogous statement for bounded sequences of functions is not true in general, but under stronger hypotheses several different conclusions are possible. One avenue is to assume the common domain for all of the functions in the sequence is countable. (Another is explored in the next two exercises.)
