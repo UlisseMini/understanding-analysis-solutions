@@ -24,7 +24,7 @@ which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(
 \begin{exercise}
   Consider the sequence of functions
   $$
-  h_{n}(x)=\sqrt{x^{2}+\frac{1}{n}} .
+  h_{n}(x)=\sqrt{x^{2}+\frac{1}{n}}.
   $$
   \enum {
   \item Compute the pointwise limit of $\left(h_{n}\right)$ and then prove that the convergence is uniform on $\mathbf{R}$.
@@ -32,7 +32,19 @@ which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item As \(n \to \infty\), \(h_n(x) \to \sqrt{x^2} = |x|\). Now, recall that \(\sqrt{a} + \sqrt{b} \geq \sqrt{a + b}\) (I think this has been proved earlier, but if not, this is easily shown by squaring both sides); alternatively \(\sqrt{a + b} - \sqrt{a} \leq \sqrt{b}\), and so
+    \[\abs{\sqrt{\left(x^2 + \frac{1}{n}\right)} - \sqrt{x^2}} \leq \sqrt{\frac{1}{n}} = \frac{1}{\sqrt{n}}\]
+    which we can clearly make less than any \(\epsilon > 0\).
+
+    \item \[h'_n(x) = \frac{x}{\sqrt{x^2 + 1/n}}\] which converges to
+\[g(x) = \begin{cases}
+ 1 & x > 0 \\
+ 0 & x = 0 \\
+ -1 & x < 0
+\end{cases}\]
+    Define \(h(x)\) to be the pointwise limit of \((h_n)\). If the convergence to \(g\) was uniform, that would imply that \(g_n = h'(x)\) (by the Differentiable Limit Theorem). But from part (a) \(h\) is not differentiable at 0, therefore the convergence to \(g\) cannot be uniform in a neighborhood around 0.
+}
 \end{solution}
 \begin{exercise}
   Consider the sequence of functions
