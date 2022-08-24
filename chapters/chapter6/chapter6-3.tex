@@ -11,7 +11,15 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item I claim that \((g_n) \to 0\). This can be seen by noting that for \(x \in [0,1]\), \(0 \leq x^n \leq 1\) and so \(0 \leq g_n(x) \leq 1/n\). Thus for any \(\epsilon > 0\), any \(n > N = 1/\epsilon\) will force \(|g_n(x) - 0| < \epsilon\). \(g(x)=0\) is obviously differentiable, with its derivative just \(0\).
+    \item \(g'(n) = x^{n-1}\). Using a similar argument,
+\[h(x) = \lim_{n\to\infty} g'_n(x) = \begin{cases}
+    0 & x \in [0,1) \\
+    1 & x = 1
+\end{cases}\]
+which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(\epsilon = 0.5\) and any given \(n\), choosing \(1 > x > \sqrt[N]{\epsilon}\) leads to \(g_n(x) > \epsilon\), preventing uniform convergence.
+}
 \end{solution}
 \begin{exercise}
   Consider the sequence of functions
