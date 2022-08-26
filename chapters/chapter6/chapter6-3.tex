@@ -74,7 +74,9 @@ which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(
   Show that $h_{n} \rightarrow 0$ uniformly on $\mathbf{R}$ but that the sequence of derivatives $\left(h_{n}^{\prime}\right)$ diverges for every $x \in \mathbf{R}$.
 \end{exercise}
 \begin{solution}
-  \TODO
+\(|sin(x)| \leq 1\) and so \(\abs{h_n(x)} < \frac{1}{\sqrt{n}}\) which shows that \(h_n \to 0\) uniformly on \(\mathbf{R}\). \(h'_n(x) = \frac{n\cos(nx)}{\sqrt{n}} = \sqrt{n} \cos(nx)\). Intuitively this diverges because of the unbounded \(\sqrt{n}\) factor, but to prove it formally requires some thought. We want to show that for any fixed real numbers \(x\) and \(M\) we can find some \(n\) where \(h'_n(x) \geq M\) (this will show that \(h'_n(x)\) is unbounded and thus diverges). First let \(N_1 > 4M^2\), then we just need to find some \(n \geq N_1\) so that \(\abs{nx - Z\pi} \leq \pi/3\) for some integer \(Z\); this would cause \(\abs{\cos(nx)} \geq 1/2\) and thus \(h'_n(x) \geq M\).
+
+Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \pi\). (This next bit is reminiscent of arithmetic modulo \(2\pi\).) Now if \(k \in [0, \pi/3]\) or \([2\pi/3, 4\pi/3]\) or \([5\pi/3, 2\pi]\) we're done. Otherwise \(k \in (\pi/3, 2\pi/3)\) or \((4\pi/3, 5\pi/3)\); so consider \(2N_1 x = 4 \pi P + 2k\), with \(k \in (2\pi/3, 4 \pi/3)\) or \((8\pi/3, 10\pi/3)\); both of these cases will have \(2N_1 x\) within \(\pi/3\) of a multiple of \(\pi\), hence \(h'_n(x)\) diverges for all \(x\).
 \end{solution}
 \begin{exercise}
   Let
