@@ -76,7 +76,7 @@ which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(
 \begin{solution}
 \(|sin(x)| \leq 1\) and so \(\abs{h_n(x)} < \frac{1}{\sqrt{n}}\) which shows that \(h_n \to 0\) uniformly on \(\mathbf{R}\). \(h'_n(x) = \frac{n\cos(nx)}{\sqrt{n}} = \sqrt{n} \cos(nx)\). Intuitively this diverges because of the unbounded \(\sqrt{n}\) factor, but to prove it formally requires some thought. We want to show that for any fixed real numbers \(x\) and \(M\) we can find some \(n\) where \(h'_n(x) \geq M\) (this will show that \(h'_n(x)\) is unbounded and thus diverges). First let \(N_1 > 4M^2\), then we just need to find some \(n \geq N_1\) so that \(\abs{nx - Z\pi} \leq \pi/3\) for some integer \(Z\); this would cause \(\abs{\cos(nx)} \geq 1/2\) and thus \(h'_n(x) \geq M\).
 
-Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \pi\). (This next bit is reminiscent of arithmetic modulo \(2\pi\).) Now if \(k \in [0, \pi/3]\) or \([2\pi/3, 4\pi/3]\) or \([5\pi/3, 2\pi]\) we're done. Otherwise \(k \in (\pi/3, 2\pi/3)\) or \((4\pi/3, 5\pi/3)\); so consider \(2N_1 x = 4 \pi P + 2k\), with \(k \in (2\pi/3, 4 \pi/3)\) or \((8\pi/3, 10\pi/3)\); both of these cases will have \(2N_1 x\) within \(\pi/3\) of a multiple of \(\pi\), hence \(h'_n(x)\) diverges for all \(x\).
+Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \pi\). (This next bit is reminiscent of arithmetic modulo \(2\pi\).) Now if \(k \in [0, \pi/3]\) or \([2\pi/3, 4\pi/3]\) or \([5\pi/3, 2\pi]\) we're done. Otherwise \(k \in (\pi/3, 2\pi/3)\) or \((4\pi/3, 5\pi/3)\); so consider \(2N_1 x = 4 \pi P + 2k\), with \(2k \in (2\pi/3, 4 \pi/3)\) or \((8\pi/3, 10\pi/3)\); both of these cases will have \(2N_1 x\) within \(\pi/3\) of a multiple of \(\pi\), hence \(h'_n(x)\) diverges for all \(x\).
 \end{solution}
 \begin{exercise}
   Let
@@ -92,7 +92,16 @@ Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item By inspection \(g(x) = x/2\) and \(g'(x) = 1/2\).
+    \item \(g'_n(x) = 1/2 + \frac{x}{n}\) which approaches \(\frac{1}{2}\) as \(n \to \infty\). Now \(\abs{g'_n - \frac{1}{2}} = \abs{\frac{x}{n}}\) is bounded by \(\frac{M}{n}\) which goes to 0 and is not dependent on \(x\), and therefore \((g'_n)\) converges uniformly over \([-M, M]\).
+    \item \(f(x) = x^2 / 2\), and \(f'(x) = x\). We have
+        \[f'_n(x) = \frac{4n^2x + nx^2 - 1}{4n^2 + 4nx + x^2} \]
+        which approaches \(x\) as \(n \to \infty\). With some algebra we have
+        \[\abs{f'_n(x) - x} = \abs{ \frac{x^3 - 3nx^2 - 1}{4n^2 + 4nx + x^2} } \leq \frac{M^3 + 3nM^2 + 1}{4n^2 - 4Mn}\]
+        which approaches 0 as \(n \to \infty\) independent of \(x\), and therefore \((f'_n)\) converges uniformly over \([-M, M]\).
+}
+
 \end{solution}
 \begin{exercise}
   Provide an example or explain why the request is impossible. Let's take the domain of the functions to be all of $\mathbf{R}$.
