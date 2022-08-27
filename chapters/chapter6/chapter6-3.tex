@@ -112,7 +112,17 @@ Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item Let \(g(x)\) be the continuous but nowhere-differentiable function defined in section 5.4. Then since \(g(x)\) is bounded, \(f_n(x) = g(x) / n\) clearly conerges uniformly to 0, and is thus such a sequence.
+    \item Let
+    \[f_n(x) = \begin{cases}
+       1 & \text{  n is odd} \\
+       0 & \text{  n is even} \\
+    \end{cases}\]
+    Clearly \(f_n\) does not converge anyewhere, but \(f'_n(x)\) converges to 0.
+
+    \item Not possible - since \(f_n\) converges uniformly, it must converge at at least one point, and since \(f'_n'\) converges uniformly, we can apply Theorem 6.3.3 to show that \(f\) is differentiable everywhere.
+}
 \end{solution}
 \begin{exercise}
   Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that, for any $x \in[a, b]$ and $m, n \in \mathbf{N}$,
