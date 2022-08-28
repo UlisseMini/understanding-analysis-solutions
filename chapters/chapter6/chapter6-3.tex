@@ -11,12 +11,20 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item I claim that \((g_n) \to 0\). This can be seen by noting that for \(x \in [0,1]\), \(0 \leq x^n \leq 1\) and so \(0 \leq g_n(x) \leq 1/n\). Thus for any \(\epsilon > 0\), any \(n > N = 1/\epsilon\) will force \(|g_n(x) - 0| < \epsilon\). \(g(x)=0\) is obviously differentiable, with its derivative just \(0\).
+    \item \(g'(n) = x^{n-1}\). Using a similar argument,
+\[h(x) = \lim_{n\to\infty} g'_n(x) = \begin{cases}
+    0 & x \in [0,1) \\
+    1 & x = 1
+\end{cases}\]
+which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(\epsilon = 0.5\) and any given \(n\), choosing \(1 > x > \sqrt[N]{\epsilon}\) leads to \(g_n(x) > \epsilon\), preventing uniform convergence.
+}
 \end{solution}
 \begin{exercise}
   Consider the sequence of functions
   $$
-  h_{n}(x)=\sqrt{x^{2}+\frac{1}{n}} .
+  h_{n}(x)=\sqrt{x^{2}+\frac{1}{n}}.
   $$
   \enum {
   \item Compute the pointwise limit of $\left(h_{n}\right)$ and then prove that the convergence is uniform on $\mathbf{R}$.
@@ -24,7 +32,19 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item As \(n \to \infty\), \(h_n(x) \to \sqrt{x^2} = |x|\). Now, recall that \(\sqrt{a} + \sqrt{b} \geq \sqrt{a + b}\) (I think this has been proved earlier, but if not, this is easily shown by squaring both sides); alternatively \(\sqrt{a + b} - \sqrt{a} \leq \sqrt{b}\), and so
+    \[\abs{\sqrt{\left(x^2 + \frac{1}{n}\right)} - \sqrt{x^2}} \leq \sqrt{\frac{1}{n}} = \frac{1}{\sqrt{n}}\]
+    which we can clearly make less than any \(\epsilon > 0\).
+
+    \item \[h'_n(x) = \frac{x}{\sqrt{x^2 + 1/n}}\] which converges to
+\[g(x) = \begin{cases}
+ 1 & x > 0 \\
+ 0 & x = 0 \\
+ -1 & x < 0
+\end{cases}\]
+    Define \(h(x)\) to be the pointwise limit of \((h_n)\). If the convergence to \(g\) was uniform, that would imply that \(g_n = h'(x)\) (by the Differentiable Limit Theorem). But from part (a) \(h\) is not differentiable at 0, therefore the convergence to \(g\) cannot be uniform in a neighborhood around 0.
+}
 \end{solution}
 \begin{exercise}
   Consider the sequence of functions
@@ -37,7 +57,14 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item \(f_n\) is differentiable on \(\mathbf{R}\), so by the Interior Extremum Theorem the maximum and minimum values will appear where \(f'_n(x) = 0\). We have
+    \[f'_n(x) = \frac{1-nx^2}{\left(1 + nx^2\right)^2}\]
+    which is zero at \(x = \pm 1/\sqrt{n}\). Plugging these values back into \(f_n(x)\) we get that \(\abs{f_n(x)} \leq \frac{1}{2\sqrt{n}}\). Clearly this forces \(f_n\) to converge uniformly to 0.
+    \item \(f(x) = f'(x) = 0\). We have
+    \[\lim_{n \to \infty} f'_n(x) = \frac{1 - nx^2}{1 + 2nx^2 + n^2 x^4} = \frac{\frac{1}{n} - x^2}{\frac{1}{n} + 2x^2 + nx^4} = 0\]
+    and therefore \(f'(x) = \lim f'_n(x)\) everywhere.
+}
 \end{solution}
 \begin{exercise}
   Let
@@ -47,7 +74,9 @@
   Show that $h_{n} \rightarrow 0$ uniformly on $\mathbf{R}$ but that the sequence of derivatives $\left(h_{n}^{\prime}\right)$ diverges for every $x \in \mathbf{R}$.
 \end{exercise}
 \begin{solution}
-  \TODO
+\(|sin(x)| \leq 1\) and so \(\abs{h_n(x)} < \frac{1}{\sqrt{n}}\) which shows that \(h_n \to 0\) uniformly on \(\mathbf{R}\). \(h'_n(x) = \frac{n\cos(nx)}{\sqrt{n}} = \sqrt{n} \cos(nx)\). Intuitively this diverges because of the unbounded \(\sqrt{n}\) factor, but to prove it formally requires some thought. We want to show that for any fixed real numbers \(x\) and \(M\) we can find some \(n\) where \(h'_n(x) \geq M\) (this will show that \(h'_n(x)\) is unbounded and thus diverges). First let \(N_1 > 4M^2\), then we just need to find some \(n \geq N_1\) so that \(\abs{nx - Z\pi} \leq \pi/3\) for some integer \(Z\); this would cause \(\abs{\cos(nx)} \geq 1/2\) and thus \(h'_n(x) \geq M\).
+
+Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \pi\). (This next bit is reminiscent of arithmetic modulo \(2\pi\).) Now if \(k \in [0, \pi/3]\) or \([2\pi/3, 4\pi/3]\) or \([5\pi/3, 2\pi]\) we're done. Otherwise \(k \in (\pi/3, 2\pi/3)\) or \((4\pi/3, 5\pi/3)\); so consider \(2N_1 x = 4 \pi P + 2k\), with \(2k \in (2\pi/3, 4 \pi/3)\) or \((8\pi/3, 10\pi/3)\); both of these cases will have \(2N_1 x\) within \(\pi/3\) of a multiple of \(\pi\), hence \(h'_n(x)\) diverges for all \(x\).
 \end{solution}
 \begin{exercise}
   Let
@@ -63,7 +92,16 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item By inspection \(g(x) = x/2\) and \(g'(x) = 1/2\).
+    \item \(g'_n(x) = 1/2 + \frac{x}{n}\) which approaches \(\frac{1}{2}\) as \(n \to \infty\). Now \(\abs{g'_n - \frac{1}{2}} = \abs{\frac{x}{n}}\) is bounded by \(\frac{M}{n}\) which goes to 0 and is not dependent on \(x\), and therefore \((g'_n)\) converges uniformly over \([-M, M]\).
+    \item \(f(x) = x^2 / 2\), and \(f'(x) = x\). We have
+        \[f'_n(x) = \frac{4n^2x + nx^2 - 1}{4n^2 + 4nx + x^2} \]
+        which approaches \(x\) as \(n \to \infty\). With some algebra we have
+        \[\abs{f'_n(x) - x} = \abs{ \frac{x^3 - 3nx^2 - 1}{4n^2 + 4nx + x^2} } \leq \frac{M^3 + 3nM^2 + 1}{4n^2 - 4Mn}\]
+        which approaches 0 as \(n \to \infty\) independent of \(x\), and therefore \((f'_n)\) converges uniformly over \([-M, M]\).
+}
+
 \end{solution}
 \begin{exercise}
   Provide an example or explain why the request is impossible. Let's take the domain of the functions to be all of $\mathbf{R}$.
@@ -74,7 +112,18 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item Let \(g(x)\) be the continuous but nowhere-differentiable function defined in section 5.4. Then since \(g(x)\) is bounded, \(f_n(x) = g(x) / n\) clearly converges uniformly to 0, and is thus such a sequence.
+    \item Let
+    \[f_n(x) = \begin{cases}
+       1 & \text{  n is odd} \\
+       0 & \text{  n is even} \\
+    \end{cases}\]
+    Clearly \(f_n\) does not converge anyewhere, but \(f'_n(x)\) converges to 0.
+
+    \item Not possible - since \(f_n\) converges uniformly, it must converge at at least one point, and since \(f'_n\) converges uniformly, we can apply Theorem 6.3.3 to show that \(f\) is differentiable everywhere.
+}
+
 \end{solution}
 \begin{exercise}
   Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that, for any $x \in[a, b]$ and $m, n \in \mathbf{N}$,
@@ -83,5 +132,17 @@
   $$
 \end{exercise}
 \begin{solution}
-  \TODO
+Take any \(\epsilon > 0\); we want to show that there is some \(N\) so that for \(n, m > N\), \(|f_n(x) - f_m(x)| < \epsilon\) (to use the Cauchy Criterion for Uniform Convergence).
+
+Let \(h_{n,m}(x) = f_n(x) - f_m(x)\), and note that \(h'_{n,m}\) converges uniformly to 0 as \(n,m\) go to infinity (as a consequence of \((f'_n)\) converging uniformly). More formally, for any \(\epsilon_1 > 0\) we have some \(N_1\) for which if \(n,m > N_1\) then \(\abs{h'_{n,m}(x)} < \epsilon_1\  \forall x \in [a,b]\).
+
+By the Mean Value Theorem,
+\[\frac{h_{n,m}(x) - h_{n,m}(x_0)}{x-x_0} = h'_{n,m}(x_1)\]
+for some \(x_1 \in [a,b]\), and therefore if \(n,m > N_1\) we have
+\[\abs{(f_n(x) - f_m(x)) - (f_n(x_0) - f_m(x_0))} = \abs{x - x_0}\abs{h'_{n,m}(x_1)} \leq (b-a)\epsilon_1\]
+This addresses the first term in the question hint.
+
+Second, since \((f_n(x_0))\) converges as \(n \to \infty\) and is thus a Cauchy sequence, we have that for any \(\epsilon_2\) there is an \(N_2\) so that when \(n,m > N_2\), \(\abs{f_n(x_0) - f_m(x_0)} < \epsilon_2\). This addresses the second term.
+
+Setting \(\epsilon_1 = \frac{\epsilon}{2(b-a)}\), \(\epsilon_2 = \frac{\epsilon}{2}\), and \(N = \max\{N_1, N_2\}\) completes the proof.
 \end{solution}
