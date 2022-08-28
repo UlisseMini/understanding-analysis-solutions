@@ -19,7 +19,23 @@ and applying the Cauchy Criterion, the proof is done.
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item True: applying the Cauchy Criterion with \(n = m+1\) we have that \(|g_n(x)| < \epsilon\) for any \(\epsilon > 0\), therefore \((g_n) \to 0\).
+    \item True: \[\abs{\sum^n_{i=m+1}f_i(x)} = \sum^n_{i=m+1}f_i(x) \leq \sum^n_{i=m+1}g_i(x) = \abs{\sum^n_{i=m+1} g_i(x)} < \epsilon\] and therefore \(\sum(f_i)\) converges uniformly.
+    \item False: Consider the following sequence of functions, defined over \([0,1)\):
+    \[g_{i,j}(x) = \begin{cases}
+        2^{-i} & 2^{-i}(j-1) \leq x < 2^{-i}j \\
+        0 & \text{otherwise}
+    \end{cases}\]
+    with \(i \geq 1\) and \(j\) an integer ranging from 1 to \(2^i\) inclusive. Each \(g_{i,j}(x)\) consists of a pulse of height and width \(2^{-i}\), at disjoint locations for each \(i\). Let \(f_n(x)\) be obtained by iterating through each \(g_{1,j}\), then through each \(g_{2,j}\), then through each \(g_{3,j}\), and so on.
+
+   \(\sum^\infty_{n=1} f_n\) converges to 1 because
+   \[\sum^{2^i}_{k=1} g_{i,k} = 2^{-i}\]
+   , and uniform convergence is achieved when we include all of the \(g_{i,j}\) for a given \(g_i\). On the other hand, the upper bound (and therefore minimum value of the constant \(M_{n}\)) for each \(g_{i,j}\) is \(2^{-i}\), with
+   \[\sum^{2^i}_{k=1} \max g_{i,k}(x) = 1\]
+   which implies that \(\sum^\infty_{n=1} M_n\) will not converge.
+
+  }
 \end{solution}
 \begin{exercise}
   \enum {
