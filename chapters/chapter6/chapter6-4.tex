@@ -34,7 +34,6 @@ and applying the Cauchy Criterion, the proof is done.
    , and uniform convergence is achieved when we include all of the \(g_{i,j}\) for a given \(g_i\). On the other hand, the upper bound (and therefore minimum value of the constant \(M_{n}\)) for each \(g_{i,j}\) is \(2^{-i}\), with
    \[\sum^{2^i}_{k=1} \max g_{i,k}(x) = 1\]
    which implies that \(\sum^\infty_{n=1} M_n\) will not converge.
-
   }
 \end{solution}
 \begin{exercise}
@@ -45,11 +44,13 @@ and applying the Cauchy Criterion, the proof is done.
     $$
     is continuous on all of $\mathbf{R}$.
   \item The function $g$ was cited in Section 5.4 as an example of a continuous nowhere differentiable function. What happens if we try to use Theorem $6.4 .3$ to explore whether $g$ is differentiable?
-
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item Define \(g_n(x) = \frac{\cos(2^nx)}{2^n}\) and \(M_n = 2^{-n} > \abs{g_n(x)}\). By the Weierstrass M-test, \(g(x)\) converges uniformly on \(\mathbf{R}\). Since each \(g_n(x)\) is continuous and \(g(x)\) converges uniformly, \(g(x)\) must also be continuous.
+    \item \(g'_n(x) = -\sin(2^nx)\) and thus \(\sum^\infty_{n=1} g'_n(x)\) does not converge uniformly by Exercise 6.4.2 part a. (It might not converge pointwise either, but that seems more difficult to prove.) Therefore we cannot use Theorem 6.4.3.
+  }
 \end{solution}
 \begin{exercise}
   Define
