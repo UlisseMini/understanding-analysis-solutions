@@ -5,7 +5,10 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+Let \(\epsilon > 0\). Since \(\sum^\infty_{n=1}M_n\) converges, by the Cauchy Criterion for Series there must be some \(N\) where if \(n>m > N\) then \(\sum^{n}_{i=m+1}M_i < \epsilon\).
+Then
+\[\abs{\sum^n_{i=m+1}f_i(x)} \leq \sum^n_{i=m+1}\abs{f_i(x)} \leq \sum^n_{i=m+1} M_i < \epsilon\]
+and applying the Cauchy Criterion, the proof is done.
 \end{solution}
 \begin{exercise}
   Decide whether each proposition is true or false, providing a short justification or counterexample as appropriate.
