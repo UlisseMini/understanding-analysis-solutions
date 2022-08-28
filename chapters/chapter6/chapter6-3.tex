@@ -113,7 +113,7 @@ Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \
 \end{exercise}
 \begin{solution}
 \enum{
-    \item Let \(g(x)\) be the continuous but nowhere-differentiable function defined in section 5.4. Then since \(g(x)\) is bounded, \(f_n(x) = g(x) / n\) clearly conerges uniformly to 0, and is thus such a sequence.
+    \item Let \(g(x)\) be the continuous but nowhere-differentiable function defined in section 5.4. Then since \(g(x)\) is bounded, \(f_n(x) = g(x) / n\) clearly converges uniformly to 0, and is thus such a sequence.
     \item Let
     \[f_n(x) = \begin{cases}
        1 & \text{  n is odd} \\
@@ -121,8 +121,9 @@ Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \
     \end{cases}\]
     Clearly \(f_n\) does not converge anyewhere, but \(f'_n(x)\) converges to 0.
 
-    \item Not possible - since \(f_n\) converges uniformly, it must converge at at least one point, and since \(f'_n'\) converges uniformly, we can apply Theorem 6.3.3 to show that \(f\) is differentiable everywhere.
+    \item Not possible - since \(f_n\) converges uniformly, it must converge at at least one point, and since \(f'_n\) converges uniformly, we can apply Theorem 6.3.3 to show that \(f\) is differentiable everywhere.
 }
+
 \end{solution}
 \begin{exercise}
   Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that, for any $x \in[a, b]$ and $m, n \in \mathbf{N}$,
@@ -131,5 +132,17 @@ Express \(N_1 x = 2 \pi P + k\) where \(P\) is some integer and \(0 \leq k < 2 \
   $$
 \end{exercise}
 \begin{solution}
-  \TODO
+Take any \(\epsilon > 0\); we want to show that there is some \(N\) so that for \(n, m > N\), \(|f_n(x) - f_m(x)| < \epsilon\) (to use the Cauchy Criterion for Uniform Convergence).
+
+Let \(h_{n,m}(x) = f_n(x) - f_m(x)\), and note that \(h'_{n,m}\) converges uniformly to 0 as \(n,m\) go to infinity (as a consequence of \((f'_n)\) converging uniformly). More formally, for any \(\epsilon_1 > 0\) we have some \(N_1\) for which if \(n,m > N_1\) then \(\abs{h'_{n,m}(x)} < \epsilon_1\  \forall x \in [a,b]\).
+
+By the Mean Value Theorem,
+\[\frac{h_{n,m}(x) - h_{n,m}(x_0)}{x-x_0} = h'_{n,m}(x_1)\]
+for some \(x_1 \in [a,b]\), and therefore if \(n,m > N_1\) we have
+\[\abs{(f_n(x) - f_m(x)) - (f_n(x_0) - f_m(x_0))} = \abs{x - x_0}\abs{h'_{n,m}(x_1)} \leq (b-a)\epsilon_1\]
+This addresses the first term in the question hint.
+
+Second, since \((f_n(x_0))\) converges as \(n \to \infty\) and is thus a Cauchy sequence, we have that for any \(\epsilon_2\) there is an \(N_2\) so that when \(n,m > N_2\), \(\abs{f_n(x_0) - f_m(x_0)} < \epsilon_2\). This addresses the second term.
+
+Setting \(\epsilon_1 = \frac{\epsilon}{2(b-a)}\), \(\epsilon_2 = \frac{\epsilon}{2}\), and \(N = \max\{N_1, N_2\}\) completes the proof.
 \end{solution}
