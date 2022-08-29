@@ -60,7 +60,9 @@ and applying the Cauchy Criterion, the proof is done.
   Find the values of $x$ where the series converges and show that we get a continuous function on this set.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let \(h_n(x) = \frac{x^{2n}}{(1+x^{2n})}\) be the terms being summed. For \(\abs{x} \geq 1\), \(h_n(x)\) does not approach 0 and therefore the series does not converge. For \(\abs{x} < 1\), \(\abs{h_n(x)} \leq x^{2n}\), which forms a geometric series in \(x^2\), which converges, so \(g(x)\) converges by the Order Limit Theorem.
+
+  Note that for any \(0 \leq a < 1\), \(\abs{h(x)} \leq a^{2n} = M_n\) over \([-a,a]\), and thus by the Weierstrass M-test \(g(x)\) uniformly converges over \([-a, a]\) and is thus continuous over this interval. This last statement is equivalent to saying \(g(x)\) is continuous over \((-1,1)\), which is also the set where \(g(x)\) is well defined.
 \end{solution}
 \begin{exercise}
   \enum {
