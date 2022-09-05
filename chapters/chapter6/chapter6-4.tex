@@ -79,7 +79,12 @@ and applying the Cauchy Criterion, the proof is done.
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item For \(x \in [-1, 1]\), we have
+    \[\abs{\frac{x^n}{n^2}} \leq \frac{1}{n^2} = M_n \]
+    and since \(\sum \frac{1}{n^2}\) converges (Example 2.4.4), \(h\) converges uniformly and is therefore continuous.
+    \item Given a fixed \(x_0\), we can consider the interval \((-a, a) \subset [-1, 1)\) where \(-1 < -a < \abs{x_0} < a < 1\). Then by setting \(M_n = \frac{a^n}{n}\) we will have \(M_n > \frac{x_0^n}{n}\) in a neighbourhood around \(x_0\), allowing us to show via the M-Test that \(f\) is continuous at \(x_0\).
+}
 \end{solution}
 
 \begin{exercise}
