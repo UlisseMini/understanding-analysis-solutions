@@ -95,8 +95,23 @@ and applying the Cauchy Criterion, the proof is done.
   Show $f$ is defined for all $x>0$. Is $f$ continuous on $(0, \infty)$ ? How about differentiable?
 \end{exercise}
 \begin{solution}
-  \TODO
+ \(f(x)\) converges for any \(x > 0\) by the Alternating Series Test. Since \(f\) converges we are free to use associativity to group the terms in pairs, from which we get
+ \[ \begin{aligned}
+    f(x) &= \left(\frac{1}{x}-\frac{1}{x+1}\right) + \left(\frac{1}{x+2}-\frac{1}{x+3}\right)+\cdots \\
+    &= \frac{1}{x^2 + x} + \frac{1}{(x+2)^2 + (x+2)}+ \cdots \\
+    &< \frac{1}{x^2} + \frac{1}{(x+2)^2} + \cdots
+ \end{aligned}
+    \]
 \end{solution}
+Temporarily skipping the first term, we can use the Weierstrass M-Test with \(M_n = \frac{1}{(2n)^2}\), to show that \(f(x) - 1/x^2\) converges uniformly and is therefore continuous for \(x>0\). Since \(1/x^2\) is also continuous for \(x > 0\), \(f\) must be continuous on \((0, \infty)\).
+
+Letting \(f'_n\) represent each term of \(f\),
+\[\abs{f'_n(x)} = \abs{\frac{(-1)^{n}}{(x+n - 1)^2}} \leq \frac{1}{(n-1)^2}\]
+(with the inequality only being meaningful for \(n \geq 2\)). Thus if we skip the first term, by the Weierstrass M-test we can be assured
+\[\sum^\infty_{n=2}f'_n(x)\]
+converges uniformly, and is therefore differentiable, and is equal to the derivative of
+\[g(x) = \sum^\infty_{n=2}f_n(x)\]
+by the Differentiable Limit Theorem. Since \(f(x) = g(x) + 1/x\) and both \(1/x\) and \(g(x)\) are differentiable over \((0, \infty)\), we have that \(f\) is differentiable as well.
 \begin{exercise}
   Let
   $$
