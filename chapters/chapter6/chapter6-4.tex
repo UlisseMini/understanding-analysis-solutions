@@ -139,8 +139,13 @@ by the Differentiable Limit Theorem. Since \(f(x) = g(x) + 1/x\) and both \(1/x\
   Where is $f$ defined? Continuous? Differentiable? Twice-differentiable?
 \end{exercise}
 \begin{solution}
-  \TODO
+  We can use the inequality \(\abs{\sin{x}} \leq \abs{x} \) to show that \(f(x)\) converges uniformly by the Weierstrass M-Test over any interval \((-a, a)\), with \(M_n = a/k^2\). Therefore \(f\) is defined and is continuous over all real numbers.
+
+The derivative of each term is
+\[\frac{\cos(x/k)}{k^2}\]
+which can easily be shown to converge uniformly; hence by the Differentiable Limit Theorem we have that \(f(x)\) is differentiable as well. A similar argument shows that \(f\) is also twice-differentiable.
 \end{solution}
+
 \begin{exercise}
   Let
   $$
