@@ -123,7 +123,13 @@ by the Differentiable Limit Theorem. Since \(f(x) = g(x) + 1/x\) and both \(1/x\
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+ \enum{
+    \item Let \(f_n(x) = \frac{\sin(nx)}{n^3}\). We have
+    \[\abs{f'_n(x)} = \abs{\frac{\cos (nx)}{n^2}} \leq \frac{1}{n^2}\]
+    and so \(\sum^\infty_n f'_n(x)\) converges uniformly by the Weierstrass M-Test. We also have \(f(x)\) converging at \(x=0\) (since every term is zero), so by the differentiable limit theorem we have \(f(x)\) differentiable with \(f'(x) = \sum^\infty_{n=1} f'_n(x)\). Since this converges uniformly, \(f'(x)\) is continuous.
+
+    \item Probably not easily - trying the same trick leaves us with trying to bound \(\abs{\frac{\sin(kx)}{k}}\) with \(M_n\) where \(\sum M_n\) converges, but \(M_n = 1/k\) doesn't work as \(\sum^\infty_{k=1} 1/k\) diverges.
+ }
 \end{solution}
 \begin{exercise}
   Consider the function
