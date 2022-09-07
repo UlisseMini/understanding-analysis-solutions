@@ -5,7 +5,10 @@
 
 \end{exercise}
 \begin{solution}
-  \TODO
+Let \(\epsilon > 0\). Since \(\sum^\infty_{n=1}M_n\) converges, by the Cauchy Criterion for Series there must be some \(N\) where if \(n>m > N\) then \(\sum^{n}_{i=m+1}M_i < \epsilon\).
+Then
+\[\abs{\sum^n_{i=m+1}f_i(x)} \leq \sum^n_{i=m+1}\abs{f_i(x)} \leq \sum^n_{i=m+1} M_i < \epsilon\]
+and applying the Cauchy Criterion, the proof is done.
 \end{solution}
 \begin{exercise}
   Decide whether each proposition is true or false, providing a short justification or counterexample as appropriate.
@@ -16,7 +19,22 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item True: applying the Cauchy Criterion with \(n = m+1\) we have that \(|g_n(x)| < \epsilon\) for any \(\epsilon > 0\), therefore \((g_n) \to 0\).
+    \item True: \[\abs{\sum^n_{i=m+1}f_i(x)} = \sum^n_{i=m+1}f_i(x) \leq \sum^n_{i=m+1}g_i(x) = \abs{\sum^n_{i=m+1} g_i(x)} < \epsilon\] and therefore \(\sum(f_i)\) converges uniformly.
+    \item False: Consider the following sequence of functions, defined over \([0,1)\):
+    \[g_{i,j}(x) = \begin{cases}
+        2^{-i} & 2^{-i}(j-1) \leq x < 2^{-i}j \\
+        0 & \text{otherwise}
+    \end{cases}\]
+    with \(i \geq 1\) and \(j\) an integer ranging from 1 to \(2^i\) inclusive. Each \(g_{i,j}(x)\) consists of a pulse of height and width \(2^{-i}\), at disjoint locations for each \(i\). Let \(f_n(x)\) be obtained by iterating through each \(g_{1,j}\), then through each \(g_{2,j}\), then through each \(g_{3,j}\), and so on.
+
+   \(\sum^\infty_{n=1} f_n\) converges to 1 because
+   \[\sum^{2^i}_{k=1} g_{i,k} = 2^{-i}\]
+   , and uniform convergence is achieved when we include all of the \(g_{i,j}\) for a given \(g_i\). On the other hand, the upper bound (and therefore minimum value of the constant \(M_{n}\)) for each \(g_{i,j}\) is \(2^{-i}\), with
+   \[\sum^{2^i}_{k=1} \max g_{i,k}(x) = 1\]
+   which implies that \(\sum^\infty_{n=1} M_n\) will not converge.
+  }
 \end{solution}
 \begin{exercise}
   \enum {
@@ -26,11 +44,13 @@
     $$
     is continuous on all of $\mathbf{R}$.
   \item The function $g$ was cited in Section 5.4 as an example of a continuous nowhere differentiable function. What happens if we try to use Theorem $6.4 .3$ to explore whether $g$ is differentiable?
-
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item Define \(g_n(x) = \frac{\cos(2^nx)}{2^n}\) and \(M_n = 2^{-n} > \abs{g_n(x)}\). By the Weierstrass M-test, \(g(x)\) converges uniformly on \(\mathbf{R}\). Since each \(g_n(x)\) is continuous and \(g(x)\) converges uniformly, \(g(x)\) must also be continuous.
+    \item \(g'_n(x) = -\sin(2^nx)\) and thus \(\sum^\infty_{n=1} g'_n(x)\) does not converge uniformly by Exercise 6.4.2 part a. (It might not converge pointwise either, but that seems more difficult to prove.) Therefore we cannot use Theorem 6.4.3.
+  }
 \end{solution}
 \begin{exercise}
   Define
@@ -40,7 +60,9 @@
   Find the values of $x$ where the series converges and show that we get a continuous function on this set.
 \end{exercise}
 \begin{solution}
-  \TODO
+  Let \(h_n(x) = \frac{x^{2n}}{(1+x^{2n})}\) be the terms being summed. For \(\abs{x} \geq 1\), \(h_n(x)\) does not approach 0 and therefore the series does not converge. For \(\abs{x} < 1\), \(\abs{h_n(x)} \leq x^{2n}\), which forms a geometric series in \(x^2\), which converges, so \(g(x)\) converges by the Order Limit Theorem.
+
+  Note that for any \(0 \leq a < 1\), \(\abs{h(x)} \leq a^{2n} = M_n\) over \([-a,a]\), and thus by the Weierstrass M-test \(g(x)\) uniformly converges over \([-a, a]\) and is thus continuous over this interval. This last statement is equivalent to saying \(g(x)\) is continuous over \((-1,1)\), which is also the set where \(g(x)\) is well defined.
 \end{solution}
 \begin{exercise}
   \enum {
@@ -57,7 +79,12 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item For \(x \in [-1, 1]\), we have
+    \[\abs{\frac{x^n}{n^2}} \leq \frac{1}{n^2} = M_n \]
+    and since \(\sum \frac{1}{n^2}\) converges (Example 2.4.4), \(h\) converges uniformly and is therefore continuous.
+    \item Given a fixed \(x_0\), we can consider the interval \((-a, a) \subset [-1, 1)\) where \(-1 < -a < \abs{x_0} < a < 1\). Then by setting \(M_n = \frac{a^n}{n}\) we will have \(M_n > \frac{x_0^n}{n}\) in a neighbourhood around \(x_0\), allowing us to show via the M-Test that \(f\) is continuous at \(x_0\).
+}
 \end{solution}
 
 \begin{exercise}
@@ -68,8 +95,23 @@
   Show $f$ is defined for all $x>0$. Is $f$ continuous on $(0, \infty)$ ? How about differentiable?
 \end{exercise}
 \begin{solution}
-  \TODO
+ \(f(x)\) converges for any \(x > 0\) by the Alternating Series Test. Since \(f\) converges we are free to use associativity to group the terms in pairs, from which we get
+ \[ \begin{aligned}
+    f(x) &= \left(\frac{1}{x}-\frac{1}{x+1}\right) + \left(\frac{1}{x+2}-\frac{1}{x+3}\right)+\cdots \\
+    &= \frac{1}{x^2 + x} + \frac{1}{(x+2)^2 + (x+2)}+ \cdots \\
+    &< \frac{1}{x^2} + \frac{1}{(x+2)^2} + \cdots
+ \end{aligned}
+    \]
 \end{solution}
+Temporarily skipping the first term, we can use the Weierstrass M-Test with \(M_n = \frac{1}{(2n)^2}\), to show that \(f(x) - 1/x^2\) converges uniformly and is therefore continuous for \(x>0\). Since \(1/x^2\) is also continuous for \(x > 0\), \(f\) must be continuous on \((0, \infty)\).
+
+Letting \(f'_n\) represent each term of \(f\),
+\[\abs{f'_n(x)} = \abs{\frac{(-1)^{n}}{(x+n - 1)^2}} \leq \frac{1}{(n-1)^2}\]
+(with the inequality only being meaningful for \(n \geq 2\)). Thus if we skip the first term, by the Weierstrass M-test we can be assured
+\[\sum^\infty_{n=2}f'_n(x)\]
+converges uniformly, and is therefore differentiable, and is equal to the derivative of
+\[g(x) = \sum^\infty_{n=2}f_n(x)\]
+by the Differentiable Limit Theorem. Since \(f(x) = g(x) + 1/x\) and both \(1/x\) and \(g(x)\) are differentiable over \((0, \infty)\), we have that \(f\) is differentiable as well.
 \begin{exercise}
   Let
   $$
@@ -81,7 +123,13 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+ \enum{
+    \item Let \(f_n(x) = \frac{\sin(nx)}{n^3}\). We have
+    \[\abs{f'_n(x)} = \abs{\frac{\cos (nx)}{n^2}} \leq \frac{1}{n^2}\]
+    and so \(\sum^\infty_n f'_n(x)\) converges uniformly by the Weierstrass M-Test. We also have \(f(x)\) converging at \(x=0\) (since every term is zero), so by the differentiable limit theorem we have \(f(x)\) differentiable with \(f'(x) = \sum^\infty_{n=1} f'_n(x)\). Since this converges uniformly, \(f'(x)\) is continuous.
+
+    \item Probably not easily - trying the same trick leaves us with trying to bound \(\abs{\frac{\sin(kx)}{k}}\) with \(M_n\) where \(\sum M_n\) converges, but \(M_n = 1/k\) doesn't work as \(\sum^\infty_{k=1} 1/k\) diverges.
+ }
 \end{solution}
 \begin{exercise}
   Consider the function
@@ -91,8 +139,13 @@
   Where is $f$ defined? Continuous? Differentiable? Twice-differentiable?
 \end{exercise}
 \begin{solution}
-  \TODO
+  We can use the inequality \(\abs{\sin{x}} \leq \abs{x} \) to show that \(f(x)\) converges uniformly by the Weierstrass M-Test over any interval \((-a, a)\), with \(M_n = a/k^2\). Therefore \(f\) is defined and is continuous over all real numbers.
+
+The derivative of each term is
+\[\frac{\cos(x/k)}{k^2}\]
+which can easily be shown to converge uniformly; hence by the Differentiable Limit Theorem we have that \(f(x)\) is differentiable as well. A similar argument shows that \(f\) is also twice-differentiable.
 \end{solution}
+
 \begin{exercise}
   Let
   $$
@@ -104,7 +157,12 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item Use the M-Test with \(M_n = \frac{1}{n^2}\).
+    \item The termwise derivatives are
+    \[h'_n(x) = \frac{-2x}{x^4 + 2x^2 n^2 + n^4}\]
+    with \(\abs{h'_n(x)} < 2x / n^4\). For any fixed \(a > 0\), over the interval \((-a, a)\) we can bound \(\abs{h'_n(x)}\) with \(M_n = 2a / n^4\), so by the Differentiable Limit Theorem as well as uniform convergence via the M-Test we have that \(h\) is differentiable with \(h'\) continuous.
+  }
 \end{solution}
 \begin{exercise}
   Let $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ be an enumeration of the set of rational numbers. For each $r_{n} \in \mathbf{Q}$, define
@@ -113,6 +171,8 @@
   $$
   Now, let $h(x)=\sum_{n=1}^{\infty} u_{n}(x)$. Prove that $h$ is a monotone function defined on all of $\mathbf{R}$ that is continuous at every irrational point.
 \end{exercise}
+
 \begin{solution}
-  \TODO
+    Using \(M_n = 1/2^n\), by the Weierstrass M-Test we have that \(h\) converges uniformly. Since each \(u_n\) is continuous at all irrational numbers, we have that \(h\) is continuous at all irrational numbers. Monotone-ness comes from applying the Order Limit Theorem to compare the series \(\sum u_n(a)\) and \(\sum u_n(b)\) for \(a,b\in \mathbf{R}\).
+
 \end{solution}
