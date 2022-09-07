@@ -157,7 +157,12 @@ which can easily be shown to converge uniformly; hence by the Differentiable Lim
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item Use the M-Test with \(M_n = \frac{1}{n^2}\).
+    \item The termwise derivatives are
+    \[h'_n(x) = \frac{-2x}{x^4 + 2x^2 n^2 + n^4}\]
+    with \(\abs{h'_n(x)} < 2x / n^4\). For any fixed \(a > 0\), over the interval \((-a, a)\) we can bound \(\abs{h'_n(x)}\) with \(M_n = 2a / n^4\), so by the Differentiable Limit Theorem as well as uniform convergence via the M-Test we have that \(h\) is differentiable with \(h'\) continuous.
+  }
 \end{solution}
 \begin{exercise}
   Let $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ be an enumeration of the set of rational numbers. For each $r_{n} \in \mathbf{Q}$, define
