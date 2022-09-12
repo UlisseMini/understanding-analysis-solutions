@@ -1,11 +1,48 @@
 \section{Power Series}
 
-Exercise $6.5 .1$. Consider the function $g$ defined by the power series
+\begin{exercise}
+Consider the function $g$ defined by the power series
 $$
 g(x)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\frac{x^{5}}{5}-\cdots .
 $$
-(a) Is $g$ defined on $(-1,1)$ ? Is it continuous on this set? Is $g$ defined on $(-1,1]$ ? Is it continuous on this set? What happens on $[-1,1]$ ? Can the power series for $g(x)$ possibly converge for any other points $|x|>1$ ? Explain.
-(b) For what values of $x$ is $g^{\prime}(x)$ defined? Find a formula for $g^{\prime}$.
+\enum{
+\item Is $g$ defined on $(-1,1)$ ? Is it continuous on this set? Is $g$ defined on $(-1,1]$ ? Is it continuous on this set? What happens on $[-1,1]$ ? Can the power series for $g(x)$ possibly converge for any other points $|x|>1$ ? Explain.
+\item For what values of $x$ is $g^{\prime}(x)$ defined? Find a formula for $g^{\prime}$.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item \(g(1)\) converges by the Alternating Series Test, so the radius of convergence is at least 1, and \(g\) must be defined on at least \((-1, 1]\). Theorem 6.5.1 and Abel's Theorem together indicate that indicate that \(g\) converges absolutely on \((-1,1]\) as well. Thus, since each term is continuous, \(g(x)\) is continuous on \((-1,1]\).
+
+    \(g\) is not defined at \(-1\) since \(g(-1)\) would otherwise be
+    \[\sum^\infty_{n=1} \frac{-1}{n}\]
+    which diverges.
+
+    \(g\) cannot converge at any point \(|x| > 1\) because if it did, that would imply the radius of convergence is strictly larger than 1, and thus \(g\) would need to converge at \(-1\), which it doesn't.
+
+    \item \(g'(x)\) is at least defined on \((-1, 1)\), by Theorem 6.5.7, with the derivative given by
+    \[g'(x) = \sum^\infty_{n=0}(-x)^n = \frac{1}{x + 1}\]
+    \(g'(x)\) cannot be defined at \(x \leq -1\) since \(g\) isn't even defined there. To show that \(g'(1)\) is defined and is also given by this formula requires a bit more care, since the infinite sum does not actually converge for \(1\). We return to the definition of the derivative:
+    \[ \begin{aligned}
+g'(1) &= \lim_{x \to 1} \frac{\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} - \sum^\infty_{n=1} \frac{(-1)^{n+1}}{n}x^n}{1-x} = \lim_{x \to 1} \sum^\infty_n \frac{(-1)^{n+1}}{n} \frac{1-x^n}{1-x} \\
+&= \lim_{x \to 1} \frac{1}{1-x}\sum^\infty_n \frac{(-1)^{n+1}}{n} \left(1 - x^n\right)
+    \end{aligned}\]
+With some algebra, we can show that this converges by the alternating series test, keeping in mind that we can assume \(x \in (0,1)\). We have \(\frac{1-x^n}{n} < \frac{1}{n} \to 0\), so we just need to show \(\frac{1-x^n}{n} \geq \frac{1 - x^{n+1}}{n+1}\):
+    \[ \begin{aligned}
+   \frac{1-x^n}{n} \geq \frac{1 - x^{n+1}}{n+1} & \Longleftrightarrow (1-x^n)(n+1) \geq n - nx^{n+1} \\
+   & \Longleftrightarrow n - nx^n + 1 - x^n \geq n - nx^{n+1} \\
+   & \Longleftrightarrow 1 - x^n \geq nx^n (1-x) \\
+   & \Longleftrightarrow \frac{1-x^n}{1-x} = \sum^{n-1}_{i=0} x^i \geq \sum^{n-1}_{i=0} x^n = nx^n
+    \end{aligned}\]
+}
+
+Now we know that \(g'(1)\) exists. We can show that \(g'(1) = \frac{1}{1+1} = 0.5\) by noting that \(\frac{1}{x+1}\) is strictly decreasing on \([0, 1)\), so in order for the derivative \(g'(x)\) to maintain the intermediate value property, \(g'(1) = 0.5\).
+
+\end{solution}
+
+
+
 Exercise 6.5.2. Find suitable coefficients $\left(a_{n}\right)$ so that the resulting power series $\sum a_{n} x^{n}$ has the given properties, or explain why such a request is impossible.
 (a) Converges for every value of $x \in \mathbf{R}$.
 (b) Diverges for every value of $x \in \mathbf{R}$.
