@@ -101,8 +101,21 @@ Note: I don't think this actually proves that \(g(x)\) is equal to this power se
 }
 \end{solution}
 
-Exercise 6.5.5. (a) If $s$ satisfies $0<s<1$, show $n s^{n-1}$ is bounded for all $n \geq 1$.
-(b) Given an arbitrary $x \in(-R, R)$, pick $t$ to satisfy $|x|<t<R$. Use this start to construct a proof for Theorem 6.5.6.
+\begin{exercise}
+\enum{
+ \item If $s$ satisfies $0<s<1$, show $n s^{n-1}$ is bounded for all $n \geq 1$.
+ \item Given an arbitrary $x \in(-R, R)$, pick $t$ to satisfy $|x|<t<R$. Use this start to construct a proof for Theorem 6.5.6.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item Note first that all \(ns^{n-1} > 0\), and that for \(n + 1 > N > \frac{1}{1-s}\) (with \(N \in \mathbf{N}\), we can rearrange for \(s\) to have \(\frac{n}{n + 1} > s\). This implies that \(ns^{n-1} > (n+1) s^n\); thus the sequence in \(n\) must be bounded by the maximum of the first \(N\) terms.
+    \item Choose \(s\) satisfying \(|s| = t\) and with \(s\) having the same sign as \(x\). As a preliminary, note that \(\sum^\infty_{n=0}a_n s^{n-1} = (1/s) \sum^\infty_{n=0} a_n s^n\) converges. We have
+    \[\sum^\infty_{n=0} n a_n x^{n-1} = \sum^\infty_{n=0}a_n s^{n-1} n \left(\frac{x}{s}\right)^{n-1} \leq M\sum^\infty_{n=0} a_n s^{n-1}\]
+    where, denoting \(p = x/s\) (with \(0 < p < 1\)), \(M\) is an upper bound for \(np^{n-1}\). This completes the proof.
+}
+\end{solution}
 
 Exercise 6.5.6. Previous work on geometric series (Example 2.7.5) justifies the formula
 $$
