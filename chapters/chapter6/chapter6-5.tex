@@ -41,14 +41,32 @@ Now we know that \(g'(1)\) exists. We can show that \(g'(1) = \frac{1}{1+1} = 0.
 
 \end{solution}
 
+\begin{exercise}
+Find suitable coefficients $\left(a_{n}\right)$ so that the resulting power series $\sum a_{n} x^{n}$ has the given properties, or explain why such a request is impossible.
+
+\enum{
+ \item Converges for every value of $x \in \mathbf{R}$.
+ \item Diverges for every value of $x \in \mathbf{R}$.
+ \item Converges absolutely for all $x \in[-1,1]$ and diverges off of this set.
+ \item Converges conditionally at $x=-1$ and converges absolutely at $x=1$.
+ \item Converges conditionally at both $x=-1$ and $x=1$.
+}
+\end{exercise}
+
+\begin{solution}
+    \enum{
+        \item \(a_n = 0\)
+        \item Impossible as \(x = 0\) will always converge
+        \item \(a_n = \frac{1}{n^2}\). For \(x=1\) this converges, while for \(x > 1\) the series diverges because
+\[\frac{x^n}{n^2} <\frac{x^{2n}}{4n^2} \Longleftrightarrow 4 < a^n\]
+meaning that once \(n > \log_x(4) = \ln(4) / \ln (x)\), the terms will start increasing (whereas they must approach 0 for the series to converge). A similar argument can be made for \(x < -1\).
+        \item Impossible because \(\abs{a_n x^n} = \abs{a_n (-x)^n}\), and substituting \(x = 1\) shows that the series at \(-1\) is going to be the same as that at \(1\) considered absolutely.
+        \item \(a_n = 0\) for odd \(n\) and \(a_n = (-1)^{n/2}/n\) for even \(n\). This in effect takes only the even-powered terms of the power series, which are always positive. We then get the alternating harmonic series (scaled by 0.5) in \(x^2\) which diverges absolutely but converges conditionally.
+    }
+\end{solution}
 
 
-Exercise 6.5.2. Find suitable coefficients $\left(a_{n}\right)$ so that the resulting power series $\sum a_{n} x^{n}$ has the given properties, or explain why such a request is impossible.
-(a) Converges for every value of $x \in \mathbf{R}$.
-(b) Diverges for every value of $x \in \mathbf{R}$.
-(c) Converges absolutely for all $x \in[-1,1]$ and diverges off of this set.
-(d) Converges conditionally at $x=-1$ and converges absolutely at $x=1$.
-(e) Converges conditionally at both $x=-1$ and $x=1$.
+
 Exercise 6.5.3. Use the Weierstrass M-Test to prove Theorem $6.5 .2$.
 Exercise $6.5 .4$ (Term-by-term Antidifferentiation). Assume $f(x)=$ $\sum_{n=0}^{\infty} a_{n} x^{n}$ converges on $(-R, R)$.
 (a) Show
