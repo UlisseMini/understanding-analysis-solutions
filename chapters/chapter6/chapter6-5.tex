@@ -72,13 +72,34 @@ Use the Weierstrass M-Test to prove Theorem 6.5.2.
     Note that \(|p| < |q|\) implies \(|p^n| < |q^n|\) and so we can use the Weierstrass M-Test with \(M_n = \abs{a_n x^n}\) (which converges by the assumption of absolute convergence of \(a_n x_0^n\)).
 \end{solution}
 
-Exercise $6.5 .4$ (Term-by-term Antidifferentiation). Assume $f(x)=$ $\sum_{n=0}^{\infty} a_{n} x^{n}$ converges on $(-R, R)$.
-(a) Show
+\begin{exercise}[Term-by-term Antidifferentiation]
+Assume $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converges on $(-R, R)$.
+\enum{
+\item Show
 $$
 F(x)=\sum_{n=0}^{\infty} \frac{a_{n}}{n+1} x^{n+1}
 $$
 is defined on $(-R, R)$ and satisfies $F^{\prime}(x)=f(x)$.
-(b) Antiderivatives are not unique. If $g$ is an arbitrary function satisfying $g^{\prime}(x)=f(x)$ on $(-R, R)$, find a power series representation for $g$.
+\item Antiderivatives are not unique. If $g$ is an arbitrary function satisfying $g^{\prime}(x)=f(x)$ on $(-R, R)$, find a power series representation for $g$.
+}
+
+\end{exercise}
+\begin{solution}
+\enum{
+    \item Let \(N \in \mathbf{N} > R\) and split the function into
+    \[
+        \begin{aligned}
+    F(x) &= \sum^{N-1}_{n=0} \frac{a_n}{n+1}x^{n+1} + \sum^N_{n=N} a_nx^n \left(\frac{x}{n+1}\right)\\
+    &\leq \sum^{N-1}_{n=0} \frac{a_n}{n+1}x^{n+1} + \sum^N_{n=N} a_nx^n \left(\frac{x}{R}\right)\\
+    &= \sum^{N-1}_{n=0} \frac{a_n}{n+1}x^{n+1} + \left(\frac{x}{R}\right)\sum^N_{n=N} a_nx^n \\
+        \end{aligned}
+\]
+The first term is finite, while the second term converges by the original assumption. This shows that \(F(x)\) is defined on \(-R,R\), at which point we can use Theorem 6.5.7 to conclude \(F'(x) = f(x)\).
+\item \[g(x) = \sum^\infty_{n=0} b_n x^n\] with \(b_0 = g(0)\) and \(b_n = a_n / n\) for \(n > 0\) works. No other power series can satisfy the requirements on \(g\) since we must satisfy \(a_n = n b_n\) for \(n > 0\) for \(g'(x) = f(x)\) and \(g(0)\) would be incorrect if \(b_0 \neq g(0)\).
+
+Note: I don't think this actually proves that \(g(x)\) is equal to this power series; to do that might require something like the Fundamenal Theorem of Calculus?
+}
+\end{solution}
 
 Exercise 6.5.5. (a) If $s$ satisfies $0<s<1$, show $n s^{n-1}$ is bounded for all $n \geq 1$.
 (b) Given an arbitrary $x \in(-R, R)$, pick $t$ to satisfy $|x|<t<R$. Use this start to construct a proof for Theorem 6.5.6.
