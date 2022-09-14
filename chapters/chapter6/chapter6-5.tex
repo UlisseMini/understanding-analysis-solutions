@@ -135,18 +135,36 @@ Use the results about power series proved in this section to find values for $\s
     Substituting \(x =1/2\) we have \(\sum^\infty_{n=1}n^2/2^n = 6\).
 \end{solution}
 
-Exercise 6.5.7. Let $\sum a_{n} x^{n}$ be a power series with $a_{n} \neq 0$, and assume
+\begin{exercise}
+Let $\sum a_{n} x^{n}$ be a power series with $a_{n} \neq 0$, and assume
 $$
 L=\lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|
 $$
 exists.
-(a) Show that if $L \neq 0$, then the series converges for all $x$ in $(-1 / L, 1 / L)$. (The advice in Exercise 2.7.9 may be helpful.)
-(b) Show that if $L=0$, then the series converges for all $x \in \mathbf{R}$.
-(c) Show that (a) and (b) continue to hold if $L$ is replaced by the limit.
+\enum{
+\item Show that if $L \neq 0$, then the series converges for all $x$ in $(-1 / L, 1 / L)$. (The advice in Exercise 2.7.9 may be helpful.)
+\item Show that if $L=0$, then the series converges for all $x \in \mathbf{R}$.
+\item Show that (a) and (b) continue to hold if $L$ is replaced by the limit.
 $$
 L^{\prime}=\lim _{n \rightarrow \infty} s_{n} \quad \text { where } \quad s_{n}=\sup \left\{\left|\frac{a_{k+1}}{a_{k}}\right|: k \geq n\right\} .
 $$
 (General properties of the limit superior are discussed in Exercise 2.4.7.)
+}
+
+\end{exercise}
+
+\begin{solution}
+\enum{
+\item Let \(b_n = a_n x^n\). If \(|x| < L\), we have
+\[\lim_{n\to\infty} \abs{\frac{b_{n+1}}{b_n}} = \lim_{n \to \infty} \abs{\frac{a_{n+1}x}{a_n}} = \lim_{n \to \infty} |Lx|
+\]
+and thus by the ratio test, if \(|Lx| < 1\) then the series \(\sum^\infty_{n=1}a_n x^n\) converges. This implies a radius of convergence of \(1/L\) if \(L \neq 0\).
+
+\item By the same logic, if \(L = 0\) then \(|Lx| < 1\) regardless of \(x\) and the series converges \(\forall x \in \mathbf{R}\).
+\item Since \((s_n)\) converges to \(L'\), for any \(\epsilon > 0\) we have that \(\abs{a_{k+1} / a_k} < M = L' + \epsilon\) once \(k > N\) for some \(N \in \mathbf{N}\). Therefore by the ratio test and similar logic to above, the radius of convergence is at least \(1/M\); since \(\epsilon\) is arbitrary, this is effectively a radius of convergence of \(1/L\), so (a) and (b) continue to hold.
+}
+\end{solution}
+
 Exercise 6.5.8. (a) Show that power series representations are unique. If we have
 $$
 \sum_{n=0}^{\infty} a_{n} x^{n}=\sum_{n=0}^{\infty} b_{n} x^{n}
