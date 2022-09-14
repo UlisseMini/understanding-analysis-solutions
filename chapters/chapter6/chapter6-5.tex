@@ -117,11 +117,24 @@ Note: I don't think this actually proves that \(g(x)\) is equal to this power se
 }
 \end{solution}
 
-Exercise 6.5.6. Previous work on geometric series (Example 2.7.5) justifies the formula
+\begin{exercise}
+Previous work on geometric series (Example 2.7.5) justifies the formula
 $$
 \frac{1}{1-x}=1+x+x^{2}+x^{3}+x^{4}+\cdots, \quad \text { for all }|x|<1 .
 $$
-Use the results about power series proved in this section to find values for $\sum_{n=1}^{\infty} n / 2^{n}$ and $\sum_{n=1}^{\infty} n^{2} / 2^{n}$. The discussion in Section $6.1$ may be helpful.
+Use the results about power series proved in this section to find values for $\sum_{n=1}^{\infty} n / 2^{n}$ and $\sum_{n=1}^{\infty} n^{2} / 2^{n}$. The discussion in Section 6.1 may be helpful.
+\end{exercise}
+\begin{solution}
+    Let \(a_n = 1\); we have
+    \[\sum^\infty_{n=0}a_n x^n = \frac{1}{1-x}\]
+    with a radius of convergence of 1. By Theorem 6.5.6 we can differentiate this termwise, to get
+    \[\sum^\infty_{n=1} n a_n x^{n-1} = \sum^\infty_{n=0} (n+1) x^n = \sum^\infty_{n=0} x^n + \sum^\infty_{n=1}nx^n = \frac{1}{1-x} + \sum^\infty_{n=1}nx^n = \frac{1}{(1-x)^2}\]
+    \[\sum^\infty_{n=1} nx^n= \frac{x}{(1-x)^2}\]
+    Substituting \(x=1/2\) we have \(\sum^\infty_{n=1}n/2^n = 2\). We can differentiate the series again to get
+    \[\sum^\infty_{n=1}(n^2 + n) x^{n-1} = \sum^\infty_{n=0} n^2x^n + 3\sum^\infty_{n=0}nx^n + 2\sum^\infty_{n=0} x^n = \frac{2}{(1-x)^3}\]
+    Substituting \(x =1/2\) we have \(\sum^\infty_{n=1}n^2/2^n = 6\).
+\end{solution}
+
 Exercise 6.5.7. Let $\sum a_{n} x^{n}$ be a power series with $a_{n} \neq 0$, and assume
 $$
 L=\lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|
