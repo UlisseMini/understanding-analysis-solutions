@@ -165,12 +165,24 @@ and thus by the ratio test, if \(|Lx| < 1\) then the series \(\sum^\infty_{n=1}a
 }
 \end{solution}
 
-Exercise 6.5.8. (a) Show that power series representations are unique. If we have
+\begin{exercise}
+
+\enum{
+\item Show that power series representations are unique. If we have
 $$
 \sum_{n=0}^{\infty} a_{n} x^{n}=\sum_{n=0}^{\infty} b_{n} x^{n}
 $$
 for all $x$ in an interval $(-R, R)$, prove that $a_{n}=b_{n}$ for all $n=0,1,2, \ldots$
-(b) Let $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converge on $(-R, R)$, and assume $f^{\prime}(x)=f(x)$ for all $x \in(-R, R)$ and $f(0)=1$. Deduce the values of $a_{n}$.
+\item Let $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converge on $(-R, R)$, and assume $f^{\prime}(x)=f(x)$ for all $x \in(-R, R)$ and $f(0)=1$. Deduce the values of $a_{n}$.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+\item If we substitute \(x = 0\) we get that \(a_0 = b_0\). If we take the termwise derivative and then substitute \(x = 0\), we get that \(a_1 = b_1\). We can proceed inductively by taking the termwise derivative to show that \(a_n = b_n\) for all \(n\).
+\item \(f(0) = 1\) implies \(a_0 = 1\). \(f'(0) = f(0) = 1\) implies \(n a_n = 1\) for \(n = 1\), or \(a_1 = 1\). \(f^{\prime \prime}(0) = f'(0) = 1\) implies \((2) (2-1) a_2 = (2!) a_2 = 1\). We can use induction to show in general that \(a_n = 1 / n!\).
+}
+\end{solution}
 
 Exercise 6.5.9. Review the definitions and results from Section $2.8$ concerning products of series and Cauchy products in particular. At the end of Section 2.9, we mentioned the following result: If both $\sum a_{n}$ and $\sum b_{n}$ converge conditionally to $A$ and $B$ respectively, then it is possible for the Cauchy product,
 $$
