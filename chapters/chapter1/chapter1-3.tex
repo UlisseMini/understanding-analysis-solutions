@@ -64,7 +64,7 @@
 \begin{solution}
   \enum{
   \item $\sup \left(\bigcup_{k=1}^n A_k\right) = \sup \left\{\sup A_k \mid k=1,\dots,n\right\}$
-  \item Yes. Let $S = \left\{\sup A_k \mid k=1,\dots,\right\}$ and $s = \sup S$. $s$ is obviously an upper bound for $\bigcup_{k=1}^\infty A_k$. to see it is the least upper bound suppose $s' < s$, then by definition there exists a $k$ such that $\sup A_k > s'$ implying $s'$ is not an upper bound for $A_k$. therefore $s$ is the least upper bound.
+  \item In general no, since $\bigcup_{k=1}^{\infty} A_k$ may be unbounded, for example with $A_n=[n,n+1]$.
   }
 \end{solution}
 
