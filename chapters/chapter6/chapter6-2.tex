@@ -91,7 +91,8 @@
     $$
     \lim g_n(x) = \begin{cases}
       x &\text{if } x \in [0, 1) \\
-      0 &\text{if } x \in [1, \infty) \\
+      \frac{1}{2} &\text{if } x = 1 \\
+      0 &\text{if } x \in (1, \infty) \\
     \end{cases}
     \quad\text{and}\quad
     \lim h_n(x) = \begin{cases}
@@ -135,27 +136,31 @@
   $$
   \left|\frac{f(x)-f(y)}{x-y} - f'(y)\right| < \epsilon/2
   $$
+
+  Alternative proof: Let \(y_n = x + 1/n\), and consider the sequence of functions
+  \[f'_n(x) = \frac{f(x) - f(y_n)}{x - y_n}\]
+  Each \(f'_n(x)\) is continuous, and uniform differentiability implies that \(f'_n\) uniformly converges to \(f'(x)\); hence \(f'(x)\) is continuous by Theorem 6.2.6.
 \end{solution}
 \begin{exercise}
   Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence). (First, define a candidate for $f(x)$, and then argue that $f_{n} \rightarrow f$ uniformly.)
 
 \end{exercise}
 \begin{solution}
-  First suppose $(f_n)$ converges uniformly to $f$ and set $N$ large enough that $n \ge N$ has $|f_n(x) - f(x)| < \epsilon/2$ for all $x$, then use the triangle inequality (where $m \ge N$ as well)
+  In the forward direction, suppose $(f_n)$ converges uniformly to $f$ and set $N$ large enough that $n \ge N$ has $|f_n(x) - f(x)| < \epsilon/2$ for all $x$, then use the triangle inequality (where $m \ge N$ as well)
   $$
   |f_n(x) - f_m(x)| \le |f_n(x) - f(x)| + |f(x) - f_m(x)| < \epsilon/2 + \epsilon/2 = \epsilon.
   $$
-  Second suppose we can find an $N$ so that every $n,m \ge N$ has $|f_n(x) - f_m(x)| < \epsilon$ for all $x$.
-  Fix $x$ and apply Theorem 2.6.4 to conclude the sequence $(f_n(x))$ converges to some limit $L$, and define $f(x) = L$. Doing this for all $x$ gives us the pointwise limit $f$. Now we show $(f_n) \to f$ uniformly using the fact that $|f_n(x) - f_m(x)| < \epsilon$ \emph{for all} $x$.
+  In the reverse direction, suppose we can find an $N$ so that every $n,m \ge N$ has $|f_n(x) - f_m(x)| < \epsilon /2$ for all $x$.
+  Fix $x$ and apply Theorem 2.6.4 to conclude the sequence $(f_n(x))$ converges to some limit $L$, and define $f(x) = L$. Doing this for all $x$ gives us the pointwise limit $f$. Now we show $(f_n) \to f$ uniformly using the fact that $|f_n(x) - f_m(x)| < \epsilon / 2$ \emph{for all} $x$.
   Let $n \ge N$, notice that \emph{for all} $m$
   $$
   |f_n(x) - f(x)| \le |f_n(x) - f_m(x)| + |f_m(x) - f(x)|
   $$
-  Let $\epsilon_m = |f_m(x) - f(x)|$. for all $m \ge N$ we have $|f_n(x) - f_m(x)| < \epsilon$ and
+  For all $m \ge N$ we have $|f_n(x) - f_m(x)| < \epsilon / 2$ and
   $$
-  |f_n(x) - f(x)| \le \epsilon + \epsilon_m
+  |f_n(x) - f(x)| < \epsilon/2 + |f_m(x) - f(x)|
   $$
-  Since $\epsilon_m \to 0$ no matter what $x$ is (pointwise convergence) and the inequality is for all $m$ this implies $|f_n(x) - f(x)| \le \epsilon$ for all $x$ as desired.
+  For any \(x\) we can choose \(m\) large enough to ensure $|f_m(x) - f(x)| < \epsilon / 2$ (pointwise convergence), and since the inequality is for all $m$ this implies $|f_n(x) - f(x)| \le \epsilon$ for all $x$ as desired.
 \end{solution}
 \begin{exercise}
   Assume $f_{n} \rightarrow f$ on a set $A$. Theorem 6.2.6 is an example of a typical type of question which asks whether a trait possessed by each $f_{n}$ is inherited by the limit function. Provide an example to show that all of the following propositions are false if the convergence is only assumed to be pointwise on $A$. Then go back and decide which are true under the stronger hypothesis of uniform convergence.
@@ -177,8 +182,10 @@
       0 &\text{otherwise}
     \end{cases}
     $$
-    Now suppose $(f_n)$ converges to $f$ uniformly. Theorem 6.2.6 implies $f$ will be continuous, combining this with Theorem 4.4.7 we see that $f$ must be uniformly continuous if the domain $A$ is compact.
-    If $A$ is not compact this need not be the case, consider $A = (0,1)$ and $f_n(x) = 1/x = f(x)$. Clearly $(f_n) \to f$ uniformly (they're the same function!) but $f(x) = 1/x$ is not uniformly continuous on $A$.
+    Now suppose $(f_n)$ converges to $f$ uniformly. We have
+    \[|f(x) - f(y)| \leq |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)| \]
+    By uniform convergence to \(f\), we can fix \(n\) large enough so that the first and last terms are both less than \(\epsilon / 3\). Then since \(f_n\) is uniformly continuous, we can choose \(\delta\) so that \(|x - y| < \delta\) implies the middle term is less than \(\epsilon / 3\), and that \(|f(x) - f(y)| < \epsilon\), implying \(f\) is uniformly continuous.
+
   \item False pointwise when
     $$
     f_n(x)
@@ -190,7 +197,7 @@
     f(x) = x
     $$
     Now suppose $(f_n) \to f$ uniformly.
-    We want to show $f$ is bounded,
+    We want to show $f$ is bounded.
     Let $M_n$ bound $f_n$, ie. $|f_n(x)|<M_n$ for all $x \in A$.
 
     Set $\epsilon=1$ and apply the Cauchy Criterion to get $N$ so $m \ge n > N$ implies
@@ -238,9 +245,9 @@
   \item False pointwise since we can have each $(f_n)$ continuous (zero discontinuities) but have $f$ not be continuous (see (a) for an example).
 
     Now suppose $(f_n) \to f$ uniformly. Let $x_0$ be a discontinuity of $f$, meaning there exists an $\epsilon_0$ such that $|f(x_0)-f(x)| > \epsilon_0$ no matter how small $|x-x_0|$ is.
-    I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, ie. that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
+    I'd like to show $x_0$ is a discontinuity of $f_n$ for some $n$, i.e.\ that there exists an $\epsilon_0'>0$ such that $|f_n(x_0)-f_n(x)|>\epsilon_0'$ no matter how small $|x-x_0|$ is.
 
-    Pick $\epsilon<\epsilon_0/2$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. applying the three way triangle inequality gives
+    Pick $\epsilon<\epsilon_0/2$ and set $N$ large enough that $n \ge N$ implies $|f_n(x)-f(x)|<\epsilon$. Applying the three way triangle inequality gives
     $$
     \begin{aligned}
     \epsilon_0
@@ -265,7 +272,7 @@
       0 &\text{if $x \notin \mathbf{Q}$} \\
     \end{cases}
     $$
-    Now suppose $(f_n) \to f$ uniformly, In (d) we showed every discontinuity of $f$ is eventually a discontinuity of $f_n$, reworded this is saying (where $D_f$ is the set of discontinuities of $f$)
+    Now suppose $(f_n) \to f$ uniformly. In (d) we showed every discontinuity of $f$ is eventually a discontinuity of $f_n$; reworded this is saying (where $D_f$ is the set of discontinuities of $f$)
     $$
     D_f \subseteq \bigcup_{n=1}^\infty D_{f_{n}}
     $$
@@ -284,12 +291,12 @@
   $$
   Which shows $(f_n) \to f$ uniformly.
 
-  To see this doesn't work if $f$ is only continuous, consider $f : (0,1)\to\mathbf{R}$ defined by $f(x) = 1/x$.
+  To see this doesn't work if $f$ is only continuous, consider $f(x) = x^2$.
   We have
-  $$
-  |f(x)-f_n(x)| = \frac{1}{x} - \frac{1}{x+1/n} = \frac{1/n}{x(x+1/n)} = \frac{1}{x(nx+1)}
-  $$
-  Which given a fixed $n$ becomes arbitrarily big as $x$ goes to zero. hence $(f_n)$ does not converge uniformly.
+\[
+|f(x)-f_n(x)| = \abs{x^2 - \left(x + \frac{1}{n}\right)^2} = \abs{\frac{2x}{n} + \frac{1}{n^2}}
+\]
+  which given a fixed $n$, becomes arbitrarily big as $x$ goes to infinity. Hence $(f_n)$ does not converge uniformly.
 \end{solution}
 \begin{exercise}
   Let $\left(g_{n}\right)$ be a sequence of continuous functions that converges uniformly to $g$ on a compact set $K$. If $g(x) \neq 0$ on $K$, show $\left(1 / g_{n}\right)$ converges uniformly on $K$ to $1 / g$.
@@ -352,14 +359,29 @@
 
 \end{exercise}
 \begin{solution}
-  Suppose first that each $f_n$ is continuous.
-  Given $\epsilon > 0$ we can make $|f(x)-f_n(x)|<\epsilon$ when $n \ge N(x)$, since $f$ and $f_n$ are continuous at $x$ there exists a $\delta$-neighborhood where $y \in V_\delta(x)$ implies $|f(x)-f(y)|<\epsilon$ and $|f_n(x)-f_n(y)|<\epsilon$ so
-  $$
-  |f(y)-f_n(y)| \le |f(y) - f(x)| + |f(x) - f_n(x)| + |f_n(x) - f_n(y)| < 3\epsilon
-  $$
-  Note that $\delta$ depends on $x$ and on $n$.
-  \TODO
+\(f\) is continuous and therefore will map \([a, b]\) to a closed interval \([c, d]\). By the Order Limit Theorem, we also know that \(f\) must be increasing - just compare the sequence \(\lim_{n \to \infty} f_n(x_1)\) to \(\lim_{n \to \infty} f_n(x_2)\) when \(x_2 > x_1\).
+
+The key implication of \(f_n\) and \(f\) being increasing is that there is a bound to how fast the error \(\abs{f - f_n}\) can grow with respect to \(x\), which is proportional to how fast \(f\) grows. Intuitively, if we have \(f > f_n\) and want the error to grow as fast as possible with respect to \(x\), all we can do is hold \(f_n\) constant. Alternatively, if we have \(f < f_n\), \(f_n\) can't go too far above \(f\) since \(f\) needs to catch up eventually.
+
+More formally, for \(\epsilon > 0\), define \(y_1, y_2, y_3, \dots, y_n\) to evenly split up \([c, d]\) into intervals of size at most \(\epsilon_1 = \epsilon / 5\). (In other words, \(y_1 = c\), \(y_n=d\), \(y_{k+2} - y_{k+1} = y_{k+1} - y_k < \epsilon_1\).) Since \(f\) is increasing, we can define \(x_1, \dots, x_n\) so that \(f(x_k) = y_k\).
+
+Since \(f_n \to f\), we can find \(M_k\) so that \(m_k > M_k\) implies \(\abs{y_k - f_{m_k}(x_k)} < \epsilon_1\). Let \(M = \max\{M_1, M_2, \dots, M_n\}\). Now, let \(m > M\) be arbitrary.
+ Keeping in mind that \(f_m\) is increasing, we can bound \(f_m(x_{i+1}) - f_m(x_i)\) by
+\[ \begin{aligned}
+f_m(x_{i+1}) - f_m(x_i) &= |f_m(x_{i+1}) - f_m(x_i)| \\
+    &\leq |f_m(x_{i+1}) - y_{i+1}| + |y_{i+1} - y_i| + |y_i - f_m(x_i)| \\
+    &< \epsilon_1 + \epsilon_1 + \epsilon_1 = 3 \epsilon_1
+\end{aligned} \]
+
+Now consider \(\abs{f(x) - f_m(x)} \quad x \in [x_i, x_{i+1}]\) with \(i\) arbitrary.
+ Since \(f\) is increasing, \(y_i \leq f(x) \leq y_{i+1}\), so \(f(x) - y_i < \epsilon_1\). Similarly \(f_m(x) - f_m(x_i) \leq f_m(x_{i+1}) - f_m(x_i) < 3\epsilon_1\). Finally, we have
+ \[\begin{aligned}
+ \abs{f(x) - f_m(x)} &= \abs{f(x) - y_i} + \abs{y_i - f_m(x_i)} + \abs{f_m(x) - f_m(x_i)} \\
+ &< \epsilon_1 + \epsilon_1 + 3\epsilon_1 = \epsilon
+ \end{aligned} \]
+ Since \(m\) and \(i\) were arbitrary, this completes the proof.
 \end{solution}
+
 \begin{exercise}[Dini's Theorem]
   Assume $f_{n} \rightarrow f$ pointwise on a compact set $K$ and assume that for each $x \in K$ the sequence $f_{n}(x)$ is increasing. Follow these steps to show that if $f_{n}$ and $f$ are continuous on $K$, then the convergence is uniform.
   \enum {
@@ -394,10 +416,44 @@
 \end{exercise}
 \begin{solution}
   \enum{
-  \item \TODO Sketch with tikz
-  \item \TODO I think we want to somehow apply the previous exercise, but I don't see how we can show $f$ is continuous... Maybe Cauchy is the way to go?
-  \item \TODO
+  \item \(f_0\) in red, \(f_1\) in blue:
+
+  \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=3]
+      \draw[red](0,0) -- (1, 1);
+      \draw[blue] (0, 0)   -- (1/3, 1/2) -- (2/3, 1/2) -- (1, 1);
+    \end{tikzpicture}
+  \end{figure}
+  \item Define
+   \[f_{n+1}(x) = \begin{cases}
+       (1 / 2) f_n(3 x) & \text { for } 0 \leq x \leq 1 / 3 \\
+       f_n(x) & \text { for } 1 / 3<x<2 / 3 \\
+       (1 / 2) f_n(3 x-2)+1 / 2 & \text { for } 2 / 3 \leq x \leq 1
+   \end{cases}\]
+We will aim to use the Cauchy Criterion to show \(f_n\) uniformly converges. I first prove through induction that \(\abs{f_n(x) - f_{n-1}(x)} < 1/2^n\). The base case of \(n=1\) is trivial by the definitions of \(f_1\) and \(f_0\).
+
+Now first assume \(\abs{f_n(x) - f_{n-1}(x)} < 1/2^n\); our goal is to show \(\abs{f_{n+1}(x) - f_{n}(x)} < 1/2^{n+1}\). Note this is obviously true over \((1/3,2/3)\) since \(f_{n+1}(x) = f_n(x)\) in this interval. Consider \(x \in [0, 1/3]\), then
+\[\abs{f_{n+1}(x) - f_n(x)} = \abs{\frac{1}{2}f_n(3x) - \frac{1}{2}f_{n-1}(3x)} = \frac{1}{2} \abs{f_n(3x) - f_{n-1}(3x)} < \frac{1}{2} \frac{1}{2^n} = \frac{1}{2^{n+1}}\]
+The case for \([2/3, 1]\) is similar.
+
+Given this, it should be clear that for \(m \geq n\), \(\abs{f_m(x) - f_n(x)} < 1/2^n\). Since we can make \(1/2^n\) arbitrarily small by increasing \(n\), we can readily conclude that \(f_n\) satisfies Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence), and hence \(f_n\) converges uniformly.
+
+  \item \(f_n(0) = 0\) and \(f_n(1) = 1\) can easily be proven with induction, and imply that each \(f_n\) is continuous.  Since each \(f_n\) is continuous, by the Continuous Limit Theorem \(f\) is continuous. One of the sub-results from Exercise 6.2.10 was that all \(f_n\) increasing implies \(f\) is increasing, which can be applied here to show \(f\) is increasing. Since \(f_n(0)\) and \(f_n(1)\) are constant with respect to \(n\), \(f(0) = 0\) and \(f(1) = 1\).
+
+  Observe that for any \(n\), \(f_{n+1}(x) = f_n(x)\) for \(x \in [0,1]\backslash C_n\). To prove this formally, we can use induction. By definition \(f_{n+1} = f_n(x)\) over \((1/3, 2/3)\). Focusing on \([0, 1/3]\), we have
+\begin{align*}
+   &\frac{1}{2} f_n(3x) = f_n(x) \text{ over } [0,1/3] \backslash C_n\\
+   \Longleftrightarrow &\frac{1}{2} f_n(3x) = \frac{1}{2}f_{n-1}(3x) \text{ over } [0, 1/3] \backslash \left(C_{n-1} / 3\right)\\
+   \Longleftrightarrow & f_n(x) = f_{n-1}(x) \text{ over } [0,1] \backslash C_{n-1}\\
+\end{align*}
+which is the inductive hypothesis. The case over \([2/3, 1]\) is similar.
+
+Moreover, since \(C_m \subseteq C_n\) for \(m \geq n\), we can make the stronger statement \(f(x) = f_{m}(x) = f_n(x)\) for \(x \in [0,1]\backslash C_n\) and \(m \geq n\).
+
+Finally, we can show by induction that \(f_n(x)\) is constant over \([0,1]\backslash C_n\), implying that \(f\) is constant and \(f'(x) = 0\) over \([0,1] \backslash C\).
   }
+
 \end{solution}
 \begin{exercise}
   Recall that the Bolzano-Weierstrass Theorem (Theorem 2.5.5) states that every bounded sequence of real numbers has a convergent subsequence. An analogous statement for bounded sequences of functions is not true in general, but under stronger hypotheses several different conclusions are possible. One avenue is to assume the common domain for all of the functions in the sequence is countable. (Another is explored in the next two exercises.)
@@ -411,7 +467,15 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item Since \(f_n\) is bounded, \((f_n(x_1))\) is a bounded sequence, so by Bolzano-Weierstrauss \((f_n(x_1))\) has a convergent subsequence which uses \(f_{n_k}\).
+
+    \item Same reason as (a)
+    \item Let \(f_{2,k}\) represent the subsequence of functions generated in part (b), and keep in mind that this subsequence of functions continues to converge pointwise at \(x_1\). We can then repeat this process, finding a subsequence of functions while considering \(f_{2,k}(x_3)\), and repeat for every element in \(A\).
+
+    If \(A\) were finite, we could simply take the last sequence and we would be done. But since \(A\) is countably infinite, there is no last element; we need to be a bit more careful. Instead of picking a particular subsequence, define a new subsequence of functions \((g_n)\), with \(g_n = f_{n,n}\) (where \(f_{a,b}\) is the \(b\)'th element of the sequence of functions \(f_{a,k}\)). For any fixed \(q\), the sequence \(g_n(x_q)\) is guarenteed to converge, since after \(q\) elements the sequence consists solely of elements from \(f_{q,k}\) which converges at \(x_q\).
+}
+
 \end{solution}
 \begin{exercise}
   A sequence of functions $\left(f_{n}\right)$ defined on a set $E \subseteq \mathbf{R}$ is called equicontinuous if for every $\epsilon>0$ there exists a $\delta>0$ such that $\left|f_{n}(x)-f_{n}(y)\right|<\epsilon$ for all $n \in \mathbf{N}$ and $|x-y|<\delta$ in $E$.
@@ -428,7 +492,7 @@
   }
 \end{solution}
 \begin{exercise}[Arzela-Ascoli Theorem]
-  For each $n \in \mathbf{N}$, let $f_{n}$ be a function defined on $[0,1]$. If $\left(f_{n}\right)$ is bounded on $[0,1]$-that is, there exists an $M>0$ such that $\left|f_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$-and if the collection of functions $\left(f_{n}\right)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $\left(f_{n}\right)$ contains a uniformly convergent subsequence.
+  For each $n \in \mathbf{N}$, let $f_{n}$ be a function defined on $[0,1]$. If $\left(f_{n}\right)$ is bounded on $[0,1]$\textemdash that is, there exists an $M>0$ such that $\left|f_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$\textemdash  and if the collection of functions $\left(f_{n}\right)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $\left(f_{n}\right)$ contains a uniformly convergent subsequence.
   \enum {
   \item Use Exercise 6.2.13 to produce a subsequence $\left(f_{n_{k}}\right)$ that converges at every rational point in $[0,1]$. To simplify the notation, set $g_{k}=f_{n_{k}}$. It remains to show that $\left(g_{k}\right)$ converges uniformly on all of $[0,1]$.
   \item Let $\epsilon>0$. By equicontinuity, there exists a $\delta>0$ such that
@@ -449,5 +513,18 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+\item ...is this actually a question? The rational numbers in \([0,1]\) are countable, so the results from Exercise 6.2.13 can be applied.
+
+\item \(r_i\) is a rational number, so \(g_n(r_i)\) is a Cauchy sequence, and we can find \(N_i\) for each \(r_i\) where \(s,t>N_i\) ensures \(\abs{g_s(r_i) - g_t(r_i)} <\epsilon/3\). Then just have \(N = \max \{N_1,N_2,\dots, N_m\}\).
+ We need \(\left\{r_{1}, r_{2}, \ldots, r_{m}\right\}\) to be finite so that the final operation of taking the maximum of all \(N_i\) is valid.
+
+\item We have
+ \[
+\abs{g_n(x) - g_m(x)} \leq \abs{g_n(x) - g_n(a)} + \abs{g_n(a) - g_m(a)} + \abs{g_m(a) - g_m(x)}
+\]
+where \(a\) is some rational number.
+The first and last terms can be made less than \(\epsilon/3\) by continuity of \(g_n\) and \(g_m\) and by choosing \(a\) close enough to \(x\), while the middle term can be made less than \(\epsilon/3\) from part (b).
+
+}
 \end{solution}
