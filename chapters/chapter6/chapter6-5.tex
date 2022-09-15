@@ -184,7 +184,8 @@ for all $x$ in an interval $(-R, R)$, prove that $a_{n}=b_{n}$ for all $n=0,1,2,
 }
 \end{solution}
 
-Exercise 6.5.9. Review the definitions and results from Section $2.8$ concerning products of series and Cauchy products in particular. At the end of Section 2.9, we mentioned the following result: If both $\sum a_{n}$ and $\sum b_{n}$ converge conditionally to $A$ and $B$ respectively, then it is possible for the Cauchy product,
+\begin{exercise}
+Review the definitions and results from Section 2.8 concerning products of series and Cauchy products in particular. At the end of Section 2.9, we mentioned the following result: If both $\sum a_{n}$ and $\sum b_{n}$ converge conditionally to $A$ and $B$ respectively, then it is possible for the Cauchy product,
 $$
 \sum d_{n} \quad \text { where } \quad d_{n}=a_{0} b_{n}+a_{1} b_{n-1}+\cdots+a_{n} b_{0}
 $$
@@ -192,7 +193,21 @@ to diverge. However, if $\sum d_{n}$ does converge, then it must converge to $A 
 $$
 f(x)=\sum a_{n} x^{n}, \quad g(x)=\sum b_{n} x^{n}, \quad \text { and } \quad h(x)=\sum d_{n} x^{n} .
 $$
-Use Abel's Theorem and the result in Exercise $2.8 .7$ to establish this result.
+Use Abel's Theorem and the result in Exercise $2.8.7$ to establish this result.
+\end{exercise}
+
+\begin{solution}
+By Abel's Theorem we have uniform convergence of the series defining \(f\), \(g\), and \(h\) over the compact set \([0,1]\); therefore each of these functions is continuous and bounded over this set. We can thus conclude that for \(x \in [0,1]\),
+\[\lim_{N \to \infty} \sum^N_{i=0} \sum^N_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \lim_{N \to \infty} \left(\sum^N_{n=0} a_n x^n\right) \left(\sum^N_{n=0} b_n x^n\right) = f(x) g(x)\]
+
+Since \(\sum d_n\) converges, \(\lim_{n \to \infty} \abs{d_{n+1}/d_n} \leq 1\)  (otherwise \(d_n\) would not be bounded). But since \(\sum d_n\) only converges conditionally, \(\lim_{n \to \infty} \abs{d_{n+1}/d_n} = 1\) (if it were less than 1, then we could use the Ratio Test to prove absolute convergence). We therefore have absolute convergence of the series defining \(h(x)\) for \(|x| < 1\) by the Ratio Test.
+
+From the work in Section 2.8, because we have absolute convergence, informally we have a lot of leeway in how to evaluate the double summations when \(\abs{x} < 1\). In particular,
+\[\lim_{N \to \infty} \sum^N_{i=0} \sum^N_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \sum^\infty_{i=0} \sum^\infty_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \sum^\infty_{n=0} d_n x^n = h(x)\]
+
+We now have the equality \(f(x)g(x) = h(x)\), for \(\abs{x} < 1\). \(h(x)\) is a power series by definition, while \(f(x)g(x)\) can be represented as a power series by expanding the product of the partial sums. These power series are identical, which we can see either by explicitly doing the expansion or by Exercise 6.5.8 where we showed that power series representations are unique. Therefore since \(h(x)\) is defined at \(x=1\), we can extend the equality \(f(x) g(x) = h(x)\) to \(x = 1\), and we thus have that \(AB =\sum d_n\).
+\end{solution}
+
 Exercise 6.5.10. Let $g(x)=\sum_{n=0}^{\infty} b_{n} x^{n}$ converge on $(-R, R)$, and assume $\left(x_{n}\right) \rightarrow 0$ with $x_{n} \neq 0$. If $g\left(x_{n}\right)=0$ for all $n \in \mathbf{N}$, show that $g(x)$ must be identically zero on all of $(-R, R)$.
 
 Exercise 6.5.11. A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
