@@ -233,10 +233,21 @@ and thus \(a_n = 0\).
 From claim 1, we have by indution that every \(g^{(i)}\) has some sequence \((x_{i,n})\) satisfying \(\lim_{n \to \infty} x_{i,n} \to 0\) and \(g^{(i)}(x_{i,n}) = 0\). Now since each of \(g^{(n)}\) is bounded (by continuity over the compact set \([-R/2, R/2]\), for example), each of \(g^{(n)}\) also has a bounded derivative, and thus we can apply claim 2 to get that \(g^{(n)}(0) = 0\) for all \(n\). Finally claim 3 implies that \(b_n = 0\) for all \(n\), and hence \(g(x)\) must be identically 0 over \((-R, R)\).
 \end{solution}
 
-Exercise 6.5.11. A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
+\begin{exercise}
+A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
 $$
 f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}
 $$
 converges for all $x \in[0,1)$ and $L=\lim _{x \rightarrow 1-} f(x)$.
-(a) Show that any series that converges to a limit $L$ is also Abel-summable to $L$.
-(b) Show that $\sum_{n=0}^{\infty}(-1)^{n}$ is Abel-summable and find the sum.
+
+\enum{
+\item Show that any series that converges to a limit $L$ is also Abel-summable to $L$.
+\item Show that $\sum_{n=0}^{\infty}(-1)^{n}$ is Abel-summable and find the sum.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item If a series \(\sum^\infty_{n=0}a_n\) converges to \(L\) then by Abel's Theorem the power series \(\sum^\infty_{n=0}a_n x^n\) converges uniformly over \([0,1]\), and is therefore continuous over this interval. Hence by continuity the series is Abel-summable to \(L\).
+\item The relevant power series here is \(f(x) = \sum^\infty_{n=0} (-x)^n\) which has the closed-form expression \(\frac{1}{1 + x}\) for \(\abs{x} < 1\), and \(\lim_{x \to 1^-} f(x)\) evaluates to \(1/2\).
+}
+\end{solution}
