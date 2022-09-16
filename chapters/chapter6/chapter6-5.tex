@@ -1,54 +1,191 @@
 \section{Power Series}
 
-Exercise $6.5 .1$. Consider the function $g$ defined by the power series
+\begin{exercise}
+Consider the function $g$ defined by the power series
 $$
 g(x)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\frac{x^{5}}{5}-\cdots .
 $$
-(a) Is $g$ defined on $(-1,1)$ ? Is it continuous on this set? Is $g$ defined on $(-1,1]$ ? Is it continuous on this set? What happens on $[-1,1]$ ? Can the power series for $g(x)$ possibly converge for any other points $|x|>1$ ? Explain.
-(b) For what values of $x$ is $g^{\prime}(x)$ defined? Find a formula for $g^{\prime}$.
-Exercise 6.5.2. Find suitable coefficients $\left(a_{n}\right)$ so that the resulting power series $\sum a_{n} x^{n}$ has the given properties, or explain why such a request is impossible.
-(a) Converges for every value of $x \in \mathbf{R}$.
-(b) Diverges for every value of $x \in \mathbf{R}$.
-(c) Converges absolutely for all $x \in[-1,1]$ and diverges off of this set.
-(d) Converges conditionally at $x=-1$ and converges absolutely at $x=1$.
-(e) Converges conditionally at both $x=-1$ and $x=1$.
-Exercise 6.5.3. Use the Weierstrass M-Test to prove Theorem $6.5 .2$.
-Exercise $6.5 .4$ (Term-by-term Antidifferentiation). Assume $f(x)=$ $\sum_{n=0}^{\infty} a_{n} x^{n}$ converges on $(-R, R)$.
-(a) Show
+\enum{
+\item Is $g$ defined on $(-1,1)$ ? Is it continuous on this set? Is $g$ defined on $(-1,1]$ ? Is it continuous on this set? What happens on $[-1,1]$ ? Can the power series for $g(x)$ possibly converge for any other points $|x|>1$ ? Explain.
+\item For what values of $x$ is $g^{\prime}(x)$ defined? Find a formula for $g^{\prime}$.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item \(g(1)\) converges by the Alternating Series Test, so the radius of convergence is at least 1, and \(g\) must be defined on at least \((-1, 1]\). Theorem 6.5.1 and Abel's Theorem together indicate that indicate that \(g\) converges absolutely on \((-1,1]\) as well. Thus, since each term is continuous, \(g(x)\) is continuous on \((-1,1]\).
+
+    \(g\) is not defined at \(-1\) since \(g(-1)\) would otherwise be
+    \[\sum^\infty_{n=1} \frac{-1}{n}\]
+    which diverges.
+
+    \(g\) cannot converge at any point \(|x| > 1\) because if it did, that would imply the radius of convergence is strictly larger than 1, and thus \(g\) would need to converge at \(-1\), which it doesn't.
+
+    \item \(g'(x)\) is at least defined on \((-1, 1)\), by Theorem 6.5.7, with the derivative given by
+    \[g'(x) = \sum^\infty_{n=0}(-x)^n = \frac{1}{x + 1}\]
+    \(g'(x)\) cannot be defined at \(x \leq -1\) since \(g\) isn't even defined there. To show that \(g'(1)\) is defined and is also given by this formula requires a bit more care, since the infinite sum does not actually converge for \(1\). We return to the definition of the derivative:
+    \[ \begin{aligned}
+g'(1) &= \lim_{x \to 1} \frac{\sum^\infty_{n=1} \frac{(-1)^{n+1}}{n} - \sum^\infty_{n=1} \frac{(-1)^{n+1}}{n}x^n}{1-x} = \lim_{x \to 1} \sum^\infty_n \frac{(-1)^{n+1}}{n} \frac{1-x^n}{1-x} \\
+&= \lim_{x \to 1} \frac{1}{1-x}\sum^\infty_n \frac{(-1)^{n+1}}{n} \left(1 - x^n\right)
+    \end{aligned}\]
+With some algebra, we can show that this converges by the alternating series test, keeping in mind that we can assume \(x \in (0,1)\). We have \(\frac{1-x^n}{n} < \frac{1}{n} \to 0\), so we just need to show \(\frac{1-x^n}{n} \geq \frac{1 - x^{n+1}}{n+1}\):
+    \[ \begin{aligned}
+   \frac{1-x^n}{n} \geq \frac{1 - x^{n+1}}{n+1} & \Longleftrightarrow (1-x^n)(n+1) \geq n - nx^{n+1} \\
+   & \Longleftrightarrow n - nx^n + 1 - x^n \geq n - nx^{n+1} \\
+   & \Longleftrightarrow 1 - x^n \geq nx^n (1-x) \\
+   & \Longleftrightarrow \frac{1-x^n}{1-x} = \sum^{n-1}_{i=0} x^i \geq \sum^{n-1}_{i=0} x^n = nx^n
+    \end{aligned}\]
+}
+
+Now we know that \(g'(1)\) exists. We can show that \(g'(1) = \frac{1}{1+1} = 0.5\) by noting that \(\frac{1}{x+1}\) is strictly decreasing on \([0, 1)\), so in order for the derivative \(g'(x)\) to maintain the intermediate value property, \(g'(1) = 0.5\).
+
+\end{solution}
+
+\begin{exercise}
+Find suitable coefficients $\left(a_{n}\right)$ so that the resulting power series $\sum a_{n} x^{n}$ has the given properties, or explain why such a request is impossible.
+
+\enum{
+ \item Converges for every value of $x \in \mathbf{R}$.
+ \item Diverges for every value of $x \in \mathbf{R}$.
+ \item Converges absolutely for all $x \in[-1,1]$ and diverges off of this set.
+ \item Converges conditionally at $x=-1$ and converges absolutely at $x=1$.
+ \item Converges conditionally at both $x=-1$ and $x=1$.
+}
+\end{exercise}
+
+\begin{solution}
+    \enum{
+        \item \(a_n = 0\)
+        \item Impossible as \(x = 0\) will always converge
+        \item \(a_n = \frac{1}{n^2}\). For \(x=1\) this converges, while for \(x > 1\) the series diverges because
+\[\frac{x^n}{n^2} <\frac{x^{2n}}{4n^2} \Longleftrightarrow 4 < a^n\]
+meaning that once \(n > \log_x(4) = \ln(4) / \ln (x)\), the terms will start increasing (whereas they must approach 0 for the series to converge). A similar argument can be made for \(x < -1\).
+        \item Impossible because \(\abs{a_n x^n} = \abs{a_n (-x)^n}\), and substituting \(x = 1\) shows that the series at \(-1\) is going to be the same as that at \(1\) considered absolutely.
+        \item \(a_n = 0\) for odd \(n\) and \(a_n = (-1)^{n/2}/n\) for even \(n\). This in effect takes only the even-powered terms of the power series, which are always positive. We then get the alternating harmonic series (scaled by 0.5) in \(x^2\) which diverges absolutely but converges conditionally.
+    }
+\end{solution}
+
+\begin{exercise}
+Use the Weierstrass M-Test to prove Theorem 6.5.2.
+\end{exercise}
+\begin{solution}
+    Note that \(|p| < |q|\) implies \(|p^n| < |q^n|\) and so we can use the Weierstrass M-Test with \(M_n = \abs{a_n x^n}\) (which converges by the assumption of absolute convergence of \(a_n x_0^n\)).
+\end{solution}
+
+\begin{exercise}[Term-by-term Antidifferentiation]
+Assume $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converges on $(-R, R)$.
+\enum{
+\item Show
 $$
 F(x)=\sum_{n=0}^{\infty} \frac{a_{n}}{n+1} x^{n+1}
 $$
 is defined on $(-R, R)$ and satisfies $F^{\prime}(x)=f(x)$.
-(b) Antiderivatives are not unique. If $g$ is an arbitrary function satisfying $g^{\prime}(x)=f(x)$ on $(-R, R)$, find a power series representation for $g$.
+\item Antiderivatives are not unique. If $g$ is an arbitrary function satisfying $g^{\prime}(x)=f(x)$ on $(-R, R)$, find a power series representation for $g$.
+}
 
-Exercise 6.5.5. (a) If $s$ satisfies $0<s<1$, show $n s^{n-1}$ is bounded for all $n \geq 1$.
-(b) Given an arbitrary $x \in(-R, R)$, pick $t$ to satisfy $|x|<t<R$. Use this start to construct a proof for Theorem 6.5.6.
+\end{exercise}
+\begin{solution}
+\enum{
+    \item Let \(N \in \mathbf{N} > R\) and split the function into
+    \[
+        \begin{aligned}
+    F(x) &= \sum^{N-1}_{n=0} \frac{a_n}{n+1}x^{n+1} + \sum^N_{n=N} a_nx^n \left(\frac{x}{n+1}\right)\\
+    &\leq \sum^{N-1}_{n=0} \frac{a_n}{n+1}x^{n+1} + \sum^N_{n=N} a_nx^n \left(\frac{x}{R}\right)\\
+    &= \sum^{N-1}_{n=0} \frac{a_n}{n+1}x^{n+1} + \left(\frac{x}{R}\right)\sum^N_{n=N} a_nx^n \\
+        \end{aligned}
+\]
+The first term is finite, while the second term converges by the original assumption. This shows that \(F(x)\) is defined on \(-R,R\), at which point we can use Theorem 6.5.7 to conclude \(F'(x) = f(x)\).
+\item \[g(x) = \sum^\infty_{n=0} b_n x^n\] with \(b_0 = g(0)\) and \(b_n = a_n / n\) for \(n > 0\) works. No other power series can satisfy the requirements on \(g\) since we must satisfy \(a_n = n b_n\) for \(n > 0\) for \(g'(x) = f(x)\) and \(g(0)\) would be incorrect if \(b_0 \neq g(0)\).
 
-Exercise 6.5.6. Previous work on geometric series (Example 2.7.5) justifies the formula
+Note: I don't think this actually proves that \(g(x)\) is equal to this power series; to do that might require something like the Fundamenal Theorem of Calculus?
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+ \item If $s$ satisfies $0<s<1$, show $n s^{n-1}$ is bounded for all $n \geq 1$.
+ \item Given an arbitrary $x \in(-R, R)$, pick $t$ to satisfy $|x|<t<R$. Use this start to construct a proof for Theorem 6.5.6.
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+    \item Note first that all \(ns^{n-1} > 0\), and that for \(n + 1 > N > \frac{1}{1-s}\) (with \(N \in \mathbf{N}\), we can rearrange for \(s\) to have \(\frac{n}{n + 1} > s\). This implies that \(ns^{n-1} > (n+1) s^n\); thus the sequence in \(n\) must be bounded by the maximum of the first \(N\) terms.
+    \item Choose \(s\) satisfying \(|s| = t\) and with \(s\) having the same sign as \(x\). As a preliminary, note that \(\sum^\infty_{n=0}a_n s^{n-1} = (1/s) \sum^\infty_{n=0} a_n s^n\) converges. We have
+    \[\sum^\infty_{n=0} n a_n x^{n-1} = \sum^\infty_{n=0}a_n s^{n-1} n \left(\frac{x}{s}\right)^{n-1} \leq M\sum^\infty_{n=0} a_n s^{n-1}\]
+    where, denoting \(p = x/s\) (with \(0 < p < 1\)), \(M\) is an upper bound for \(np^{n-1}\). This completes the proof.
+}
+\end{solution}
+
+\begin{exercise}
+Previous work on geometric series (Example 2.7.5) justifies the formula
 $$
 \frac{1}{1-x}=1+x+x^{2}+x^{3}+x^{4}+\cdots, \quad \text { for all }|x|<1 .
 $$
-Use the results about power series proved in this section to find values for $\sum_{n=1}^{\infty} n / 2^{n}$ and $\sum_{n=1}^{\infty} n^{2} / 2^{n}$. The discussion in Section $6.1$ may be helpful.
-Exercise 6.5.7. Let $\sum a_{n} x^{n}$ be a power series with $a_{n} \neq 0$, and assume
+Use the results about power series proved in this section to find values for $\sum_{n=1}^{\infty} n / 2^{n}$ and $\sum_{n=1}^{\infty} n^{2} / 2^{n}$. The discussion in Section 6.1 may be helpful.
+\end{exercise}
+\begin{solution}
+    Let \(a_n = 1\); we have
+    \[\sum^\infty_{n=0}a_n x^n = \frac{1}{1-x}\]
+    with a radius of convergence of 1. By Theorem 6.5.6 we can differentiate this termwise, to get
+    \[\sum^\infty_{n=1} n a_n x^{n-1} = \sum^\infty_{n=0} (n+1) x^n = \sum^\infty_{n=0} x^n + \sum^\infty_{n=1}nx^n = \frac{1}{1-x} + \sum^\infty_{n=1}nx^n = \frac{1}{(1-x)^2}\]
+    \[\sum^\infty_{n=1} nx^n= \frac{x}{(1-x)^2}\]
+    Substituting \(x=1/2\) we have \(\sum^\infty_{n=1}n/2^n = 2\). We can differentiate the series again to get
+    \[\sum^\infty_{n=1}(n^2 + n) x^{n-1} = \sum^\infty_{n=0} n^2x^n + 3\sum^\infty_{n=0}nx^n + 2\sum^\infty_{n=0} x^n = \frac{2}{(1-x)^3}\]
+    Substituting \(x =1/2\) we have \(\sum^\infty_{n=1}n^2/2^n = 6\).
+\end{solution}
+
+\begin{exercise}
+Let $\sum a_{n} x^{n}$ be a power series with $a_{n} \neq 0$, and assume
 $$
 L=\lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|
 $$
 exists.
-(a) Show that if $L \neq 0$, then the series converges for all $x$ in $(-1 / L, 1 / L)$. (The advice in Exercise 2.7.9 may be helpful.)
-(b) Show that if $L=0$, then the series converges for all $x \in \mathbf{R}$.
-(c) Show that (a) and (b) continue to hold if $L$ is replaced by the limit.
+\enum{
+\item Show that if $L \neq 0$, then the series converges for all $x$ in $(-1 / L, 1 / L)$. (The advice in Exercise 2.7.9 may be helpful.)
+\item Show that if $L=0$, then the series converges for all $x \in \mathbf{R}$.
+\item Show that (a) and (b) continue to hold if $L$ is replaced by the limit.
 $$
 L^{\prime}=\lim _{n \rightarrow \infty} s_{n} \quad \text { where } \quad s_{n}=\sup \left\{\left|\frac{a_{k+1}}{a_{k}}\right|: k \geq n\right\} .
 $$
 (General properties of the limit superior are discussed in Exercise 2.4.7.)
-Exercise 6.5.8. (a) Show that power series representations are unique. If we have
+}
+
+\end{exercise}
+
+\begin{solution}
+\enum{
+\item Let \(b_n = a_n x^n\). If \(|x| < L\), we have
+\[\lim_{n\to\infty} \abs{\frac{b_{n+1}}{b_n}} = \lim_{n \to \infty} \abs{\frac{a_{n+1}x}{a_n}} = \lim_{n \to \infty} |Lx|
+\]
+and thus by the ratio test, if \(|Lx| < 1\) then the series \(\sum^\infty_{n=1}a_n x^n\) converges. This implies a radius of convergence of \(1/L\) if \(L \neq 0\).
+
+\item By the same logic, if \(L = 0\) then \(|Lx| < 1\) regardless of \(x\) and the series converges \(\forall x \in \mathbf{R}\).
+\item Since \((s_n)\) converges to \(L'\), for any \(\epsilon > 0\) we have that \(\abs{a_{k+1} / a_k} < M = L' + \epsilon\) once \(k > N\) for some \(N \in \mathbf{N}\). Therefore by the ratio test and similar logic to above, the radius of convergence is at least \(1/M\); since \(\epsilon\) is arbitrary, this is effectively a radius of convergence of \(1/L\), so (a) and (b) continue to hold.
+}
+\end{solution}
+
+\begin{exercise}
+
+\enum{
+\item Show that power series representations are unique. If we have
 $$
 \sum_{n=0}^{\infty} a_{n} x^{n}=\sum_{n=0}^{\infty} b_{n} x^{n}
 $$
 for all $x$ in an interval $(-R, R)$, prove that $a_{n}=b_{n}$ for all $n=0,1,2, \ldots$
-(b) Let $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converge on $(-R, R)$, and assume $f^{\prime}(x)=f(x)$ for all $x \in(-R, R)$ and $f(0)=1$. Deduce the values of $a_{n}$.
+\item Let $f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}$ converge on $(-R, R)$, and assume $f^{\prime}(x)=f(x)$ for all $x \in(-R, R)$ and $f(0)=1$. Deduce the values of $a_{n}$.
+}
+\end{exercise}
 
-Exercise 6.5.9. Review the definitions and results from Section $2.8$ concerning products of series and Cauchy products in particular. At the end of Section 2.9, we mentioned the following result: If both $\sum a_{n}$ and $\sum b_{n}$ converge conditionally to $A$ and $B$ respectively, then it is possible for the Cauchy product,
+\begin{solution}
+\enum{
+\item If we substitute \(x = 0\) we get that \(a_0 = b_0\). If we take the termwise derivative and then substitute \(x = 0\), we get that \(a_1 = b_1\). We can proceed inductively by taking the termwise derivative to show that \(a_n = b_n\) for all \(n\).
+\item \(f(0) = 1\) implies \(a_0 = 1\). \(f'(0) = f(0) = 1\) implies \(n a_n = 1\) for \(n = 1\), or \(a_1 = 1\). \(f^{\prime \prime}(0) = f'(0) = 1\) implies \((2) (2-1) a_2 = (2!) a_2 = 1\). We can use induction to show in general that \(a_n = 1 / n!\).
+}
+\end{solution}
+
+\begin{exercise}
+Review the definitions and results from Section 2.8 concerning products of series and Cauchy products in particular. At the end of Section 2.9, we mentioned the following result: If both $\sum a_{n}$ and $\sum b_{n}$ converge conditionally to $A$ and $B$ respectively, then it is possible for the Cauchy product,
 $$
 \sum d_{n} \quad \text { where } \quad d_{n}=a_{0} b_{n}+a_{1} b_{n-1}+\cdots+a_{n} b_{0}
 $$
@@ -56,13 +193,61 @@ to diverge. However, if $\sum d_{n}$ does converge, then it must converge to $A 
 $$
 f(x)=\sum a_{n} x^{n}, \quad g(x)=\sum b_{n} x^{n}, \quad \text { and } \quad h(x)=\sum d_{n} x^{n} .
 $$
-Use Abel's Theorem and the result in Exercise $2.8 .7$ to establish this result.
-Exercise 6.5.10. Let $g(x)=\sum_{n=0}^{\infty} b_{n} x^{n}$ converge on $(-R, R)$, and assume $\left(x_{n}\right) \rightarrow 0$ with $x_{n} \neq 0$. If $g\left(x_{n}\right)=0$ for all $n \in \mathbf{N}$, show that $g(x)$ must be identically zero on all of $(-R, R)$.
+Use Abel's Theorem and the result in Exercise $2.8.7$ to establish this result.
+\end{exercise}
 
-Exercise 6.5.11. A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
+\begin{solution}
+By Abel's Theorem we have uniform convergence of the series defining \(f\), \(g\), and \(h\) over the compact set \([0,1]\); therefore each of these functions is continuous and bounded over this set. We can thus conclude that for \(x \in [0,1]\),
+\[\lim_{N \to \infty} \sum^N_{i=0} \sum^N_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \lim_{N \to \infty} \left(\sum^N_{n=0} a_n x^n\right) \left(\sum^N_{n=0} b_n x^n\right) = f(x) g(x)\]
+
+Since \(\sum d_n\) converges, \(\lim_{n \to \infty} \abs{d_{n+1}/d_n} \leq 1\)  (otherwise \(d_n\) would not be bounded). But since \(\sum d_n\) only converges conditionally, \(\lim_{n \to \infty} \abs{d_{n+1}/d_n} = 1\) (if it were less than 1, then we could use the Ratio Test to prove absolute convergence). We therefore have absolute convergence of the series defining \(h(x)\) for \(|x| < 1\) by the Ratio Test.
+
+From the work in Section 2.8, because we have absolute convergence, informally we have a lot of leeway in how to evaluate the double summations when \(\abs{x} < 1\). In particular,
+\[\lim_{N \to \infty} \sum^N_{i=0} \sum^N_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \sum^\infty_{i=0} \sum^\infty_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \sum^\infty_{n=0} d_n x^n = h(x)\]
+
+We now have the equality \(f(x)g(x) = h(x)\), for \(\abs{x} < 1\). \(h(x)\) is a power series by definition, while \(f(x)g(x)\) can be represented as a power series by expanding the product of the partial sums. These power series are identical, which we can see either by explicitly doing the expansion or by Exercise 6.5.8 where we showed that power series representations are unique. Therefore since \(h(x)\) is defined at \(x=1\), we can extend the equality \(f(x) g(x) = h(x)\) to \(x = 1\), and we thus have that \(AB =\sum d_n\).
+\end{solution}
+
+\begin{exercise}
+Let $g(x)=\sum_{n=0}^{\infty} b_{n} x^{n}$ converge on $(-R, R)$, and assume $\left(x_{n}\right) \rightarrow 0$ with $x_{n} \neq 0$. If $g\left(x_{n}\right)=0$ for all $n \in \mathbf{N}$, show that $g(x)$ must be identically zero on all of $(-R, R)$.
+\end{exercise}
+
+\begin{solution}
+Let \(f^{(n)}\) denote the \(n\)'th derivative of \(f\) (with \(f^{(0)} = f\)). The intermediate claims we make along the way are:
+\begin{enumerate}
+    \item  If a differentiable function \(f\) has a sequence \((x_n) \to 0\) satisyfing \(f(x_n) = 0\), then its derivative also has a sequence \((y_n) \to 0\) satisfying \(f'(y_n) = 0\).
+    \item  Any function \(f\) with a bounded derivative over an interval containing 0 with some sequence \((x_n) \to 0\) satisfying \(f(x_n) = 0\), will also satisfy \(f(0) = 0\).
+    \item  Given a power series \(f(x) = \sum^\infty_{n=0}a_nx^n\), if \(f^{(n)}(0) = 0\), then \(a_n = 0\).
+\end{enumerate}
+
+For claim 1, we apply the Mean Value Theorem to get some \(y_n\) between \(x_n\) and \(x_{n+1}\) with \(f'(y_n) = 0\); we thus have \(\abs{y_n} \leq \max\{x_n, x_{n+1}\}\) and therefore \((y_n) \to 0\).
+
+For claim 2, suppose that \(f(0) = \epsilon \neq 0\), and \(\abs{f'(x)} < M\). Now since \((x_n) \to 0\) we can find some \(x_i\) satisfying \(\abs{x_i} < \epsilon / M\). By the Mean Value Theorem, we then have that
+\[\abs{f'(c)} = \abs{\frac{\epsilon}{\epsilon/M}} = M\]
+for some \(c\), violating the assumption that \(f'(x)\) is bounded. Hence \(f(0) = 0\).
+
+For claim 3, we differentiate termwise \(n\) times and note that all terms that still have \(x\) will evaluate to 0. We thus have
+\[f^{(n)}(0) = (n!)a_n = 0\]
+and thus \(a_n = 0\).
+
+From claim 1, we have by indution that every \(g^{(i)}\) has some sequence \((x_{i,n})\) satisfying \(\lim_{n \to \infty} x_{i,n} \to 0\) and \(g^{(i)}(x_{i,n}) = 0\). Now since each of \(g^{(n)}\) is bounded (by continuity over the compact set \([-R/2, R/2]\), for example), each of \(g^{(n)}\) also has a bounded derivative, and thus we can apply claim 2 to get that \(g^{(n)}(0) = 0\) for all \(n\). Finally claim 3 implies that \(b_n = 0\) for all \(n\), and hence \(g(x)\) must be identically 0 over \((-R, R)\).
+\end{solution}
+
+\begin{exercise}
+A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
 $$
 f(x)=\sum_{n=0}^{\infty} a_{n} x^{n}
 $$
 converges for all $x \in[0,1)$ and $L=\lim _{x \rightarrow 1-} f(x)$.
-(a) Show that any series that converges to a limit $L$ is also Abel-summable to $L$.
-(b) Show that $\sum_{n=0}^{\infty}(-1)^{n}$ is Abel-summable and find the sum.
+
+\enum{
+\item Show that any series that converges to a limit $L$ is also Abel-summable to $L$.
+\item Show that $\sum_{n=0}^{\infty}(-1)^{n}$ is Abel-summable and find the sum.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item If a series \(\sum^\infty_{n=0}a_n\) converges to \(L\) then by Abel's Theorem the power series \(\sum^\infty_{n=0}a_n x^n\) converges uniformly over \([0,1]\), and is therefore continuous over this interval. Hence by continuity the series is Abel-summable to \(L\).
+\item The relevant power series here is \(f(x) = \sum^\infty_{n=0} (-x)^n\) which has the closed-form expression \(\frac{1}{1 + x}\) for \(\abs{x} < 1\), and \(\lim_{x \to 1^-} f(x)\) evaluates to \(1/2\).
+}
+\end{solution}
