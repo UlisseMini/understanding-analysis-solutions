@@ -205,7 +205,7 @@ Since \(\sum d_n\) converges, \(\lim_{n \to \infty} \abs{d_{n+1}/d_n} \leq 1\)  
 From the work in Section 2.8, because we have absolute convergence, informally we have a lot of leeway in how to evaluate the double summations when \(\abs{x} < 1\). In particular,
 \[\lim_{N \to \infty} \sum^N_{i=0} \sum^N_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \sum^\infty_{i=0} \sum^\infty_{j=0} \left(a_i x^i\right) \left(b_j x^j\right) = \sum^\infty_{n=0} d_n x^n = h(x)\]
 
-We now have the equality \(f(x)g(x) = h(x)\), for \(\abs{x} < 1\). \(h(x)\) is a power series by definition, while \(f(x)g(x)\) can be represented as a power series by expanding the product of the partial sums. These power series are identical, which we can see either by explicitly doing the expansion or by Exercise 6.5.8 where we showed that power series representations are unique. Therefore since \(h(x)\) is defined at \(x=1\), we can extend the equality \(f(x) g(x) = h(x)\) to \(x = 1\), and we thus have that \(AB =\sum d_n\).
+We now have the equality \(f(x)g(x) = h(x)\), for \(\abs{x} < 1\). \(h(x)\) is a power series, and Abel's Theorem implies \(h(x)\) is continuous over \([0, 1]\). We also have continuity of \(f(x)g(x)\) over \([0,1]\); thus by taking limits we have that \(h(1) = f(1)g(1)\), and we thus have that \(AB =\sum d_n\).
 \end{solution}
 
 \begin{exercise}
