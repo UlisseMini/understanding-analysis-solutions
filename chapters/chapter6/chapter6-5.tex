@@ -208,7 +208,30 @@ From the work in Section 2.8, because we have absolute convergence, informally w
 We now have the equality \(f(x)g(x) = h(x)\), for \(\abs{x} < 1\). \(h(x)\) is a power series by definition, while \(f(x)g(x)\) can be represented as a power series by expanding the product of the partial sums. These power series are identical, which we can see either by explicitly doing the expansion or by Exercise 6.5.8 where we showed that power series representations are unique. Therefore since \(h(x)\) is defined at \(x=1\), we can extend the equality \(f(x) g(x) = h(x)\) to \(x = 1\), and we thus have that \(AB =\sum d_n\).
 \end{solution}
 
-Exercise 6.5.10. Let $g(x)=\sum_{n=0}^{\infty} b_{n} x^{n}$ converge on $(-R, R)$, and assume $\left(x_{n}\right) \rightarrow 0$ with $x_{n} \neq 0$. If $g\left(x_{n}\right)=0$ for all $n \in \mathbf{N}$, show that $g(x)$ must be identically zero on all of $(-R, R)$.
+\begin{exercise}
+Let $g(x)=\sum_{n=0}^{\infty} b_{n} x^{n}$ converge on $(-R, R)$, and assume $\left(x_{n}\right) \rightarrow 0$ with $x_{n} \neq 0$. If $g\left(x_{n}\right)=0$ for all $n \in \mathbf{N}$, show that $g(x)$ must be identically zero on all of $(-R, R)$.
+\end{exercise}
+
+\begin{solution}
+Let \(f^{(n)}\) denote the \(n\)'th derivative of \(f\) (with \(f^{(0)} = f\)). The intermediate claims we make along the way are:
+\begin{enumerate}
+    \item  If a differentiable function \(f\) has a sequence \((x_n) \to 0\) satisyfing \(f(x_n) = 0\), then its derivative also has a sequence \((y_n) \to 0\) satisfying \(f'(y_n) = 0\).
+    \item  Any function \(f\) with a bounded derivative over an interval containing 0 with some sequence \((x_n) \to 0\) satisfying \(f(x_n) = 0\), will also satisfy \(f(0) = 0\).
+    \item  Given a power series \(f(x) = \sum^\infty_{n=0}a_nx^n\), if \(f^{(n)}(0) = 0\), then \(a_n = 0\).
+\end{enumerate}
+
+For claim 1, we apply the Mean Value Theorem to get some \(y_n\) between \(x_n\) and \(x_{n+1}\) with \(f'(y_n) = 0\); we thus have \(\abs{y_n} \leq \max\{x_n, x_{n+1}\}\) and therefore \((y_n) \to 0\).
+
+For claim 2, suppose that \(f(0) = \epsilon \neq 0\), and \(\abs{f'(x)} < M\). Now since \((x_n) \to 0\) we can find some \(x_i\) satisfying \(\abs{x_i} < \epsilon / M\). By the Mean Value Theorem, we then have that
+\[\abs{f'(c)} = \abs{\frac{\epsilon}{\epsilon/M}} = M\]
+for some \(c\), violating the assumption that \(f'(x)\) is bounded. Hence \(f(0) = 0\).
+
+For claim 3, we differentiate termwise \(n\) times and note that all terms that still have \(x\) will evaluate to 0. We thus have
+\[f^{(n)}(0) = (n!)a_n = 0\]
+and thus \(a_n = 0\).
+
+From claim 1, we have by indution that every \(g^{(i)}\) has some sequence \((x_{i,n})\) satisfying \(\lim_{n \to \infty} x_{i,n} \to 0\) and \(g^{(i)}(x_{i,n}) = 0\). Now since each of \(g^{(n)}\) is bounded (by continuity over the compact set \([-R/2, R/2]\), for example), each of \(g^{(n)}\) also has a bounded derivative, and thus we can apply claim 2 to get that \(g^{(n)}(0) = 0\) for all \(n\). Finally claim 3 implies that \(b_n = 0\) for all \(n\), and hence \(g(x)\) must be identically 0 over \((-R, R)\).
+\end{solution}
 
 Exercise 6.5.11. A series $\sum_{n=0}^{\infty} a_{n}$ is said to be Abel-summable to $L$ if the power series
 $$
