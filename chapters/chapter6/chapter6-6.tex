@@ -101,16 +101,19 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   \item $f(x) = e^{x} = \sum_{n=0}^\infty x^n/n!$ from $f^{(n)}(0) = 1$
   \item Differentiating the series is valid by Theorem 6.5.7
     $$f'(x) = \sum_{n=1}^\infty \frac{nx^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \sum_{n=0}^\infty \frac{x^n}{n!}$$
-  \item Let $s_n = \sum_{k=0}^n x^k/k!$ and $t_n = \sum_{k=0}^n (-1)^k x^k/k!$ then a quick computation (by computer) gives
-    $$
-    \begin{aligned}
-      s_2t_2 &= 1 - x^{2} \\
-      s_3t_3 &= \frac{x^{4}}{4} + 1 \\
-      s_4t_4 &= - \frac{x^{6}}{36} - \frac{x^{4}}{12} + 1 \\
-      s_5t_5 &= \frac{x^{8}}{576} + \frac{x^{6}}{72} + 1
-    \end{aligned}
-    $$
-    This leads us to conjecture \TODO
+  \item Let \(a_n = (-1)^n/n!\), \(b_n = 1/n!\), and \(d_n = \sum^{n}_{k=0} a_k b_{n-k}\); the informal power series representation of \(e^x \cdot e^{-x}\) becomes \(\sum^\infty_{n=0} d_n x^n\). By plugging in \(0\) we have \(d_0 = 0\). For \(n > 0\), note that
+
+  \[(n!)d_n = \sum^n_{k=0}\frac{n!}{k! (n-k)!} (-1)^k = \sum^n_{k=0} {n \choose k} (-1)^k = \sum^n_{k=0,\ k \text{ even}} {n \choose k} - \sum^n_{k=0,\ k \text{ odd}} {n \choose k} \]
+  The first term is the total number of ways to choose an even number of elements from a set of size \(n\), while the second term is the number of ways to choose an odd number of elements. For \(n\) odd, these two terms must be equal, since for every unique subset with an even number of elements, we get a unique subset with an odd number of elements by taking the set complement. Hence for \(n\) odd we must have \(d_n = 0\).
+
+  It takes a bit more work for \(n\) even. Call this set \(N\) and divide it into disjoint subsets \(A\) containing the first \(n-1\) elements and \(B\) containing the remaining element. Let \(P \choose \text{even}\) be the number of ways to choose an even number of elements from \(P\) and \(P \choose \text{odd}\) be defined similarly. Then
+  \[{N \choose \text{odd}} = {A \choose \text{odd}}{B \choose \text{even}} + {A \choose \text{even}}{B \choose \text{odd}} = {A \choose \text{odd}} + {A \choose \text{even}}\]
+  while
+  \[{N \choose \text{even}} = {A \choose \text{even}}{B \choose \text{even}} + {A \choose \text{odd}}{B \choose \text{odd}} = {A \choose \text{even}} + {A \choose \text{odd}} = {N \choose \text{odd}}\]
+  and we once again have \(d_n = 0\). (Incidentally, this trick does not work for \(n = 0\) since it relies on being able to remove an element from \(N\) to form \(A\).)
+
+  Putting everything together we have \(e^x \cdot e^{-x} = 1\) as expected.
+
   }
 \end{solution}
 \begin{exercise}
