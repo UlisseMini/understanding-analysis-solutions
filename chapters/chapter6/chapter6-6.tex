@@ -80,8 +80,14 @@
   $$
 \end{exercise}
 \begin{solution}
-  Let $E_N(x) = \log(1+x) - \left(x - \frac 12 x^2 + \frac 13 x^3 - \dots \pm \frac 1n x^n\right)$ \TODO
+  Let \(E_N(x) = \log(1+x) - \sum_{n=1}^\infty \frac {(-1)^n x^n}{n}\).
+  The proof presented of Lagrange's Remainder Theorem assumed that \(x > 0\) to simplify notation, and found a value of \(c \in (0, x)\), with the proof for \(x < 0\) being implicit. But we can just ignore \(x < 0\) to state that given \(x \in (0, R)\) there exists \(0 < c < x\) satisfying
+  \[E_N(x) = \frac{f^{(N+1)}(c)}{(N+1)!}x^{N+1}\]
+Now, \(\abs{f^{(N+1)}(c)} = N!(1+c)^{-(N+1)}\), so for \(c < x = 1\) we have
+\[\abs{E_N(x)} \leq \frac{1}{N+1}\]
+which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(\log(1+x)\) over at least \((0,1)\), and we can extend this equality to \((0, 1]\) since both \(\log(1+x)\) and the Taylor series are continuous at 1 (we established the latter in Exercise 6.5.1). Plugging \(x = 1\) into both equations leaves us with the desired equality.
 \end{solution}
+
 \begin{exercise}
 
   \enum {
@@ -96,7 +102,7 @@
   \item Differentiating the series is valid by Theorem 6.5.7
     $$f'(x) = \sum_{n=1}^\infty \frac{nx^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \sum_{n=0}^\infty \frac{x^n}{n!}$$
   \item Let $s_n = \sum_{k=0}^n x^k/k!$ and $t_n = \sum_{k=0}^n (-1)^k x^k/k!$ then a quick computation (by computer) gives
-    $$ 
+    $$
     \begin{aligned}
       s_2t_2 &= 1 - x^{2} \\
       s_3t_3 &= \frac{x^{4}}{4} + 1 \\
