@@ -113,9 +113,9 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   and we once again have \(d_n = 0\). (Incidentally, this trick does not work for \(n = 0\) since it relies on being able to remove an element from \(N\) to form \(A\).)
 
   Putting everything together we have \(e^x \cdot e^{-x} = 1\) as expected.
-
   }
 \end{solution}
+
 \begin{exercise}
   Review the proof that $g^{\prime}(0)=0$ for the function
   $$
@@ -129,7 +129,14 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item \(g'(x) = 2x^{-3} e^{-x^{-2}}\). Repeatedly using L'Hospital's Rule,
+    \[ g''(0) = \lim_{x \to 0} \frac{2x^{-3} e^{-x^{-2}}}{x} = \lim_{x \to 0}\frac{2x^{-4}}{e^{1/x^2}} = 2 \lim_{x \to 0} \frac{-4x^{-5} x^3}{-2e^{1/x^2}} =4 \lim_{x \to 0} \frac{-2x^{-3} x^3}{-2e^{1/x^2}}=  0 \]
+    \item Explicitly computing things sounds rather tedious, so let's skip to the general form. We claim that \(g^{(n)}(x)\) for \(x \neq 0\) is of the form \(P_n(x) e^{-1/x^2}\) where \(P_n(x)\) is some polynomial in \(x^{-1}\). We can prove this inductively, by noting \(g^{(n+1)}(x) = [P_n'(x) + P_n(x) (-2x^{-3})] e^{-1/x^2}\). Differentiating a polynomial in \(x^{-1}\) with respect to \(x\) only increases the powers, and polynomials are closed under addition and multiplication, so clearly the term in square brackets continues to be a polynomial in \(x^{-1}\).
+    \item Let \(P_n(x) = \sum a_n x^{-b_n}\) with \(a_n\) constant and \(b_n \geq 0\). We'll compute the formula for the derivative termwise, and use induction.
+    \[\lim_{x \to 0} \frac{a_n x^{-b_n} e^{-1/x^2}}{x} = a_n \lim_{x \to 0} \frac{x^{-(b_n + 1)}}{e^{1/x^2}}\]
+    It's easy to show that this is equal to 0, since every time we apply L'Hospital's rule, the denominator doesn't change (and continues to go to infinity) while the exponent in the numerator increases by 2 each time, eventually becoming non-negative and preventing the numerator from also going to infinity.
+}
 \end{solution}
 \begin{exercise}
   Find an example of each of the following or explain why no such function exists.
