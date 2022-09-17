@@ -170,8 +170,13 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item Let \(e(t) = h(t) - g(t)\). If \(g(t) > h(t)\) for some \(t \in [0, x]\) then we could apply the Mean Value Theorem on \(e(t)\) between \(0\) and \(t\) to find \(c \in (0, t) \subseteq [0, x]\) with \(e'(c) = h'(t) - g'(t) < 0\), a contradiction since \(h'(t) \geq g'(t)\).
+    \item Since \(S_N^{(N+1)} = 0\), \(f^{(N+1)}(t) = E^{(N+1)}(t)\). We then have \(\abs{E_N^{(N+1)}(t)} \leq E_N^{(N+1)}\leq M\), and by repeated application of the lemma in part (a) we have \(E_N(x) \leq \frac{Mx^{N+1}}{(N+1)!}\). A similar argument holds for \(E_N(x) \geq -\frac{Mx^{N+1}}{(N+1)!}\), and we can combine these succiently as
+    \[ \left|E_{N}(x)\right| \leq \frac{M x^{N+1}}{(N+1) !}\]
+}
 \end{solution}
+
 \begin{exercise}[Cauchy's Remainder Theorem]
   Let $f$ be differentiable $N+1$ times on $(-R, R)$. For each $a \in(-R, R)$, let $S_{N}(x, a)$ be the partial sum of the Taylor series for $f$ centered at $a$; in other words, define
   $$
