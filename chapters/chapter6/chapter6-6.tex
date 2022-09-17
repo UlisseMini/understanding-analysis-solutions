@@ -138,18 +138,27 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
     It's easy to show that this is equal to 0, since every time we apply L'Hospital's rule, the denominator doesn't change (and continues to go to infinity) while the exponent in the numerator increases by 2 each time, eventually becoming non-negative and preventing the numerator from also going to infinity.
 }
 \end{solution}
+
 \begin{exercise}
   Find an example of each of the following or explain why no such function exists.
   \enum {
   \item An infinitely differentiable function $g(x)$ on all of $\mathbf{R}$ with a Taylor series that converges to $g(x)$ only for $x \in(-1,1)$.
   \item An infinitely differentiable function $h(x)$ with the same Taylor series as $\sin (x)$ but such that $h(x) \neq \sin (x)$ for all $x \neq 0$.
   \item An infinitely differentiable function $f(x)$ on all of $\mathbf{R}$ with a Taylor series that converges to $f(x)$ if and only if $x \leq 0$.
-
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item \(g(x) = 1/(1+x^2)\). We already have that the Taylor series for this is \(\sum^\infty_{n=0}(-1)^n x^2n\), and that it converges to \(g(x)\) for \(|x| < 1\), but it does not converge at all at \(\pm 1\).
+    \item Let \(a(x)\) be the counterexample function introduced at the end of this section. Then set \(h(x) = \sin(x) + a(x)\); since the Taylor series of \(a(x)\) is identically 0, \(h(x)\) has the same Taylor series as \(\sin(x)\).
+    \item \[f(x) = \begin{cases}
+        0 & x \leq 0 \\
+        e^{-1/x^2} & x > 0
+    \end{cases}\]
+    has Taylor series identically 0.
+  }
 \end{solution}
+
 \begin{exercise}
   Here is a weaker form of Lagrange's Remainder Theorem whose proof is arguably more illuminating than the one for the stronger result.
   \enum {
