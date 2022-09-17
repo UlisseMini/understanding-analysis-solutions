@@ -197,8 +197,17 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item \[E_N(x,x) = f(x) - S_N(x,x) = f(x) - c_0 = f(x) - f(x) = 0\]
+    \item \[\begin{aligned}E_N'(x,a) &= -S_N'(x,a) = \sum^N_{n=1} \frac{f^{(n)}(a)}{(n-1)!} (x-a)^{n-1} - \sum^N_{n=0}\frac{f^{(n+1)}(a)}{n!} (x-a)^n \\
+    &=\sum^{N-1}_{n=0} \frac{f^{(n+1)}(a)}{(n)!} (x-a)^{n} - \sum^N_{n=0}\frac{f^{(n+1)}(a)}{n!} (x-a)^n= \frac{-f^{(N+1)}(a)}{N!}(x-a)^{N}
+    \end{aligned}\]
+    \item By the Mean Value Theorem
+    \[\frac{E_N(x,x) - E_N(x,0)}{x} = E'_N(x,c)\]
+    for some \(c \in (0,x)\). Plugging in \(E_n(x,x) = 0\) and the expression for \(E_N'\) derived in part \((b)\) leaves us with the desired result.
+}
 \end{solution}
+
 \begin{exercise}
   Consider $f(x)=1 / \sqrt{1-x}$.
   \enum {
