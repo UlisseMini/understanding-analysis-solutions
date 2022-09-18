@@ -97,7 +97,13 @@ for all $x \in[-1,1]$.
     }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+    \item Let the polynomial \(p(x)\) be the partial sum of the Taylor series of \(\sqrt{1-x}\) which satisfies \(\abs{p(x) - \sqrt{1-x}} < \epsilon\), and let \(q(x) = p(1-x^2)\). We then have \(\abs{q(x) - \sqrt{1-(1-x^2)}} = \abs{|x| - q(x)} < \epsilon\) as desired.
+    \item Let \(c = \max\{|a|,|b|\}\), and let \(p(x)\) satisfy \(\abs{|x| - p(x)} < \epsilon / c \). Then
+    \[\abs{\abs{\frac{x}{c}} - p\left(\frac{x}{c}\right)} < \frac{\epsilon}{c}\]
+    \[\abs{|x| - c \cdot p\left(\frac{x}{c}\right)} < \epsilon\]
+     for \(x \in [-c,c] \supseteq [a,b]\), so we can use the polynomial \(c \cdot p(\frac{x}{c})\).
+}
 \end{solution}
 
 \begin{exercise}
