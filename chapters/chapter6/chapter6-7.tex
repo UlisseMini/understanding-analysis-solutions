@@ -15,3 +15,113 @@ Recall Theorem 4.4.7, which states that a continuous functions over a compact se
 
 For any \(x \in (a, b)\), let \(q\) be the largest segment endpoint less than \(x\), and \(r\) be the following segment endpoint. (If \(x = a\) or \(x = b\) then these aren't necessarilly defined, but then \(phi(x) = f(x)\) so there's nothing to worry about.) Since \(\abs{x-q} < \delta\) we have that \(\abs{f(x) - \phi(q)} < \epsilon/2\). We similarly also have \(\abs{\phi(q) - \phi(r)} < \epsilon/2\). Also, note that \(\phi(x)\) must lie between \(\phi(q)\) and \(\phi(r)\), so \(\abs{\phi(q) - \phi(x)} \leq \abs{\phi(q) - \phi(r)} < \epsilon/2\). Applying the triangle inequality leaves us with \(\abs{f(x) - \phi(x)}< \epsilon\) as desired.
 \end{solution}
+
+\begin{exercise}
+\enum{
+    \item Find the second degree polynomial $p(x)=q_{0}+q_{1} x+q_{2} x^{2}$ that interpolates the three points $(-1,1),(0,0)$, and $(1,1)$ on the graph of $g(x)=|x|$. Sketch $g(x)$ and $p(x)$ over $[-1,1]$ on the same set of axes.
+    \item Find the fourth degree polynomial that interpolates $g(x)=|x|$ at the points $x=-1,-1 / 2,0,1 / 2$, and 1 . Add a sketch of this polynomial to the graph from (a).
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    Show that $f(x)=\sqrt{1-x}$ has Taylor series coefficients $a_{n}$ where $a_{0}=1$ and
+$$
+a_{n}=\frac{-1 \cdot 3 \cdot 5 \cdots(2 n-3)}{2 \cdot 4 \cdot 6 \cdots 2 n}
+$$
+for $n \geq 1$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    \item Follow the advice in Exercise 6.6.9 to prove the Cauchy form of the remainder:
+$$
+E_{N}(x)=\frac{f^{(N+1)}(c)}{N !}(x-c)^{N} x
+$$
+for some $c$ between 0 and $x$.
+\item Use this result to prove equation (1) is valid for all $x \in(-1,1)$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    \enum{
+\item Let
+$$
+c_{n}=\frac{1 \cdot 3 \cdot 5 \cdots(2 n-1)}{2 \cdot 4 \cdot 6 \cdots 2 n}
+$$
+for $n \geq 1$. Show $c_{n}<\frac{2}{\sqrt{2 n+1}}$.
+\item Use (a) to show that $\sum_{n=0}^{\infty} a_{n}$ converges (absolutely, in fact) where $a_{n}$ is the sequence of Taylor coefficients generated in Exercise 6.7.4.
+\item Carefully explain how this verifies that equation (1) holds for all $x \in$ $[-1,1]$
+    }
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    \enum{
+    \item Use the fact that $|a|=\sqrt{a^{2}}$ to prove that, given $\epsilon>0$, there exists a polynomial $q(x)$ satisfying
+$$
+|| x|-q(x)|<\epsilon
+$$
+for all $x \in[-1,1]$.
+\item Generalize this conclusion to an arbitrary interval $[a, b]$.
+    }
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    \enum{
+    \item Fix $a \in[-1,1]$ and sketch
+$$
+h_{a}(x)=\frac{1}{2}(|x-a|+(x-a))
+$$
+over $[-1,1]$. Note that $h_{a}$ is polygonal and satisfies $h_{a}(x)=0$ for all $x \in[-1, a]$.
+\item Explain why we know $h_{a}(x)$ can be uniformly approximated with a polynomial on $[-1,1]$.
+\item Let $\phi$ be a polygonal function that is linear on each subinterval of the partition
+$$
+-1=a_{0}<a_{1}<a_{2}<\cdots<a_{n}=1 .
+$$
+Show there exist constants $b_{0}, b_{1}, \ldots, b_{n-1}$ so that
+$$
+\phi(x)=\phi(-1)+b_{0} h_{a_{0}}(x)+b_{1} h_{a_{1}}(x)+\cdots+b_{n-1} h_{a_{n-1}}(x)
+$$
+for all $x \in[-1,1]$. (d) Complete the proof of WAT for the interval $[-1,1]$, and then generalize to an arbitrary interval $[a, b]$.
+    }
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    \enum{
+    \item Find a counterexample which shows that WAT is not true if we replace the closed interval $[a, b]$ with the open interval $(a, b)$.
+    \item What happens if we replace $[a, b]$ with the closed set $[a, \infty)$. Does the theorem still hold?
+    }
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    Is there a countable subset of polynomials $\mathcal{C}$ with the property that every continuous function on $[a, b]$ can be uniformly approximated by polynomials from $\mathcal{C}$ ?
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    Assume that $f$ has a continuous derivative on $[a, b]$. Show that there exists a polynomial $p(x)$ such that
+$$
+|f(x)-p(x)|<\epsilon \quad \text { and } \quad\left|f^{\prime}(x)-p^{\prime}(x)\right|<\epsilon
+$$
+for all $x \in[a, b]$.
+\end{exercise}
