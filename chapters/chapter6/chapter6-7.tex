@@ -6,3 +6,12 @@ Assuming WAT, show that if \(f\) is continuous on \([a, b]\), then there exists 
 \begin{solution}
 Repeatedly apply WAT with \(\epsilon = 1/n\).
 \end{solution}
+
+\begin{exercise}
+Prove Theorem 6.7.3.
+\end{exercise}
+\begin{solution}
+Recall Theorem 4.4.7, which states that a continuous functions over a compact set is uniformly continuous over that set. Given \(\epsilon > 0\), apply uniform continuity on \(f\) with \(\epsilon/2\) to obtain some \(\delta > 0\), and partition \([a,b]\) into uniform segments, with each segment length lower than \(\delta\). Define \(\phi(x)\) at the endpoints of each segment to be equal to \(f(x)\), and to linearly interpolate between segment endpoints.
+
+For any \(x \in (a, b)\), let \(q\) be the largest segment endpoint less than \(x\), and \(r\) be the following segment endpoint. (If \(x = a\) or \(x = b\) then these aren't necessarilly defined, but then \(phi(x) = f(x)\) so there's nothing to worry about.) Since \(\abs{x-q} < \delta\) we have that \(\abs{f(x) - \phi(q)} < \epsilon/2\). We similarly also have \(\abs{\phi(q) - \phi(r)} < \epsilon/2\). Also, note that \(\phi(x)\) must lie between \(\phi(q)\) and \(\phi(r)\), so \(\abs{\phi(q) - \phi(x)} \leq \abs{\phi(q) - \phi(r)} < \epsilon/2\). Applying the triangle inequality leaves us with \(\abs{f(x) - \phi(x)}< \epsilon\) as desired.
+\end{solution}
