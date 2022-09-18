@@ -216,5 +216,27 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item We have
+    \[f^{(n)}(x) = \frac{\prod^n_{i=1} (2i-1)}{2^n}\left(\frac{1}{1-x}\right)^N \sqrt{\frac{1}{1-x}}\]
+    The Taylor series is \[\sum^N_{n=0} \frac{\prod^n_{i=1} (2i - 1)}{2^n n!} x^n = \sum^N_{n=0} \left(\frac{x^n}{2^n} \prod^n_{i=1} \frac{2i-1}{i}\right) \leq \sum^N_{n=0} \left(\frac{x^n}{2^n} \prod^n_{i=1}2\right) = \sum^N_{n=0}x^n\]
+    so we know that the Taylor series at least converges to something for \(x \in [0, 1)\).
+
+    Lagrange's Remainder Theorem gives us
+    \[E_N(x) = \frac{\left(\prod^{N+1}_{i=1} (2i-1)\right)\left(\frac{1}{1-c}\right)^{N+1}\sqrt{\frac{1}{1-c}}x^{N+1}}{2^{N+1}(N+1)!}\]
+    for some \(c \in (0, x)\). For \(x = 1/2\) and \(c < x\):
+    \[ \begin{aligned}
+        \abs{E_N(x)} & \leq \left(\prod^{N+1}_{i=1} \frac{2i-1}{i}\right) \left(\frac{1}{2-2c}\right)^{N+1} \left(\sqrt{\frac{1}{1-c}}\right) \frac{1}{2^{N+1}} \\
+        & \leq 2^{N+1} d^{N+1} \left(\sqrt{\frac{1}{1-c}}\right) \frac{1}{2^{N+1}} = d^{N+1}\sqrt{\frac{1}{1-c}}
+        \end{aligned}
+     \]
+     where \(d = 1/(2-2c) < 1\); this shows \(E_N\) converges to 0 over \([0, 1/2]\).
+
+     \item Plugging in Cauchy's Remainder Theorem,
+     \[ \begin{aligned}
+        E_N(x) &= \left( \prod^N_{i=1}\frac{2i-1}{i} \right) \frac{(2N + 1) (x-c)^N x}{2^N (1-c)^{N+1}} \sqrt{\frac{1}{1-c}} \\
+&\leq (2N+1) \left(d\right)^N \frac{x}{1-c}\sqrt{\frac{1}{1-c}}
+    \end{aligned} \]
+where \(d = \frac{x-c}{1-c} < 1\). The first term is linear in \(N\), the second is exponentially decaying in \(N\), and the last two terms are constant, so the behaviour is dominated by exponential decay and \(E_N(x)\) converges to 0.
+}
 \end{solution}
