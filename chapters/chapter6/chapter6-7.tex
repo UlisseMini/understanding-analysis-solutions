@@ -47,15 +47,22 @@ For \(n \geq 1\):
 \end{solution}
 
 \begin{exercise}
+    \enum{
     \item Follow the advice in Exercise 6.6.9 to prove the Cauchy form of the remainder:
 $$
 E_{N}(x)=\frac{f^{(N+1)}(c)}{N !}(x-c)^{N} x
 $$
 for some $c$ between 0 and $x$.
 \item Use this result to prove equation (1) is valid for all $x \in(-1,1)$.
+
+    }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+    \item See solution to Exercise 6.6.9
+    \item \[E_N(x) = \frac{-x (1-x)^{-\frac{1}{2}} }{2}  \left(\prod^N_{i=1} \frac{2i-1}{2i} \right)  \left(\frac{x-c}{1-c}\right)^N\]
+    For \(0 < c < x < 1\), the first term is constant, the second term is less than 1, and the last term converges to 0. 
+}
 \end{solution}
 
 \begin{exercise}
