@@ -37,7 +37,13 @@ $$
 for $n \geq 1$.
 \end{exercise}
 \begin{solution}
-    \TODO
+For \(n \geq 1\):
+\[f^{(n)} = -\frac{\prod^{N-1}_{i=1} (2i - 1)}{2^n} (1-x)^{-\frac{2n-1}{2}}\]
+\[a_n = \frac{f^{(n)}(0)}{n!}
+= -\frac{ \prod^{N-1}_{i=1} (2i - 1) }{ \left(\prod^{N}_{i=1}2\right) \left(\prod^N_{i=1}i\right) }
+=\frac{-1 \cdot 3 \cdot 5 \cdots(2 n-3)}{2 \cdot 4 \cdot 6 \cdots 2 n}
+\]
+
 \end{solution}
 
 \begin{exercise}
