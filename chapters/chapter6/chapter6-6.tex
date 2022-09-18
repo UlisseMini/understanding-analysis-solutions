@@ -80,8 +80,14 @@
   $$
 \end{exercise}
 \begin{solution}
-  Let $E_N(x) = \log(1+x) - \left(x - \frac 12 x^2 + \frac 13 x^3 - \dots \pm \frac 1n x^n\right)$ \TODO
+  Let \(E_N(x) = \log(1+x) - \sum_{n=1}^\infty \frac {(-1)^n x^n}{n}\).
+  The proof presented of Lagrange's Remainder Theorem assumed that \(x > 0\) to simplify notation, and found a value of \(c \in (0, x)\), with the proof for \(x < 0\) being implicit. But we can just ignore \(x < 0\) to state that given \(x \in (0, R)\) there exists \(0 < c < x\) satisfying
+  \[E_N(x) = \frac{f^{(N+1)}(c)}{(N+1)!}x^{N+1}\]
+Now, \(\abs{f^{(N+1)}(c)} = N!(1+c)^{-(N+1)}\), so for \(c < x = 1\) we have
+\[\abs{E_N(x)} \leq \frac{1}{N+1}\]
+which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(\log(1+x)\) over at least \((0,1)\), and we can extend this equality to \((0, 1]\) since both \(\log(1+x)\) and the Taylor series are continuous at 1 (we established the latter in Exercise 6.5.1). Plugging \(x = 1\) into both equations leaves us with the desired equality.
 \end{solution}
+
 \begin{exercise}
 
   \enum {
@@ -95,18 +101,21 @@
   \item $f(x) = e^{x} = \sum_{n=0}^\infty x^n/n!$ from $f^{(n)}(0) = 1$
   \item Differentiating the series is valid by Theorem 6.5.7
     $$f'(x) = \sum_{n=1}^\infty \frac{nx^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \sum_{n=0}^\infty \frac{x^n}{n!}$$
-  \item Let $s_n = \sum_{k=0}^n x^k/k!$ and $t_n = \sum_{k=0}^n (-1)^k x^k/k!$ then a quick computation (by computer) gives
-    $$ 
-    \begin{aligned}
-      s_2t_2 &= 1 - x^{2} \\
-      s_3t_3 &= \frac{x^{4}}{4} + 1 \\
-      s_4t_4 &= - \frac{x^{6}}{36} - \frac{x^{4}}{12} + 1 \\
-      s_5t_5 &= \frac{x^{8}}{576} + \frac{x^{6}}{72} + 1
-    \end{aligned}
-    $$
-    This leads us to conjecture \TODO
+  \item Let \(a_n = (-1)^n/n!\), \(b_n = 1/n!\), and \(d_n = \sum^{n}_{k=0} a_k b_{n-k}\); the informal power series representation of \(e^x \cdot e^{-x}\) becomes \(\sum^\infty_{n=0} d_n x^n\). By plugging in \(0\) we have \(d_0 = 0\). For \(n > 0\), note that
+
+  \[(n!)d_n = \sum^n_{k=0}\frac{n!}{k! (n-k)!} (-1)^k = \sum^n_{k=0} {n \choose k} (-1)^k = \sum^n_{k=0,\ k \text{ even}} {n \choose k} - \sum^n_{k=0,\ k \text{ odd}} {n \choose k} \]
+  The first term is the total number of ways to choose an even number of elements from a set of size \(n\), while the second term is the number of ways to choose an odd number of elements. For \(n\) odd, these two terms must be equal, since for every unique subset with an even number of elements, we get a unique subset with an odd number of elements by taking the set complement. Hence for \(n\) odd we must have \(d_n = 0\).
+
+  It takes a bit more work for \(n\) even. Call this set \(N\) and divide it into disjoint subsets \(A\) containing the first \(n-1\) elements and \(B\) containing the remaining element. Let \(P \choose \text{even}\) be the number of ways to choose an even number of elements from \(P\) and \(P \choose \text{odd}\) be defined similarly. Then
+  \[{N \choose \text{odd}} = {A \choose \text{odd}}{B \choose \text{even}} + {A \choose \text{even}}{B \choose \text{odd}} = {A \choose \text{odd}} + {A \choose \text{even}}\]
+  while
+  \[{N \choose \text{even}} = {A \choose \text{even}}{B \choose \text{even}} + {A \choose \text{odd}}{B \choose \text{odd}} = {A \choose \text{even}} + {A \choose \text{odd}} = {N \choose \text{odd}}\]
+  and we once again have \(d_n = 0\). (Incidentally, this trick does not work for \(n = 0\) since it relies on being able to remove an element from \(N\) to form \(A\).)
+
+  Putting everything together we have \(e^x \cdot e^{-x} = 1\) as expected.
   }
 \end{solution}
+
 \begin{exercise}
   Review the proof that $g^{\prime}(0)=0$ for the function
   $$
@@ -120,20 +129,36 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item \(g'(x) = 2x^{-3} e^{-x^{-2}}\). Repeatedly using L'Hospital's Rule,
+    \[ g''(0) = \lim_{x \to 0} \frac{2x^{-3} e^{-x^{-2}}}{x} = \lim_{x \to 0}\frac{2x^{-4}}{e^{1/x^2}} = 2 \lim_{x \to 0} \frac{-4x^{-5} x^3}{-2e^{1/x^2}} =4 \lim_{x \to 0} \frac{-2x^{-3} x^3}{-2e^{1/x^2}}=  0 \]
+    \item Explicitly computing things sounds rather tedious, so let's skip to the general form. We claim that \(g^{(n)}(x)\) for \(x \neq 0\) is of the form \(P_n(x) e^{-1/x^2}\) where \(P_n(x)\) is some polynomial in \(x^{-1}\). We can prove this inductively, by noting \(g^{(n+1)}(x) = [P_n'(x) + P_n(x) (-2x^{-3})] e^{-1/x^2}\). Differentiating a polynomial in \(x^{-1}\) with respect to \(x\) only increases the powers, and polynomials are closed under addition and multiplication, so clearly the term in square brackets continues to be a polynomial in \(x^{-1}\).
+    \item Let \(P_n(x) = \sum a_n x^{-b_n}\) with \(a_n\) constant and \(b_n \geq 0\). We'll compute the formula for the derivative termwise, and use induction.
+    \[\lim_{x \to 0} \frac{a_n x^{-b_n} e^{-1/x^2}}{x} = a_n \lim_{x \to 0} \frac{x^{-(b_n + 1)}}{e^{1/x^2}}\]
+    It's easy to show that this is equal to 0, since every time we apply L'Hospital's rule, the denominator doesn't change (and continues to go to infinity) while the exponent in the numerator increases by 2 each time, eventually becoming non-negative and preventing the numerator from also going to infinity.
+}
 \end{solution}
+
 \begin{exercise}
   Find an example of each of the following or explain why no such function exists.
   \enum {
   \item An infinitely differentiable function $g(x)$ on all of $\mathbf{R}$ with a Taylor series that converges to $g(x)$ only for $x \in(-1,1)$.
   \item An infinitely differentiable function $h(x)$ with the same Taylor series as $\sin (x)$ but such that $h(x) \neq \sin (x)$ for all $x \neq 0$.
   \item An infinitely differentiable function $f(x)$ on all of $\mathbf{R}$ with a Taylor series that converges to $f(x)$ if and only if $x \leq 0$.
-
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+  \enum{
+    \item \(g(x) = 1/(1+x^2)\). We already have that the Taylor series for this is \(\sum^\infty_{n=0}(-1)^n x^2n\), and that it converges to \(g(x)\) for \(|x| < 1\), but it does not converge at all at \(\pm 1\).
+    \item Let \(a(x)\) be the counterexample function introduced at the end of this section. Then set \(h(x) = \sin(x) + a(x)\); since the Taylor series of \(a(x)\) is identically 0, \(h(x)\) has the same Taylor series as \(\sin(x)\).
+    \item \[f(x) = \begin{cases}
+        0 & x \leq 0 \\
+        e^{-1/x^2} & x > 0
+    \end{cases}\]
+    has Taylor series identically 0.
+  }
 \end{solution}
+
 \begin{exercise}
   Here is a weaker form of Lagrange's Remainder Theorem whose proof is arguably more illuminating than the one for the stronger result.
   \enum {
@@ -145,8 +170,13 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item Let \(e(t) = h(t) - g(t)\). If \(g(t) > h(t)\) for some \(t \in [0, x]\) then we could apply the Mean Value Theorem on \(e(t)\) between \(0\) and \(t\) to find \(c \in (0, t) \subseteq [0, x]\) with \(e'(c) = h'(t) - g'(t) < 0\), a contradiction since \(h'(t) \geq g'(t)\).
+    \item Since \(S_N^{(N+1)} = 0\), \(f^{(N+1)}(t) = E^{(N+1)}(t)\). We then have \(\abs{E_N^{(N+1)}(t)} \leq E_N^{(N+1)}\leq M\), and by repeated application of the lemma in part (a) we have \(E_N(x) \leq \frac{Mx^{N+1}}{(N+1)!}\). A similar argument holds for \(E_N(x) \geq -\frac{Mx^{N+1}}{(N+1)!}\), and we can combine these succiently as
+    \[ \left|E_{N}(x)\right| \leq \frac{M x^{N+1}}{(N+1) !}\]
+}
 \end{solution}
+
 \begin{exercise}[Cauchy's Remainder Theorem]
   Let $f$ be differentiable $N+1$ times on $(-R, R)$. For each $a \in(-R, R)$, let $S_{N}(x, a)$ be the partial sum of the Taylor series for $f$ centered at $a$; in other words, define
   $$
@@ -167,8 +197,17 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item \[E_N(x,x) = f(x) - S_N(x,x) = f(x) - c_0 = f(x) - f(x) = 0\]
+    \item \[\begin{aligned}E_N'(x,a) &= -S_N'(x,a) = \sum^N_{n=1} \frac{f^{(n)}(a)}{(n-1)!} (x-a)^{n-1} - \sum^N_{n=0}\frac{f^{(n+1)}(a)}{n!} (x-a)^n \\
+    &=\sum^{N-1}_{n=0} \frac{f^{(n+1)}(a)}{(n)!} (x-a)^{n} - \sum^N_{n=0}\frac{f^{(n+1)}(a)}{n!} (x-a)^n= \frac{-f^{(N+1)}(a)}{N!}(x-a)^{N}
+    \end{aligned}\]
+    \item By the Mean Value Theorem
+    \[\frac{E_N(x,x) - E_N(x,0)}{x} = E'_N(x,c)\]
+    for some \(c \in (0,x)\). Plugging in \(E_n(x,x) = 0\) and the expression for \(E_N'\) derived in part \((b)\) leaves us with the desired result.
+}
 \end{solution}
+
 \begin{exercise}
   Consider $f(x)=1 / \sqrt{1-x}$.
   \enum {
@@ -177,5 +216,27 @@
   }
 \end{exercise}
 \begin{solution}
-  \TODO
+\enum{
+    \item We have
+    \[f^{(n)}(x) = \frac{\prod^n_{i=1} (2i-1)}{2^n}\left(\frac{1}{1-x}\right)^N \sqrt{\frac{1}{1-x}}\]
+    The Taylor series is \[\sum^N_{n=0} \frac{\prod^n_{i=1} (2i - 1)}{2^n n!} x^n = \sum^N_{n=0} \left(\frac{x^n}{2^n} \prod^n_{i=1} \frac{2i-1}{i}\right) \leq \sum^N_{n=0} \left(\frac{x^n}{2^n} \prod^n_{i=1}2\right) = \sum^N_{n=0}x^n\]
+    so we know that the Taylor series at least converges to something for \(x \in [0, 1)\).
+
+    Lagrange's Remainder Theorem gives us
+    \[E_N(x) = \frac{\left(\prod^{N+1}_{i=1} (2i-1)\right)\left(\frac{1}{1-c}\right)^{N+1}\sqrt{\frac{1}{1-c}}x^{N+1}}{2^{N+1}(N+1)!}\]
+    for some \(c \in (0, x)\). For \(x = 1/2\) and \(c < x\):
+    \[ \begin{aligned}
+        \abs{E_N(x)} & \leq \left(\prod^{N+1}_{i=1} \frac{2i-1}{i}\right) \left(\frac{1}{2-2c}\right)^{N+1} \left(\sqrt{\frac{1}{1-c}}\right) \frac{1}{2^{N+1}} \\
+        & \leq 2^{N+1} d^{N+1} \left(\sqrt{\frac{1}{1-c}}\right) \frac{1}{2^{N+1}} = d^{N+1}\sqrt{\frac{1}{1-c}}
+        \end{aligned}
+     \]
+     where \(d = 1/(2-2c) < 1\); this shows \(E_N\) converges to 0 over \([0, 1/2]\).
+
+     \item Plugging in Cauchy's Remainder Theorem,
+     \[ \begin{aligned}
+        E_N(x) &= \left( \prod^N_{i=1}\frac{2i-1}{i} \right) \frac{(2N + 1) (x-c)^N x}{2^N (1-c)^{N+1}} \sqrt{\frac{1}{1-c}} \\
+&\leq (2N+1) \left(d\right)^N \frac{x}{1-c}\sqrt{\frac{1}{1-c}}
+    \end{aligned} \]
+where \(d = \frac{x-c}{1-c} < 1\). The first term is linear in \(N\), the second is exponentially decaying in \(N\), and the last two terms are constant, so the behaviour is dominated by exponential decay and \(E_N(x)\) converges to 0.
+}
 \end{solution}
