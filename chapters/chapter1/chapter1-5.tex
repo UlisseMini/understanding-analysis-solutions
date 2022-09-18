@@ -273,18 +273,21 @@
     So assume $A_1 \ne \emptyset$, to show $\{A_n\}$ is pairwise disjoint, first consider how $A_1 \cap A_k = \emptyset$
     since $A_1 = X\setminus g(Y)$ and $g(f(A_1)) \subseteq g(Y)$. Define $h(x) = g(f(x))$
 
-    Since $h$ is injective we have $h(A \cap B) = h(A) \cap h(B)$ for all $A,B$ in $X$.
-
-    Proof: 1.2.7 shows $h(A \cap B) \subseteq h(A) \cap h(B)$, now suppose $y \in h(A)\cap h(B)$ meaning there exist $x_1 \in A$ and $x_2 \in B$ with $y = f(x_1) = f(x_2)$. By injectivity $x_1=x_2$ implying $x_1 \in A \cap B$ so $y \in h(A\cap B)$ which shows the reverse inclusion $h(A)\cap h(B) \subseteq h(A \cap B)$.
-
+    Since $h$ is injective we have $h(A \cap B) = h(A) \cap h(B)$ for all $A,B$ in $X$. (Proof left as an exercise to the reader.)
     Using this we can prove pairwise disjointness, let $j > k$ and use the iterated function notation $h^2 = h\circ h$ and note that $h^k$ is injective.
     $$
     A_{j+1} \cap A_{k+1} = h^{k}(A_{j-k}) \cap h^{k}(A_1) = h^k(A_{j-k} \cap A_1) = h^k(\emptyset) = \emptyset
     $$
     % TODO: Figure out the intuition behind this ^^, how does someone come up with this argument?!?
+    % TODO: Draw image / add diagram (Tikz hard, maybe png from tablet)
+    % TODO: Remove custom notation, explain in words
     And since $f$ is injective $f(A_j) \cap f(A_k) = f(A_j\cap A_k) = f(\emptyset) = \emptyset$.
   \item $f(A) = B$ because $f\left(\bigcup_{n=1}^\infty A_n\right) = \bigcup_{n=1}^\infty f(A_n)$ thus $f : A \to B$ is onto. ($B$ was basically defined as the range of $f$)
-  \item Every time $g$ fails to be onto, there is some $x \in X$ where we can't find a $y \in Y$ with $g(y) = x$. Since $A_1 = X \setminus g(Y) \subseteq A$ every time this happens $x$ is in $A$. Therefore if we constrain ourselves to $A' = X \setminus A$ every $x \in A'$ has a $y \in Y$ with $g(y) = x$. If $y$ were in $B = \bigcup_{n=1}^\infty f(A_n)$ then $y \in f(A_n)$ for some $n$, but this is impossible as it would imply $x \in A_{n+1} \subseteq A$ which it isn't! Therefore $y \in Y \setminus B = B'$.
+  \item We show inclusion both ways by deriving contradictions. Key facts we use: (i) $A_1 \cap g(Y) = \emptyset$ (ii) $g(B) = \bigcup_{n=2}^\infty A_n = A\setminus A_1 = A\cap g(Y)$
+    \enumr{
+    \item $g(B') \subseteq A'$. SFC that $g(b') \in A$. Because $A_1\cap g(Y)=\emptyset$, $g(b) \notin A_1$ meaning $g(b') \in \bigcup_{n=2}^\infty A_n = g(B)$, meaning $\exists b \in B$ with $g(b') = g(b)$ and $b' \ne b$, contradicting $g$ being 1-1.
+    \item $A' \subseteq g(B')$. SFC $\exists a' \in A'$ with $a' \notin g(B')$. Because $A' \subseteq g(Y)$ we have $a' \in g(B)$ (since $a' \notin g(B')$) and $g(B) \subseteq A$ contradicting $a' \in A'$ (we can't have $a' \in A'$ and $a' \in A$.)
+      % TODO: Rewrite pointless, only set ops ^ (if its clearer)
+    }
   }
-  \TODO Where was pairwise disjointness needed? did I make a mistake?
 \end{solution}
