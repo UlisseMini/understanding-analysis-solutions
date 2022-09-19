@@ -153,7 +153,15 @@ for all $x \in[-1,1]$.
     Is there a countable subset of polynomials $\mathcal{C}$ with the property that every continuous function on $[a, b]$ can be uniformly approximated by polynomials from $\mathcal{C}$ ?
 \end{exercise}
 \begin{solution}
-    \TODO
+Yes - we will approach this by adapting the logic used to prove WAT.
+
+We start by choosing some sequence of polynomials which converge uniformly to \(|x|\). The set of all polynomials that appear in this sequence is countable; denote this set by \(\mathcal{A}\). For a fixed \(a \in [-1,1]\), we can turn this into a sequence of polynomials approaching \(h_a\) as described in Exercise 6.7.8; denote this countable set of polynomials \(\mathcal{A}_a\).
+
+The rationals in \([-1,1]\) are countable, and therefore the union of all \(\mathcal{A_a}\) for rational \(a\) is also countable; denote this set as \(\mathcal{B}\). For a similar reason, the set of all polynomials of the form \(a \cdot p(x / b)\) where \(a,b\) are rational numbers and \(p \in \mathcal{B}\) is also countable; denote this set \(\mathcal{D}\).
+
+Because rationals are dense in \(\mathbf{R}\), it's easy to adapt the proof of Theorem 6.7.3 (Exercise 6.7.2) to only work with polygonal functions whose segment endpoints are rational (i.e.\ both the endpoint and the value of the function at the endpoint are rational). Let \(\mathcal{P}\) denote the set of polygonal functions over \([-1,1]\) with rational segment endpoints only, and \(\mathcal{P}_n\) be the elements in \(\mathcal{P}\) with \(n\) segments. Any element in \(\mathcal{P}_n\) can be uniformly approximated by the sum of \(n\) elements from \(\mathcal{D}\) plus some rational constant \(c\); call the set of polynomials that can be generated this way \(\mathcal{D}_n\). Since \(n\) is finite, \(\mathcal{D}_n\) is also countable, and so is \(\bigcup^\infty_{i=1} \mathcal{D}_i\), meaning we have a countable set of polynomials which can uniformly approximate any function from \(\mathcal{P}\).
+
+This implies any continuous function can be uniformly apprxoimated over \([-1,1]\) by a countable set of polynomials. The scaling trick used to extend the original proof of WAT can be used here (except limited to scaling factors of rational numbers) to complete the proof.
 \end{solution}
 
 \begin{exercise}
