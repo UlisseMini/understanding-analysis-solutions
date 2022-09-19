@@ -171,3 +171,10 @@ $$
 $$
 for all $x \in[a, b]$.
 \end{exercise}
+\begin{solution}
+Let \(q(x)\) be a polynomial which uniformly approximates \(f'(x)\) to within \(\frac{\epsilon}{(b-a)}\), and \(p(x)\) to be the antiderivative of \(q(x)\) which passes through \((a, f(a))\). Let \(e(x) = f(x) - p(x)\) be the error between \(f\) and \(p\), and note that \(\abs{e'(x)} < \frac{\epsilon}{b-a}\).
+
+    By the Mean Value Theorem, for any \(x \in [a, b]\),
+\[\abs{e(x) - e(a)} = \abs{(x-a)e'(c)} < (b-a) \frac{\epsilon}{(b-a)} = \epsilon\]
+for some \(c \in [a,b]\), completing the proof.
+\end{solution}
