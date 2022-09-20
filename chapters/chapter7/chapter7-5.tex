@@ -1,0 +1,129 @@
+\section{The Fundamental Theorem of Calculus}
+
+\begin{exercise}
+\enum{
+\item Let $f(x)=|x|$ and define $F(x)=\int_{-1}^{x} f$. Find a piecewise algebraic formula for $F(x)$ for all $x$. Where is $F$ continuous? Where is $F$ differentiable? Where does $F^{\prime}(x)=f(x)$ ?
+\item Repeat part (a) for the function
+$$
+f(x)= \begin{cases}1 & \text { if } x<0 \\ 2 & \text { if } x \geq 0\end{cases}
+$$
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Decide whether each statement is true or false, providing a short justification for each conclusion.
+\enum{
+\item If $g=h^{\prime}$ for some $h$ on $[a, b]$, then $g$ is continuous on $[a, b]$.
+\item If $g$ is continuous on $[a, b]$, then $g=h^{\prime}$ for some $h$ on $[a, b]$.
+\item If $H(x)=\int_{a}^{x} h$ is differentiable at $c \in[a, b]$, then $h$ is continuous at $c$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} The hypothesis in Theorem 7.5.1 (i) that $F^{\prime}(x)=f(x)$ for all $x \in[a, b]$ is slightly stronger than it needs to be. Carefully read the proof and state exactly what needs to be assumed with regard to the relationship between $f$ and $F$ for the proof to be valid.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Show that if $f:[a, b] \rightarrow \mathbf{R}$ is continuous and $\int_{a}^{x} f=0$ for all $x \in[a, b]$, then $f(x)=0$ everywhere on $[a, b]$. Provide an example to show that this conclusion does not follow if $f$ is not continuous. Exercise 7.5.5. The Fundamental Theorem of Calculus can be used to supply a shorter argument for Theorem 6.3.1 under the additional assumption that the sequence of derivatives is continuous.
+Assume $f_{n} \rightarrow f$ pointwise and $f_{n}^{\prime} \rightarrow g$ uniformly on $[a, b]$. Assuming each $f_{n}^{\prime}$ is continuous, we can apply Theorem 7.5.1 (i) to get
+$$
+\int_{a}^{x} f_{n}^{\prime}=f_{n}(x)-f_{n}(a)
+$$
+for all $x \in[a, b]$. Show that $g(x)=f^{\prime}(x)$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}[Integration-by-parts]
+\enum{
+\item Assume $h(x)$ and $k(x)$ have continuous derivatives on $[a, b]$ and derive the familiar integration-by-parts formula
+$$
+\int_{a}^{b} h(t) k^{\prime}(t) d t=h(b) k(b)-h(a) k(a)-\int_{a}^{b} h^{\prime}(t) k(t) d t
+$$
+\item Explain how the result in Exercise 7.4.6 can be used to slightly weaken the hypothesis in part (a).
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Use part (ii) of Theorem 7.5.1 to construct another proof of part (i) of Theorem 7.5.1 under the stronger hypothesis that $f$ is continuous. (To get started, set \(G(x)=\int_{a}^{x} f\).)
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}[Natural Logarithm and Euler's Constant]
+    Let
+$$
+L(x)=\int_{1}^{x} \frac{1}{t} d t
+$$
+where we consider only $x>0$.
+\enum{
+\item What is $L(1)$ ? Explain why $L$ is differentiable and find $L^{\prime}(x)$.
+\item Show that $L(x y)=L(x)+L(y)$. (Think of $y$ as a constant and differentiate $g(x)=L(x y)$)
+\item Show $L(x / y)=L(x)-L(y)$.
+\item Let
+$$
+\gamma_{n}=\left(1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}\right)-L(n) \text {. }
+$$
+Prove that $\left(\gamma_{n}\right)$ converges. The constant $\gamma=\lim \gamma_{n}$ is called Euler's constant.
+\item Show how consideration of the sequence $\gamma_{2 n}-\gamma_{n}$ leads to the interesting identity
+$$
+L(2)=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\cdots .
+$$
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Given a function $f$ on $[a, b]$, define the total variation of $f$ to be
+$$
+V f=\sup \left\{\sum_{k=1}^{n}\left|f\left(x_{k}\right)-f\left(x_{k-1}\right)\right|\right\},
+$$
+where the supremum is taken over all partitions $P$ of $[a, b]$.
+\enum{
+\item If $f$ is continuously differentiable ( $f^{\prime}$ exists as a continuous function), use the Fundamental Theorem of Calculus to show $V f \leq \int_{a}^{b}\left|f^{\prime}\right|$.
+\item Use the Mean Value Theorem to establish the reverse inequality and conclude that $V f=\int_{a}^{b}\left|f^{\prime}\right|$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}[Change-of-variable Formula] Let $g:[a, b] \rightarrow \mathbf{R}$ be differentiable and assume $g^{\prime}$ is continuous. Let $f:[c, d] \rightarrow \mathbf{R}$ be continuous, and assume that the range of $g$ is contained in $[c, d]$ so that the composition $f \circ g$ is properly defined.
+\enum{
+\item Why are we sure $f$ is the derivative of some function? How about $(f \circ g) g^{\prime}$ ?
+\item Prove the change-of-variable formula
+$$
+\int_{a}^{b} f(g(x)) g^{\prime}(x) d x=\int_{g(a)}^{g(b)} f(t) d t .
+$$
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Assume $f$ is integrable on $[a, b]$ and has a "jump discontinuity" at $c \in(a, b)$. This means that both one-sided limits exist as $x$ approaches $c$ from the left and from the right, but that
+$$
+\lim _{x \rightarrow c^{-}} f(x) \neq \lim _{x \rightarrow c^{+}} f(x) .
+$$
+(This phenomenon is discussed in more detail in Section 4.6.)
+\enum{
+\item Show that, in this case, $F(x)=\int_{a}^{x} f$ is not differentiable at $x=c$.
+\item The discussion in Section $5.5$ mentions the existence of a continuous monotone function that fails to be differentiable on a dense subset of $\mathbf{R}$. Combine the results of part (a) with Exercise 6.4.10 to show how to construct such a function.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}

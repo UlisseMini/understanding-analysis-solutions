@@ -1,0 +1,120 @@
+\section{Integrating Functions with Discontinuities}
+
+\begin{exercise} Consider the function
+$$
+h(x)= \begin{cases}1 & \text { for } 0 \leq x<1 \\ 2 & \text { for } x=1\end{cases}
+$$
+over the interval $[0,1]$.
+\enum{
+\item Show that $L(f, P)=1$ for every partition $P$ of $[0,1]$.
+\item Construct a partition $P$ for which $U(f, P)<1+1 / 10$.
+\item Given $\epsilon>0$, construct a partition $P_{\epsilon}$ for which $U\left(f, P_{\epsilon}\right)<1+\epsilon$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Recall that Thomae's function
+$$
+t(x)= \begin{cases}1 & \text { if } x=0 \\ 1 / n & \text { if } x=m / n \in \mathbf{Q} \backslash\{0\} \text { is in lowest terms with } n>0 \\ 0 & \text { if } x \notin \mathbf{Q}\end{cases}
+$$
+has a countable set of discontinuities occurring at precisely every rational number. Follow these steps to prove $t(x)$ is integrable on $[0,1]$ with $\int_{0}^{1} t=0$.
+\enum{
+\item First argue that $L(t, P)=0$ for any partition $P$ of $[0,1]$.
+\item Let $\epsilon>0$, and consider the set of points $D_{\epsilon / 2}=\{x \in[0,1]: t(x) \geq \epsilon / 2\}$. How big is $D_{\epsilon / 2}$ ?
+\item To complete the argument, explain how to construct a partition $P_{\epsilon}$ of $[0,1]$ so that $U\left(t, P_{\epsilon}\right)<\epsilon$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Let
+$$
+f(x)= \begin{cases}1 & \text { if } x=1 / n \text { for some } n \in \mathbf{N} \\ 0 & \text { otherwise. }\end{cases}
+$$
+Show that $f$ is integrable on $[0,1]$ and compute $\int_{0}^{1} f$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Let $f$ and $g$ be functions defined on (possibly different) closed intervals, and assume the range of $f$ is contained in the domain of $g$ so that the composition $g \circ f$ is properly defined.
+\enum{
+\item Show, by example, that it is not the case that if $f$ and $g$ are integrable, then $g \circ f$ is integrable.
+Now decide on the validity of each of the following conjectures, supplying a proof or counterexample as appropriate.
+\item If $f$ is increasing and $g$ is integrable, then $g \circ f$ is integrable.
+\item If $f$ is integrable and $g$ is increasing, then $g \circ f$ is integrable.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+    Provide an example or give a reason why the request is impossible.
+\enum{
+\item A sequence $\left(f_{n}\right) \rightarrow f$ pointwise, where each $f_{n}$ has at most a finite number of discontinuities but $f$ is not integrable.
+\item A sequence $\left(g_{n}\right) \rightarrow g$ uniformly where each $g_{n}$ has at most a finite number of discontinuities and $g$ is not integrable.
+\item A sequence $\left(h_{n}\right) \rightarrow h$ uniformly where each $h_{n}$ is not integrable but $h$ is integrable.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Let $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ be an enumeration of all the rationals in $[0,1]$, and define
+$$
+g_{n}(x)= \begin{cases}1 & \text { if } x=r_{n} \\ 0 & \text { otherwise. }\end{cases}
+$$
+\enum{
+\item Is $G(x)=\sum_{n=1}^{\infty} g_{n}(x)$ integrable on $[0,1]$ ?
+\item Is $F(x)=\sum_{n=1}^{\infty} g_{n}(x) / n$ integrable on $[0,1]$ ?
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Assume $f:[a, b] \rightarrow \mathbf{R}$ is integrable.
+\enum{
+\item Show that if $g$ satisfies $g(x)=f(x)$ for all but a finite number of points in $[a, b]$, then $g$ is integrable as well.
+\item Find an example to show that $g$ may fail to be integrable if it differs from $f$ at a countable number of points.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} As in Exercise 7.3.6, let $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ be an enumeration of the rationals in $[0,1]$, but this time define
+$$
+h_{n}(x)=\left\{\begin{array}{ll}
+1 & \text { if } r_{n}<x \leq 1 \\
+0 & \text { if } 0 \leq x \leq r_{n}
+\end{array} .\right.
+$$
+Show $H(x)=\sum_{n=1}^{\infty} h_{n}(x) / 2^{n}$ is integrable on $[0,1]$ even though it has discontinuities at every rational point.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}[Content Zero] A set $A \subseteq[a, b]$ has content zero if for every $\epsilon>0$ there exists a finite collection of open intervals $\left\{O_{1}, O_{2}, \ldots, O_{N}\right\}$ that contain $A$ in their union and whose lengths sum to $\epsilon$ or less. Using $\left|O_{n}\right|$ to refer to the length of each interval, we have
+$$
+A \subseteq \bigcup_{n=1}^{N} O_{n} \quad \text { and } \quad \sum_{n=1}^{N}\left|O_{n}\right| \leq \epsilon .
+$$
+\enum{
+\item Let $f$ be bounded on $[a, b]$. Show that if the set of discontinuous points of $f$ has content zero, then $f$ is integrable.
+\item Show that any finite set has content zero.
+\item Content zero sets do not have to be finite. They do not have to be countable. Show that the Cantor set $C$ defined in Section $3.1$ has content zero.
+\item Prove that
+$$
+h(x)= \begin{cases}1 & \text { if } x \in C \\ 0 & \text { if } x \notin C .\end{cases}
+$$
+is integrable, and find the value of the integral.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}

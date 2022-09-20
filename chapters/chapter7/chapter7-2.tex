@@ -1,0 +1,72 @@
+\section{The Definition of the Riemann Integral}
+
+\begin{exercise}
+Let $f$ be a bounded function on $[a, b]$, and let $P$ be an arbitrary partition of $[a, b]$. First, explain why $U(f) \geq L(f, P)$. Now, prove Lemma 7.2.6.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Consider $f(x)=1 / x$ over the interval $[1,4]$. Let $P$ be the partition consisting of the points $\{1,3 / 2,2,4\}$.
+\enum{
+\item Compute $L(f, P), U(f, P)$, and $U(f, P)-L(f, P)$.
+\item What happens to the value of $U(f, P)-L(f, P)$ when we add the point 3 to the partition?
+\item Find a partition $P^{\prime}$ of $[1,4]$ for which $U\left(f, P^{\prime}\right)-L\left(f, P^{\prime}\right)<2 / 5$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}[Sequential Criterion for Integrability]
+\enum{
+\item Prove that a bounded function $f$ is integrable on $[a, b]$ if and only if there exists a sequence of partitions $\left(P_{n}\right)_{n=1}^{\infty}$ satisfying
+$$
+\lim _{n \rightarrow \infty}\left[U\left(f, P_{n}\right)-L\left(f, P_{n}\right)\right]=0,
+$$
+and in this case $\int_{a}^{b} f=\lim _{n \rightarrow \infty} U\left(f, P_{n}\right)=\lim _{n \rightarrow \infty} L\left(f, P_{n}\right)$.
+\item For each $n$, let $P_{n}$ be the partition of $[0,1]$ into $n$ equal subintervals. Find formulas for $U\left(f, P_{n}\right)$ and $L\left(f, P_{n}\right)$ if $f(x)=x$. The formula $1+2+3+$ $\cdots+n=n(n+1) / 2$ will be useful.
+\item Use the sequential criterion for integrability from (a) to show directly that $f(x)=x$ is integrable on $[0,1]$ and compute $\int_{0}^{1} f$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Let $g$ be bounded on $[a, b]$ and assume there exists a partition $P$ with $L(g, P)=U(g, P)$. Describe $g$. Is it integrable? If so, what is the value of $\int_{a}^{b} g$ ?
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Assume that, for each $n, f_{n}$ is an integrable function on $[a, b]$. If $\left(f_{n}\right) \rightarrow f$ uniformly on $[a, b]$, prove that $f$ is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+A tagged partition $\left(P,\left\{c_{k}\right\}\right)$ is one where in addition to a partition $P$ we choose a sampling point $c_{k}$ in each of the subintervals $\left[x_{k-1}, x_{k}\right]$. The corresponding Riemann sum,
+$$
+R(f, P)=\sum_{k=1}^{n} f\left(c_{k}\right) \Delta x_{k},
+$$
+is discussed in Section 7.1, where the following definition is alluded to.
+{\bf Riemann's Original Definition of the Integral}: A bounded function $f$ is integrable on $[a, b]$ with $\int_{a}^{b} f=A$ if for all $\epsilon>0$ there exists a $\delta>0$ such that for any tagged partition $\left(P,\left\{c_{k}\right\}\right)$ satisfying $\Delta x_{k}<\delta$ for all $k$, it follows that
+$$
+|R(f, P)-A|<\epsilon .
+$$
+Show that if $f$ satisfies Riemann's definition above, then $f$ is integrable in the sense of Definition 7.2.7. (The full equivalence of these two characterizations of integrability is proved in Section 8.1.)
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Let $f:[a, b] \rightarrow \mathbf{R}$ be increasing on the set $[a, b]$ (i.e., $f(x) \leq$ $f(y)$ whenever $x<y)$. Show that $f$ is integrable on $[a, b]$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
