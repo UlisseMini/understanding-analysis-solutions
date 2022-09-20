@@ -1,0 +1,116 @@
+\section{Properties of the Integral}
+
+\begin{exercise} Let $f$ be a bounded function on a set $A$, and set
+$$
+\begin{gathered}
+M=\sup \{f(x): x \in A\}, \quad m=\inf \{f(x): x \in A\}, \\
+M^{\prime}=\sup \{|f(x)|: x \in A\}, \quad \text { and } \quad m^{\prime}=\inf \{|f(x)|: x \in A\} .
+\end{gathered}
+$$
+\enum{
+\item Show that $M-m \geq M^{\prime}-m^{\prime}$.
+\item Show that if $f$ is integrable on the interval $[a, b]$, then $|f|$ is also integrable on this interval.
+\item Provide the details for the argument that in this case we have $\left|\int_{a}^{b} f\right| \leq$ $\int_{a}^{b}|f|$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Let $g(x)=x^{3}$, and classify each of the following as positive, negative, or zero.
+$$
+\text { (i) } \int_{0}^{-1} g+\int_{0}^{1} g \quad \text { (ii) } \int_{1}^{0} g+\int_{0}^{1} g \quad \text { (iii) } \int_{1}^{-2} g+\int_{0}^{1} g \text {. }
+$$
+\item Show that if $b \leq a \leq c$ and $f$ is integrable on the interval $[b, c]$, then it is still the case that $\int_{a}^{b} f=\int_{a}^{c} f+\int_{c}^{b} f$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Decide which of the following conjectures is true and supply a short proof. For those that are not true, give a counterexample.
+\enum{
+\item If $|f|$ is integrable on $[a, b]$, then $f$ is also integrable on this set.
+\item Assume $g$ is integrable and $g(x) \geq 0$ on $[a, b]$. If $g(x)>0$ for an infinite number of points $x \in[a, b]$, then $\int_{a}^{b} g>0$.
+\item If $g$ is continuous on $[a, b]$ and $g(x) \geq 0$ with $g\left(y_{0}\right)>0$ for at least one point $y_{0} \in[a, b]$, then $\int_{a}^{b} g>0$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Show that if $f(x)>0$ for all $x \in[a, b]$ and $f$ is integrable, then $\int_{a}^{b} f>0$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Let $f$ and $g$ be integrable functions on $[a, b]$.
+\enum{
+\item Show that if $P$ is any partition of $[a, b]$, then
+$$
+U(f+g, P) \leq U(f, P)+U(g, P) .
+$$
+Provide a specific example where the inequality is strict. What does the corresponding inequality for lower sums look like?
+\item Review the proof of Theorem 7.4.2 (ii), and provide an argument for part (i) of this theorem.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Although not part of Theorem 7.4.2, it is true that the product of integrable functions is integrable. Provide the details for each step in the following proof of this fact:
+\enum{
+\item If $f$ satisfies $|f(x)| \leq M$ on $[a, b]$, show
+$$
+\left|(f(x))^{2}-(f(y))^{2}\right| \leq 2 M|f(x)-f(y)|
+$$
+\item Prove that if $f$ is integrable on $[a, b]$, then so is $f^{2}$.
+\item Now show that if $f$ and $g$ are integrable, then $f g$ is integrable. (Consider $(f+g)^{2}$.)
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Review the discussion immediately preceding Theorem 7.4.4.
+\enum{
+\item Produce an example of a sequence $f_{n} \rightarrow 0$ pointwise on $[0,1]$ where $\lim _{n \rightarrow \infty} \int_{0}^{1} f_{n}$ does not exist.
+\item Produce an example of a sequence $g_{n}$ with $\int_{0}^{1} g_{n} \rightarrow 0$ but $g_{n}(x)$ does not converge to zero for any $x \in[0,1]$. To make it more interesting, let's insist that $g_{n}(x) \geq 0$ for all $x$ and $n$.
+}
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} For each $n \in \mathbf{N}$, let
+$$
+h_{n}(x)=\left\{\begin{array}{ll}
+1 / 2^{n} & \text { if } 1 / 2^{n}<x \leq 1 \\
+0 & \text { if } 0 \leq x \leq 1 / 2^{n}
+\end{array},\right.
+$$
+and set $H(x)=\sum_{n=1}^{\infty} h_{n}(x)$. Show $H$ is integrable and compute $\int_{0}^{1} H$. Exercise 7.4.9. Let $g_{n}$ and $g$ be uniformly bounded on $[0,1]$, meaning that there exists a single $M>0$ satisfying $|g(x)| \leq M$ and $\left|g_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$. Assume $g_{n} \rightarrow g$ pointwise on $[0,1]$ and uniformly on any set of the form $[0, \alpha]$, where $0<\alpha<1$.
+If all the functions are integrable, show that $\lim _{n \rightarrow \infty} \int_{0}^{1} g_{n}=\int_{0}^{1} g$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise} Assume $g$ is integrable on $[0,1]$ and continuous at 0 . Show
+$$
+\lim _{n \rightarrow \infty} \int_{0}^{1} g\left(x^{n}\right) d x=g(0)
+$$
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
+
+\begin{exercise}
+Review the original definition of integrability in Section 7.2, and in particular the definition of the upper integral $U(f)$. One reasonable suggestion might be to bypass the complications introduced in Definition 7.2.7 and simply define the integral to be the value of $U(f)$. Then every bounded function is integrable! Although tempting, proceeding in this way has some significant drawbacks. Show by example that several of the properties in Theorem 7.4.2 no longer hold if we replace our current definition of integrability with the proposal that $\int_{a}^{b} f=U(f)$ for every bounded function $f$.
+\end{exercise}
+\begin{solution}
+    \TODO
+\end{solution}
