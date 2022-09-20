@@ -4,7 +4,9 @@
 Let $f$ be a bounded function on $[a, b]$, and let $P$ be an arbitrary partition of $[a, b]$. First, explain why $U(f) \geq L(f, P)$. Now, prove Lemma 7.2.6.
 \end{exercise}
 \begin{solution}
-    \TODO
+If \(U(f) < L(f,P)\) then since \(U(f) = \inf\{U(f,P) : P \in \mathcal{P}\}\) there must also be some \(P_1\) with \(U(f, P_1) < L(f,P)\) which contradicts Lemma 7.2.4.
+
+Similarly, if \(U(f) < L(f)\) then there must be some \(P\) where \(U(f) < L(f,P)\) we've just shown to be impossible.
 \end{solution}
 
 \begin{exercise}
