@@ -33,7 +33,18 @@ and in this case $\int_{a}^{b} f=\lim _{n \rightarrow \infty} U\left(f, P_{n}\ri
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+    \item \((\implies)\) If \(f\) is integrable, then we can choose \(P_{Un}\) to satisfy \(U(f, P_{Un}) - U(f) < 1/n\), \(P_{Ln}\) to satisfy \(L(f) - L(f, P_{Ln}) < 1/n\), and \(P_n\) to be the common refimenemt of \(P_{Un}\) and \(P_{Ln}\); it's easy to show in this case that \(lim_{n \to \infty} U(f, P_n) = U(f) = \int^b_a f = L(f) = \lim_{n \to \infty} L(f, P_n) \).
+
+    \((\impliedby)\) Consider \(\lim_{n\to\infty} U(f,P_n) - L(f) \leq U(f,P_n) - L(f,P_n)\). By the Squeeze Theorem, \(U(f,P_n) - L(f)\)  approaches 0, and therefore \(\lim_{n\to\infty} U(f,P_n) = L(f)\). A similar argument shows that \(\lim_{n\to\infty} L(f,P_n) = U(f)\). Applying the Algebraic Limit Theorem gets us that \(L(f) - U(f) = 0\), or that \(L(f) = U(f) = \int^b_a f\) by definition, with this being equal to \(lim_{n \to \infty} U(f, P_n) = \lim_{n \to \infty} L(f, P_n) \).
+
+    \item Let \([a_{ni}, b_{ni}]\) be the \(i\)'th partition of \(P_n\) (indexing from 0), with \(a_{ni} = i/n\) and \(b_{ni} = (i+1)/n\). It is easy to see that
+    \[U(f,P_n) = \sum^{n-1}_{i=0} \frac{b_{ni}}{n} = \sum^{n-1}_{i=0} \frac{i+1}{n^2} = \frac{1}{2} + \frac{1}{2n}\]
+    and
+    \[L(f,P_n) = \sum^{n-1}_{i=0} \frac{a_{ni}}{n} = \sum^{n-1}_{i=0} \frac{i}{n^2} = \frac{1}{2} - \frac{1}{2n}\]
+
+    \item \(U(f,P_n)\) and \(L(f,P_n)\) both approach \(1/2\) as \(n \to \infty\) and therefore \(\int_0^1 f = 1/2\).
+}
 \end{solution}
 
 \begin{exercise}
