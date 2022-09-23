@@ -87,11 +87,11 @@ $$
 Show that if $f$ satisfies Riemann's definition above, then $f$ is integrable in the sense of Definition 7.2.7. (The full equivalence of these two characterizations of integrability is proved in Section 8.1.)
 \end{exercise}
 \begin{solution}
-We'll use the Sequential Criterion for Integrability and construct a sequence of \((P_n)\). Let \(\epsilon = 1/n\). By Riemann's definition we can easily form a partition \(P_n\), and tag it to form \(P_u\) with the sampling point close to the supremum, so that
+Let \(\epsilon > 0\). By Riemann's definition we can easily form a partition \(P_n\), and tag it to form \(P_u\) with the sampling point close to the supremum, so that
 \[|R(f,P_u) - A| < \epsilon/4 \text{ and } |U(f,P_n) - R(f,P_u)| < \epsilon/4\]
  Similarly we can retag the partition to form \(P_l\) with the sampling point close to the infimum, to get
 \[|R(f, P_l) - A| < \epsilon/4\text{ and }|L(f,P_n) - R(f, P_l)|<\epsilon/4\]
-Applying the Triangle Inequality we get \(U(f,P_n) - L(f,P_n) < \epsilon\) as desired.
+Applying the Triangle Inequality we get \(U(f,P_n) - L(f,P_n) < \epsilon\), so by Theorem 7.2.8 \(f\) is integrable.
 \end{solution}
 
 \begin{exercise}
@@ -102,5 +102,5 @@ Since \(f\) is increasing, let \(P_n\) be comprised of the \(n+1\) evenly spaced
 \[U(f,P) = \sum^n_{i=1} f(x_i) (x_i - x_{i-1}) = \Delta_n \sum^n_{i=1}f(x_i)\]
 and
 \[L(f,P) = \sum^{n-1}_{i=0} f(x_i) (x_{i+1} - x_i) = \Delta_n \sum^{n-1}_{i=0} f(x_i)\]
-Therefore \(U(f,P) - L(f,P) = \Delta_n(f(b) - f(a))\). Since \(\Delta_n\) can be made arbitrarily small while \(f(b) - f(a)\) is independent of \(n\), \(U(f) - L(f) = 0\) and therefore \(f\) is integrable.
+Therefore \(U(f,P) - L(f,P) = \Delta_n(f(b) - f(a))\). For a given \(\epsilon > 0\) if we set \(\Delta_n < \epsilon / (f(b) - f(a))\) then we can use Theorem 7.2.8 to conclude \(f\) is integrable.
 \end{solution}
