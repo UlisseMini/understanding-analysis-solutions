@@ -58,7 +58,19 @@ Let $g$ be bounded on $[a, b]$ and assume there exists a partition $P$ with $L(g
 Assume that, for each $n, f_{n}$ is an integrable function on $[a, b]$. If $\left(f_{n}\right) \rightarrow f$ uniformly on $[a, b]$, prove that $f$ is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
 \end{exercise}
 \begin{solution}
-    \TODO
+Since both \(U(f, P_n) \) and \(U(f)\) are defined in terms of supremums (and likewise for \(L\) and infimums), it's useful to have the following lemma: For all \(n \in \mathbf{N}\), let \(A_n\) be a set of real numbers with supremum \(s_n\) and infimum \(i_n\), and let \(B\) be a set with supremum \(s\) and infimum \(i\). If \( \forall \epsilon > 0, \exists N\) so that \(n > N\) implies that \(\forall a \in A_n, \exists b \in B \) such that \(|a-b| < \epsilon\), then \(\lim_{n \to \infty} s_n = s\) and \(\lim_{n \to \infty} i_n = i\).
+
+Proof: Let \(\epsilon > 0\), and choose \(N\) large enough so that for \(n > N\),\(\forall a \in A_n, \exists b \in B \) with \(|a - b| < \epsilon / 2\). Note this implies \(a < b + \epsilon / 2\). Since \(s_n\) is the supremum of \(A_n\) we have
+that for some \(a \in A_n\),
+\[s_n < a + \epsilon/2  < b + \epsilon < s + \epsilon\]
+ A similar argument in reverse shows that \(s < s_n + \epsilon\), or \(|s_n - s| < \epsilon\), as desired. The proof is identical for \(i_n \to i\).
+
+Back to the main proof --- consider a particular interval \([c,d]\) which is part of a partition \(P_m\). We can consider
+    \[u_{n,c,d} = (d-c) \cdot \sup\{f_n(x) : x \in [c,d]\}\]
+    to be the contribution of the interval \([c,d]\) to \(U(f_n, P_m)\), and similarly define \[u_{c,d} = (d-c) \cdot \sup\{f(x) : x \in [c,d]\}\].
+    Because \((f_n) \to f\) uniformly, we can apply our lemma to claim that as \(n \to \infty\), \(u_{n,c,d} \to u_{c,d}\). Since the interval \([c,d]\) is arbitrary, we can apply this to each interval in \(P_m\) to get \(U(f_n,P_m) \to U(f, P_m)\).
+
+    This, plus using our lemma again, implies that \(U(f_n) \to U(f)\). A similar argument shows \(L(f_n) \to L(f)\). But since \(U(f_n) = L(f_n)\), we must have \(U(f) = L(f)\) and therefore \(f\) is integrable on \([a,b]\).
 \end{solution}
 
 \begin{exercise}
@@ -67,6 +79,7 @@ $$
 R(f, P)=\sum_{k=1}^{n} f\left(c_{k}\right) \Delta x_{k},
 $$
 is discussed in Section 7.1, where the following definition is alluded to.
+
 {\bf Riemann's Original Definition of the Integral}: A bounded function $f$ is integrable on $[a, b]$ with $\int_{a}^{b} f=A$ if for all $\epsilon>0$ there exists a $\delta>0$ such that for any tagged partition $\left(P,\left\{c_{k}\right\}\right)$ satisfying $\Delta x_{k}<\delta$ for all $k$, it follows that
 $$
 |R(f, P)-A|<\epsilon .
