@@ -27,7 +27,15 @@ has a countable set of discontinuities occurring at precisely every rational num
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Because the irrationals are dense, for any interval there must be some point in that interval where \(t(x) = 0\), which is also the minimum possible value of \(t\); hence \(L(t,P) = 0\).
+\item This is the size of the set of rational numbers which, when expressed in lowest terms as \(m/n\), have \(n \leq 2/\epsilon\). This must be finite; let the size of \(D_{\epsilon/2}\) be denoted as \(|D_{\epsilon/2}|\).
+\item Informally, we'll set up the partition to ``isolate'' each point in \(D_{\epsilon/2}\). Define the partition as
+\[P_\epsilon = \{d + k/2 : d \in D_{\epsilon/2}\} \cup \{d - k/2 : d \in D_{\epsilon/2}\} \cup \{0,1\}\]
+where \(k = \epsilon / (2 |D_{\epsilon/2}|)\). (If some of these isolating intervals overlap, then decrease \(k\) until they don't; this can be formalized by requring \(k\) be the minimum of what it is currently and the smallest distance between two points in \(D_{\epsilon/2}\).) Then
+\[U(t,P_\epsilon) < \epsilon/2 + k |D_{\epsilon/2}| = \epsilon\]
+where the first term comes from all partition intervals that aren't isolating an element in \(D_{\epsilon/2}\), and the second term comes from the elements in \(D_{\epsilon/2}\).
+}
 \end{solution}
 
 \begin{exercise} Let
