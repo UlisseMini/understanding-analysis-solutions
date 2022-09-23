@@ -87,7 +87,11 @@ $$
 Show that if $f$ satisfies Riemann's definition above, then $f$ is integrable in the sense of Definition 7.2.7. (The full equivalence of these two characterizations of integrability is proved in Section 8.1.)
 \end{exercise}
 \begin{solution}
-    \TODO
+We'll use the Sequential Criterion for Integrability and construct a sequence of \((P_n)\). Let \(\epsilon = 1/n\). By Riemann's definition we can easily form a partition \(P_n\), and tag it to form \(P_u\) with the sampling point close to the supremum, so that
+\[|R(f,P_u) - A| < \epsilon/4 \text{ and } |U(f,P_n) - R(f,P_u)| < \epsilon/4\]
+ Similarly we can retag the partition to form \(P_l\) with the sampling point close to the infimum, to get
+\[|R(f, P_l) - A| < \epsilon/4\text{ and }|L(f,P_n) - R(f, P_l)|<\epsilon/4\]
+Applying the Triangle Inequality we get \(U(f,P_n) - L(f,P_n) < \epsilon\) as desired.
 \end{solution}
 
 \begin{exercise}
