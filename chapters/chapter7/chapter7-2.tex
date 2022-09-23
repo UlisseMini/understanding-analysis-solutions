@@ -98,5 +98,6 @@ Applying the Triangle Inequality we get \(U(f,P_n) - L(f,P_n) < \epsilon\) as de
 Let $f:[a, b] \rightarrow \mathbf{R}$ be increasing on the set $[a, b]$ (i.e., $f(x) \leq$ $f(y)$ whenever $x<y)$. Show that $f$ is integrable on $[a, b]$.
 \end{exercise}
 \begin{solution}
-    \TODO
+Since \(f\) is increasing, for a given partition \(P\) composed of \(\{x_0, \cdots, x_n\}\),
+\[U(f,P) = \sum^n_{i=1} f(x_i) (x_i - x_{i-1})\text{ and }L(f,P) = \sum^{n-1}_{i=0} f(x_i) (x_{i+1} - x_i)\]. Therefore \(U(f,P) - L(f,P) = f(b)(x_n - x_{n-1}) - f(a)(x_1 - x_0)\). Both of these terms can be made arbitrarily small, implying \(U(f) = L(f)\) and therefore \(f\) is integrable.
 \end{solution}
