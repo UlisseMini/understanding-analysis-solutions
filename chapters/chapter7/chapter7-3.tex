@@ -78,7 +78,16 @@ By Theorem 7.3.2, \(g\) is integrable. But for any rational number \(q\), \(f(q)
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Let \((r_n)\) be an enumeration of the rational numbers in \([0, 1]\), let \(R_n\) be the set of \(r_i\) where \(i \leq n\), and let
+\[f_n(x) = \begin{cases}
+    1 & x \in R_n \\
+    0 & \text{otherwise}
+\end{cases}\]
+Then \(f_n\) has \(n\) discontinuities, and \((f_n)\) approaches Dirichlet's function pointwise.
+\item Each \(g_n\) must be integrable, so by Exercise 7.2.5 \(g\) must also be integrable.
+\item Letting \(d\) be Dirichlet's function, let \(h_n(x) = d(x) / n\), with \(h(x) = 0\).
+}
 \end{solution}
 
 \begin{exercise} Let $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ be an enumeration of all the rationals in $[0,1]$, and define
