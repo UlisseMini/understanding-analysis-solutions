@@ -57,7 +57,14 @@ then since \(g \geq h\), \(\int^b_a g \geq \int^b_a h = \frac{\delta g(y_0)}{2} 
 \begin{exercise} Show that if $f(x)>0$ for all $x \in[a, b]$ and $f$ is integrable, then $\int_{a}^{b} f>0$.
 \end{exercise}
 \begin{solution}
-    \TODO
+I claim that there exists some non-empty interval \(I = [c,d] \subseteq [a,b]\) and some \(\epsilon > 0\) such that for all non-empty subintervals \(J \subseteq I\), there exists \(x \in J\) with \(f(x) \geq \epsilon\). Note that once we prove this claim, we can readily show \(\int^b_a f \geq \int^b_a g = \epsilon (d-c)\), where
+\[g(x) = \begin{cases}
+    \epsilon & x \in I \\
+    0 & \text{otherwise}
+\end{cases}\]
+We'll prove this claim by contradiction. Suppose that for all non-empty intervals \(I \subseteq [a,b]\) and for all \(\epsilon > 0\), there exists a non-empty subinterval of \(J \subseteq I\) where \(f(x) < \epsilon \ \forall x \in J \).
+
+Now let \(I_0 = [a,b]\), and for \(n > 0\), let \(\epsilon_n = 1/n\) and \(I_n \subseteq I_{n-1}\) satisfying \(f(x) < \epsilon_n \ \forall x \in I_n\). Now by the Nested Interval Property, \(\exists s \in \bigcap^\infty_{n=1} I_n \). Now, \(s\) satisfies \(f(s) < 1/n\) for all \(n\), implying \(f(s) \leq 0\) --- a contradiction since \(f(x) > 0\) for all \(x \in [a,b]\).
 \end{solution}
 
 \begin{exercise} Let $f$ and $g$ be integrable functions on $[a, b]$.
