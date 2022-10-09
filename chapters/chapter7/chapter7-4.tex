@@ -92,7 +92,17 @@ $$
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item \[\abs{f(x)^2 - f(y)^2} = \abs{f(x) + f(y)}\abs{f(x) - f(y)} \leq 2M \abs{f(x) - f(y)}\]
+
+\item Consider some subinterval \([c,d] \subseteq [a,b]\), with:
+\[m_k = \inf\{f(x) : x \in [c,d]\}\] \[M_k = \sup\{f(x) : x \in [c,d]\}\]
+\[m'_k = \inf\{f(x)^2 : x \in [c,d]\}\] \[M'_k = \sup\{f(x)^2 : x \in [c,d]\}\]
+We have that \(M'_k - m'_k \leq 2M (M_k - m_k) \); this implies that for any partition \(P\), \[U(f^2, P) - L(f^2, P) \leq 2M \left(U(f,P) - L(f,P)\right)\]
+which since \(M\) is constant, implies \(f^2\) is integrable.
+
+\item If \(f\) and \(g\) are integrable, then so are \(f+g\), \((f+g)^2 = f^2 + 2fg + g^2\), \(2fg\), and \(fg\).
+}
 \end{solution}
 
 \begin{exercise} Review the discussion immediately preceding Theorem 7.4.4.
