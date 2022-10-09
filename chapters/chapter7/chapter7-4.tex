@@ -10,11 +10,15 @@ $$
 \enum{
 \item Show that $M-m \geq M^{\prime}-m^{\prime}$.
 \item Show that if $f$ is integrable on the interval $[a, b]$, then $|f|$ is also integrable on this interval.
-\item Provide the details for the argument that in this case we have $\left|\int_{a}^{b} f\right| \leq$ $\int_{a}^{b}|f|$.
+\item Provide the details for the argument that in this case we have $\left|\int_{a}^{b} f\right| \leq \int_{a}^{b}|f|$.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item If \(f(x) \geq 0\) then \(M' = M, m' = m\), and the result is trivial. Similarly if \(f(x) \leq 0\) then \(M' = -m,\ m' = -M\). Finally if \(f(x)\) has both positive and negative values then \(M \geq 0,\ m \leq 0,\ M' = \max\{M, -m\},\ m' \geq 0,\ M - m = M + (-m) \geq M' \geq M' - m'\)
+\item Given part (a), if we have a partition \(P\) so that \(U(f, P) - L(f,P) < \epsilon\), then we also have \(U(|f|, P) - L(|f|, P) \leq U(f, P) - L(f,P) \epsilon\).
+\item \(f \leq |f|\), so \(\int^b_a f \leq \int^b_a |f|\). Similarly \(\int^b_a f \geq \int^b_a -|f| = -\int^b_a |f|\), which together means \(\left|\int_a^b f\right| \leq \int_a^b|f|\)
+}
 \end{solution}
 
 \begin{exercise}
