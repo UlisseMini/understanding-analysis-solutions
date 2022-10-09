@@ -27,7 +27,15 @@ has a countable set of discontinuities occurring at precisely every rational num
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Because the irrationals are dense, for any interval there must be some point in that interval where \(t(x) = 0\), which is also the minimum possible value of \(t\); hence \(L(t,P) = 0\).
+\item This is the size of the set of rational numbers which, when expressed in lowest terms as \(m/n\), have \(n \leq 2/\epsilon\). This must be finite; let the size of \(D_{\epsilon/2}\) be denoted as \(|D_{\epsilon/2}|\).
+\item Informally, we'll set up the partition to ``isolate'' each point in \(D_{\epsilon/2}\). Define the partition as
+\[P_\epsilon = \{d + k/2 : d \in D_{\epsilon/2}\} \cup \{d - k/2 : d \in D_{\epsilon/2}\} \cup \{0,1\}\]
+where \(k = \epsilon / (2 |D_{\epsilon/2}|)\). (If some of these isolating intervals overlap, then decrease \(k\) until they don't; this can be formalized by requring \(k\) be the minimum of what it is currently and the smallest distance between two points in \(D_{\epsilon/2}\).) Then
+\[U(t,P_\epsilon) < \epsilon/2 + k |D_{\epsilon/2}| = \epsilon\]
+where the first term comes from all partition intervals that aren't isolating an element in \(D_{\epsilon/2}\), and the second term comes from the elements in \(D_{\epsilon/2}\).
+}
 \end{solution}
 
 \begin{exercise} Let
@@ -49,7 +57,16 @@ Now decide on the validity of each of the following conjectures, supplying a pro
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+    \item Let \(f(x)\) be Thomae's function (which we've shown in Exercise 7.3.2 to be integrable), and define \(g\) over the interval \([0,1]\) as
+        \[g(x) = \begin{cases}
+        0 & x = 0 \\
+        1 & x > 0
+    \end{cases}\]
+By Theorem 7.3.2, \(g\) is integrable. But for any rational number \(q\), \(f(q) > 0\), and so \(g \circ f\) is just Dirichlet's function, which is not integrable.
+    \item \TODO
+    \item False - \(g\) in the example in part (a) was increasing.
+}
 \end{solution}
 
 \begin{exercise}
@@ -61,7 +78,16 @@ Now decide on the validity of each of the following conjectures, supplying a pro
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Let \((r_n)\) be an enumeration of the rational numbers in \([0, 1]\), let \(R_n\) be the set of \(r_i\) where \(i \leq n\), and let
+\[f_n(x) = \begin{cases}
+    1 & x \in R_n \\
+    0 & \text{otherwise}
+\end{cases}\]
+Then \(f_n\) has \(n\) discontinuities, and \((f_n)\) approaches Dirichlet's function pointwise.
+\item Each \(g_n\) must be integrable, so by Exercise 7.2.5 \(g\) must also be integrable.
+\item Letting \(d\) be Dirichlet's function, let \(h_n(x) = d(x) / n\), with \(h(x) = 0\).
+}
 \end{solution}
 
 \begin{exercise} Let $\left\{r_{1}, r_{2}, r_{3}, \ldots\right\}$ be an enumeration of all the rationals in $[0,1]$, and define
@@ -74,7 +100,10 @@ $$
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item \(G(x)\) is Dirichlet's function and is not integrable
+\item The same approach as that used in Exercise 7.3.2 can be used; in particular the set of points \(\{x \in[0,1]: F(x) \geq \epsilon / 2\}\) is finite.
+}
 \end{solution}
 
 \begin{exercise} Assume $f:[a, b] \rightarrow \mathbf{R}$ is integrable.
@@ -97,7 +126,7 @@ $$
 Show $H(x)=\sum_{n=1}^{\infty} h_{n}(x) / 2^{n}$ is integrable on $[0,1]$ even though it has discontinuities at every rational point.
 \end{exercise}
 \begin{solution}
-    \TODO
+\(H_n(x) = \sum^n_{i=1} h_i(x) / 2^n\) is integrable and \((H_n)\) uniformly approaches \(H\).
 \end{solution}
 
 \begin{exercise}[Content Zero] A set $A \subseteq[a, b]$ has content zero if for every $\epsilon>0$ there exists a finite collection of open intervals $\left\{O_{1}, O_{2}, \ldots, O_{N}\right\}$ that contain $A$ in their union and whose lengths sum to $\epsilon$ or less. Using $\left|O_{n}\right|$ to refer to the length of each interval, we have
@@ -116,5 +145,19 @@ is integrable, and find the value of the integral.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Let \(\epsilon > 0\), let \(M\) be the difference between the maximum and minimum values of \(f\). Let \(A\) be the set of discontinuous points of \(f\), and choose \(\left\{O_{1}, \ldots, O_{N}\right\}\) so that \(\sum |O_n| < \epsilon / (2M)\). Assume without loss of generality that none of \(O_i\) overlap; if there was an overlapping pair then of intervals then they can be merged into a single interval.
+
+Start a partition \(P\) with the endpoints of each \(O_i\), and note that the sum of \((M_k - m_k)\Delta x_k\) over the subintervals from each \(O_i\) is less than \(\epsilon/2\). Moreover over the remaining subintervals (of which there are finitely many) \(f\) is continuous and thus integrable, and so it is possible to refine \(P\) so that over the remaining subintervals the sum of \((M_k - m_k)\Delta x_k\) is less than \(\epsilon/2\).
+
+Putting these together gets us that \(f\) is integrable.
+
+\item Let this finite set \(A\) have \(N\) elements, then take \(V_\delta(x)\) where \(x \in A\) and \(\delta = \epsilon / N\).
+
+\item Refer to Section 3.1 for the definition of \(C_n\). Let \(n\) be large enough so that the total length of the intervals in \(C_n\) is less than \(\epsilon/2\). Let \(C_{n,i}\) refer to the \(i\)'th interval in \(C_n\), and define \(O_i\) so that \(C_{n,i} \subset O_i\) and \(|O_i| - |C_{n,i}| = \delta\), where \(\delta < \epsilon/2^{n+1}\) is small enough so that \(\sum^{2^n}_{i=1} |O_i| - \sum^{2^n}_{i=1} |C_{n,i}| < \epsilon/2\).
+
+\item \(C\) is closed and its complement is open; therefore the set of discontinuities of \(h\) is \(C\). Parts (a) and (c) imply \(h\) is integrable.
+
+Exercises 3.5.8 and 3.5.9 show that the complement of \(C\) is dense, so for any partition \(P\), \(L(h, P) = 0\). Thus since \(h\) is integrable, the value of the integral must be 0.
+}
 \end{solution}
