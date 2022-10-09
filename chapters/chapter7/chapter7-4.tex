@@ -38,11 +38,20 @@ $$
 \enum{
 \item If $|f|$ is integrable on $[a, b]$, then $f$ is also integrable on this set.
 \item Assume $g$ is integrable and $g(x) \geq 0$ on $[a, b]$. If $g(x)>0$ for an infinite number of points $x \in[a, b]$, then $\int_{a}^{b} g>0$.
-\item If $g$ is continuous on $[a, b]$ and $g(x) \geq 0$ with $g\left(y_{0}\right)>0$ for at least one point $y_{0} \in[a, b]$, then $\int_{a}^{b} g>0$.
+\item If $g$ is continuous on $[a, b]$ and $g(x) \geq 0$ with $g(y_0)>0$ for at least one point $y_{0} \in[a, b]$, then $\int_{a}^{b} g>0$.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Letting \(d\) be Dirichlet's function, let \(f(x) = d(x) - 1/2\) (not integrable), with \(|f| = 1/2\) (integrable)
+\item \(h(x)\) in Exercise 7.3.9 is a counterexample
+\item Let \(\epsilon = g(y_0) /2 \). Since \(g\) is continuous there must be some \(\delta> 0\) so that over \(V_\delta(y_0)\),\(g > y_0 / 2\). Then let
+\[h(x) = \begin{cases}
+    g(y_0) / 2 & x \in V_\delta(y_0) \\
+    0 & \text{otherwise}
+\end{cases}\]
+then since \(g \geq h\), \(\int^b_a g \geq \int^b_a h = \frac{\delta g(y_0)}{2} > 0\).
+}
 \end{solution}
 
 \begin{exercise} Show that if $f(x)>0$ for all $x \in[a, b]$ and $f$ is integrable, then $\int_{a}^{b} f>0$.
