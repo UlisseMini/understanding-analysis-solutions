@@ -22,7 +22,11 @@ Decide whether each statement is true or false, providing a short justification 
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item False, e.g. \(h(x) = x^2 \sin (1/x)\) as explored in section 5.1.
+\item True; if \(g\) is continuous then it is also integrable, and by the Fundamental Theorem of Calculus we have that \(G(x) = \int^x_a g\) is differentiable over \([a,b]\) with \(G' = g\).
+\item False; consider Thomae's function \(t(x)\). From Exercise 7.3.2 we have that \(t\) is integrable with \(\int^1_0 t = 0\); it's also easy to show that \(\int^x_0 t = 0\). Then \(H(x) = 0\) is differentiable over \([0,1]\), but \(t(x)\) is not continuous over \([0,1]\).
+}
 \end{solution}
 
 \begin{exercise} The hypothesis in Theorem 7.5.1 (i) that $F^{\prime}(x)=f(x)$ for all $x \in[a, b]$ is slightly stronger than it needs to be. Carefully read the proof and state exactly what needs to be assumed with regard to the relationship between $f$ and $F$ for the proof to be valid.
