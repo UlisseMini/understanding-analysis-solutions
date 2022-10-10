@@ -133,9 +133,18 @@ h_{n}(x)=\left\{\begin{array}{ll}
 0 & \text { if } 0 \leq x \leq 1 / 2^{n}
 \end{array},\right.
 $$
-and set $H(x)=\sum_{n=1}^{\infty} h_{n}(x)$. Show $H$ is integrable and compute $\int_{0}^{1} H$. Exercise 7.4.9. Let $g_{n}$ and $g$ be uniformly bounded on $[0,1]$, meaning that there exists a single $M>0$ satisfying $|g(x)| \leq M$ and $\left|g_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$. Assume $g_{n} \rightarrow g$ pointwise on $[0,1]$ and uniformly on any set of the form $[0, \alpha]$, where $0<\alpha<1$.
+and set $H(x)=\sum_{n=1}^{\infty} h_{n}(x)$. Show $H$ is integrable and compute $\int_{0}^{1} H$.
+
+\end{exercise}
+\begin{solution}
+\(\int_0^1 h_i = (1/2)^n - (1/4)^n\). \(H_n(x) = \sum^n_{i=1}h_i(x)\) is integrable, and \((H_n) \to H\) uniformly, so an application of the geometric series formula and the Integrable Limit Theorem gives us \(\int^1_0 H = 2/3\).
+\end{solution}
+
+\begin{exercise}
+Let $g_{n}$ and $g$ be uniformly bounded on $[0,1]$, meaning that there exists a single $M>0$ satisfying $|g(x)| \leq M$ and $\left|g_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$. Assume $g_{n} \rightarrow g$ pointwise on $[0,1]$ and uniformly on any set of the form $[0, \alpha]$, where $0<\alpha<1$.
 If all the functions are integrable, show that $\lim _{n \rightarrow \infty} \int_{0}^{1} g_{n}=\int_{0}^{1} g$.
 \end{exercise}
+
 \begin{solution}
     \TODO
 \end{solution}
