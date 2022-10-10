@@ -32,7 +32,7 @@ Decide whether each statement is true or false, providing a short justification 
 \begin{exercise} The hypothesis in Theorem 7.5.1 (i) that $F^{\prime}(x)=f(x)$ for all $x \in[a, b]$ is slightly stronger than it needs to be. Carefully read the proof and state exactly what needs to be assumed with regard to the relationship between $f$ and $F$ for the proof to be valid.
 \end{exercise}
 \begin{solution}
-    \TODO
+We use the Mean Value Theorem to ensure that for all subintervals of a particular partition \([x_{k-1}, x_k]\), we have \(F(x_k) - F(x_{k-1}) = F'(t_k) (x_k - x_{k-1})\). But the MVT does not require that \(F\) is differentiable at the endpoints, so we can relax the requirement slightly and have \(F'(x) = f(x)\) over the open interval \((a,b)\).
 \end{solution}
 
 \begin{exercise} Show that if $f:[a, b] \rightarrow \mathbf{R}$ is continuous and $\int_{a}^{x} f=0$ for all $x \in[a, b]$, then $f(x)=0$ everywhere on $[a, b]$. Provide an example to show that this conclusion does not follow if $f$ is not continuous. Exercise 7.5.5. The Fundamental Theorem of Calculus can be used to supply a shorter argument for Theorem 6.3.1 under the additional assumption that the sequence of derivatives is continuous.
