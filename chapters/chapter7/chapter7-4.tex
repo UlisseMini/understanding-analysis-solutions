@@ -10,11 +10,15 @@ $$
 \enum{
 \item Show that $M-m \geq M^{\prime}-m^{\prime}$.
 \item Show that if $f$ is integrable on the interval $[a, b]$, then $|f|$ is also integrable on this interval.
-\item Provide the details for the argument that in this case we have $\left|\int_{a}^{b} f\right| \leq$ $\int_{a}^{b}|f|$.
+\item Provide the details for the argument that in this case we have $\left|\int_{a}^{b} f\right| \leq \int_{a}^{b}|f|$.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item If \(f(x) \geq 0\) then \(M' = M, m' = m\), and the result is trivial. Similarly if \(f(x) \leq 0\) then \(M' = -m,\ m' = -M\). Finally if \(f(x)\) has both positive and negative values then \(M \geq 0,\ m \leq 0,\ M' = \max\{M, -m\},\ m' \geq 0,\ M - m = M + (-m) \geq M' \geq M' - m'\)
+\item Given part (a), if we have a partition \(P\) so that \(U(f, P) - L(f,P) < \epsilon\), then we also have \(U(|f|, P) - L(|f|, P) \leq U(f, P) - L(f,P) \epsilon\).
+\item \(f \leq |f|\), so \(\int^b_a f \leq \int^b_a |f|\). Similarly \(\int^b_a f \geq \int^b_a -|f| = -\int^b_a |f|\), which together means \(\left|\int_a^b f\right| \leq \int_a^b|f|\)
+}
 \end{solution}
 
 \begin{exercise}
@@ -34,17 +38,33 @@ $$
 \enum{
 \item If $|f|$ is integrable on $[a, b]$, then $f$ is also integrable on this set.
 \item Assume $g$ is integrable and $g(x) \geq 0$ on $[a, b]$. If $g(x)>0$ for an infinite number of points $x \in[a, b]$, then $\int_{a}^{b} g>0$.
-\item If $g$ is continuous on $[a, b]$ and $g(x) \geq 0$ with $g\left(y_{0}\right)>0$ for at least one point $y_{0} \in[a, b]$, then $\int_{a}^{b} g>0$.
+\item If $g$ is continuous on $[a, b]$ and $g(x) \geq 0$ with $g(y_0)>0$ for at least one point $y_{0} \in[a, b]$, then $\int_{a}^{b} g>0$.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item Letting \(d\) be Dirichlet's function, let \(f(x) = d(x) - 1/2\) (not integrable), with \(|f| = 1/2\) (integrable)
+\item \(h(x)\) in Exercise 7.3.9 is a counterexample
+\item Let \(\epsilon = g(y_0) /2 \). Since \(g\) is continuous there must be some \(\delta> 0\) so that over \(V_\delta(y_0)\),\(g > y_0 / 2\). Then let
+\[h(x) = \begin{cases}
+    g(y_0) / 2 & x \in V_\delta(y_0) \\
+    0 & \text{otherwise}
+\end{cases}\]
+then since \(g \geq h\), \(\int^b_a g \geq \int^b_a h = \frac{\delta g(y_0)}{2} > 0\).
+}
 \end{solution}
 
 \begin{exercise} Show that if $f(x)>0$ for all $x \in[a, b]$ and $f$ is integrable, then $\int_{a}^{b} f>0$.
 \end{exercise}
 \begin{solution}
-    \TODO
+I claim that there exists some non-empty interval \(I = [c,d] \subseteq [a,b]\) and some \(\epsilon > 0\) such that for all non-empty subintervals \(J \subseteq I\), there exists \(x \in J\) with \(f(x) \geq \epsilon\). Note that once we prove this claim, we can readily show \(\int^b_a f \geq \int^b_a g = \epsilon (d-c)\), where
+\[g(x) = \begin{cases}
+    \epsilon & x \in I \\
+    0 & \text{otherwise}
+\end{cases}\]
+We'll prove this claim by contradiction. Suppose that for all non-empty intervals \(I \subseteq [a,b]\) and for all \(\epsilon > 0\), there exists a non-empty subinterval of \(J \subseteq I\) where \(f(x) < \epsilon \ \forall x \in J \).
+
+Now let \(I_0 = [a,b]\), and for \(n > 0\), let \(\epsilon_n = 1/n\) and \(I_n \subseteq I_{n-1}\) satisfying \(f(x) < \epsilon_n \ \forall x \in I_n\). Now by the Nested Interval Property, \(\exists s \in \bigcap^\infty_{n=1} I_n \). Now, \(s\) satisfies \(f(s) < 1/n\) for all \(n\), implying \(f(s) \leq 0\) --- a contradiction since \(f(x) > 0\) for all \(x \in [a,b]\).
 \end{solution}
 
 \begin{exercise} Let $f$ and $g$ be integrable functions on $[a, b]$.
@@ -72,7 +92,17 @@ $$
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item \[\abs{f(x)^2 - f(y)^2} = \abs{f(x) + f(y)}\abs{f(x) - f(y)} \leq 2M \abs{f(x) - f(y)}\]
+
+\item Consider some subinterval \([c,d] \subseteq [a,b]\), with:
+\[m_k = \inf\{f(x) : x \in [c,d]\}\] \[M_k = \sup\{f(x) : x \in [c,d]\}\]
+\[m'_k = \inf\{f(x)^2 : x \in [c,d]\}\] \[M'_k = \sup\{f(x)^2 : x \in [c,d]\}\]
+We have that \(M'_k - m'_k \leq 2M (M_k - m_k) \); this implies that for any partition \(P\), \[U(f^2, P) - L(f^2, P) \leq 2M \left(U(f,P) - L(f,P)\right)\]
+which since \(M\) is constant, implies \(f^2\) is integrable.
+
+\item If \(f\) and \(g\) are integrable, then so are \(f+g\), \((f+g)^2 = f^2 + 2fg + g^2\), \(2fg\), and \(fg\).
+}
 \end{solution}
 
 \begin{exercise} Review the discussion immediately preceding Theorem 7.4.4.
@@ -82,7 +112,18 @@ $$
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item \[f_n(x) = \begin{cases}
+   n^2 & x \in (0, 1/n) \\
+   0 & \text{otherwise}
+\end{cases}\]
+\item Define the set \(S_{i,j} = [(i-1)/j, i/j]\) for \(j > i > 0\), and the sequence of sets \(R_i\) enumerating through all \(S_{i,j}\); specifically \(R_1 = S_{1,1},\ R_2 = S_{1,2},\ R_3 = S_{2,2},\ R_4 = S_{1,3}\), and so on. Let
+\[g_n(x) = \begin{cases}
+    1 & x \in R_n \\
+    0 & \text{otherwise}
+\end{cases}\]
+Each \(g_n\) looks like a ``pulse'', and as \(n\) increases and we increase the \(j\) index of \(S_{i,j}\), the pulse gets increasingly narrower; in particular, if \(g_n\) is based on \(S_{i,j}\) then \(\int^1_0 g_n = 1/j\). This ensures \(\lim_{n \to \infty} \int^1_0 g_n = 0\). However, as we go through the \(i\) index, we slide the pulse over all values in \([0,1]\). A bit more formally, for all \(x \in [0,1]\) and for all \(j > 0\), \(x \in S_{i,j}\) for some \(i\). This ensures that for all \(x \in [0,1]\), \(g_n(x) = 1\)  infinitely many times, preventing \(g_n(x) \to 0\).
+}
 \end{solution}
 
 \begin{exercise} For each $n \in \mathbf{N}$, let
@@ -92,9 +133,18 @@ h_{n}(x)=\left\{\begin{array}{ll}
 0 & \text { if } 0 \leq x \leq 1 / 2^{n}
 \end{array},\right.
 $$
-and set $H(x)=\sum_{n=1}^{\infty} h_{n}(x)$. Show $H$ is integrable and compute $\int_{0}^{1} H$. Exercise 7.4.9. Let $g_{n}$ and $g$ be uniformly bounded on $[0,1]$, meaning that there exists a single $M>0$ satisfying $|g(x)| \leq M$ and $\left|g_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$. Assume $g_{n} \rightarrow g$ pointwise on $[0,1]$ and uniformly on any set of the form $[0, \alpha]$, where $0<\alpha<1$.
+and set $H(x)=\sum_{n=1}^{\infty} h_{n}(x)$. Show $H$ is integrable and compute $\int_{0}^{1} H$.
+
+\end{exercise}
+\begin{solution}
+\(\int_0^1 h_i = (1/2)^n - (1/4)^n\). \(H_n(x) = \sum^n_{i=1}h_i(x)\) is integrable, and \((H_n) \to H\) uniformly, so an application of the geometric series formula and the Integrable Limit Theorem gives us \(\int^1_0 H = 2/3\).
+\end{solution}
+
+\begin{exercise}
+Let $g_{n}$ and $g$ be uniformly bounded on $[0,1]$, meaning that there exists a single $M>0$ satisfying $|g(x)| \leq M$ and $\left|g_{n}(x)\right| \leq M$ for all $n \in \mathbf{N}$ and $x \in[0,1]$. Assume $g_{n} \rightarrow g$ pointwise on $[0,1]$ and uniformly on any set of the form $[0, \alpha]$, where $0<\alpha<1$.
 If all the functions are integrable, show that $\lim _{n \rightarrow \infty} \int_{0}^{1} g_{n}=\int_{0}^{1} g$.
 \end{exercise}
+
 \begin{solution}
     \TODO
 \end{solution}
@@ -105,7 +155,18 @@ $$
 $$
 \end{exercise}
 \begin{solution}
-    \TODO
+Let \(|g| < M\) and let \(M > \epsilon > 0\). Define the partition \(P = \{0, 1-\epsilon/(4M), 1\}\). Since \(g\) is continuous, we can find \(N\) so that for \(n > N\),
+\[\abs{g\left(\left(1- \frac{\epsilon}{4M}\right)^n\right) - g(0)} < \frac{\epsilon}{4}\]
+
+Thus,
+\[\begin{aligned}
+    U(g(x^n), P) &\leq \left(g(0) + \frac{\epsilon}{4}\right) \left(1-\frac{\epsilon}{4M}\right) + \frac{M\epsilon}{4M} \\
+    &\leq g(0) + \frac{\epsilon}{4} + \abs{\frac{2M \epsilon}{4M}} + \frac{\epsilon}{4} = g(0) + \epsilon
+\end{aligned}
+    \]
+    A similar argument can be made that \(L(g(x^n), P) \geq g(0) - \epsilon\).Assuming that \(g(x^n)\) is integrable, this implies that
+    \[\abs{g(0) \int^1_0 g(x^n) dx} < \epsilon\]
+completing the proof.
 \end{solution}
 
 \begin{exercise}
