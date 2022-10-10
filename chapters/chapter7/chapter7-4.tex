@@ -112,7 +112,18 @@ which since \(M\) is constant, implies \(f^2\) is integrable.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item \[f_n(x) = \begin{cases}
+   n^2 & x \in (0, 1/n) \\
+   0 & \text{otherwise}
+\end{cases}\]
+\item Define the set \(S_{i,j} = [(i-1)/j, i/j]\) for \(j > i > 0\), and the sequence of sets \(R_i\) enumerating through all \(S_{i,j}\); specifically \(R_1 = S_{1,1},\ R_2 = S_{1,2},\ R_3 = S_{2,2},\ R_4 = S_{1,3}\), and so on. Let
+\[g_n(x) = \begin{cases}
+    1 & x \in R_n \\
+    0 & \text{otherwise}
+\end{cases}\]
+Each \(g_n\) looks like a ``pulse'', and as \(n\) increases and we increase the \(j\) index of \(S_{i,j}\), the pulse gets increasingly narrower; in particular, if \(g_n\) is based on \(S_{i,j}\) then \(\int^1_0 g_n = 1/j\). This ensures \(\lim_{n \to \infty} \int^1_0 g_n = 0\). However, as we go through the \(i\) index, we slide the pulse over all values in \([0,1]\). A bit more formally, for all \(x \in [0,1]\) and for all \(j > 0\), \(x \in S_{i,j}\) for some \(i\). This ensures that for all \(x \in [0,1]\), \(g_n(x) = 1\)  infinitely many times, preventing \(g_n(x) \to 0\).
+}
 \end{solution}
 
 \begin{exercise} For each $n \in \mathbf{N}$, let
