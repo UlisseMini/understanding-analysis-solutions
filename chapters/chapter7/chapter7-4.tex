@@ -155,7 +155,18 @@ $$
 $$
 \end{exercise}
 \begin{solution}
-    \TODO
+Let \(|g| < M\) and let \(M > \epsilon > 0\). Define the partition \(P = \{0, 1-\epsilon/(4M), 1\}\). Since \(g\) is continuous, we can find \(N\) so that for \(n > N\),
+\[\abs{g\left(\left(1- \frac{\epsilon}{4M}\right)^n\right) - g(0)} < \frac{\epsilon}{4}\]
+
+Thus,
+\[\begin{aligned}
+    U(g(x^n), P) &\leq \left(g(0) + \frac{\epsilon}{4}\right) \left(1-\frac{\epsilon}{4M}\right) + \frac{M\epsilon}{4M} \\
+    &\leq g(0) + \frac{\epsilon}{4} + \abs{\frac{2M \epsilon}{4M}} + \frac{\epsilon}{4} = g(0) + \epsilon
+\end{aligned}
+    \]
+    A similar argument can be made that \(L(g(x^n), P) \geq g(0) - \epsilon\).Assuming that \(g(x^n)\) is integrable, this implies that
+    \[\abs{g(0) \int^1_0 g(x^n) dx} < \epsilon\]
+completing the proof.
 \end{solution}
 
 \begin{exercise}
