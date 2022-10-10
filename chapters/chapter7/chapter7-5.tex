@@ -35,7 +35,15 @@ Decide whether each statement is true or false, providing a short justification 
 We use the Mean Value Theorem to ensure that for all subintervals of a particular partition \([x_{k-1}, x_k]\), we have \(F(x_k) - F(x_{k-1}) = F'(t_k) (x_k - x_{k-1})\). But the MVT does not require that \(F\) is differentiable at the endpoints, so we can relax the requirement slightly and have \(F'(x) = f(x)\) over the open interval \((a,b)\).
 \end{solution}
 
-\begin{exercise} Show that if $f:[a, b] \rightarrow \mathbf{R}$ is continuous and $\int_{a}^{x} f=0$ for all $x \in[a, b]$, then $f(x)=0$ everywhere on $[a, b]$. Provide an example to show that this conclusion does not follow if $f$ is not continuous. Exercise 7.5.5. The Fundamental Theorem of Calculus can be used to supply a shorter argument for Theorem 6.3.1 under the additional assumption that the sequence of derivatives is continuous.
+\begin{exercise} Show that if $f:[a, b] \rightarrow \mathbf{R}$ is continuous and $\int_{a}^{x} f=0$ for all $x \in[a, b]$, then $f(x)=0$ everywhere on $[a, b]$. Provide an example to show that this conclusion does not follow if $f$ is not continuous.
+\end{exercise}
+\begin{solution}
+Since \(f\) is continuous, by Theorem 7.5.1 (ii), letting \(F(x) = \int^x_a f = 0\), we have \(f(x) = F'(x) = 0\). If \(f\) is not continuous, then this does not hold (e.g. Thomae's function over \([0,1]\))
+\end{solution}
+
+\begin{exercise}
+The Fundamental Theorem of Calculus can be used to supply a shorter argument for Theorem 6.3.1 under the additional assumption that the sequence of derivatives is continuous.
+
 Assume $f_{n} \rightarrow f$ pointwise and $f_{n}^{\prime} \rightarrow g$ uniformly on $[a, b]$. Assuming each $f_{n}^{\prime}$ is continuous, we can apply Theorem 7.5.1 (i) to get
 $$
 \int_{a}^{x} f_{n}^{\prime}=f_{n}(x)-f_{n}(a)
@@ -43,7 +51,7 @@ $$
 for all $x \in[a, b]$. Show that $g(x)=f^{\prime}(x)$.
 \end{exercise}
 \begin{solution}
-    \TODO
+\TODO
 \end{solution}
 
 \begin{exercise}[Integration-by-parts]
