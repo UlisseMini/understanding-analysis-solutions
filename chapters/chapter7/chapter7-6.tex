@@ -45,3 +45,24 @@ Prove that the Cantor set has measure zero.
 \begin{solution}
 Exercise 7.3.9 (c) showed that the Cantor set has content zero, and any set with content zero clearly has measure zero.
 \end{solution}
+
+\begin{exercise}
+Show that if two sets \(A\) and \(B\) each have measure zero, then \(A \cup B\) has measure zero as well. In addition, discuss the proof of the stronger statement that the countable union of sets of measure zero also has measure zero.
+\end{exercise}
+
+\begin{solution}
+Let \(\epsilon > 0\), and define \(O_{A,n}\) and \(O_{B,n}\) so that
+\[A \subseteq \bigcup^\infty_{n=1} O_{A,n} \text{, }
+B \subseteq \bigcup^\infty_{n=1} O_{B,n} \text{, }
+\sum^\infty_{n=1}|O_{A,n}| \leq \frac{\epsilon}{2} \text{, }
+\sum^\infty_{n=1}|O_{B,n}| \leq \frac{\epsilon}{2}
+\]
+Then let \(O_n\) be the union of the sets in \(O_{A,n}\) and \(O_{B,n}\); \(O_n\) satisifies the conditions necessary to show \(A \cup B\) has measure zero.
+
+This argument is essentially identical for a countable union of sets of measure zero. Some key points:
+\begin{itemize}
+    \item The countable union of countable sets is also countable.
+    \item Assuming the sets are enumerated as \(A_m\), have each \(\sum |O_{A_m, n}| < \frac{\epsilon}{2^m}\), to ensure the total sum by the end is \(\leq \epsilon\)
+    \item Since \(|O_{A_m, n}| \geq 0\), the infinte sums involved all converge absolutely, so we can use the results in Section 2.8 to safely sum the lengths of intervals over an enumeration of the final collection of sets \(O_n\).
+\end{itemize}
+\end{solution}
