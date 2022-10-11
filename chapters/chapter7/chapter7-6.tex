@@ -107,3 +107,12 @@ Given \(D\) has measure zero, and since \(D^\alpha \subseteq D\), we also know t
 
 Since \(D^\alpha\) is closed, we can find a finite subcover \(\{I_1, \dots, I_P\}\). Finally, since this is a finite set, we can merge any overlapping intervals (which can only decrease the total length of the intervals), leaving us with the desired finite collection of disjoint open intervals.
 \end{solution}
+
+\begin{exercise}
+Let \(K\) be what remains of the interval \([a,b]\) after the open intervals \(G_n\) are all removed; that is, \(K = [a,b]\backslash \bigcup^N_{n=1} G_n\). Argue that \(f\) is uniformly \(\alpha\)-continuous on \(K\).
+\end{exercise}
+\begin{solution}
+    Note that since each \(G_n\) is open, and the union of any collection of open sets is open, \(\bigcup^N_{n=1} G_n\) is open, its complement is closed, and \(K = [a,b] \cap (\bigcup^N_{n=1} G_n)^c\) is closed. \(K\) is also bounded so \(K\) is compact.
+
+    By how we defined \(G_n\), \(f\) is \(\alpha\)-continuous pointwise on \(K\). Taking it as fact that \(\alpha\)-continuity on a compact set implies uniform \(\alpha\)-continuity, since \(K\) is compact, we have that \(f\) is uniformly \(\alpha\)-continuous on \(K\).
+\end{solution}
