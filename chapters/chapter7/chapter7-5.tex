@@ -126,12 +126,36 @@ V f=\sup \left\{\sum_{k=1}^{n}\left|f\left(x_{k}\right)-f\left(x_{k-1}\right)\ri
 $$
 where the supremum is taken over all partitions $P$ of $[a, b]$.
 \enum{
-\item If $f$ is continuously differentiable ( $f^{\prime}$ exists as a continuous function), use the Fundamental Theorem of Calculus to show $V f \leq \int_{a}^{b}\left|f^{\prime}\right|$.
+\item If $f$ is continuously differentiable ($f^{\prime}$ exists as a continuous function), use the Fundamental Theorem of Calculus to show $V f \leq \int_{a}^{b}\left|f^{\prime}\right|$.
 \item Use the Mean Value Theorem to establish the reverse inequality and conclude that $V f=\int_{a}^{b}\left|f^{\prime}\right|$.
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item For any subinterval \([c,d] \subseteq [a,b]\),
+\[\int^d_c \abs{f'(x)} \geq \abs{\int^d_c f'(x)} = \abs{f(d) - f(c)}\]
+Applying this to each subinterval of any partition \(P\) leaves us with
+\[\sum_{k=1}^n \abs{f(x_k)-f(x_{k-1})} \leq \int^b_a \abs{f'}\]
+and hence \(Vf \leq \int^b_a |f'|\).
+
+\item Let \(\epsilon > 0\). Since \(|f'|\) is uniformly continuous over the closed interval \([a,b]\), we can create a partition \(P\) with \(n\) elements so that each subinterval has length less than \(\delta\), where \(|x-y| < \delta \implies \abs{ \abs{f'(x)} - \abs{f'(y)} } < \frac{\epsilon}{b-a}\).
+
+Within a representative subinterval \([x_{k-1}, x_k]\) of \(P\), by the Mean Value Theorem \(\exists \hat{x}_k \in [x_{k-1}, x_k]\) satisfying
+\[f'(\hat{x}_k) = \frac{f(x_k) - f(x_{k-1})}{x_k - x_{k-1}} \]
+Letting \(M_k\) be the supremum of \(|f'|\) over \([x_{k-1}, x_k]\), note that
+\[
+    \begin{aligned}
+        U(\abs{f'}, P) - \sum^n_{k=1} \abs{f(x_k) - f(x_{k-1})}
+&= \sum^n_{k=1} \left(M_k - \abs{\frac{f(x_k) - f(x_{k-1})}{x_k - x_{k-1}}}\right) (x_k - x_{k-1}) \\
+&= \sum^n_{k=1} \left(M_k - \abs{f'(\hat{x}_k)} \right) (x_k - x_{k-1}) \\
+&\leq \frac{\epsilon}{b-a} \sum^n_{k-1} x_k-x_{k-1} = \epsilon
+    \end{aligned}
+\]
+Since \(U(|f'|, P) \geq \int^b_a |f'|\), we have \(V f \geq \int^b_a |f'| - \epsilon\), or simply \(V f \geq \int^b_a |f'|\).
+
+It's worth noting that we can't use argument with \(L(|f'|, P)\) for the \(\leq\) inequality because of the \(\sup\) in \(V f\).
+
+}
 \end{solution}
 
 \begin{exercise}[Change-of-variable Formula] Let $g:[a, b] \rightarrow \mathbf{R}$ be differentiable and assume $g^{\prime}$ is continuous. Let $f:[c, d] \rightarrow \mathbf{R}$ be continuous, and assume that the range of $g$ is contained in $[c, d]$ so that the composition $f \circ g$ is properly defined.
