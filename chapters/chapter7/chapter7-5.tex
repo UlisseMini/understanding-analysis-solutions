@@ -182,5 +182,23 @@ $$
 }
 \end{exercise}
 \begin{solution}
-    \TODO
+\enum{
+\item For conciseness, define \(l = \lim_{x \to c^-} f(x)\) and \(r = \lim_{x \to c^+} f(x)\) as the left and right limits of \(f(c)\). Define
+\[g(x) = \begin{cases}
+    f(x) & x < c \\
+    l & x = c \\
+    f(x) - r + l & x > c
+\end{cases}\]
+where we've essentially shifted \(f\) after \(x > c\) to line up with \(x < c\), so that \(g\) is continuous at \(c\). As a result, \(G(x) = \int^x_a g\) is differentiable at \(c\).
+
+Now if \(F = \int^x_a f\) was also differentiable at \(c\), then we would also have \(G - F = \int^x_a g - f\) differentiable at \(c\). But actually evaluating \(\int^x_a g-f\) leaves us with
+\[ \int^x_a g - f = \begin{cases}
+    0 & x \leq c \\
+    (l-r)(x-c) & x > c
+\end{cases}
+    \]
+    which is not differentiable at \(c\).
+
+\item Define \(h\) and \(u_n\) similarly as is done in Exercise 6.4.10, except we only enumerate over the rational numbers in \([0,1]\). Given that \(h\) converges uniformly, and each \(u_n\) is integrable over \([0,1]\), we have \(h\) integrable over \([0,1]\) as well. From part (a) we have that \(g(x) = \int^x_a h\) is not differentiable at all rational points (dense in \([0,1]\)), while Theorem 7.5.1 (ii) indicates \(g\) is continuous. Since \(h\) is nonnegative, \(g\) must be monotone increasing. We can then extend \(g\) over all of \(\mathbf{R}\) by repeating it and applying appropriate offsets.
+}
 \end{solution}
