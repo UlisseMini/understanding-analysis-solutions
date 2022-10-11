@@ -19,7 +19,7 @@ We first met the Cantor set \(C\) in Section 3.1. We have since learned that \(C
 
 Define \[h(x) = \begin{cases}
    1 & \text{if } x \in C \\
-   0 \text{if }x \notin C
+   0 & \text{if }x \notin C
 \end{cases}\]
 
 \enum{
@@ -31,4 +31,17 @@ Define \[h(x) = \begin{cases}
     See Exercise 7.3.9 (d)
 \end{solution}
 
+\begin{exercise}
+Show that any countable set has measure zero.
+\end{exercise}
+\begin{solution}
+Enumerate the elements of any countable set \(A\) as \(\{a_1, a_2, \cdots\}\). Given \(\epsilon > 0\), define the collection of open intervals \(O_n\) with \(O_i = (a_i - \frac{\epsilon}{2^{i + 1}}, a_i + \frac{\epsilon}{2^{i+1}})\).
+\end{solution}
 
+\begin{exercise}
+Prove that the Cantor set has measure zero.
+\end{exercise}
+
+\begin{solution}
+Exercise 7.3.9 (c) showed that the Cantor set has content zero, and any set with content zero clearly has measure zero.
+\end{solution}
