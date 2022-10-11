@@ -96,3 +96,14 @@ Prove that for a fixed \(\alpha > 0\), the set \(D^\alpha\) is closed.
 \begin{solution}
     See Exercise 4.6.8
 \end{solution}
+
+\begin{exercise}
+Show that there exists a \emph{finite} collection of disjoint open intervals \(\{G_1, G_2, \dots, G_N\}\) whose union contains \(D^\alpha\) and that satisfies
+\[\sum^N_{n=1} \abs{G_n} < \frac{\epsilon}{4M}\]
+\end{exercise}
+
+\begin{solution}
+Given \(D\) has measure zero, and since \(D^\alpha \subseteq D\), we also know that \(D^\alpha\) has measure zero. We can thus construct a countable open cover \(\{H_1, \dots\}\) such that \(\sum^\infty_{n=1} |G_n| < \frac{\epsilon}{4M}\).
+
+Since \(D^\alpha\) is closed, we can find a finite subcover \(\{I_1, \dots, I_P\}\). Finally, since this is a finite set, we can merge any overlapping intervals (which can only decrease the total length of the intervals), leaving us with the desired finite collection of disjoint open intervals.
+\end{solution}
