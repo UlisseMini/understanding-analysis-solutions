@@ -1,2 +1,34 @@
 \section{Lebesgue's Criterion for Riemann Integrability}
-\TODO
+\begin{exercise} Recall that Thomae's function
+$$
+t(x)= \begin{cases}1 & \text { if } x=0 \\ 1 / n & \text { if } x=m / n \in \mathbf{Q} \backslash\{0\} \text { is in lowest terms with } n>0 \\ 0 & \text { if } x \notin \mathbf{Q}\end{cases}
+$$
+has a countable set of discontinuities occurring at precisely every rational number. Let's prove that Thomae's function is integrable on \([0,1]\) with \(\int^1_0 t = 0\).
+\enum{
+\item First argue that $L(t, P)=0$ for any partition $P$ of $[0,1]$.
+\item Let $\epsilon>0$, and consider the set of points $D_{\epsilon / 2}=\{x \in[0,1]: t(x) \geq \epsilon / 2\}$. How big is $D_{\epsilon / 2}$ ?
+\item To complete the argument, explain how to construct a partition $P_{\epsilon}$ of $[0,1]$ so that $U\left(t, P_{\epsilon}\right)<\epsilon$.
+}
+\end{exercise}
+\begin{solution}
+See Exercise 7.3.2
+\end{solution}
+
+\begin{exercise}
+We first met the Cantor set \(C\) in Section 3.1. We have since learned that \(C\) is a compact, uncountable subset of the interval \([0, 1]\).
+
+Define \[h(x) = \begin{cases}
+   1 & \text{if } x \in C \\
+   0 \text{if }x \notin C
+\end{cases}\]
+
+\enum{
+    \item Show \(h\) has discontinuities at each point of \(C\) and is continuous at every point of the complement of \(C\). Thus, \(h\) is not continuous on an uncountably infinite set.
+    \item Now prove that \(h\) is integrable on \([0,1]\).
+}
+\end{exercise}
+\begin{solution}
+    See Exercise 7.3.9 (d)
+\end{solution}
+
+
