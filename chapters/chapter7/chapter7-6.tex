@@ -116,3 +116,21 @@ Let \(K\) be what remains of the interval \([a,b]\) after the open intervals \(G
 
     By how we defined \(G_n\), \(f\) is \(\alpha\)-continuous pointwise on \(K\). Taking it as fact that \(\alpha\)-continuity on a compact set implies uniform \(\alpha\)-continuity, since \(K\) is compact, we have that \(f\) is uniformly \(\alpha\)-continuous on \(K\).
 \end{solution}
+
+\begin{exercise}
+Finish the proof in this direction by explaining how to construct a partition \(P_\epsilon\) of \([a,b]\) such that \(U(f,P_\epsilon) - L(f, P_\epsilon) \leq \epsilon\).
+\end{exercise}
+\begin{solution}
+Let \(\alpha = \frac{\epsilon}{2(b-a)}\), and \(|f| < M\). Begin by defining the collection of open intervals \(\mathcal{G} = \{G_1, \dots, G_N\}\) with the properties described in Exercise 7.6.9. Define \(P_1\) as the partition containing all of the endpoints of \(\mathcal{G}\).
+
+Consider the collection \(\mathcal{K}\) of subintervals which do not contain elements of \(D^\alpha\); by Exercise 7.6.10, \(f\) is uniformly \(\alpha\)-continuous over all sets in \(\mathcal{K}\). Therefore, there exists a \(\delta > 0\) so that for \(x, y \in \mathcal{K}\), \(\abs{f(x) - f(y)} < \alpha\). Define \(P_2\) as the partition consisting of evenly spaced points such that each subinterval has length at most \(\delta\), and define \(P_\epsilon\) as the common refinement of \(P_1\) and \(P_2\).
+
+Let
+\[U(f,P_\epsilon) - L(f, P_\epsilon) = \sum_{k \in S_1} (M_k - m_k) \Delta x_k + \sum_{k \in S_2} (M_k - m_k) \Delta x_k \]
+where \(S_1\) includes all of the intervals containing elements of \(D^\alpha\) and \(S_2\) includes all of the other subintervals. Now
+\[\sum_{k \in S_1} (M_k - m_k) \Delta x_k < 2M \sum_{k \in S_1} \Delta x_k < \frac{\epsilon}{2} \]
+and
+\[\sum_{k \in S_2} (M_k - m_k) \Delta x_k < \frac{\epsilon}{2(b-a)}\sum_{k \in S_2} \Delta x_k \leq \frac{\epsilon}{2(b-a)} (b-a) = \frac{\epsilon}{2} \]
+hence \(U(f, P_\epsilon) - L(f, P_\epsilon) < \epsilon\) and \(f\) is integrable.
+
+\end{solution}
