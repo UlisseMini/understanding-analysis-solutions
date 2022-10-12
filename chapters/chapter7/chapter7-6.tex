@@ -132,5 +132,22 @@ where \(S_1\) includes all of the intervals containing elements of \(D^\alpha\) 
 and
 \[\sum_{k \in S_2} (M_k - m_k) \Delta x_k < \frac{\epsilon}{2(b-a)}\sum_{k \in S_2} \Delta x_k \leq \frac{\epsilon}{2(b-a)} (b-a) = \frac{\epsilon}{2} \]
 hence \(U(f, P_\epsilon) - L(f, P_\epsilon) < \epsilon\) and \(f\) is integrable.
+\end{solution}
 
+\begin{exercise}
+\enum{
+\item Prove that \(D^\alpha\) has measure zero. Point out that it is possible to choose a cover for \(D^\alpha\) that consists of a finite number of open intervals.
+\item Show how this implies that \(D\) has measure zero.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Consider the collection of subintervals \(S\) in \(P_\epsilon\) where \(M_k - m_k > \alpha\). Now, for any \(d \in D^\alpha\), if \(d \notin P_\epsilon\) then clearly \(d\) lies in a subinterval in \(S\).
+
+Now, the sums of the lengths of elements of \(S\) cannot be greater than \(\epsilon\) (otherwise \(U(f, P_\epsilon) - L(f, P_\epsilon) \geq \alpha \epsilon\)). So we can easily create a collection of open intervals \(O_1\), whose length is no more than \(2 \epsilon\), whose union is a superset of the union of all elements of \(S\). A value greater than \(\epsilon\) is needed because subintervals are closed intervals, so we need to go a little beyond the endpoint in each case.
+
+Now, all elements of \(D^\alpha\) appear in some set in \(O_1\), except possibly for elements in \(P_\epsilon\). However, there are  only finitely many elements of \(P_\epsilon\), so we can just have a second collection of open intervals \(O_2\) with total length \(\epsilon\) covering all elements of \(P_\epsilon\). The union of \(O_1\) and \(O_2\) give us a collection of open intervals, whose length is no more than \(3 \epsilon\), and whose union contains all elements of \(D^\alpha\). Since \(\epsilon\) was arbitrary, this argument can readily be extended to show \(D^\alpha\) has measure zero.
+
+\item We know the countable union of sets of measure zero also has measure zero, and Exercise 7.6.7 (b) constructs \(D\) as the countable union of many \(D^{\alpha_n}\), each of which has measure zero; hence \(D\) has measure zero.
+}
 \end{solution}
