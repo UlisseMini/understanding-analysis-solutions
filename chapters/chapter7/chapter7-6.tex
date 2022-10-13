@@ -151,3 +151,14 @@ Now, all elements of \(D^\alpha\) appear in some set in \(O_1\), except possibly
 \item We know the countable union of sets of measure zero also has measure zero, and Exercise 7.6.7 (b) constructs \(D\) as the countable union of many \(D^{\alpha_n}\), each of which has measure zero; hence \(D\) has measure zero.
 }
 \end{solution}
+
+\begin{exercise}
+\item Show that if \(f\) and \(g\) are integralbe on \([a,b]\), then so is the product \(fg\).
+\item Show that if \(g\) is integrable on \([a,b]\) and \(f\) is continuous on the range of \(g\), then the composition \(f \circ g\) is integrable on \([a,b]\).
+\end{exercise}
+\begin{solution}
+\enum{
+\item The set of discontinuities of \(fg\) is the union of the set of discontinuities of \(f\) and that of \(g\). Since \(f\) and \(g\) are both integrable, these are both sets with measure zero, and hence their union is also measure zero; thus \(fg\) is integrable.
+\item Since \(f\) is continuous, \(f \circ g\) and \(g\) share the same sets of discontinuity; therefore \(g\) is integrable implies \(f \circ g\) is integrable.
+}
+\end{solution}
