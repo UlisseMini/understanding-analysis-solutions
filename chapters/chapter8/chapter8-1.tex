@@ -1,0 +1,15 @@
+\section{The Generalized Riemann Integral}
+
+\begin{exercise}
+\enum{
+\item Explain why both the Riemann sum \(R(f,P)\) and \(\int^b_a f\) fall between \(L(f,P)\) and \(U(f,P)\).
+\item Explain why \(U(f,P') - L(f,P') < \epsilon / 3\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(L(f,P) \leq R(f,P) \leq U(f,P)\) is clear from their definitions, as noted earlier in the section's discussion. The definition of \(\int^b_a f\) as the supremum of \(L(f,P)\) over all partitions \(P\) shows \(\int^b_a f \geq L(f,P)\), and similar reasoning gives \(\int^b_a f \leq U(f,P)\).
+\item \(P\) is a refinement of \(P_\epsilon\), so
+\[U(f, P') - L(f,P') = U(f,P_\epsilon) - L(f, P_\epsilon) < \frac{\epsilon}{3}\]
+}
+\end{solution}
