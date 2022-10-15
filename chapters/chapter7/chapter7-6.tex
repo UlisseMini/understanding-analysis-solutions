@@ -162,3 +162,27 @@ Now, all elements of \(D^\alpha\) appear in some set in \(O_1\), except possibly
 \item Since \(f\) is continuous, \(f \circ g\) and \(g\) share the same sets of discontinuity; therefore \(g\) is integrable implies \(f \circ g\) is integrable.
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Find \(g'(0)\).
+\item Use the standard rules of differentiation to compute \(g'(x)\) for \(x \neq 0\).
+\item Explain why, for every \(\delta > 0\), \(g'(x)\) attains every value between \(1\) and \(-1\) as \(x\) ranges over the set \(-\delta, \delta\). Conclude that \(g'\) is not continuous at \(x = 0\).
+}
+\end{exercise}
+\begin{solution}
+    See discussion in Section 5.1.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item If \(c \in C\), what is \(\lim_{n \to \infty}f_n(c)\)?
+\item Why does \(\lim_{n \to \infty} f_n(x)\) exist for \(x \notin C\)?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item By construction \(f_n(x) = 0\) for \(x \in C_n\), and by definition \(c \in C \implies c \in C_n \ \forall n \), so \(\lim_{n \to \infty} f_n(c) = 0\).
+\item If \(x \notin C\) then for some \(N\), \(x \notin C_n \ \forall n \geq N\). Now by construction \(f_n = f_N\) over \(C_n^c\), so for \(n \geq N\), \(f_n(x) = f_N(x)\) is constant and therefore \(\lim_{n \to \infty} f_n(x) = f_N(x)\).
+}
+\end{solution}
