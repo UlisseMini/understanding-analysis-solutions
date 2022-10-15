@@ -1,2 +1,228 @@
 \section{Lebesgue's Criterion for Riemann Integrability}
-\TODO
+\begin{exercise} Recall that Thomae's function
+$$
+t(x)= \begin{cases}1 & \text { if } x=0 \\ 1 / n & \text { if } x=m / n \in \mathbf{Q} \backslash\{0\} \text { is in lowest terms with } n>0 \\ 0 & \text { if } x \notin \mathbf{Q}\end{cases}
+$$
+has a countable set of discontinuities occurring at precisely every rational number. Let's prove that Thomae's function is integrable on \([0,1]\) with \(\int^1_0 t = 0\).
+\enum{
+\item First argue that $L(t, P)=0$ for any partition $P$ of $[0,1]$.
+\item Let $\epsilon>0$, and consider the set of points $D_{\epsilon / 2}=\{x \in[0,1]: t(x) \geq \epsilon / 2\}$. How big is $D_{\epsilon / 2}$ ?
+\item To complete the argument, explain how to construct a partition $P_{\epsilon}$ of $[0,1]$ so that $U\left(t, P_{\epsilon}\right)<\epsilon$.
+}
+\end{exercise}
+\begin{solution}
+See Exercise 7.3.2
+\end{solution}
+
+\begin{exercise}
+We first met the Cantor set \(C\) in Section 3.1. We have since learned that \(C\) is a compact, uncountable subset of the interval \([0, 1]\).
+
+Define \[h(x) = \begin{cases}
+   1 & \text{if } x \in C \\
+   0 & \text{if }x \notin C
+\end{cases}\]
+
+\enum{
+    \item Show \(h\) has discontinuities at each point of \(C\) and is continuous at every point of the complement of \(C\). Thus, \(h\) is not continuous on an uncountably infinite set.
+    \item Now prove that \(h\) is integrable on \([0,1]\).
+}
+\end{exercise}
+\begin{solution}
+    See Exercise 7.3.9 (d)
+\end{solution}
+
+\begin{exercise}
+Show that any countable set has measure zero.
+\end{exercise}
+\begin{solution}
+Enumerate the elements of any countable set \(A\) as \(\{a_1, a_2, \cdots\}\). Given \(\epsilon > 0\), define the collection of open intervals \(O_n\) with \(O_i = (a_i - \frac{\epsilon}{2^{i + 1}}, a_i + \frac{\epsilon}{2^{i+1}})\).
+\end{solution}
+
+\begin{exercise}
+Prove that the Cantor set has measure zero.
+\end{exercise}
+
+\begin{solution}
+Exercise 7.3.9 (c) showed that the Cantor set has content zero, and any set with content zero clearly has measure zero.
+\end{solution}
+
+\begin{exercise}
+Show that if two sets \(A\) and \(B\) each have measure zero, then \(A \cup B\) has measure zero as well. In addition, discuss the proof of the stronger statement that the countable union of sets of measure zero also has measure zero.
+\end{exercise}
+
+\begin{solution}
+Let \(\epsilon > 0\), and define \(O_{A,n}\) and \(O_{B,n}\) so that
+\[A \subseteq \bigcup^\infty_{n=1} O_{A,n} \text{, }
+B \subseteq \bigcup^\infty_{n=1} O_{B,n} \text{, }
+\sum^\infty_{n=1}|O_{A,n}| \leq \frac{\epsilon}{2} \text{, }
+\sum^\infty_{n=1}|O_{B,n}| \leq \frac{\epsilon}{2}
+\]
+Then let \(O_n\) be the union of the sets in \(O_{A,n}\) and \(O_{B,n}\); \(O_n\) satisifies the conditions necessary to show \(A \cup B\) has measure zero.
+
+This argument is essentially identical for a countable union of sets of measure zero. Some key points:
+\begin{itemize}
+    \item The countable union of countable sets is also countable.
+    \item Assuming the sets are enumerated as \(A_m\), have each \(\sum |O_{A_m, n}| < \frac{\epsilon}{2^m}\), to ensure the total sum by the end is \(\leq \epsilon\)
+    \item Since \(|O_{A_m, n}| \geq 0\), the infinte sums involved all converge absolutely, so we can use the results in Section 2.8 to safely sum the lengths of intervals over an enumeration of the final collection of sets \(O_n\).
+\end{itemize}
+\end{solution}
+
+\begin{exercise}
+If \(\alpha < \alpha'\), show that \(D^{\alpha'} \subseteq D^\alpha\).
+\end{exercise}
+
+\begin{solution}
+See Exercise 4.6.9.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Let \(\alpha > 0\) be given. Show that if \(f\) is continuous at \(x \in [a,b]\), then it is \(\alpha\)-continuous at \(x\) as well. Explain how it follows that \(D^\alpha \subseteq D\).
+\item Show that if \(f\) is not continuous at \(x\), then \(f\) is not \(\alpha\)-continuous for some \(\alpha > 0\). Now, explain why this guarentees that
+\[D = \bigcup^\infty_{n=1} D^{\alpha_n} \text{\quad where } \alpha_n = 1/n\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+    \item See Exercise 4.6.10
+    \item See Exercise 4.6.11
+}
+\end{solution}
+
+\begin{exercise}
+Prove that for a fixed \(\alpha > 0\), the set \(D^\alpha\) is closed.
+\end{exercise}
+
+\begin{solution}
+    See Exercise 4.6.8
+\end{solution}
+
+\begin{exercise}
+Show that there exists a \emph{finite} collection of disjoint open intervals \(\{G_1, G_2, \dots, G_N\}\) whose union contains \(D^\alpha\) and that satisfies
+\[\sum^N_{n=1} \abs{G_n} < \frac{\epsilon}{4M}\]
+\end{exercise}
+
+\begin{solution}
+Given \(D\) has measure zero, and since \(D^\alpha \subseteq D\), we also know that \(D^\alpha\) has measure zero. We can thus construct a countable open cover \(\{H_1, \dots\}\) such that \(\sum^\infty_{n=1} |G_n| < \frac{\epsilon}{4M}\).
+
+Since \(D^\alpha\) is closed, we can find a finite subcover \(\{I_1, \dots, I_P\}\). Finally, since this is a finite set, we can merge any overlapping intervals (which can only decrease the total length of the intervals), leaving us with the desired finite collection of disjoint open intervals.
+\end{solution}
+
+\begin{exercise}
+Let \(K\) be what remains of the interval \([a,b]\) after the open intervals \(G_n\) are all removed; that is, \(K = [a,b]\backslash \bigcup^N_{n=1} G_n\). Argue that \(f\) is uniformly \(\alpha\)-continuous on \(K\).
+\end{exercise}
+\begin{solution}
+    Note that since each \(G_n\) is open, and the union of any collection of open sets is open, \(\bigcup^N_{n=1} G_n\) is open, its complement is closed, and \(K = [a,b] \cap (\bigcup^N_{n=1} G_n)^c\) is closed. \(K\) is also bounded so \(K\) is compact.
+
+    By how we defined \(G_n\), \(f\) is \(\alpha\)-continuous pointwise on \(K\). Taking it as fact that \(\alpha\)-continuity on a compact set implies uniform \(\alpha\)-continuity, since \(K\) is compact, we have that \(f\) is uniformly \(\alpha\)-continuous on \(K\).
+\end{solution}
+
+\begin{exercise}
+Finish the proof in this direction by explaining how to construct a partition \(P_\epsilon\) of \([a,b]\) such that \(U(f,P_\epsilon) - L(f, P_\epsilon) \leq \epsilon\).
+\end{exercise}
+\begin{solution}
+Let \(\alpha = \frac{\epsilon}{2(b-a)}\), and \(|f| < M\). Begin by defining the collection of open intervals \(\mathcal{G} = \{G_1, \dots, G_N\}\) with the properties described in Exercise 7.6.9. Define \(P_1\) as the partition containing all of the endpoints of \(\mathcal{G}\).
+
+Consider the collection \(\mathcal{K}\) of subintervals which do not contain elements of \(D^\alpha\); by Exercise 7.6.10, \(f\) is uniformly \(\alpha\)-continuous over all sets in \(\mathcal{K}\). Therefore, there exists a \(\delta > 0\) so that for \(x, y \in \mathcal{K}\), \(\abs{f(x) - f(y)} < \alpha\). Define \(P_2\) as the partition consisting of evenly spaced points such that each subinterval has length at most \(\delta\), and define \(P_\epsilon\) as the common refinement of \(P_1\) and \(P_2\).
+
+Let
+\[U(f,P_\epsilon) - L(f, P_\epsilon) = \sum_{k \in S_1} (M_k - m_k) \Delta x_k + \sum_{k \in S_2} (M_k - m_k) \Delta x_k \]
+where \(S_1\) includes all of the intervals containing elements of \(D^\alpha\) and \(S_2\) includes all of the other subintervals. Now
+\[\sum_{k \in S_1} (M_k - m_k) \Delta x_k < 2M \sum_{k \in S_1} \Delta x_k < \frac{\epsilon}{2} \]
+and
+\[\sum_{k \in S_2} (M_k - m_k) \Delta x_k < \frac{\epsilon}{2(b-a)}\sum_{k \in S_2} \Delta x_k \leq \frac{\epsilon}{2(b-a)} (b-a) = \frac{\epsilon}{2} \]
+hence \(U(f, P_\epsilon) - L(f, P_\epsilon) < \epsilon\) and \(f\) is integrable.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Prove that \(D^\alpha\) has measure zero. Point out that it is possible to choose a cover for \(D^\alpha\) that consists of a finite number of open intervals.
+\item Show how this implies that \(D\) has measure zero.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Consider the collection of subintervals \(S\) in \(P_\epsilon\) where \(M_k - m_k > \alpha\). Now, for any \(d \in D^\alpha\), if \(d \notin P_\epsilon\) then clearly \(d\) lies in a subinterval in \(S\).
+
+Now, the sums of the lengths of elements of \(S\) cannot be greater than \(\epsilon\) (otherwise \(U(f, P_\epsilon) - L(f, P_\epsilon) \geq \alpha \epsilon\)). So we can easily create a collection of open intervals \(O_1\), whose length is no more than \(2 \epsilon\), whose union is a superset of the union of all elements of \(S\). A value greater than \(\epsilon\) is needed because subintervals are closed intervals, so we need to go a little beyond the endpoint in each case.
+
+Now, all elements of \(D^\alpha\) appear in some set in \(O_1\), except possibly for elements in \(P_\epsilon\). However, there are  only finitely many elements of \(P_\epsilon\), so we can just have a second collection of open intervals \(O_2\) with total length \(\epsilon\) covering all elements of \(P_\epsilon\). The union of \(O_1\) and \(O_2\) give us a collection of open intervals, whose length is no more than \(3 \epsilon\), and whose union contains all elements of \(D^\alpha\). Since \(\epsilon\) was arbitrary, this argument can readily be extended to show \(D^\alpha\) has measure zero.
+
+\item We know the countable union of sets of measure zero also has measure zero, and Exercise 7.6.7 (b) constructs \(D\) as the countable union of many \(D^{\alpha_n}\), each of which has measure zero; hence \(D\) has measure zero.
+}
+\end{solution}
+
+\begin{exercise}
+\item Show that if \(f\) and \(g\) are integralbe on \([a,b]\), then so is the product \(fg\).
+\item Show that if \(g\) is integrable on \([a,b]\) and \(f\) is continuous on the range of \(g\), then the composition \(f \circ g\) is integrable on \([a,b]\).
+\end{exercise}
+\begin{solution}
+\enum{
+\item The set of discontinuities of \(fg\) is the union of the set of discontinuities of \(f\) and that of \(g\). Since \(f\) and \(g\) are both integrable, these are both sets with measure zero, and hence their union is also measure zero; thus \(fg\) is integrable.
+\item Since \(f\) is continuous, \(f \circ g\) and \(g\) share the same sets of discontinuity; therefore \(g\) is integrable implies \(f \circ g\) is integrable.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Find \(g'(0)\).
+\item Use the standard rules of differentiation to compute \(g'(x)\) for \(x \neq 0\).
+\item Explain why, for every \(\delta > 0\), \(g'(x)\) attains every value between \(1\) and \(-1\) as \(x\) ranges over the set \(-\delta, \delta\). Conclude that \(g'\) is not continuous at \(x = 0\).
+}
+\end{exercise}
+\begin{solution}
+    See discussion in Section 5.1.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item If \(c \in C\), what is \(\lim_{n \to \infty}f_n(c)\)?
+\item Why does \(\lim_{n \to \infty} f_n(x)\) exist for \(x \notin C\)?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item By construction \(f_n(x) = 0\) for \(x \in C_n\), and by definition \(c \in C \implies c \in C_n \ \forall n \), so \(\lim_{n \to \infty} f_n(c) = 0\).
+\item If \(x \notin C\) then for some \(N\), \(x \notin C_n \ \forall n \geq N\). Now by construction \(f_n = f_N\) over \(C_n^c\), so for \(n \geq N\), \(f_n(x) = f_N(x)\) is constant and therefore \(\lim_{n \to \infty} f_n(x) = f_N(x)\).
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+    \item Explain why \(f'(x)\) exists for all \(x \notin C\).
+    \item If \(c \in C\), argue that \(|f(x)| \leq (x-c)^2\) for all \(x \in [0,1]\). Show how this implies \(f'(c) = 0\).
+    \item Give a careful argument for while \(f'(x)\) fails to be continuous on \(C\). Remember that \(C\) contains many points besides the endpoints of the intervals that make up \(C_1, C_2, C_3, \dots\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item As noted in Exercise 7.6.15 (b), if \(x \notin C\) then \(f_n(x) = f_N(x)\) for some \(N\) and all \(n \geq N\). Since \([0,1]\backslash C\) is open, there must be some \([a,b] \subseteq [0,1] \backslash C\) with \(x \in [a,b]\); clearly \((f_n)\) converges uniformly in \([a,b]\) so by the Differentiable Limit Theorem \(f'(x)\) exists and is equal to \(f_N'(x)\).
+\item Note that for \(c \in C_n\), we have \(\abs{f_n(x)} \leq (x-c)^2\). Given \(c \in C\), for all \(n\), \(c \in C_n\) and so \(\abs{f_n(x)} \leq (x-c)^2\). Thus by the Algebraic Limit Theorem \(\abs{f(x)} \leq (x-c)^2\). Now,
+    \[f'(c) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} = \frac{f(x)}{x-c}\]
+    And given \(\abs{f(x)} \leq (x-c)^2\), we can use the Squeeze Theorem to find \(f'(c) = 0\).
+\item Although \(C\) contains many points other than the interval endpoints of \(C_n\), every point in \(C\) is ``close'' to some interval endpoint. More formally, if \(c \in C\), \(\forall \epsilon > 0 \ \exists x\) satisfying \(|x-c| < \epsilon\), where \(x\) is an endpoint of one of the intervals in \(C_n\). To see this, simply take \(n\) large enough that \(3^{-n}\) (the length of each interval in \(C_n\)) is less than \(\epsilon\); then since \(c \in C_n\) (and specifically, is in one of the intervals that make up \(C_n\)) there must be an endpoint of an interval in \(C_n\) which is less than \(\epsilon\) away from \(c\).
+
+To show that \(f'\) is discontinuous at any \(c \in C\), we need to show that for some fixed \(\epsilon > 0\), \(\forall \delta > 0 \ \exists x \in V_\delta(c)\) where \(\abs{f'(x) - f'(c)} = \abs{f'(x)} > \epsilon\). Take \(\epsilon = 1/2\), and let \(p\) be an interval endpoint in \(C_n\) where \(|c - p| < \delta/2\). We also have, using Exercise 7.6.14 (c), that over \(V_{\delta/2}(p)\), \(\abs{f_n'(p)} > \epsilon\) at some \(x\), and it's clear that \(x \notin C_n\). Therefore \(\abs{f'(x)} = \abs{f_n'(x)} > \epsilon\), and by the Triangle Inequality \(x \in V_\delta(c)\).
+}
+\end{solution}
+
+\begin{exercise}
+Why is \(f'(x)\) Riemann-integrable on \([0,1]\)?
+\end{exercise}
+\begin{solution}
+\(f'(x)\) is discontinuous only at \(c \in C\), and \(C\) has measure zero.
+\end{solution}
+
+\begin{exercise}
+Show that, under these circumstances, the sum of the lengths of the intervals making up each \(C_n\) no longer tends to zero as \(n \to \infty\). What is this limit?
+\end{exercise}
+\begin{solution}
+\[\sum^\infty_{n=1} 2^{n-1} \left(\frac{1}{3^{n+1}}\right) = \frac{1}{9}\sum^\infty_{n=1} \left(\frac{2}{3}\right)^{n-1} = \frac{1}{3}\]
+\end{solution}
+
+\begin{exercise}
+As a final gesture, provide the example advertised in Exercise 7.6.13 of an integrable function \(f\) and a continuous function \(g\) where the composition \(f \circ g\) is properly defined but not integrable.
+\end{exercise}
+\begin{solution}
+The solution to Exercise 7.3.4 satisfies this request (although \(f\) and \(g\) have swapped names).
+\end{solution}
