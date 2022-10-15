@@ -58,14 +58,31 @@ Now decide on the validity of each of the following conjectures, supplying a pro
 \end{exercise}
 \begin{solution}
 \enum{
-    \item Let \(f(x)\) be Thomae's function (which we've shown in Exercise 7.3.2 to be integrable), and define \(g\) over the interval \([0,1]\) as
-        \[g(x) = \begin{cases}
-        0 & x = 0 \\
-        1 & x > 0
-    \end{cases}\]
+\item Let \(f(x)\) be Thomae's function (which we've shown in Exercise 7.3.2 to be integrable), and define \(g\) over the interval \([0,1]\) as
+    \[g(x) = \begin{cases}
+    0 & x = 0 \\
+    1 & x > 0
+\end{cases}\]
 By Theorem 7.3.2, \(g\) is integrable. But for any rational number \(q\), \(f(q) > 0\), and so \(g \circ f\) is just Dirichlet's function, which is not integrable.
-    \item \TODO
-    \item False - \(g\) in the example in part (a) was increasing.
+
+\item False. Note: the following counterexample requires results from Section 7.6.
+
+Let \(c(x)\) be the Cantor Function, defined in Exercise 6.2.12, and consider \(d(x) = c(x) + x\), defined over \([0,1]\). Recall that \(c(x)\) is increasing and continuous; therefore \(d(x)\) is strictly increasing and continuous. Therefore, since \(d\) is one-to-one, \(d^{-1}\) is defined, continuous, and increasing over \([0, 2]\).
+
+Notably, \(c\) maps the Cantor set \(C\) (which has measure zero) to a set of positive measure, since \(c\) maps \([0,1] \backslash C\) to the dyadic points in \([0,1]\), which are countable and thus have measure zero. This behaviour is also true of \(d\). To prove this a bit formally, assume for contradiction that \(d(C) = \{d(x) : x \in C\}\) has measure zero, and find a collection of open intervals with total length less than \(\epsilon\) whose union contains \(d(C)\). For a representative interval \((p_1, p_2) = (d(x_1), d(x_2))\), let \(d(S)\) be the set of points in \(d(C)\) which are covered by \((p_1, p_2)\), where \(S\) be the points in \(C\) which map to \(d(S)\). But note that then \((c(x_1), c(x_2)) \supseteq c(S)\), and that
+\[p_2 - p_1 = c(x_2) - c(x_1) - (x_2 - x_1) \geq c(x_2) - c(x_1)\]
+Repeating this for every interval leaves us with a collection of intervals covering \(c(C)\) whose total length is less than \(\epsilon\), a contradiction since \(c(C)\) has positive measure.
+
+Finally, let \(f = d^{-1}\) and \(g\) be the indicator function of \(C\); that is,
+\[g(x) = \begin{cases}
+   1 & x \in C \\
+   0 & x \notin C
+\end{cases}\]
+We show later in Exercise 7.3.9 that \(g\) is integrable and its set of discontinuities is \(C\). But I claim that \(g \circ f\) is discontinuous on \(d(C)\), a set of positive measure. This claim would imply that \(g \circ f\) is not integrable.
+
+Note that \(f^{-1} = d\) is continuous. If \(g \circ f\) was continuous on any point \(x \in d(C)\), then \(g = (g \circ f) \circ f^{-1}\) should be continuous on \(d^{-1}(x) \in C\), but \(g\) is discontinuous over \(C\). Thus a contradiction and \(g \circ f\) is discontinuous over \(d(C)\).
+
+\item False - \(g\) in the example in part (a) was increasing.
 }
 \end{solution}
 
