@@ -186,3 +186,22 @@ Now, all elements of \(D^\alpha\) appear in some set in \(O_1\), except possibly
 \item If \(x \notin C\) then for some \(N\), \(x \notin C_n \ \forall n \geq N\). Now by construction \(f_n = f_N\) over \(C_n^c\), so for \(n \geq N\), \(f_n(x) = f_N(x)\) is constant and therefore \(\lim_{n \to \infty} f_n(x) = f_N(x)\).
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+    \item Explain why \(f'(x)\) exists for all \(x \notin C\).
+    \item If \(c \in C\), argue that \(|f(x)| \leq (x-c)^2\) for all \(x \in [0,1]\). Show how this implies \(f'(c) = 0\).
+    \item Give a careful argument for while \(f'(x)\) fails to be continuous on \(C\). Remember that \(C\) contains many points besides the endpoints of the intervals that make up \(C_1, C_2, C_3, \dots\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item As noted in Exercise 7.6.15 (b), if \(x \notin C\) then \(f_n(x) = f_N(x)\) for some \(N\) and all \(n \geq N\). Since \([0,1]\backslash C\) is open, there must be some \([a,b] \subseteq [0,1] \backslash C\) with \(x \in [a,b]\); clearly \((f_n)\) converges uniformly in \([a,b]\) so by the Differentiable Limit Theorem \(f'(x)\) exists and is equal to \(f_N'(x)\).
+\item Note that for \(c \in C_n\), we have \(\abs{f_n(x)} \leq (x-c)^2\). Given \(c \in C\), for all \(n\), \(c \in C_n\) and so \(\abs{f_n(x)} \leq (x-c)^2\). Thus by the Algebraic Limit Theorem \(\abs{f(x)} \leq (x-c)^2\). Now,
+    \[f'(c) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} = \frac{f(x)}{x-c}\]
+    And given \(\abs{f(x)} \leq (x-c)^2\), we can use the Squeeze Theorem to find \(f'(c) = 0\).
+\item Although \(C\) contains many points other than the interval endpoints of \(C_n\), every point in \(C\) is ``close'' to some interval endpoint. More formally, if \(c \in C\), \(\forall \epsilon > 0 \ \exists x\) satisfying \(|x-c| < \epsilon\), where \(x\) is an endpoint of one of the intervals in \(C_n\). To see this, simply take \(n\) large enough that \(3^{-n}\) (the length of each interval in \(C_n\)) is less than \(\epsilon\); then since \(c \in C_n\) (and specifically, is in one of the intervals that make up \(C_n\)) there must be an endpoint of an interval in \(C_n\) which is less than \(\epsilon\) away from \(c\).
+
+To show that \(f'\) is discontinuous at any \(c \in C\), we need to show that for some fixed \(\epsilon > 0\), \(\forall \delta > 0 \ \exists x \in V_\delta(c)\) where \(\abs{f'(x) - f'(c)} = \abs{f'(x)} > \epsilon\). Take \(\epsilon = 1/2\), and let \(p\) be an interval endpoint in \(C_n\) where \(|c - p| < \delta/2\). We also have, using Exercise 7.6.14 (c), that over \(V_{\delta/2}(p)\), \(\abs{f_n'(p)} > \epsilon\) at some \(x\), and it's clear that \(x \notin C_n\). Therefore \(\abs{f'(x)} = \abs{f_n'(x)} > \epsilon\), and by the Triangle Inequality \(x \in V_\delta(c)\).
+}
+\end{solution}
