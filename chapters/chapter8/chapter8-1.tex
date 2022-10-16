@@ -105,3 +105,10 @@ Explain why every function that is Riemann-integrable with \(\int^b_a f = A\) mu
 \begin{solution}
 For a given \(\epsilon > 0\), we can simply use the gauge \(\delta(x) = \delta\), at which point the Riemann integral and generalized Riemann integral are equivalent.
 \end{solution}
+
+\begin{exercise}
+Show that if \((P, \{c_k\}^n_{k=1})\) is a \(\delta(x)\)-fine tagged partition, then \(R(g,P) < \epsilon\).
+\end{exercise}
+\begin{solution}
+Subintervals with irrational tags do not contribute to \(R(g,P)\), so the maximum value of \(R(g,P)\) is the sum of the lengths of the subintervals with rational tags. This can be no more than \(\sum_{x \in \mathbf{Q}} \delta(x) = \epsilon\). To show strict inequality, note that any subinterval must contain more than one rational number, and so some of the subinterval lengths are ``missing''.
+\end{solution}
