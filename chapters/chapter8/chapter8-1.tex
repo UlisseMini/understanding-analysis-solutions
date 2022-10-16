@@ -35,3 +35,20 @@ Explain why \(U(f,P) - U(f,P') \geq 0\).
 \[\sum M_k (x_k - x_{k-1}) \leq \sum M \delta = (3n-3) \frac{\epsilon}{9n} < \frac{\epsilon}{3} \]
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that if \(f\) is continuous, then it is possible to pick tags \(\{c_k\}^n_{k=1}\) so that
+\[R(f,P) = U(f,P)\]
+Similarly, there are tags fro which \(R(f,P) = L(f,P)\) as well.
+\item If \(f\) is not continuous, it may not be possible to find tags for which \(R(f,P) = U(f,P)\). Show, however, that given an arbitrary \(\epsilon > 0\), it is possible to pick tags for \(P\) so that
+\[U(f,P) - R(f,P) < \epsilon\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Each subinterval is closed, and since \(f\) is continuous, the image of each subinterval under \(f\) (the set of points which \(f\) maps the subinterval to) is also closed, and thus contains its supremum and infimum; this allows us to pick tags so that \(R(f,P) = U(f,P)\).
+\item We can pick tags so that
+\[M_k - f(c_k) < \frac{\epsilon}{b-a}\]
+}
+\end{solution}
