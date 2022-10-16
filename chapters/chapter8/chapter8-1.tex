@@ -63,3 +63,22 @@ Then pick tags \(c_1\) so that \(R(f, (P,c_1)) - L(f,P) < \epsilon/4\) and tags 
 \[U - L \leq U - R_1 + \abs{R_1 - A} + \abs{A - R_2} + R_2 - L < \epsilon\]
 showing \(f\) is Riemann-integrable.
 \end{solution}
+
+\begin{exercise}
+Consider the interval \([0,1]\).
+\enum{
+\item If \(\delta(x) = 1/9\), find a \(\delta(x)\)-fine tagged partition of \([0,1]\). Does the choice of tags matter in this case?
+\item Let
+\[\delta(x) = \begin{cases}
+   1/4 & \text{if } x = 0 \\
+   x/3 & \text{if } 0 < x \leq 1
+\end{cases}\]
+Construct a \(\delta(x)\)-fine tagged partition of \([0,1]\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(P = \{n/10 : n \in \mathbf{N}, 0 \leq n \leq 10\}\). Choice of tags does not matter since \(\delta(x)\) is constant.
+\item \(P = \{n/15 : n \in \mathbf{N}, 3 \leq n \leq 15\} \cup \{0\}\), \(c_1 = 0\), \(c_k = (k+2)/15\) for \(k \geq 2\). Then \(\delta(c_k) > 1/15\) for \(k \geq 2\).
+}
+\end{solution}
