@@ -89,3 +89,19 @@ Finish the proof of Theorem 8.1.5.
 \begin{solution}
 If both halves have a tag which can satisfy \(\delta(c_i) > (b-a)/2\), then we're done. Otherwise, bisect any halves which do not have such a tag. Repeat, identifying subintervals that have candidate tags and bisecting the subintervals that don't. To show this process ends, by contradiction assume that it doesn't and there is an infinite sequence of nested subintervals \((I_i)\) which do not have a candidate tag, and by construction the length of these subintervals goes to zero. By the Nested Interval Property there must be some \(c\) in the intersection of all of the subintervals, but \(\delta(c) > 0\), meaning that at some point \(c\) would have been a valid tag for some \(I_n\) - a contradiction.
 \end{solution}
+
+\begin{exercise}
+Finish the argument.
+\end{exercise}
+\begin{solution}
+Consider an arbitrary \(\epsilon > 0\). We have that with some gauge \(\delta_1(x)\), we have \(|R(f,P) - A_1| < \epsilon / 2\) for all \(P\) which are \(\delta_1(x)\)-fine. Similarly we have \(\delta_2(x)\) where \(|R(f,P) - A_2| < \epsilon / 2\). Let \(\delta(x) = \min\{\delta_1(x), \delta_2(x)\}\) and note that \(\delta\) is also a gauge, and that any partition \(P\) which is \(\delta(x)\)-fine is also \(\delta_1(x)\)-fine and \(\delta_2(x)\)-fine. Find a partition \(P\) which is \(\delta(x)\)-fine.
+
+We then have \(|R(f,P) - A_1| < \epsilon/2\) and \(|A_2 - R(f,P)| < \epsilon/2\), so \(|A_2 - A_1| < \epsilon\), for arbitrary \(\epsilon > 0\). Therefore \(A_1 = A_2\).
+\end{solution}
+
+\begin{exercise}
+Explain why every function that is Riemann-integrable with \(\int^b_a f = A\) must also have generalized Riemann integral \(A\).
+\end{exercise}
+\begin{solution}
+For a given \(\epsilon > 0\), we can simply use the gauge \(\delta(x) = \delta\), at which point the Riemann integral and generalized Riemann integral are equivalent.
+\end{solution}
