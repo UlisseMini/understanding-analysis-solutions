@@ -129,3 +129,34 @@ for all \(0 < |x - c| < \delta(c)\).
 \begin{solution}
 Since \(F' = f\), this is essentially the limit defining \(F'(c) = f(c)\). So just use the same \(\delta\) as that used to define the derivative of \(F\).
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item For a particular \(c_k \in [x_{k-1}, x_k]\) of \(P\), show that
+\[\abs{F(x_k) - F(c_k) - f(c_k)(x_k - c_k)} < \epsilon (x_k - c_k)\]
+and
+\[\abs{F(c_k) - F(x_{k-1}) - f(c_k)(c_k - x_{k-1})} < \epsilon (c_k - x_{k-1})\]
+\item Now, argue that
+\[\abs{F(x_k) - F(x_{k-1}) - f(x_k)(x_k - x_{k-1})} < \epsilon(x_k- x_{k-1})\]
+and use this fact to complete the proof of the theorem.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For the first inequality, evaluate
+\[\abs{\frac{F(x) - F(c)}{x-c} - f(c)} < \epsilon\]
+at \(x = x_k\), \(c = c_k\) and multiply both sides by \(|x_k-c_k|\), noting that \(x_k \geq c_k\).
+
+For the second inequality, rewrite
+\[\abs{\frac{F(x) - F(c)}{x-c} - f(c)} = \abs{\frac{F(c) - F(x)}{c-x} - f(c)} < \epsilon,\]
+evaluate at \(x = x_{k-1}\), \(c = c_k\) and multiply both sides by \(|c_k - x_{k-1}|\), noting that \(c_k \geq x_{k-1}\).
+
+\item Add the two inequalities in part (a) together and apply the Triangle Inequality. Then summing over \(k\) from 1 to \(n\) gets us
+\[\begin{aligned}
+    \epsilon (x_n - x_0) &= \epsilon(b - a) \\
+    &> \sum^n_{k=1} \abs{F(x_k) - F(x_{k-1}) - f(c_k) (x_k - x_{k-1})} \\
+    &\geq \abs{F(b) - F(a) - R(f,P)}
+\end{aligned}\]
+To prove the theorem we need \(\abs{F(b) - F(a) - R(f,P)} < \epsilon\), which can be readily obtained by instead constructing the gauge \(\delta(c)\) for \(\epsilon / (b-a)\).
+}
+\end{solution}
