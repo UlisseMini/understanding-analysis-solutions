@@ -112,3 +112,20 @@ Show that if \((P, \{c_k\}^n_{k=1})\) is a \(\delta(x)\)-fine tagged partition, 
 \begin{solution}
 Subintervals with irrational tags do not contribute to \(R(g,P)\), so the maximum value of \(R(g,P)\) is the sum of the lengths of the subintervals with rational tags. This can be no more than \(\sum_{x \in \mathbf{Q}} \delta(x) = \epsilon\). To show strict inequality, note that any subinterval must contain more than one rational number, and so some of the subinterval lengths are ``missing''.
 \end{solution}
+
+\begin{exercise}
+Show that
+\[F(b) - F(a) = \sum^n_{k=1} [F(x_k) - F(x_{k-1})]\]
+\end{exercise}
+\begin{solution}
+This is a telescoping sum, with the right hand side becoming \(F(x_n) - F(x_0) = F(b) - F(a)\).
+\end{solution}
+
+\begin{exercise}
+For each \(c \in [a,b]\), explain why there exists a \(\delta(c) > 0\) (a \(\delta > 0\) depending on \(c\)) such that
+\[\abs{\frac{F(x) - F(c)}{x-c} - f(c)} < \epsilon\]
+for all \(0 < |x - c| < \delta(c)\).
+\end{exercise}
+\begin{solution}
+Since \(F' = f\), this is essentially the limit defining \(F'(c) = f(c)\). So just use the same \(\delta\) as that used to define the derivative of \(F\).
+\end{solution}
