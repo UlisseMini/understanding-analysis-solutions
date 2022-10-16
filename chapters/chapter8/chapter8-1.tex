@@ -82,3 +82,10 @@ Construct a \(\delta(x)\)-fine tagged partition of \([0,1]\).
 \item \(P = \{n/15 : n \in \mathbf{N}, 3 \leq n \leq 15\} \cup \{0\}\), \(c_1 = 0\), \(c_k = (k+2)/15\) for \(k \geq 2\). Then \(\delta(c_k) > 1/15\) for \(k \geq 2\).
 }
 \end{solution}
+
+\begin{exercise}
+Finish the proof of Theorem 8.1.5.
+\end{exercise}
+\begin{solution}
+If both halves have a tag which can satisfy \(\delta(c_i) > (b-a)/2\), then we're done. Otherwise, bisect any halves which do not have such a tag. Repeat, identifying subintervals that have candidate tags and bisecting the subintervals that don't. To show this process ends, by contradiction assume that it doesn't and there is an infinite sequence of nested subintervals \((I_i)\) which do not have a candidate tag, and by construction the length of these subintervals goes to zero. By the Nested Interval Property there must be some \(c\) in the intersection of all of the subintervals, but \(\delta(c) > 0\), meaning that at some point \(c\) would have been a valid tag for some \(I_n\) - a contradiction.
+\end{solution}
