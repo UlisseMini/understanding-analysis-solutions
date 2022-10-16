@@ -40,7 +40,7 @@ Explain why \(U(f,P) - U(f,P') \geq 0\).
 \enum{
 \item Show that if \(f\) is continuous, then it is possible to pick tags \(\{c_k\}^n_{k=1}\) so that
 \[R(f,P) = U(f,P)\]
-Similarly, there are tags fro which \(R(f,P) = L(f,P)\) as well.
+Similarly, there are tags for which \(R(f,P) = L(f,P)\) as well.
 \item If \(f\) is not continuous, it may not be possible to find tags for which \(R(f,P) = U(f,P)\). Show, however, that given an arbitrary \(\epsilon > 0\), it is possible to pick tags for \(P\) so that
 \[U(f,P) - R(f,P) < \epsilon\]
 }
@@ -51,4 +51,15 @@ Similarly, there are tags fro which \(R(f,P) = L(f,P)\) as well.
 \item We can pick tags so that
 \[M_k - f(c_k) < \frac{\epsilon}{b-a}\]
 }
+\end{solution}
+
+\begin{exercise}
+Use the results of the previous exercise to finish the proof of Theorem 8.1.2.
+\end{exercise}
+\begin{solution}
+Given arbitrary \(\epsilon > 0\), find a \(\delta\) and a corresponding \(\delta\)-fine partition \(P\) so that for any set of tags \(\{c_k\}\), we have
+\[\abs{R(f,P) - A} < \frac{\epsilon}{4}\]
+Then pick tags \(c_1\) so that \(R(f, (P,c_1)) - L(f,P) < \epsilon/4\) and tags \(c_2\) so that \(U(f,P) - R(f, (P,c_2)) < \epsilon/4\). For conciseness let \(L = L(f,P)\), \(U=U(f,P)\), \(R_1 = R(f,(P,c_1))\), \(R_2 = R(f, (P,c_2))\). Then
+\[U - L \leq U - R_1 + \abs{R_1 - A} + \abs{A - R_2} + R_2 - L < \epsilon\]
+showing \(f\) is Riemann-integrable.
 \end{solution}
