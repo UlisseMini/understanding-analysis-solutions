@@ -160,3 +160,19 @@ evaluate at \(x = x_{k-1}\), \(c = c_k\) and multiply both sides by \(|c_k - x_{
 To prove the theorem we need \(\abs{F(b) - F(a) - R(f,P)} < \epsilon\), which can be readily obtained by instead constructing the gauge \(\delta(c)\) for \(\epsilon / (b-a)\).
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Why are we sure that \(f\) and \((F \circ g)'\) have generalized Riemann integrals?
+\item Use Theorem 8.1.9 to finish the proof.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Both of them are derivatives of some function.
+\item
+\[
+\int^b_a (f \circ g) \cdot g' = \int^b_a (F \circ g)' = (F \circ g)(b) - (F \circ g)(a) = F(g(b)) - F(g(a)) = \int^{g(b)}_{g(a)} f
+\]
+}
+\end{solution}
