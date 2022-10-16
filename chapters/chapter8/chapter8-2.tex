@@ -37,3 +37,11 @@ Let \(C[0,1]\) be the collection of continuous functions on the closed interval 
 implying that \(f = g\). This indicates the first property is met. The second property is trivially true. The third property follows from the triangle inequality on absolute values.
 }
 \end{solution}
+
+\begin{exercise}
+Verify that the discrete metric is actually a metric.
+\end{exercise}
+\begin{solution}
+Property (i) and (ii) are trivial. For property (iii), there are two cases - either \(x = y\) or \(x \neq y\). If \(x = y\) then certainly \(\rho(x,z) + \rho(z,y) \geq 0\) by property (i). If \(x \neq y\) then at least one of \(z \neq y\) and \(z \neq x\) is true, so
+\[\rho(x,z) + \rho(z, y) \geq 1 = \rho(x,y)\]
+\end{solution}
