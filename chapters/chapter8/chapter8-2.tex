@@ -1,1 +1,39 @@
 \section{Metric Spaces and the Baire Category Theorem}
+\begin{exercise}
+Decide which of the following are metrics on \(X = \mathbf{R}^2\). For each, we let \(x = (x_1,x_2)\) and \(y = y_1, y_2\) be points in the plane.
+\enum{
+\item \(d(x,y) \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}\)
+\item \(d(x,y) = \max\{|x_1 - y_1|, |x_2 - y_2|\}\)
+\item \(d(x,y) = |x_1x_2 + y_1y_2|\)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is just the Euclidean distance between \(x\) and \(y\). The first two properties are obvious, while the third can be demonstrated with a little geometry.
+\item It's fairly easy to see that the first two properties are met. To demonstrate the triangle inequality, note
+\[d(x, z) + d(z, y) \geq \abs{x_1 - z_1} + \abs{z_1 - y_1} \geq \abs{x_1 - y_1}\]
+and
+\[d(x, z) + d(z, y) \geq \abs{x_2 - z_2} + \abs{z_2 - y_2} \geq \abs{x_2 - y_2}\]
+therefore \(d(x,z) + d(z,y)\) is greater than or equal to both possible values of \(d(x,y)\).
+\item Property (i) is not met; take \(x = (0,1)\) and \(y = (1,0)\).
+}
+\end{solution}
+
+\begin{exercise}
+Let \(C[0,1]\) be the collection of continuous functions on the closed interval \([0,1]\). Decide which of the following are metrics on \(C[0,1]\).
+\enum{
+\item \(d(f,g) = \sup{\abs{f(x) - g(x)} : x \in [0,1]}\)
+\item \(d(f,g) = \abs{f(1) - g(1)}\)
+\item \(d(f,g) = \int^1_0 \abs{f-g}\)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item The first two properties are trivial. For the triangle inequality:
+\[\sup |f-g| \leq \sup (\abs{f-h} + \abs{h-g}) \leq \sup |f-h| + \sup |h-g|\]
+\item The first property fails, e.g. \(f(x) = 1\), \(g(x) = x\)
+\item Clearly \(\int^1_0 |f-g| \geq \int^1_0 0 = 0\), and if \(f = g\) then \(\int^1_0 |f-g| = 0\). If \(\int^1_0 |f-g| = 0\), let \(F(x) = \int^x_0 \abs{f - g}\). By the Fundamental Theorem of Calculus, and noting that \(\abs{f-g}\) is continuous,
+\[F'(x) = |f-g| = 0\]
+implying that \(f = g\). This indicates the first property is met. The second property is trivially true. The third property follows from the triangle inequality on absolute values.
+}
+\end{solution}
