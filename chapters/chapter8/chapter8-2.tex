@@ -45,3 +45,10 @@ Verify that the discrete metric is actually a metric.
 Property (i) and (ii) are trivial. For property (iii), there are two cases - either \(x = y\) or \(x \neq y\). If \(x = y\) then certainly \(\rho(x,z) + \rho(z,y) \geq 0\) by property (i). If \(x \neq y\) then at least one of \(z \neq y\) and \(z \neq x\) is true, so
 \[\rho(x,z) + \rho(z, y) \geq 1 = \rho(x,y)\]
 \end{solution}
+
+\begin{exercise}
+Show that a convergent sequence is Cauchy.
+\end{exercise}
+\begin{solution}
+Given \((x_n) \to x\), choose \(N\) large enough that for \(n \geq N\), \(d(x_n, x) < \epsilon/2\). Then for \(m,n \geq N\), \(d(x_m - x_n) \leq d(x_m - x) + d(x, x_n) < \epsilon\)
+\end{solution}
