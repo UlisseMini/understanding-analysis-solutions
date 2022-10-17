@@ -67,3 +67,25 @@ Given \((x_n) \to x\), choose \(N\) large enough that for \(n \geq N\), \(d(x_n,
 \item Recall that Theorem 6.2.5 is an if-and-only-if statement, so any uniformly convergent sequence of functions is a Cauchy sequence. With that in mind, Exercise 6.3.2 is an example of a sequence of functions which converges uniformly to a function which is not differentiable. Thus \(C^1[0,1]\) is not complete with respect to this metric.
 }
 \end{solution}
+
+\begin{exercise}
+Which of these functions from \(C[0,1]\) to \(\mathbf{R}\) (with the usual metric) are continuous?
+\enum{
+\item \(g(f) = \int^1_0 fk\), where \(k\) is some fixed function in \(C[0,1]\).
+\item \(g(f) = f(1/2)\).
+\item \(g(f) = f(1/2)\), but this time with respect to the metric on \(C[0,1]\) from Exercise 8.2.2 (c).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Continuous. Let \(M\) be a bound on \(|k|\), and for any \(\epsilon > 0\), let \(\delta = \epsilon / M\). Then for any function \(h\) satisfying \(d(f,h) < \delta\), we have
+\[\abs{\int^1_0 fk - \int^1_0 hk} = \abs{\int^1_0 (f-h)k} \leq \int^1_0 \abs{(f-h)}\abs{k} < \int^1_0 \delta M = \epsilon\]
+\item Continuous. Let \(\delta = \epsilon\), and note that \(\abs{f(1/2) - h(1/2)} \leq d(f,h) < \delta = \epsilon\)
+\item Not continuous. Let \(f = 0\), and for any \(\delta > 0\), define
+\[h_\delta(x) = \begin{cases}
+1/2 & x \in V_\delta(1/2) \\
+0 & \text{otherwise}
+\end{cases} \]
+Clearly for any \(\delta\), \(d(h_\delta,f) = \delta\). But \((h-f)(1/2) = 1/2\), so any \(\epsilon < 1/2\) cannot be achieved.
+}
+\end{solution}
