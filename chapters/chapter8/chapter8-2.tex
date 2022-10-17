@@ -52,3 +52,18 @@ Show that a convergent sequence is Cauchy.
 \begin{solution}
 Given \((x_n) \to x\), choose \(N\) large enough that for \(n \geq N\), \(d(x_n, x) < \epsilon/2\). Then for \(m,n \geq N\), \(d(x_m - x_n) \leq d(x_m - x) + d(x, x_n) < \epsilon\)
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Consider \(\mathbf{R}^2\) with the discrete metric \(\rho(x,y)\) examined in Exercise 8.2.3. What do Cauchy sequences look like in this space? Is \(\mathbf{R}^2\) complete with respect to this metric?
+\item Show that \(C[0,1]\) is complete with respect to the metric in Exercise 8.2.2 (a).
+\item Define \(C^1[0,1]\) to be the collection of differentiable functions on \([0,1]\) whose derivatives are also continuous. Is \(C^1[0,1]\) complete with respect to the metric defined in Exercise 8.2.2 (a)?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item In order to reach any \(\epsilon < 1\), after a certain point in any Cauchy sequence, all elements need to be identical, with the sequence converging to this identical value. Therefore \(\mathbf{R}^2\) (and any set) is complete with respect to the discrete metric.
+\item By Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence), any \((f_n)\) which is a Cauchy sequence, uniformly converges to some function \(f\). Since uniform convergence preserves continuity, \(f\) is also continuous and thus in \(C[0,1]\).
+\item Recall that Theorem 6.2.5 is an if-and-only-if statement, so any uniformly convergent sequence of functions is a Cauchy sequence. With that in mind, Exercise 6.3.2 is an example of a sequence of functions which converges uniformly to a function which is not differentiable. Thus \(C^1[0,1]\) is not complete with respect to this metric.
+}
+\end{solution}
