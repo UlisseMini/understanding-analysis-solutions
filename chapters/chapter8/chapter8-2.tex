@@ -101,3 +101,37 @@ Describe the \(\epsilon\)-neighborhoods in \(\mathbf{R}^2\) for each of the diff
 
 For the discrete metric, if \(\epsilon > 1\) then an \(\epsilon\)-neighborhood is the entire plane, while if \(\epsilon \leq 1\) a neighborhood of \(x\) is just the single point \(x\).
 \end{solution}
+
+\begin{exercise}
+Let \((X,d)\) be a metric space.
+\enum{
+\item Verify that a typical \(\epsilon\)-neighborhood \(V_\epsilon(x)\) is an open set. Is the set
+\[C_\epsilon(x) = \{y \in X : d(x,y) \leq \epsilon\}\]
+a closed set?
+\item Show that a set \(E \subseteq X\) is open if and only if its complement is closed.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For any point \(y \in V_\epsilon(x)\), define \(a = \epsilon - d(x,y)\); by the triangle inequality \(V_a(y) \subseteq V_\epsilon(x)\).
+
+Consider any limit point \(y\) of \(C_\epsilon(x)\). For any \(a > 0\), \(\exists z \in C_\epsilon\) where
+\[d(x, y) \leq d(x, z) + d(z, y) < \epsilon + a\]
+therefore \(d(x,y) \leq \epsilon\) and so \(C_\epsilon(x)\) is closed.
+
+\item The proof is identical to that of Theorem 3.2.13, which is this statement in the special case for \(\mathbf{R}\) with the usual metric.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that the set \(Y =\{f \in C[0,1] : \|f\|_\infty \leq 1 \}\) is closed in \(C[0,1]\).
+\item Is the set \(T = \{f \in C[0,1]: f(0) = 0\}\) open, closed, or neither in \(C[0,1]\)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(Y^c = \{f \in C[0,1] : \|f\|_\infty > 1\}\). Let \(f \in Y^c\) and \(\|f\|_\infty = 1 + \epsilon\). Then if \(g \in V_{\epsilon/2}(f)\), we have \(\|g\|_\infty + \|f-g\|_\infty \geq \|f\|\), implying \(\|g\|_\infty \geq 1 + \epsilon / 2\) and so \(Y^c\) is open and \(Y\) is closed.
+\item \(T\) is not open; the function \(f(x) = 0\) is in \(T\), but \(g_\epsilon(x) = \epsilon/2 \in V_\epsilon(f)\). \(T\) is closed; let \(f\) be a limit point of \(T\). We have that for any \(\epsilon > 0\), \(\exists h\) so that \(\|f-h\|_\infty < \epsilon\), with \(h \in T\). Then \(\abs{f(0)} < \epsilon\), which implies \(f(0) = 0\) and hence \(f\in T\).
+}
+\end{solution}
