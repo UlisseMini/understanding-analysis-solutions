@@ -191,3 +191,31 @@ which implies \(d(x, y) \leq \epsilon \) and hence
 \item Consider the metric space \((\mathbf{R}, \rho)\) where \(\rho\) is the discrete metric, and consider \(V_1(0) = \{0\}\). \(\closure{V_1(0)} = \{0\}\) but \(\{y \in \mathbf{R} : \rho(x,y) \leq 1\} = \mathbf{R}\).
 }
 \end{solution}
+
+\begin{exercise}
+If \(E\) is a subset of a metric space \((X, d)\), show that \(E\) is nowhere-dense in \(X\) if and only if \(\closure{E}^c\) is dense in \(X\).
+\end{exercise}
+\begin{solution}
+\[\closure{E}^o = \emptyset \Longleftrightarrow (\closure{E}^o)^c = X \Longleftrightarrow \closure{\closure{E}^c} = X\]
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Give the details for why we know there exists a point \(x_2 \in V_{\epsilon_1}(x_1) \cap O_2\) and an \(\epsilon_2 > 0\) satisfying \(\epsilon_2 < \epsilon_1 / 2\) with \(V_{\epsilon_2}(x_2)\) contained in \(O_2\) and
+\[\closure{V_{\epsilon_2}(x_2)} \subseteq V_{\epsilon_1}(x_1)\]
+\item Proceed along this line and use the completeness of \((X, d)\) to produce a single point \(x \in O_n\) for every \(n \in \mathbf{N}\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item It's clear from the definition that, for a dense set \(S\), any point \(x \in X\), and any \(\epsilon > 0\), \(V_\epsilon(x) \cap S \neq \emptyset\). Since \(O_2\) is dense, there must be some \(x_2 \in V_{\epsilon_1 / 2}(x_1) \cap O_2\). Now since \(O_2\) is open, we have that for some \(\epsilon_a\), \(V_{\epsilon_a}(x_2) \subseteq O_2\). We can also find \(\epsilon_b\) so that \(\closure{V_{\epsilon_b}(x_2)} \subseteq V_{\epsilon_1}(x_1)\). To do this, recall from Exercise 8.2.12 (a) that if \(x \in \closure{V_{\epsilon_b}(x_2)}\), then \(d(x, x_2) \leq \epsilon_b\). By choosing any \(\epsilon_b < \epsilon/2\), we have
+\[d(x, x_1) \leq d(x, x_2) + d(x_2, x_1) < \epsilon/2 + \epsilon/2 = \epsilon\]
+and hence \(x \in V_{\epsilon_1}(x_1)\). Finally, set \(\epsilon_2 = \min\{\epsilon_a, \epsilon_b \} \), so that \(\epsilon_2\) satisifies both properties.
+
+\item We can repeat this process to define \(\epsilon_n > 0\) and \(x_n\) for \(n > 1\), satisfying \(\epsilon_n < \epsilon_{n-1} / 2\), \(V_{\epsilon_n}(x_n) \subseteq O_n\), and \(\closure{V_{\epsilon_n}(x_n)} \subseteq V_{\epsilon_{n-1}}\).
+
+Note that \((\epsilon_n) \to 0\), and that \(\sum^\infty_{i=n} \epsilon_i < 2\epsilon_n\). These two facts imply that \((x_n)\) is a Cauchy sequence, and by completeness \((x_n)\) converges to some \(x \in X\).
+
+Theorem 3.2.5 is still true for arbitrary metric spaces, and the proof can be reused (replacing the absolute value function with a general distance metric). Let \(N \in \mathbf{N}\) be arbitrary. Noting that for \(n \geq N + 1\), \(x_n \in V_{\epsilon_{N+1}}(x_{N+1})\), we have \(x \in \closure{V_{\epsilon_{N+1}}} \subseteq V_{\epsilon_N}\). Hence, \(x \in O_n\) for any \(n \in \mathbf{N}\).
+}
+\end{solution}
