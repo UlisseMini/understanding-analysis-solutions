@@ -126,12 +126,68 @@ therefore \(d(x,y) \leq \epsilon\) and so \(C_\epsilon(x)\) is closed.
 \begin{exercise}
 \enum{
 \item Show that the set \(Y =\{f \in C[0,1] : \|f\|_\infty \leq 1 \}\) is closed in \(C[0,1]\).
-\item Is the set \(T = \{f \in C[0,1]: f(0) = 0\}\) open, closed, or neither in \(C[0,1]\)
+\item Is the set \(T = \{f \in C[0,1]: f(0) = 0\}\) open, closed, or neither in \(C[0,1]\)?
 }
 \end{exercise}
 \begin{solution}
 \enum{
 \item \(Y^c = \{f \in C[0,1] : \|f\|_\infty > 1\}\). Let \(f \in Y^c\) and \(\|f\|_\infty = 1 + \epsilon\). Then if \(g \in V_{\epsilon/2}(f)\), we have \(\|g\|_\infty + \|f-g\|_\infty \geq \|f\|\), implying \(\|g\|_\infty \geq 1 + \epsilon / 2\) and so \(Y^c\) is open and \(Y\) is closed.
 \item \(T\) is not open; the function \(f(x) = 0\) is in \(T\), but \(g_\epsilon(x) = \epsilon/2 \in V_\epsilon(f)\). \(T\) is closed; let \(f\) be a limit point of \(T\). We have that for any \(\epsilon > 0\), \(\exists h\) so that \(\|f-h\|_\infty < \epsilon\), with \(h \in T\). Then \(\abs{f(0)} < \epsilon\), which implies \(f(0) = 0\) and hence \(f\in T\).
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Supply a definition for \emph{bounded} subsets of a metric space \(X, d\).
+\item Show that if \(K\) is a compact subset of the metric space \(X, c\), then \(K\) is closed and bounded.
+\item Show that \(Y \subseteq C[0,1]\) from Exercise 8.2.9 (a) is closed and bounded but not compact.
+}
+\end{exercise}
+\begin{solution}
+\item A subset \(S\) is bounded if there exists some \(x \in X\) and some finite bound \(M\) such that \(S \subseteq V_M(x)\). Equivalently, the \(\exists x \in X\) can be replaced with \(\forall x \in X\), since given \(x_0\) and a bound \(M\), \(x_1 \in X\) and \(M + d(x_0, x_1)\) will also work.
+\item Suppose \(K\) is not bounded, and let \(k_0\) be some element in \(K\). Then construct the sequence \((k_n)\) satisfying \(d(k_0,k_n) > n\). Clearly no subsequence of \((k_n)\) can converge, and therefore \(K\) is not compact. Thus, if \(K\) is compact then \(K\) must be bounded.
+
+Let \(k \in X\) be a limit point of \(K\), and construct the sequence \((k_n) \in K\) satisfying \(d(k_n, k) < 1/n\). Let \((k'_n)\) be a convergent subsequence of \((k_n)\); given that \(d(k'_n, k) < 1/n\) we must have that \((k'_n) \to k\), and hence \(k \in K\) and \(K\) is closed.
+
+\item We showed \(Y\) is closed in 8.2.9 (a), and the definition of \(Y\) shows it lies within \(V_{2}(0)\) and is hence bounded. Now consider the sequence \(f_n\) where
+\[f_n(x) = \begin{cases}
+    n & x \leq 1/n \\
+    1 & x > 1/n
+\end{cases}\]
+\((f_n)\) does not converge to a function in \(C[0,1]\); in particular, it converges pointwise to
+\[f(x) = \begin{cases}
+    0 & x = 0 \\
+    1 & x > 0
+\end{cases}\]
+It's clear intuitively that \((f_n)\) cannot have a convergent subsequence. For formality's sake, let \((g_m)\) be some subsequence of \((f_n)\). For any \(m\), let \(g_m\) be the \(a\)'th element of \((f_n)\) (i.e. \(g_m = f_a\), and identify \(g_p = f_b\) where \(b > 2a\). Note that \(g_m(1/(2a)) = 1/2\) and \(g_p(1/(2a)) = 1\), hence \(d(g_m, g_p) > 1/2\). Since \(m\) was arbitrary, \((g_m)\) cannot be a Cauchy sequence and thus cannot be convergent.
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show that $E$ is closed if and only if $\closure{E}=E$. Show that $E$ is open if and only if $E^{\circ}=E$.
+  \item Show that $\closure{E}^{c}=\left(E^{c}\right)^{\circ}$, and similarly that $\left(E^{\circ}\right)^{c}=\closure{E^{c}}$.
+  }
+\end{exercise}
+\begin{solution}
+The proof is identical to that for Exercise 3.2.14, which is the same question in the context of \(\mathbf{R}\) but whose solution does not use any features unique to \(\mathbf{R}\).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show
+\[\closure{V_\epsilon(x)} \subseteq \{y \in X : d(x,y) \leq \epsilon\},\]
+in an arbitrary metric space \((X, d)\).
+\item To keep things from sounding too familiar, find an example of a specific metric space where
+\[\closure{V_\epsilon(x)} \neq \{y \in X : d(x,y) \leq \epsilon\}.\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Let \(y\) be a limit point of \(V_\epsilon(x)\). For all \(a > 0\), we have some \(z \in V_\epsilon(x)\) where \(d(z, y) < a\), and thus
+\[d(x, y) \leq d(x, z) + d(z, y) < \epsilon + a\]
+which implies \(d(x, y) \leq \epsilon \) and hence
+\[\closure{V_\epsilon(x)} \subseteq \{y \in X : d(x,y) \leq \epsilon\}\]
+
+\item Consider the metric space \((\mathbf{R}, \rho)\) where \(\rho\) is the discrete metric, and consider \(V_1(0) = \{0\}\). \(\closure{V_1(0)} = \{0\}\) but \(\{y \in \mathbf{R} : \rho(x,y) \leq 1\} = \mathbf{R}\).
 }
 \end{solution}
