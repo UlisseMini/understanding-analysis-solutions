@@ -219,3 +219,12 @@ Note that \((\epsilon_n) \to 0\), and that \(\sum^\infty_{i=n} \epsilon_i < 2\ep
 Theorem 3.2.5 is still true for arbitrary metric spaces, and the proof can be reused (replacing the absolute value function with a general distance metric). Let \(N \in \mathbf{N}\) be arbitrary. Noting that for \(n \geq N + 1\), \(x_n \in V_{\epsilon_{N+1}}(x_{N+1})\), we have \(x \in \closure{V_{\epsilon_{N+1}}} \subseteq V_{\epsilon_N}\). Hence, \(x \in O_n\) for any \(n \in \mathbf{N}\).
 }
 \end{solution}
+
+\begin{exercise}
+Complete the proof of the theorem.
+\end{exercise}
+\begin{solution}
+Let \((X,d)\) be a complete metric space. Let \((C_n)\) be a countable collection of nowhere-dense sets. Note that
+since \(C_n\) is nowhere-dense, \(\closure{C_n}^c = (C_n^c)^o\) is dense and open.
+\[\left(\bigcup^\infty_{i=1} C_n\right)^c = \bigcap^\infty_{i=1} C_n^c \supseteq \bigcap^\infty_{i=1} (C_n^c)^o \neq \emptyset \implies X \neq \bigcup^\infty_{i=1} C_n \]
+\end{solution}
