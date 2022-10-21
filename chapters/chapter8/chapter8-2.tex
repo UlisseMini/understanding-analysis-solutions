@@ -228,3 +228,40 @@ Let \((X,d)\) be a complete metric space. Let \((C_n)\) be a countable collectio
 since \(C_n\) is nowhere-dense, \(\closure{C_n}^c = (C_n^c)^o\) is dense and open.
 \[\left(\bigcup^\infty_{i=1} C_n\right)^c = \bigcap^\infty_{i=1} C_n^c \supseteq \bigcap^\infty_{i=1} (C_n^c)^o \neq \emptyset \implies X \neq \bigcup^\infty_{i=1} C_n \]
 \end{solution}
+
+\begin{exercise}
+Show that if \(f \in C[0,1]\) is differentiable at a point \(x \in [0,1]\), then \(f \in A_{m,n}\) for some pair \(m, n \in \mathbf{N}\).
+\end{exercise}
+\begin{solution}
+Let \(f\) be differentiable at \(x\), and let \(\epsilon = 1\). Then there exists \(\delta > 0\) such that \(|x - t| < \delta\),
+\[ \abs{\frac{f(x) - f(t)}{x - t}} - \abs{f'(x)} \leq  \abs{\frac{f(x) - f(t)}{x - t} - f'(x)} < \epsilon = 1\]
+So, for \(m > 1/\delta\) and \(n > f'(x) + 1\), \(f \in A_{m,n}\).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item The sequence \((x_k)\) does not necessarily converge, but explain why there exists a subsequence \((x_{k_l})\) that is convergent. Let \(x = \lim(x_{k_l})\).
+\item Prove that \(f_{k_l}(x_{k_l}) \to f(x)\).
+\item Now finish the proof that \(A_{m,n}\) is closed.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item The sequence \((x_k)\) is in \(\mathbf{R}\) and is bounded, so by the Bolzano-Weierstrauss Theorem it contains a convergent subsequence.
+\item Let \(\epsilon > 0\) be arbitrary. \(f\) is continuous and \((x_{k_l}) \to x\), so for some \(K\), for \(k_l > K_1\), \(\abs{f(x_{k_l}) - f(x)} < \epsilon / 2\). We also have \((f_k)\) uniformly converging to \(f\), so for some \(K_2\) and \(k_l > K_2\), \(\abs{f(x_{k_l}) - f_{k_l}(x_{k_l})} < \epsilon/2\). Thus if \(k_l > \max\{K_1,K_2\}\) then \(\abs{f(x) - f_{k_l}(x_{k_l})} < \epsilon\).
+\item For conciseness, I'll abuse notation a bit and redefine \((x_k)\) to be the convergent subsequence \((x_{k_l})\) in part (a) and (b). Let \(y \in V_{1/m}(x)\). Let \(\epsilon > 0\) be arbitrary. Choose a \(x_k\) ``close'' to \(x\) (we'll specify exactly how close in a moment). We have
+\[\abs{f(y) - f(x)} \leq \abs{f(x) - f(x_k)} + \abs{f(x_k) - f_k(x_k)} + \abs{f_k(x_k) - f_k(y)} + \abs{f_k(y) - f(y)}\]
+The first term on the right can be made small by continuity on \(f\); for an arbitrary \(\epsilon_1\) we can choose \(x_k \in V_{\delta_1}(x)\) to ensure \(|f(x) - f(x_k)| < \epsilon_1\). The second and fourth terms can be made small because of uniform convergence of \((f_k)\); we can identify \(\delta_2\) so that \(x_k \in V_{\delta_2}(x)\) implies \(\abs{f_k - f} < \epsilon_2\) for arbitrary \(\epsilon_2 > 0\). For the third term, first note that if \(\delta_3 < 1/m - \abs{y-x}\), then \(y \in V_{\delta_3}(x_k)\). Now since \(f_k \in A_{m,n}\),
+\[\abs{f_k(x_k) -f_k(y)} \leq n \abs{y - x_k} \leq n \abs{y-x} + n \abs{x - x_k}\]
+
+Putting it all together and rearranging, we have
+\[\abs{\frac{f(y) - f(x)}{y-x}} \leq n + \frac{\epsilon_1 + 2\epsilon_2 + n \abs{x - x_k}}{\abs{y-x}} \]
+If we set \(\epsilon_1 = \epsilon_2 = \epsilon / |y-x|\), define
+\[\delta_4 = \frac{\abs{y-x}}{n}\]
+and \(\delta = \min\{\delta_1, \delta_2, \delta_3, \delta_4 \}\), and we find \(x_k\) so that \(x_k \in V_\delta(x)\), then we'll have
+\[\abs{\frac{f(y) - f(x)}{y-x}} \leq n + \epsilon\]
+for arbitrary \(\epsilon > 0\), implying
+\[\abs{\frac{f(y) - f(x)}{y-x}} \leq n \]
+and that \(f \in A_{m,n}\)  and \(A_{m,n}\) is closed.
+}
+\end{solution}
