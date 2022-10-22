@@ -108,16 +108,15 @@
   \item If $b > 1$ then $b^{1/n}$ is decreasing, and bounded $b^{1/n} > 1 \iff b > 1^n$ (raise both to $n$)
   \item If $b < 1$ then $b^{1/n}$ is increasing, and bounded $b^{1/n} < 1 \iff b < 1^n$ (raise both to $n$)
   }
-  therefore $b^{1/n}$ converges for each $b \ge 0$ by the monotone convergence theorem. to find the limit equate terms
+  therefore $b^{1/n}$ converges for each $b \ge 0$ by the monotone convergence theorem. To find the limit, $\lim b^{1/n}=c$, consider the subsequence:
   $$
-  \begin{aligned}
-  b^{1/{(n+1)}}
-  = b^{1/n}
-  &\implies b = b^{\frac{n+1}{n}} = b^{1 + 1/n} &&\text{Raise both to $(n+1)$th power} \\
-  &\implies 1 = b^{1/n}                         &&\text{Divide by $b$, this assumes $b \ne 0$}
-  \end{aligned}
+  b^{\frac{1}{2n}} = \sqrt{b^{1/n}}
   $$
-  Thus $\lim b^{1/n} = 1$ if $b \ne 0$, if $b = 0$ then $\lim b^{1/n} = 0$.
+  From Exercise 2.3.1 we know that $\lim\sqrt{b^{1/n}}=\sqrt{c}$ and since subsequences of a convergent sequence converge to the same limit:
+  $$
+  c=\sqrt{c}
+  $$
+  For the case $b > 1$ (and therefore $b^{1/n}>1$) the only possible limit is $c=1$. For $b<1$ the increasing sequence is bounded by $b^{1/n}\ge b$, excluding the other solution ($c=0$) for all values of b except for $b=0$, whose limit can be determined directly as $\lim 0^{1/n}=\lim 0=0$.
 \end{solution}
 
 \begin{exercise}
