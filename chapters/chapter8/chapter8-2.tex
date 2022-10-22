@@ -265,3 +265,27 @@ for arbitrary \(\epsilon > 0\), implying
 and that \(f \in A_{m,n}\)  and \(A_{m,n}\) is closed.
 }
 \end{solution}
+
+\begin{exercise}
+A continuous function is called \emph{polygonal} if its graph consists of a finite number of line segments.
+\enum{
+\item Show that there exists a polygonal function \(p \in C[0,1]\) satisfying \(\|f-p\|_\infty < \epsilon / 2\).
+\item Show that if \(h\) is any function in \(C[0,1]\) that is bounded by \(1\), then the function
+\[g(x) = p(x) + \frac{\epsilon}{2} h(x)\]
+satisfies \(g \in V_\epsilon(f)\).
+\item Construct a polygonal function \(h(x)\) in \(C[0,1]\) that is bounded by 1 and leads to the conclusion \(g \notin A_{m,n}\), where \(g\) is defined as in (b). Explain how this completes the argument for Theorem 8.2.12.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is Theorem 6.7.3, proved as exercise 6.7.2.
+\item Let \(q(x) = \epsilon h(x) /2\).
+\[\|f - g\|_\infty \leq \|f - p\|_\infty + \|p - (p + q)\|_\infty < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
+\item Let \(M\) be a bound on \(\abs{p'}\) (for where \(p'\) is defined); i.e.\ a bound on the maximum slope of \(p\). Then let \(h\) zig-zag between \(\pm 1\) with slope greater than \(2(M + n) / \epsilon\). More formally, let \(K > 2(M + n) / \epsilon\), define \(i(x) = xK / 2\) , and set
+\[h = \begin{cases}
+    2 \left(i(x) - \lfloor i(x)\rfloor\right) - 1 & \lfloor i(x) \rfloor \text{ even} \\
+    1 - 2 \left(i(x) - \lfloor(i(x)\rfloor)\right) & \lfloor i(x) \rfloor \text{ odd}
+\end{cases}\]
+(\(\lfloor y \rfloor\) denotes the floor function, the largest integer \(z\) with \(z \leq y\).) It's clear that \(g\) is a polygonal function with each line segment has slope greater than \(n\), although proving this formally requires some case work which is not a good use of our time. Thus, \(g \notin A_{m,n}\) regardless of \(m\).
+}
+\end{solution}
