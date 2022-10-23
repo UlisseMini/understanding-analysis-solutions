@@ -37,7 +37,8 @@ for all \(n \geq 2\).
 \enum{
 \item Apply integration-by-parts with \(h = \sin^{n-1}(x)\) and \(k = -\cos(x)\):
 \[ \begin{aligned}
-    \int^\frac{\pi}{2}_0 \sin^{n-1}(x) \sin(x) &= \left(\sin^{n-1}\frac{\pi}{2}\right)\left(-\cos \frac{\pi}{2}\right) - \left(\sin^{n-1} 0\right)\left(\cos 0\right) + \int^\frac{\pi}{2}_0 (n-1)\sin^{n-2}(x)\cos^2(x) \\
+    \int^\frac{\pi}{2}_0 \sin^{n-1}(x) \sin(x) &= \left(\sin^{n-1}\frac{\pi}{2}\right)\left(-\cos \frac{\pi}{2}\right) - \left(\sin^{n-1} 0\right)\left(\cos 0\right) \\
+        &+ \int^\frac{\pi}{2}_0 (n-1)\sin^{n-2}(x)\cos^2(x) \\
     b_n &=(n-1)\int^\frac{\pi}{2}_0 \sin^{n-2}(x) \left(1 - \sin^2(x)\right) = (n-1) b_{n-2} - (n-1)b_n \\
     n b_n &= (n-1) b_{n-2} \\
     b_n &= \frac{n-1}{n}b_{n-2}
@@ -46,4 +47,36 @@ for all \(n \geq 2\).
 \item For \(n \geq 1\),
 \[b_{2n} = \frac{\pi}{2}\prod^n_{i=1} \frac{2i - 1}{2i} \text{ and } b_{2n+1} = \prod^n_{i=1} \frac{2i}{2i + 1}\]
 }
+\end{solution}
+
+\begin{exercise}
+Show
+\[\lim_{n \to \infty} \frac{b_{2n}}{b_{2n+1}} = 1,\]
+and use this fact to finish Wallis's product formula in (3).
+\end{exercise}
+\begin{solution}
+    Equivalently, we wish to evaluate
+\[\lim_{n \to \infty} \frac{b_n}{b_{n+1}} = \lim_{n \to \infty} \frac{\int^{\pi/2}_0 \sin^{n+1} (t) dt}{\int^{\pi/2}_0 \sin^n (t) dt}\]
+Note that since \(b_n > b_{n+1}\), \(\frac{b_n}{b_{n+1}} \geq 1\).
+We prove the following lemma: for \(\frac{\pi}{2} > b > a > 0\),
+\[\lim_{n \to \infty} \frac{\int^{\pi/2}_b \sin^n x}{\int^a_0 \sin^n x} = \infty\]
+
+To see this, let \(y_n\) be the value in the limit. Note that \(\int^{\pi/2}_b \sin^{n+1}x \geq \sin b \int^{\pi/2}_b \sin^n x\) and similarly \(\int_0^a \sin^{n+1}x \leq \sin a \int_0^a \sin^n x\), and note
+\[\frac{y_{n+1}}{y_n} = \left(\frac{\int^{\pi/2}_b \sin^{n+1} x}{\int^{\pi/2}_b \sin^{n} x}\right) \left(\frac{\int_0^a \sin^{n} x}{\int_0^a \sin^{n+1} x}\right) \geq \frac{\sin b}{\sin a}> 1\]
+In other words, \((y_n)\) grows at least exponentially, and therefore must not be bounded.
+
+We now show that for arbitrary \(\epsilon > 0\), we can find \(N\) large enough so that for \(n \geq N\),
+\[\int^\frac{\pi}{2}_0 \sin^{n+1} x \geq (1-\epsilon) \int_0^\frac{\pi}{2} \sin^n x\]
+Note that, for any \(a \in (0, \pi / 2)\),
+\[\int^\frac{\pi}{2}_0 \sin^{n+1} x = \int_0^a \sin^{n+1} x + \int_a^\frac{\pi}{2} \sin^{n+1} x \geq \sin a \int_a^\frac{\pi}{2} \sin^n x\]
+and for any \(b \in (a, \pi/2)\),
+\[\int_0^\frac{\pi}{2} \sin^n x = \int_0^a \sin^n x + \int_a^b \sin^n x + \int_b^\frac{\pi}{2}\sin^n x\]
+Find \(a \in (0, \pi/2)\) so that \(\sin a > \sqrt{1-\epsilon}\), and fix \(b = \left(a + \frac{\pi}{2}\right)/2\). From our earlier lemma, we can find \(N\) large enough that \(n > N\) ensures
+\[\int_0^a \sin^n x < \epsilon_1 \int_b^\frac{\pi}{2}\sin^n x\]
+where we'll choose \(\epsilon_1\) to satisfy \(\frac{1}{1 + \epsilon_1} = \sqrt{1 - \epsilon}\). This ensures that
+\[\int^\frac{\pi}{2}_a \sin^n x > \sqrt{1-\epsilon} \int_0^\frac{\pi}{2} \sin^n x\]
+and
+\[\int^\frac{\pi}{2}_0 \sin^{n+1} x \geq (1-\epsilon) \int_0^\frac{\pi}{2} \sin^n x.\]
+We can convert this to indicate that for large enough \(n\), \(b_n / b_{n+1} \leq 1 + \epsilon\), which together with our earlier observation that \(b_n > b_{n+1}\) lets us conclude
+\[\lim_{n \to \infty} \frac{b_n}{b_{n+1}} = 1\]
 \end{solution}
