@@ -144,3 +144,62 @@ Armed with this, we can show inductively that, for any \(N \in \mathbf{N}\),
 }
 \end{solution}
 
+\begin{exercise}
+\enum{
+\item Make a rough sketch of \(1 / \sqrt{1-x}\) and \(S_2(x)\) over the interval \(-1, 1\), and compute \(E_2(x)\) for \(x = 1/2, 3/4\), and \(8/9\).
+\item For a general \(x\) satisfying \(-1 < x < 1\), show
+\[E_2(x) = \frac{15}{16}\int_0^x \left(\frac{x-t}{1-t}\right)^2 \frac{1}{(1-t)^{3/2}}dt\]
+\item Explain why the inequality
+\[\abs{\frac{x-t}{1-t}} \leq \abs{x}\]
+is valid, and use this to find an overestimate for \(\abs{E_2(x)}\) that no longer involves an integral. Note that this estimate will necessarily depend on \(x\). Confirm that things are going well by checking that this overestimate is infact larger than \(\abs{E_2(x)}\) at the three computed values from part \((a)\).
+\item Finally, show \(E_N(x) \to 0\) as \(N \to \infty\) for an arbitrary \(x \in (-1,1)\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \[S_2(x) = 1 + \frac{1}{2}x + \frac{3}{8}x^2\]
+A plot is best made using your favourite graphing calculator.
+\[
+\begin{array}{|c|c|c|c|}
+    \hline
+    x & 1/2 & 3/4 & 8/9 \\ \hline
+    1/\sqrt{1-x} & 1.414 & 2 & 3\\ \hline
+    S_2(x) & 1.344 & 1.586 & 1.741 \\ \hline
+    E_2(x) & 0.070 & 0.414& 1.259\\ \hline
+\end{array}
+\]
+\item From Theorem 8.3.1,
+\[E_2(x) = \frac{1}{2} \int_0^x f^{(3)}(t) (x-t)^2 = \frac{1}{2}\int_0^x \frac{15}{8} \frac{(x-t)^2}{(1-t)^{7/2}}  = \frac{15}{16}\int_0^x \left(\frac{x-t}{1-t}\right)^2 \frac{1}{(1-t)^{3/2}} \]
+\item We have that \(|t| \leq |x| < 1\) and \(t\) having the same sign as \(x\), so
+\[\abs{\frac{x-t}{1-t}} \leq \abs{x} \Longleftrightarrow \abs{x-t} \leq \abs{x(1-t)}\]
+For \(x \geq t > 0\),
+\[\abs{x-t} \leq \abs{x(1-t)} \Longleftrightarrow x -t \leq x - xt \Longleftrightarrow t \geq xt\]
+which is true since \(x < 1\). Similarly for \(x \leq t < 0\),
+\[\abs{x-t} \leq \abs{x(1-t)} \Longleftrightarrow t- x \leq xt - x\Longleftrightarrow t \leq xt\]
+again true since \(xt \geq 0 \geq t\). So
+\[\abs{E_2(x)} \leq \frac{15}{16} \abs{\int_0^x \abs{x}^2 \frac{1}{(1-t)^{3/2}}dt} = \frac{15x^2}{16} \int_0^x (1-t)^{-3/2} dt = \frac{15x^2}{8}\abs{1 - \frac{1}{\sqrt{1-x}}}\]
+\[
+\begin{array}{|c|c|c|c|}
+    \hline
+    x & 1/2 & 3/4 & 8/9 \\ \hline
+    E_2(x) & 0.070 & 0.414& 1.259\\ \hline
+    \text{Overestimate} & 1.406 & 15.820 & 118.519 \\ \hline
+\end{array}
+\]
+
+\item Recall that
+\[f^{(n)}(x) = \left(\prod^n_{i=1} \frac{2i-1}{2(1-x)}\right) \sqrt{\frac{1}{1-x}}\]
+so
+\[
+    \begin{aligned}
+        \abs{E_N(x)} &= \frac{1}{N!}\abs{\int_0^x \left(\prod^{N+1}_{i=1} \frac{2i-1}{2(1-x)}\right) \frac{1}{(1-t)^{1/2}} dt }\\
+        &= \frac{1}{N!} \abs{ \int_0^x \left(\prod^N_{i=1} \frac{(2i-1)(x-t)}{2 (i-t)}\right)\frac{2N+1}{2(1-t)^{3/2}}dt } \\
+        &= \frac{2N+1}{2} \abs{\int_0^x \left(\prod^N_{i=1} \frac{2i-1}{2i}\right) \left(\frac{x-t}{1-t}\right)^N (1-t)^{3/2}dt }\\
+        &\leq \abs{x}^N \left(\frac{2N+1}{2}\right) \abs{\int^x_0(1-t)^{-3/2} dt }\\
+        &= \abs{x}^N (2N+1) \abs{1 - \frac{1}{\sqrt{1-x}}}
+    \end{aligned}
+\]
+For a fixed \(x\), with \(|x| < 1\), as \(N\) increases \(|x|^N\) will go to 0 exponentially, faster than \(2N+1\) increases, and therefore \(\lim_{n \to \infty} E_N(x) = 0\) for \(x \in (-1,1)\).
+}
+\end{solution}
+

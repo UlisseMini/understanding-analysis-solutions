@@ -218,7 +218,7 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
 \begin{solution}
 \enum{
     \item We have
-    \[f^{(n)}(x) = \frac{\prod^n_{i=1} (2i-1)}{2^n}\left(\frac{1}{1-x}\right)^N \sqrt{\frac{1}{1-x}}\]
+    \[f^{(n)}(x) = \frac{\prod^n_{i=1} (2i-1)}{2^n}\left(\frac{1}{1-x}\right)^n \sqrt{\frac{1}{1-x}}\]
     The Taylor series is \[\sum^N_{n=0} \frac{\prod^n_{i=1} (2i - 1)}{2^n n!} x^n = \sum^N_{n=0} \left(\frac{x^n}{2^n} \prod^n_{i=1} \frac{2i-1}{i}\right) \leq \sum^N_{n=0} \left(\frac{x^n}{2^n} \prod^n_{i=1}2\right) = \sum^N_{n=0}x^n\]
     so we know that the Taylor series at least converges to something for \(x \in [0, 1)\).
 
