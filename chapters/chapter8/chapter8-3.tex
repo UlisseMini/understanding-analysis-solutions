@@ -104,6 +104,43 @@ Show that \(1 / \sqrt{1-x}\) has Taylor expansion \(\sum^\infty_{n=0} c_n x^n\),
 for \(n \geq 1\).
 \end{exercise}
 \begin{solution}
-We computed in Exercise 6.6.10 (a) that
+\(c_0 = 1 / \sqrt{1-0} = 1\), and we computed in Exercise 6.6.10 (a) that
 \[c_n = \frac{\prod^n_{i=1} (2i - 1)}{2^n n!} = \frac{(2n-1)!}{\left(2^n n!\right)\left( 2^{n-1} (n-1)!\right)} =\frac{(2n)!}{2^{2n} (n!)^2} \]
 \end{solution}
+
+\begin{exercise}
+Show that \(\lim c_n = 0\) but \(\sum^\infty_{n=0} c_n \) diverges.
+\end{exercise}
+\begin{solution}
+We showed in Exercise 2.7.10 (b) that \(\lim c_n = 0\).  We can show that \(\sum_{n=0}^\infty c_n\) diverges by comparison against the harmonic series \((h_n)\), which we modify for convenience to define \(h_n = 1 / (n+1)\). We have \(c_0 \geq h_0\), and note that
+\[c_n / c_{n-1} = \frac{2n-1}{2n} \geq \frac{n}{n+1} = \frac{h_n}{h_{n-1}}\]
+for \(n \geq 1\), so by induction \(c_n \geq h_n\).
+\end{solution}
+
+\begin{exercise}
+Using the expression for \(E_N(x)\) from Lagrange's Remainder Theorem, show that equation (4) is valid for all \(|x| < 1/2\). What goes wrong when we try to use this method to prove (4) for \(x \in (1/2,1)\)?
+\end{exercise}
+\begin{solution}
+See Exercise 6.6.10 (a).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show \[f(x) = f(0) +\int_0^x f'(t) dt\ .\]
+\item Now use a previous result from this section to show \[f(x) = f(0) + f'(0)x + \int_0^x f''(t)(x-t)dt \ .\]
+\item Continue in this fashion to complete the proof of the theorem.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is a simple application of the Fundamental Theorem of Calculus.
+\item Use Exercise 8.3.2 (integration by parts), with \(h(t) = f'(t)\) and \(k(t) = t-x\):
+\[\int_0^x f'(t)dt = f'(x)\cdot 0 - f'(0) \cdot (-x) - \int_0^x f''(t) (t-x) dt = f'(0)x + \int_0^x f''(t)(x-t)dt\]
+\item In general, with \(h = f^{(n+1)}\) and \(k(t) = -\frac{(x-t)^{n+1}}{n+1}\),
+\[\int_0^x f^{(n+1)}(t)(x-t)^n = f^{(n+1)}(x) \cdot 0 + f^{(n+1)}(0) \cdot \left(\frac{x^{n+1}}{n+1}\right) + \frac{1}{n+1}\int_0^x f^{(n+2)}(t)(x-t)^{n+1} dt\]
+\[\frac{1}{n!} \int_0^x f^{(n+1)}(t) (x-t)^n = \frac{f^{(n+1)}}{(n+1)!}x^{n+1} + \frac{1}{(n+1)!} \int_0^x f^{(n+2)}(t) (x-t)^{n+1} dt\]
+Armed with this, we can show inductively that, for any \(N \in \mathbf{N}\),
+\[f(x) = \frac{1}{N!}\int_0^x f^{(N+1)}(t) (x-t)^{N} dt + \sum^N_{i=0} \frac{f^{(i)}(x)}{i!}x^i = E_N(x) + S_N(x)\]
+}
+\end{solution}
+

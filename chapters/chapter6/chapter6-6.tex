@@ -232,6 +232,12 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
      \]
      where \(d = 1/(2-2c) < 1\); this shows \(E_N\) converges to 0 over \([0, 1/2]\).
 
+    Writing \(E_N\) in product notation,
+    \[E_N(x) = \prod^{N+1}_{i=1} \frac{(2i - 1)x}{2i (1-c)}\]
+    If \(x > 1/2\), then it's possible for \(\frac{x}{1-c} > 1\). Then for some \(I\), for \(i > I\) we have
+\[\frac{x}{1-c} > \frac{2i}{2i - 1} > 1\]
+and beyond that point, the terms in the product begin increasing, with the product as a whole growing exponentially and diverging.
+
      \item Plugging in Cauchy's Remainder Theorem,
      \[ \begin{aligned}
         E_N(x) &= \left( \prod^N_{i=1}\frac{2i-1}{i} \right) \frac{(2N + 1) (x-c)^N x}{2^N (1-c)^{N+1}} \sqrt{\frac{1}{1-c}} \\
