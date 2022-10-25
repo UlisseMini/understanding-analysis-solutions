@@ -203,3 +203,55 @@ For a fixed \(x\), with \(|x| < 1\), as \(N\) increases \(|x|^N\) will go to 0 e
 }
 \end{solution}
 
+\begin{exercise}
+Assuming that the derivative of \(\arcsin(x)\) is indeed \(1 / \sqrt{1-x^2}\), supply the justification that allows us to conclude
+\[\arcsin(x) = \sum^\infty_{n=0} \frac{c_n}{2n+1} x^{2n+1} \text{ for all } |x| < 1\]
+\end{exercise}
+\begin{solution}
+Term-by-term antidifferentiation is a valid operation with the expected results, as proven in Exercise 6.5.4.
+\end{solution}
+
+\begin{exercise}
+   Our work thus far shows that the Taylor series in (5) is valid for all \(\abs{x} < 1\), but note that \(\arcsin(x)\) is continuous for all  \(\abs{x} \leq 1\). Carefully explain why the series in (5) converges uniformly to \(\arcsin (x)\) on the closed interval \([-1,1]\).
+\end{exercise}
+\begin{solution}
+If we can show that the power series converges absolutely for \(x = 1\), then by Theorem 6.5.2 the series uniformly converges over \([-1, 1]\), and is therefore continuous. Taking limits on both sides approaching \(\pm 1\) would lead us to conclude that the equality is valid for \(|x| \leq 1\). We now show that \(\sum \frac{c_n}{2n+1}\) converges absolutely.
+
+By the Cauchy Condensation Test (Theorem 2.4.6), this series converges if
+\[\sum^\infty_{n=0} 2^n \frac{c_{2^n}}{2 \cdot 2^n+1} = \sum^\infty_{n=0}\frac{2^n}{2 \cdot 2^n + 1} c_{2^n} \leq \frac{1}{2} \sum^\infty_{n=0} c_{2^n} \]
+converges. We now show that \(\sum^\infty_{n=0} c_{2^n}\) converges by comparison against a geometric series.
+
+Let \(m = 2^n\); we have
+\[\frac{c_{2m}}{c_m}= \frac{(4m)! (m!)^2}{\left((2m)!\right)^3 2^{2m}} = \left(\prod^{m}_{i=1} \frac{2m+i}{m+i} \right) \left( \prod^{m}_{i=1} \frac{3m+i}{m+i} \right) \left(\frac{1}{4}\right)^m \leq \left(\frac{3}{2} \cdot \frac{4}{2} \cdot \frac{1}{4}\right)^m = \left(\frac{3}{4} \right)^m\]
+which is less than \(7/8 < 1\) for all \(n > N\). This can readily be used to show convergence by comparison against \(K\sum^\infty_{n=0} (7/8)^n\) with \(K\) some constant.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show
+\[\int_0^{\pi/2} \theta d\theta = \sum^\infty_{n=0} \frac{c_n}{2n + 1} b_{2n+1},\]
+being careful to justify each step in the argument. The term \(b_{2n+1}\) refers back to our earlier work on Wallis's product.
+\item Deduce
+\[\frac{\pi^2}{8} = \sum^\infty_{n=0} \frac{1}{(2n+1)^2},\]
+and use this to finish the proof that \(\pi^2 / 6 = \sum^\infty_{n=1} 1/n^2\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item From the substitution of \(x = \sin(\theta)\)  in (5), integrate both sides:
+\[\int_0^{\pi/2} \theta d\theta = \int_0^{\pi/2}  \left( \lim_{N \to \infty}\sum^N_{n=0} \frac{c_n}{2n + 1}\sin^{2n+1} \theta \right) d\theta\]
+Since the series converges uniformly, by the Integrable Limit Theorem (Theorem 7.4.4) we can move the integral inside of the limit, and since integrals preserve addition, we can move the integral inside of the summation as well:
+\[\int_0^{\pi/2} \theta d\theta = \lim_{N \to \infty}  \sum^N_{n=0}\left(  \frac{c_n}{2n + 1} \int_0^{\pi/2}\sin^{2n+1} \theta d\theta \right) = \sum^\infty_{n=0} \frac{c_n}{2n+1}b_{2n+1} \]
+\item The left side evaluates to \(\pi^2/8\). Recall
+\[b_{2n+1} = \prod^n_{i=1} \frac{2i}{2i+1} \text{ and } c_n = \prod^n_{i=1} \frac{2i-1}{2i}\]
+so
+\[\frac{c_n}{2n+1} b_{2n+1} = \frac{1}{2n+1} \prod^n_{i=1} \frac{2i-1}{2i+1}\]
+The product telescopes and is equal to \(1/(2n+1)\), so
+\[\frac{\pi^2}{8} = \sum^\infty_{n=0} \frac{1}{(2n+1)^2}\]
+Note that \(\sum^\infty_{n=1} 1/n^2\) and \(\sum^\infty_{n=0}1 / (2n+1)^2\) both converge absolutely, so we're free to reorder terms as necessary. Let \(a = \sum^\infty_{n=1} 1/n^2\), and note that
+
+We have
+\[\sum^\infty_{n=1} \frac{1}{n^2} = \sum^\infty_{n=1} \frac{1}{(2n-1)^2} + \sum^\infty_{n=1} \frac{1}{(2n)^2} = \sum^\infty_{n=0} \frac{1}{(2n+1)^2} + \frac{1}{4}\sum^\infty_{n=1} \frac{1}{n^2}\]
+A little algebra on this result shows \(\pi^2 / 6 = \sum^\infty_{n=1} 1/n^2\).
+}
+\end{solution}
