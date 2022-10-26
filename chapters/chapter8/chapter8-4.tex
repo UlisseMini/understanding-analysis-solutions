@@ -7,14 +7,14 @@ For \(n \in N\), let
 \item Now prove \(n\# = \frac{1}{2}n (n+1)\) for all \(n \in \mathbf{N}\), and revisit part (a).
 }
 \end{exercise}
-\begin{exercise}
+\begin{solution}
 \enum{
 \item Noting that \(N\# = (N-1)\# + N\) and \(1\# = 1\), we could have \(0\# = 0\), \(-1\# = 0\), and \(-2\# = 1\). \(7/2\#\) could just be defined to be the result from linearly interpolating between \(3\# = 6\) and \(4\# = 10\) to get \(8\).
 \item This is obviously true for \(n = 1\), and
 \[(n+1)\# = n+1+n\# = n+1 + \frac{1}{2}n(n+1) = (n+1)\left(1 + \frac{n}{2}\right) = (n+1)\left(\frac{n+2}{2}\right)\]
 which proves the formula by induction.
 }
-\end{exercise}
+\end{solution}
 \begin{exercise}
 Verify that the series converges absolutely for all \(x \in \mathbf{R}\), that \(E(x)\) is differentiable on \(\mathbf{R}\), and \(E'(x) = E(x)\).
 \end{exercise}
@@ -47,3 +47,31 @@ Term-by-term differentiation is safe to apply on power series which converge (Th
 \item For \(E(0)\), all terms for \(n \geq 1\) become 0, so \(E(0) = 1\). We showed somewhat informally in Exercise 6.6.5(c) that \(E(-x) E(x) = 1\) by collecting common terms. However, Exercise 2.8.7 lets us conclude that \(E(-x)E(x)\) does in fact equal \(\sum^\infty_{n=0} d_n\) where \(d_n\) is defined as in Exercise 6.6.5(c). Finally, it's clear that \(E(x) > 0\)  for \(x \geq 0\) simply because all terms are positive; then \(E(-x) = 1/E(x) > 0\) and so \(E(x) > 0\) for \(x < 0\) as well.
 }
 \end{solution}
+
+\begin{exercise}
+Define \(e = E(1)\). Show \(E(n) = e^n\) and \(E(m/n) = \left(\sqrt[n]{e}\right)^m\) for all \(m,n \in \mathbf{Z}\).
+\end{exercise}
+\begin{solution}
+We have for \(n \geq 1\) that
+\[E(n) = E\left(\sum^n_{i=1} 1\right) = \prod^n_{i=1} E(1) = e^n \]
+We also have for \(n=0\), \(E(0) = 1 = e^0\), by the standard definition of \(a^n\) for any \(a \in \mathbf{R}\). Finally for \(n > 0\), \(e^{-n} = 1/e^n = 1/E(n) = E(-n)\), so \(e^n = E(n)\) for all \(n \in \mathbf{Z}\).
+
+By definition \(\sqrt[n]{e}\) is the unique positive number which satisfies \((\sqrt[n]{e})^n = e\). \(E(1/n)\) satisfies this equality, since
+\[E(1) = E\left(\sum^n_{i=1} \frac{1}{n}\right)= \prod^n_{i=1} E(1/n) \]
+so \(\sqrt[n]{e} = E(1/n)\). Finally
+\[E(m/n) = E\left(\sum^m_{i=1} \frac{1}{n}\right) = prod^m_{i=1}E(1/n) = \left(\sqrt[n]{e}\right)^m\]
+\end{solution}
+
+\begin{exercise}
+Show \(\lim_{x \to \infty} x^n e^{-x} = 0\) for all \(n = 0,1, 2, \dots\).
+\end{exercise}
+\begin{solution}
+Note that for a fixed \(n\), \(\forall K\in \mathbf{R}\),we can find \(N > 0\) so that whenever \(x \geq N\), \(e^x x^{-n} > K\). We do this by noting
+\[\frac{E(x)}{x^n} > \frac{x^{n+1}}{(n+1)! x^n} = \frac{x}{(n+1)!}\]
+and setting \(N = K(n+1)! \).
+
+Now, let \(\epsilon > 0\), and find \(M\) so that \(x \geq M\) implies \(e^x x^{-n} > 1/\epsilon\). Then
+\[x^n e^{-x} = \frac{1}{x^{-n}e^x} < \epsilon\]
+as desired.
+\end{solution}
+
