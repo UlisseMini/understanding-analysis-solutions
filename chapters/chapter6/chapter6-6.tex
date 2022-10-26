@@ -101,7 +101,7 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   \item $f(x) = e^{x} = \sum_{n=0}^\infty x^n/n!$ from $f^{(n)}(0) = 1$
   \item Differentiating the series is valid by Theorem 6.5.7
     $$f'(x) = \sum_{n=1}^\infty \frac{nx^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \sum_{n=0}^\infty \frac{x^n}{n!}$$
-  \item Let \(a_n = (-1)^n/n!\), \(b_n = 1/n!\), and \(d_n = \sum^{n}_{k=0} a_k b_{n-k}\); the informal power series representation of \(e^x \cdot e^{-x}\) becomes \(\sum^\infty_{n=0} d_n x^n\). By plugging in \(0\) we have \(d_0 = 0\). For \(n > 0\), note that
+  \item Let \(a_n = (-1)^n/n!\), \(b_n = 1/n!\), and \(d_n = \sum^{n}_{k=0} a_k b_{n-k}\); the informal power series representation of \(e^x \cdot e^{-x}\) becomes \(\sum^\infty_{n=0} d_n x^n\). By plugging in \(n=0\) we have \(d_0 = 1\). For \(n > 0\), note that
 
   \[(n!)d_n = \sum^n_{k=0}\frac{n!}{k! (n-k)!} (-1)^k = \sum^n_{k=0} {n \choose k} (-1)^k = \sum^n_{k=0,\ k \text{ even}} {n \choose k} - \sum^n_{k=0,\ k \text{ odd}} {n \choose k} \]
   The first term is the total number of ways to choose an even number of elements from a set of size \(n\), while the second term is the number of ways to choose an odd number of elements. For \(n\) odd, these two terms must be equal, since for every unique subset with an even number of elements, we get a unique subset with an odd number of elements by taking the set complement. Hence for \(n\) odd we must have \(d_n = 0\).
@@ -112,7 +112,7 @@ which converges to 0 as \(N \to \infty\). Hence the Taylor series is equal to \(
   \[{N \choose \text{even}} = {A \choose \text{even}}{B \choose \text{even}} + {A \choose \text{odd}}{B \choose \text{odd}} = {A \choose \text{even}} + {A \choose \text{odd}} = {N \choose \text{odd}}\]
   and we once again have \(d_n = 0\). (Incidentally, this trick does not work for \(n = 0\) since it relies on being able to remove an element from \(N\) to form \(A\).)
 
-  Putting everything together we have \(e^x \cdot e^{-x} = 1\) as expected.
+  Putting everything together we have \(e^x \cdot e^{-x} = d_0 = 1\) as expected.
   }
 \end{solution}
 

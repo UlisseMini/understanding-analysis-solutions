@@ -1,1 +1,49 @@
 \section{Inventing the Factorial Function}
+\begin{exercise}
+For \(n \in N\), let
+\[N\# = n + (n-1) + (n-1) + \cdots + 2 + 1\]
+\enum{
+\item Without looking ahead, decide if there is a natural way to define \(0\#\). How about \((-2)\#\)? Conjecture a reasonable value for \(\frac{7}{2}\#\).
+\item Now prove \(n\# = \frac{1}{2}n (n+1)\) for all \(n \in \mathbf{N}\), and revisit part (a).
+}
+\end{exercise}
+\begin{exercise}
+\enum{
+\item Noting that \(N\# = (N-1)\# + N\) and \(1\# = 1\), we could have \(0\# = 0\), \(-1\# = 0\), and \(-2\# = 1\). \(7/2\#\) could just be defined to be the result from linearly interpolating between \(3\# = 6\) and \(4\# = 10\) to get \(8\).
+\item This is obviously true for \(n = 1\), and
+\[(n+1)\# = n+1+n\# = n+1 + \frac{1}{2}n(n+1) = (n+1)\left(1 + \frac{n}{2}\right) = (n+1)\left(\frac{n+2}{2}\right)\]
+which proves the formula by induction.
+}
+\end{exercise}
+\begin{exercise}
+Verify that the series converges absolutely for all \(x \in \mathbf{R}\), that \(E(x)\) is differentiable on \(\mathbf{R}\), and \(E'(x) = E(x)\).
+\end{exercise}
+\begin{solution}
+Note that
+\[\sum^\infty_{n=0} \abs{\frac{x^n}{n!}} = E(\abs{x})\]
+so we only need to show the series converges for \(x \geq 0\).
+
+Fix \(x \geq 0\) and let \(N > x\) for \(N \in \mathbf{N}\). We have
+\[E(x) = \sum^{2N}_{n=0} \frac{x^n}{n!} + \sum_{n=2N+1}^\infty \frac{x^n}{n!} \leq K + \sum_{n=2N+1}^\infty \frac{N^n}{N!(N+1)^n} = K + \frac{1}{N!}\sum_{n=2N+1}^\infty \left(\frac{N}{N+1}\right)^n\]
+for some finite constant \(K\). The infinite series left over is a geometric series which converges.
+
+Term-by-term differentiation is safe to apply on power series which converge (Theorem 6.5.6), and it's clear that \(E'(x) = E(x)\) when applying termwise differentiation.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Use the results of Exercise 2.8.7 and the binomial formula to show that \(E(x+y) = E(x)E(y)\) for all \(x,y\in \mathbf{R}\).
+\item Show that \(E(0) = 1\) , \(E(-x) = 1/E(x)\), and \(E(x) > 0\) for all \(x \in \mathbf{R}\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item
+\[\begin{aligned}
+    E(x+y) &= \sum^\infty_{n=0} \frac{(x+y)^n}{n!} = \sum^\infty_{n=0} \frac{1}{n!} \sum^n_{i=0} \frac{n!}{i!(n-i)!} x^i y^{n-i} = \sum^\infty_{n=0} \sum^n_{i=0} \left(\frac{x^i}{i!}\right) \left(\frac{y^{n-i}}{(n-i)!}\right) \\
+    &= \sum^\infty_{i=0} \sum^\infty_{j=0} \left(\frac{x^i}{i!}\right) \left(\frac{y^j}{j!}\right) = \left(\sum^\infty_{i=0} \frac{x^i}{i!}\right)\left(\sum^\infty_{i=0} \frac{y^i}{i!}\right) = E(x) E(y)
+\end{aligned}
+    \]
+\item For \(E(0)\), all terms for \(n \geq 1\) become 0, so \(E(0) = 1\). We showed somewhat informally in Exercise 6.6.5(c) that \(E(-x) E(x) = 1\) by collecting common terms. However, Exercise 2.8.7 lets us conclude that \(E(-x)E(x)\) does in fact equal \(\sum^\infty_{n=0} d_n\) where \(d_n\) is defined as in Exercise 6.6.5(c). Finally, it's clear that \(E(x) > 0\)  for \(x \geq 0\) simply because all terms are positive; then \(E(-x) = 1/E(x) > 0\) and so \(E(x) > 0\) for \(x < 0\) as well.
+}
+\end{solution}
