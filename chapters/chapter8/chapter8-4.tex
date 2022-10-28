@@ -59,7 +59,7 @@ We also have for \(n=0\), \(E(0) = 1 = e^0\), by the standard definition of \(a^
 By definition \(\sqrt[n]{e}\) is the unique positive number which satisfies \((\sqrt[n]{e})^n = e\). \(E(1/n)\) satisfies this equality, since
 \[E(1) = E\left(\sum^n_{i=1} \frac{1}{n}\right)= \prod^n_{i=1} E(1/n) \]
 so \(\sqrt[n]{e} = E(1/n)\). Finally
-\[E(m/n) = E\left(\sum^m_{i=1} \frac{1}{n}\right) = prod^m_{i=1}E(1/n) = \left(\sqrt[n]{e}\right)^m\]
+\[E(m/n) = E\left(\sum^m_{i=1} \frac{1}{n}\right) = \prod^m_{i=1}E(1/n) = \left(\sqrt[n]{e}\right)^m\]
 \end{solution}
 
 \begin{exercise}
@@ -75,3 +75,103 @@ Now, let \(\epsilon > 0\), and find \(M\) so that \(x \geq M\) implies \(e^x x^{
 as desired.
 \end{solution}
 
+\begin{exercise}
+\enum{
+\item Explain why we know \(e^x\) has an inverse function---let's call it \(\log x\)---defined on the strictly positive real numbers and satisfying
+\enumr{
+    \item \(\log(e^y) = y\) for all \(y \in \mathbf{R}\) and
+    \item \(e^{\log x} = x\), for all \(x > 0\).
+}
+\item Prove \((\log x)' = 1/x.\) (See Exercise 5.2.12.)
+\item Fix \(y > 0\) and differentiate \(\log(xy)\) with respect to \(x\). Conclude that
+\[\log (xy) = \log x + \log y \text{\quad for all } x,y > 0.\]
+\item For \(t > 0\) and \(n \in \mathbf{N}\), \(t^n\) has the usual interpretation as \(t \cdot t \cdots t\) (n times). Show that
+\[t^n = e^{n \log t} \text{\quad for all } n \in \mathbf{N}\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Let \(y > x\), and let \(z = y-x > 0\). Noting that \(e^z > 1\) (as can be easily verified by looking at the definition of \(E\)), \(e^y = e^x e^z > e^x\) and therefore \(e^x\) is strictly increasing; therefore \(e^x\) does have an inverse function. In Exercise 8.4.5 we showed that \(e^x\) can achieve any value in \((0, \infty)\); hence \(\log x\) is defined for \(x > 0\). \(\log(e^y) = y\) and \(e^{\log x} = x\) stem from the definition of an inverse function.
+\item For convenience of notation let \(f(x) = e^x\) and \(g(x) = f^{-1}(x) = \log x\). We have, from Exercise 5.2.12,
+\[(\log x)' = g'(x) = \frac{1}{f'(g(x)} = \frac{1}{f(g(x)} = \frac{1}{e^{\log x}} = \frac{1}{x}\]
+\item
+\[(\log (xy))' = \frac{y}{xy} = \frac{1}{x} = (\log x)'\]
+and therefore \(\log (xy) = \log x + C \) for some constant \(C\). Now
+\[xy = e^{\log(xy)} = e^{\log x} e^C = x e^C \]
+and therefore \(y = e^C\) and \(C = \log y\).
+\item Combine \(t = e^{\log t}\) and \(\prod^n_{i=1} e^a = e^{na}\)
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show \(t^{m/n}\) = \((\sqrt[n]{t})^m\) for all \(m, n \in \mathbf{N}\).
+\item Show \(\log(t^x) = x \log t\), for all \(t > 0\) and \(x \in \mathbf{R}\).
+\item Show \(t^x\) is differentiable on \(\mathbf{R}\) and find the derivative.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item The properties of \(e^x\) proved in Exercise 8.4.3 are trivially shown to be true of \(t^x\) as well. Then the same strategy as Exercise 8.4.4 can be taken, replacing \(e^x\) with \(t^x\).
+\item Noting that \(t^x > 0\), take \(\log\) of both sides of the definition of \(t^x\).
+\item
+\[(t^x)' = \left(e^{x \log t}\right)' = \left(e^{x \log t}\right) \log t = t^x \log t\]
+}
+\end{solution}
+
+\begin{exercise}
+    Inspired by the fact that \(0! = 1\) and \(1! = 1\), let \(h(x)\) satisfy
+\enumr{
+\item \(h(x) = 1\) \quad for all \(0 \leq x \leq 1\), and
+\item \(h(x) = x h(x-1) \) \quad for all \(x \in \mathbf{R}\).
+}
+\enum{
+    \item Find a formula for \(h(x)\) on \([1,2]\), \([2,3]\), and \([n, n+1]\) for arbitrary \(n \in \mathbf{N}\).
+    \item Now do the same for \([-1, 0]\), \([-2, -1]\), and \([-n, -n+1]\).
+    \item Sketch \(h\) over the domain \([-4, 4]\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Over \([1,2]\), \(h(x) = x h(x-1) = x\). Over \([2,3]\), \(h(x) = x h(x-1) = x(x-1)\). Over \([n, n+1]\), \(h(x) = \prod^{n-1}_{i=0} x-i\), which can readily be proven with induction.
+\item Over \([-1, 0]\), \((x+1) h(x) = h(x+1) = 1 \implies h(x) = \frac{1}{x + 1}\). Over \([-2, 1]\), \((x+1) h(x) = h(x+1) = \frac{1}{(x+1)} \implies h(x) = \frac{1}{(x+1)^2}\). Over \([-n, -n+1]\), \(h(x) = (x+1)^{-n}\).
+\item This is an exercise best left for your favourite graphing utility.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that the improper integral \(\int_a^\infty f\) converges if and only if, for all \(\epsilon > 0\) there exists \(M > a\) such that whenever \(d > c \geq M\) it follows that
+\[\abs{\int_c^d f} < \epsilon.\]
+(In one direction it will be useful to consider the sequence \(a_n =  \int_a^{a+n} f\).)
+\item Show that if \(0 \leq f \leq g\) and \(\int_a^\infty g\) converges then \(\int_a^\infty f\) converges.
+\item Part (a) is a Cauchy criterion, and part (b) is a comparison test. State and prove an absolute convergence test for improper integrals.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item
+In the forward direction, assume that \(\lim_{b \to \infty}\int_a^b f\) exists. Note that for any \(c\),
+\[\int_c^\infty f = \lim_{b \to \infty} \int_a^c f + \int_c^b f - \int_a^c f = \int_c^a f + \int_a^\infty f \]
+Now, choose \(M\) large enough to ensure that for \(m \geq M\),
+\[\abs{\int_a^\infty f - \int_a^m f} = \abs{\int_m^\infty f} < \frac{\epsilon}{2}\]
+Now if \(d > c \geq M\),
+\[\abs{\int_c^d f} = \abs{\int_c^\infty f - \int_d^\infty f} \leq \abs{\int_c^\infty f} + \abs{\int_d^\infty f} < 2 \frac{\epsilon}{2} = \epsilon\]
+
+In the reverse direction, define \(M_n\) large enough so that \(d > c \geq M_n\) implies \(\abs{\int_c^d f} < 1/n \) and satisfying \(M_n > a + n\). Define the sequence \(x_n = \int_a^{M_n} f\), and note that \((x_n)\) is a Cauchy sequence and converges to some limit \(x\). Thus for any \(\epsilon > 0\), we can find \(N_1\) so that for \(n > N_1\),
+\[\abs{x - \int_a^{M_n} f} < \frac{\epsilon}{2}\]
+and set \(N > \max\{2/\epsilon, N_1 \}\) so that for \(b > c =M_{N} \),
+\[\abs{\int_{M_N}^b f} = \abs{\int_a^b f - \int_a^{M_N} f} < \frac{\epsilon}{2}\]
+and so \(b > M_N\) implies
+\[\abs{\int_a^b - x} \leq \abs{x - \int_a^{M_N} f} + \abs{\int_a^{M_N} f - \int_a^b f} < \epsilon\]
+showing that \(\int_a^\infty f = x\).
+\item For any \(\epsilon > 0\), from part (a) and since \(\int_a^\infty g\) converges, \(\exists M\) so that for \(d > c \geq M\),
+\[\epsilon > \abs{\int_c^d g} = \int_c^d g \geq \int_c^d f = \abs{\int_c^d f}\]
+implying \(\int_a^\infty f\) converges, where we have taken advantage of the fact that \(\int_c^d f \geq 0\) and \(\int_c^d g \geq 0\).
+
+\item The test is that if \(\int_a^\infty |f|\) converges, then so does \(\int_a^\infty f\). To prove this, we use the same strategy as part (b): for any \(\epsilon > 0\), \(\exists M\) so that for \(d > c \geq M\),
+\[\epsilon > \abs{\int_c^d \abs{f}} = \int_c^d \abs{f} \geq \abs{\int_c^d f}\]
+implying \(\int_a^\infty f\) converges.
+
+}
+\end{solution}
