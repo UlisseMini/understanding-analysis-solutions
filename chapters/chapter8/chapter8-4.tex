@@ -175,3 +175,67 @@ implying \(\int_a^\infty f\) converges.
 
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Use the properties of \(e^t\) previously discussed to show
+\[\int_0^\infty e^{-t} dt = 1.\]
+\item Show
+\[\frac{1}{\alpha} = \int_0^\infty e^{-\alpha t} dt, \text{\quad for all } \alpha > 0.\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item The antiderivative of \(e^{-t}\) is \(-e^{-t}\), so
+\[\lim_{b \to \infty} \int_0^b e^{-t} dt = \lim_{b \to \infty} = \lim_{b \to \infty} -e^{-b} + e^0 = 1\]
+\item The antiderivative of \(e^{-\alpha t}\) is \(-e^{-\alpha t} / \alpha\), so
+\[\lim_{b \to \infty} \int_0^b e^{-\alpha t} dt  = \lim_{b \to \infty} \frac{1}{\alpha }\left(1 -e^{-\alpha b}\right) = \frac{1}{\alpha}\]
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Evaluate \(\int_0^b t e^{-\alpha t}\) using the integration-by-parts formula from Exercise 7.5.6. The result will be an expression in \(\alpha\) and \(b\).
+\item Now compute \(\int_0^\infty t e^{-\alpha t} dt \) and verify equation (4).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item
+\[\int_0^b te^{-\alpha t} dt = -\frac{b e^{-\alpha b}}{\alpha} + \frac{1}{\alpha} \int_0^b e^{-\alpha t} =-\frac{b e^{-\alpha b}}{\alpha} + \frac{1}{\alpha^2} (1 - e^{-\alpha b})\]
+\item \(\lim_{b \to \infty} -\frac{b e^{-\alpha b}}{\alpha} + \frac{1}{\alpha^2} (1 - e^{-\alpha b}) = \frac{1}{\alpha^2}\)
+}
+\end{solution}
+
+\begin{exercise}
+Assume the function \(f(x,t)\) is continuous on the rectangle \(D = \{(x,t):a \leq x \leq b,c \leq t \leq d\}\). Explain why the function
+\[F(x) = \int_c^d f(x,t) dt\]
+is properly defined for all \(x \in [a,b]\).
+\end{exercise}
+\begin{solution}
+For a fixed \(x\), \(f(x,t)\) is continuous with respect to \(t\). To see this, we need to show \(\forall t_0 \in [c,d],\epsilon > 0\), we can find \(\delta\) so that \(\abs{t - t_0} < \delta \) implies \(\abs{f(x,t) - f(x, t_0)} < \epsilon\). But since
+\[\abs{t - t_0} = \|(x,t) - (x, t_0) \|\]
+we can just use the continuity of \(f\) over \(D\) to conclude \(f(x,t)\) is continuous with respect to \(t\), and therefore \(\int_c^d f(x,t) dt\) is properly defined.
+\end{solution}
+
+\begin{exercise}
+Prove Theorem 8.4.5.
+\end{exercise}
+\begin{solution}
+Since \(f(x,t)\) is uniformly continuous, for any \(\epsilon > 0\), we can find \(\delta\) so that \(\abs{f(x,t) - f(x_0, t)} < \frac{\epsilon}{d-c}\) whenever \(\|(x,t) - (x_0, t) \| = \abs{x - x_0} < \delta\). Then when \(\abs{x - x_0} < \delta\),
+\[\abs{F(x) - F(x_0)} \leq \int_c^d \abs{f(x, t) - f(x_0, t)} dt < \int_c^d \frac{\epsilon}{d-c} dt = \epsilon \]
+showing \(F(x)\) is continuous.
+\end{solution}
+
+\begin{exercise}
+Finish the proof of Theorem 8.4.6.
+\end{exercise}
+\begin{solution}
+    Note that
+    \[\frac{F(z) - F(x)}{z-x} = \int_c^d \frac{f(z,t) - f(x,t)}{z-x} dt\]
+so choosing \(\delta\) so that \(0 < |z-x| < \delta\) implies
+\[\abs{f_x(x,t) - \frac{f(z,t) - f(x,t)}{z-x}} < \frac{\epsilon}{d-c}\]
+we have
+\[\abs{\frac{F(z) - F(x)}{z-x} - \int_c^d f_x(x,t)dt} = \abs{\int_c^d \frac{f(z,t) - f(x,t)}{z-x} - f_x(x,t)} < \int_c^d \abs{\frac{\epsilon}{d-c}} = \epsilon\]
+as desired.
+\end{solution}
