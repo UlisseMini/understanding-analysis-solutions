@@ -282,3 +282,36 @@ Let \(F_n(x) = \int_c^{c+n} f(x,t)dt\) and note that \(F_n(x)\) is continuous. S
 Let \(g_n(x) = \int_c^{c+n} f(x,t) dt\). From Theorem 8.4.6, \(g_n'(x) = \int_c^d f_x(x,t) dt\). We have \((g_n(x)) \to F(x)\) pointwise, and \((g_n')\) converges uniformly to \(\int_c^\infty f_x(x,t) dt\). Therefore by the Differentiable Limit Theorem (Theorem 6.3.1),
 \[F'(x) = \int_c^\infty f_x(x,t) dt\]
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Although we verified it directly, show how to use the theorems in this section to give a second justification for the formula
+\[\frac{1}{\alpha^2} = \int_0^\infty te^{-\alpha t} dt, \text{\quad for all } \alpha > 0.\]
+\item Now derive the formula
+\[\frac{n!}{\alpha^{n+1}} = \int_0^\infty t^n e^{-\alpha t} dt, \text{\quad for all }\alpha > 0.\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item We would like to use Theorem 8.4.9, with \(f(\alpha, t) = e^{-\alpha t}\) and \(F(\alpha) = \int_0^\infty f(\alpha, t) dt\). We already have that \(F(\alpha) = 1/\alpha\) exists for \(\alpha > 0\). So, we need to show that \(f(\alpha, t)\) and \(f_\alpha(\alpha, t) = -te^{\alpha t}\) are continuous and that \(\int_0^\infty f_\alpha(\alpha, t) dt\) converges uniformly.
+
+Let's first show that \(e^{-\alpha t}\) is continuous.
+For any fixed \(\alpha_0\) and \(t_0\), we want \(\forall \epsilon > 0\), that whenever \(\|(\alpha ,t) - (\alpha_0, t_0)\| < \delta > 0\), that
+\[\abs{e^{-\alpha t} - e^{-\alpha_0 t_0}} \leq \abs{e^{\alpha_0 t_0} - e^{\alpha_0 t}} + \abs{e^{\alpha_0 t} - e^{\alpha t}} < \epsilon\]
+Since \(e^{xy}\) is continuous with respect to \(x\) for a fixed \(y\), we  can find \(\delta_t\) and \(\delta_\alpha\) so that if \(\abs{t_0 - t} < \delta_t\) and \(\abs{\alpha_0 - \alpha} < \delta_\alpha\) then
+\[\abs{e^{\alpha_0 t_0} - e^{\alpha_0 t}} < \frac{\epsilon}{2} \text{ and }   \abs{e^{\alpha_0 t} - e^{\alpha t}} < \frac{\epsilon}{2}\]
+We can ensure both of these conditions by setting \(\delta = \min \{\delta_t, \delta_\alpha\}\), thus showing \(f(\alpha, t)\) is continuous.
+
+It's fairly easy to show that if \(g(x)\) is continuous, so is \(g(x,y) = g(x)\). Additionally, a careful re-reading of the proofs for Theorem 4.2.3 (Sequential Criterion for Functional Limits) and Exercise 4.2.1 (Algebraic Limit Theorem for Functional Limits) show that they can be reused for complete metric spaces such as \(\mathbf{R}^2\) with the usual metric. Thus Theorem 4.3.4 (Algebraic Continuity Theorem) can also be generalized to \(\mathbf{R}^2\), and we can conclude for any \(x \in \mathbf{R}\), the function \(g(\alpha, t) = t^x e^{-\alpha t}\) is continuous. Thus, both \(f\) and \(f_\alpha\) are continuous.
+
+Now we need to show \(\int_0^\infty f_\alpha(\alpha, t) dt\) converges uniformly when \(\alpha \geq p > 0\). To make part (b) easier we'll prove the more general statement that \(\int_0^\infty t^x e^{-\alpha t} dt\) converges uniformly, for any \(x \in \mathbf{R}\) with \(x \geq 0\). As a prerequisite, note that if \(\int_a^\infty g(x, y) dy\) converges uniformly, then so does \(\int_b^\infty g(x,y) dy\), provided \(\int_a^b g(x,y) dy\) is well defined.
+
+We can adapt the solution to Exercise 8.4.5 to show that for any \(x \in \mathbf{R}\), \(\alpha > 0\), \(\lim_{t \to \infty} t^x e^{-\alpha t} = 0\). Thus, for any fixed \(x \geq 0\), we can find some \(M\) so that
+\(g(\alpha) = \int_M^\infty t^x e^{-\alpha t} dt\)
+converges uniformly, by Exercise 8.4.16 (variant of the Weierstrauss M-Test) and comparison against \(e^{-\alpha t /2}\). This in turn shows that \(\int_0^\infty t^x e^{-\alpha t} dt\) converges uniformly.
+
+Finally, before applying Theorem 8.4.9 to get our desired result, we need to define the domain \(D\). For a given \(\alpha > 0\), we want \(D\) to contain all points of the form \(\alpha, t\), so define \(D = {(x,t): \alpha / 2 \leq x \leq \alpha + 1, 0 \leq t}\).
+
+\item This is just a repeated application of Theorem 8.4.9 on the formula proved in part (a); the solution to part (a) shows that all of the prerequisites to Theorem 8.4.9 are always met in this process.
+}
+\end{solution}
