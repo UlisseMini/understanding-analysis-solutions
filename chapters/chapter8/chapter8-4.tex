@@ -239,3 +239,46 @@ we have
 \[\abs{\frac{F(z) - F(x)}{z-x} - \int_c^d f_x(x,t)dt} = \abs{\int_c^d \frac{f(z,t) - f(x,t)}{z-x} - f_x(x,t)} < \int_c^d \abs{\frac{\epsilon}{d-c}} = \epsilon\]
 as desired.
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that the improper integral \(\int_0^\infty e^{-xt} dt\) converges uniformly to \(1/x\) on the set \([1/2, \infty)\).
+\item Is the convergence uniform on \(0, \infty\)?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item From our earlier work, we have that
+\[\int_0^\infty e^{-xt} dt - \int_0^d e^{-xt} = \frac{e^{-xd}}{x} \leq 2e^{-d/2}\]
+Notably this is not dependent on \(x\), and since \(\lim_{d \to \infty} 2e^{-d/2} = 0\), we have that \(\int_0^\infty e^{-xt} dt\) converges uniformly.
+\item For any fixed \(d\), \[\lim_{x \to 0^+} \frac{e^{-xd}}{x} = \infty\]
+implying that the convergence cannot be uniform on \((0, \infty)\).
+}
+\end{solution}
+
+\begin{exercise}
+Prove the following analogue of the Weierstrauss M-Test for improper integrals: If \(f(x,t)\) satisfies \(\abs{f(x,t)} \leq g(t)\) for all \(x \in A\) and \(\int_a^\infty g(t) dt\) converges, then \(\int_a^\infty f(x,t) dt\) converges uniformly on \(A\).
+\end{exercise}
+\begin{solution}
+We want, \(\forall \epsilon> 0\), to find \(M > a\) so
+\[\abs{\int_a^\infty f(x,t) dt - \int_a^b f(x,t) dt} <\epsilon\]
+for all \(b > M\). But
+\[\abs{\int_a^\infty f(x,t) dt - \int_a^b f(x,t) dt} = \abs{\int_b^\infty f(x,t) dt} \leq \int_a^\infty  \abs{f(x,t)} dt \leq \int_b^\infty g(t) dt \]
+and since \(\int_a^\infty g(t)\) converges, \(\lim_{b \to \infty} \int_b^\infty g(t) dt  = 0\), which can easily be used to finish the proof.
+\end{solution}
+
+\begin{exercise}
+Prove Theorem 8.4.8.
+\end{exercise}
+\begin{solution}
+Let \(F_n(x) = \int_c^{c+n} f(x,t)dt\) and note that \(F_n(x)\) is continuous. So
+\(F(x) = \lim_{n \to \infty} F_n(x)\) must also be continuous, and since \([a,b]\) is compact \(F(x)\) is also uniformly continuous over \([a,b]\).
+\end{solution}
+
+\begin{exercise}
+    Prove Theorem 8.4.9.
+\end{exercise}
+\begin{solution}
+Let \(g_n(x) = \int_c^{c+n} f(x,t) dt\). From Theorem 8.4.6, \(g_n'(x) = \int_c^d f_x(x,t) dt\). We have \((g_n(x)) \to F(x)\) pointwise, and \((g_n')\) converges uniformly to \(\int_c^\infty f_x(x,t) dt\). Therefore by the Differentiable Limit Theorem (Theorem 6.3.1),
+\[F'(x) = \int_c^\infty f_x(x,t) dt\]
+\end{solution}
