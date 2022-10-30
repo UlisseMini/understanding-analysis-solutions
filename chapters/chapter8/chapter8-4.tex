@@ -297,10 +297,12 @@ Let \(g_n(x) = \int_c^{c+n} f(x,t) dt\). From Theorem 8.4.6, \(g_n'(x) = \int_c^
 
 Let's first show that \(e^{-\alpha t}\) is continuous.
 For any fixed \(\alpha_0\) and \(t_0\), we want \(\forall \epsilon > 0\), that whenever \(\|(\alpha ,t) - (\alpha_0, t_0)\| < \delta > 0\), that
-\[\abs{e^{-\alpha t} - e^{-\alpha_0 t_0}} \leq \abs{e^{\alpha_0 t_0} - e^{\alpha_0 t}} + \abs{e^{\alpha_0 t} - e^{\alpha t}} < \epsilon\]
-Since \(e^{xy}\) is continuous with respect to \(x\) for a fixed \(y\), we  can find \(\delta_t\) and \(\delta_\alpha\) so that if \(\abs{t_0 - t} < \delta_t\) and \(\abs{\alpha_0 - \alpha} < \delta_\alpha\) then
-\[\abs{e^{\alpha_0 t_0} - e^{\alpha_0 t}} < \frac{\epsilon}{2} \text{ and }   \abs{e^{\alpha_0 t} - e^{\alpha t}} < \frac{\epsilon}{2}\]
-We can ensure both of these conditions by setting \(\delta = \min \{\delta_t, \delta_\alpha\}\), thus showing \(f(\alpha, t)\) is continuous.
+\[\abs{e^{-\alpha t} - e^{-\alpha_0 t_0}} < \epsilon\]
+Since \(e^{-x}\) is continuous, we can find \(\delta_1\) so that
+\[\abs{\alpha_0 t_0 - at} < \delta_1 \implies \abs{e^{-\alpha_0 t_0} - e^{-at}} < \epsilon \]
+Now if \(\abs{t_0 - t} < \frac{\delta_1}{2 \abs{\alpha_0}} = \delta_t\), \(\abs{t_0 - t} < 1\), and \(\abs{\alpha_0 - \alpha} < \frac{\delta_1}{2 (\abs{t_0} + 1)} = \delta_\alpha\), then
+\[\abs{\alpha_0 t_0 - \alpha t} \leq \abs{\alpha_0} \abs{t_0 - t} + \abs{t}\abs{\alpha_0 - a} < \delta_1\]
+We can ensure both of these conditions by setting \(\delta = \min \{\delta_t, \delta_\alpha, 1\}\), thus showing \(f(\alpha, t)\) is continuous.
 
 It's fairly easy to show that if \(g(x)\) is continuous, so is \(g(x,y) = g(x)\). Additionally, a careful re-reading of the proofs for Theorem 4.2.3 (Sequential Criterion for Functional Limits) and Exercise 4.2.1 (Algebraic Limit Theorem for Functional Limits) show that they can be reused for complete metric spaces such as \(\mathbf{R}^2\) with the usual metric. Thus Theorem 4.3.4 (Algebraic Continuity Theorem) can also be generalized to \(\mathbf{R}^2\), and we can conclude for any \(x \in \mathbf{R}\), the function \(g(\alpha, t) = t^x e^{-\alpha t}\) is continuous. Thus, both \(f\) and \(f_\alpha\) are continuous.
 
@@ -313,5 +315,41 @@ converges uniformly, by Exercise 8.4.16 (variant of the Weierstrauss M-Test) and
 Finally, before applying Theorem 8.4.9 to get our desired result, we need to define the domain \(D\). For a given \(\alpha > 0\), we want \(D\) to contain all points of the form \(\alpha, t\), so define \(D = {(x,t): \alpha / 2 \leq x \leq \alpha + 1, 0 \leq t}\).
 
 \item This is just a repeated application of Theorem 8.4.9 on the formula proved in part (a); the solution to part (a) shows that all of the prerequisites to Theorem 8.4.9 are always met in this process.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that \(x!\) is an infinitely differentiable function on \((0, \infty)\) and produce a formula for the \(n^{th}\) derivative. In particular show that \((x!)'' > 0\).
+\item Use the integration-by-parts formula employed earlier to show that \(x!\) satisfies the functional equation
+\[(x+1)! = (x+1)x!\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Before continuing, note that \(t^x\) currently isn't defined at \(t=0\); this can easily be solved by defining \(0^x = 0\).
+
+We show that \(x!\) is infinitely differentiable at \(x_0 > 0\) by repeatedly applying Theorem 8.4.9, over the domain \(D = \{(x,t) : x_0 / 2 \leq x \leq x_0 + 1, 0 \leq t\}\). Denote the \(n\)'th derivative of \(t^x e^{-t}\) with respect to \(x\) as \(f_n(x,t) = t^x e^{-t} \log^n t\) (except at \(t = 0\), where \(f(x, t) = 0\)). The work in Exercise 8.4.19 (a) means that to show \(f_n\) is continuous over \(D\), we only need to show that \(t^x\) is continuous.
+% We can use the same technique as was used to show \(g(\alpha, t) = e^{-\alpha t}\) is continuous in Exercise 8.4.19 (a).
+Note that for any fixed \((x_1, t_1) \in D\),
+\[ \abs{t_1^{x_1}- t^x } \leq \abs{t_1^{x_1} - t^{x_1}} + \abs{t^x}\abs{t^{x_1 - x} - 1}\]
+Since \(g(t) = t^{x_1}\) is continuous, we can require \(\abs{t_1 - t} < \delta_t\) to ensure the first term is less than \(\epsilon/2\). Since \(t^x\) is bounded for finite \(t\) and \(x\), let \(M_1\) be an upper bound for \(|t^x|\) over \(V_1(x_1, t_1) \cap D\). Let \(M_2\) be an upper bound for \(|\log t|\) over \(V_{t_1 / 2}(t_1)\).
+
+We can find \(\delta_1\) so that when \(\abs{(x_1 - x) \log t} < \delta_1\),
+\(\abs{e^{(x_1 - x) \log t} - 1} < \frac{\epsilon}{2 M_1}\). Then requriring \(|x_1 - x| < \frac{\delta_1}{M_2} = \delta_x\) guarentees that
+\[\abs{t^x}\abs{t^{x_1 - x} - 1} \leq M_1 \abs{e^{(x_1 - x) \log t} - 1} < \frac{\epsilon}{2}\]
+Putting it all together,
+\[\|(x, t) - (x_0, t_0)\| < \min\left\{\delta_t, \delta_x, 1, \frac{t_1}{2}\right\} \implies \abs{t^x - t_0^{x_0}} < \epsilon \]
+proving \(t^x\) is continuous.
+
+We also need to show that \(\int_0^\infty f_n(x,t) dt\) converges uniformly. Now, since \(x > \log x \geq 0\) for \(x \geq 1\), we can show \(\int_1^\infty f_n(x,t) dt\) converges uniformly by comparison against \(\int_1^\infty t^{x + n} e^{-t} dt\). We also have \(f_n(x,t)\) continuous in \(t\) over \([0, 1]\) so \(\int_0^1 f_n(x,t) dt\) is well defined.
+
+Thus, repeatedly applying Theorem 8.4.9 lets us conclude that
+\[(x!)^{(n)} = \int_0^\infty t^x e^{-t} \left(\log t\right)^n dt\]
+Note that for \((x!)''\), the term under the integral is always positive, so \((x!)'' > 0\).
+
+\item
+\[x! = \int_0^\infty t^x e^{-t} dt = 0^x e^0 - \lim_{t \to \infty} t^x e^{-t} + \int_0^\infty x t^{x-1} e^t dt = x (x-1)! \]
+which is equivalent to saying \((x+1)! = (x+1) x!\).
 }
 \end{solution}
