@@ -353,3 +353,44 @@ Note that for \((x!)''\), the term under the integral is always positive, so \((
 which is equivalent to saying \((x+1)! = (x+1) x!\).
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Use the convexity of \(\log(f(x))\) and the three intervals \([n-1,n]\), \([n, n+x]\), and \([n, n+1]\) to show
+\[x \log(n) \leq \log (f(n+x)) - \log (n!) \leq x \log (n+1)\]
+\item Show \(\log(f(n+x)) = \log (f(x)) + \log((x+1)(x+2) \cdots (x+n))\).
+\item Now establish that
+\[0 \leq \log(f(x)) - \log\left(\frac{n^x n!}{(x+1)(x+2)\cdots(x+n)}\right) \leq x \log (1 + \frac{1}{n})\]
+\item Conclude that
+\[f(x) = \lim_{n \to \infty} \frac{n^x n!}{(x+1)(x+2) \cdots (x+n)}, \text{\quad for all } x \in (0, 1].\]
+\item Finally, show that the conclusion in \(d\) holds for all \(x \geq 0 \).
+}
+\end{exercise}
+
+\begin{solution}
+\enum{
+\item Since the slopes are increasing between these three intervals,
+\[\log(f(n)) - \log(f(n-1)) \leq \frac{\log(f(n+x)) - \log(f(n))}{x} \leq \log(f(n+1)) - \log(f(n)) \]
+\[x \log\left(\frac{f(n)}{f(n-1)}\right) \leq \log(f(n+x)) - \log(n!) \leq x \log\left(\frac{f(n+1)}{f(n)}\right) \]
+\[x \log(n) \leq \log(f(n+x)) - \log(n!) \leq x \log (n+1)\]
+\item By property (ii),
+\[f(n+x) = f(x) \prod^n_{i=1} (x+i) \]
+so
+\[\log(f(n+x)) = \log(f(x)) + \log\left(\prod^n_{i=1}(x+i)\right) \]
+\item Plug (b) into (a):
+\[x \log(n) \leq \log(f(x)) - \left(\log(n!) - \log\left(\prod^n_{i=1}(x+i)\right) \right) \leq x \log (n+1)\]
+\[0 \leq \log(f(x)) - \left(\log(n!) - \log\left(\prod^n_{i=1}(x+i)\right)  + \log\left(n^x\right)\right) \leq x \log (n+1) - x \log(n)\]
+\[0 \leq
+\log(f(x)) - \log\left(\frac{n^x n!}{\prod^n_{i=1}(x+i)}\right)
+\leq x \log \left(\frac{n+1}{n}\right) = x \log \left(n + \frac{1}{n}\right)\]
+}
+
+\item \(\lim_{n \to \infty} \log \left(1 + \frac{1}{n}\right) = 0\) so by the Squeeze Theorem,
+\[\log(f(x)) - \lim_{n \to \infty} \log\left(\frac{n^x n!}{\prod^n_{i=1}(x+i)}\right) =0
+\]
+and since \(\log\) is continuous,
+\[f(x) = \lim_{n \to \infty} \frac{n^x n!}{\prod^n_{i=1}(x+i)}\]
+
+\item We only need to show this equation holds for \(x = 0\). We have \(f(0) = 1\) by property (i), and
+\[\lim_{n \to \infty} \frac{n^0 n!}{\prod^{n}_{i=1} i} = \lim_{n \to \infty} \frac{n!}{n!} = 1 = f(0)\]
+\end{solution}
