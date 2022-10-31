@@ -138,3 +138,38 @@ Explain why \(h\) is uniformly continuous on \(\mathbf{R}\).
 \[\abs{h(x) - h(x_0)} \leq \abs{h(x) - h(k)} + \abs{h(k) - h(x_0)} < \epsilon\]
 showing \(h\) is uniformly continuous on all \(\mathbf{R}\).
 \end{solution}
+
+\begin{exercise}
+Show that \(\abs{\int_a^b h(x) \sin(nx) dx} < \epsilon/n\), and use this fact to complete the proof.
+\end{exercise}
+\begin{solution}
+Slight change to the premise - we'll require that \(\abs{h(x) - h(y)} < \epsilon / (2\pi)\) when \(\abs{x-y} < \delta\).
+
+Define \(\Delta h(x) \) satisfying \(h(x) = h(\frac{a+b}{2}) + \Delta h(x) \) and note that by uniform continuity, \(\abs{\Delta h(x)} < \epsilon / {2\pi}\). Note also that \(\int_a^b \sin(nx) dx= 0\).
+\[
+    \begin{aligned}
+    \abs{\int_a^b h(x) \sin(nx) dx} &= \abs{h\left(\frac{a+b}{2}\right) \int_a^b \sin(nx) dx + \int_a^b \Delta h(x) dx} \leq \int_a^b \abs{\Delta h(x)} dx \\
+    &< \frac{\epsilon}{2\pi} \frac{2\pi}{n} = \epsilon/n
+    \end{aligned}
+\]
+Now, subdivide \([-\pi, \pi]\) into \(n\) subintervals, each of size \(2\pi/n\), and apply the above result to each interval; this shows that \[\abs{\int_{-\pi}^\pi h(x) \sin(nx)} < \epsilon\]. The process can be repeated with \(\cos(nx)\) replacing \(\sin(nx)\) to get \[\abs{\int_{-\pi}^\pi h(x) \cos(nx)} < \epsilon\]
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item First, argue why the integral involving \(q_x(u)\) tends to zero as \(N \to \infty\).
+\item The first integral is a little more subtle because the function \(p_x(u)\) has the \(\sin(u/2)\) term in the denominator. Use the fact that \(f\) is differentiable at \(x\) (and a familiar limit from calculus) to prove that the first integral goes to zero as well.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is a direct result of the Riemann-Lebesgue Lemma (Theorem 8.5.2).
+\item We would like to show that \(p_x(u)\) is continuous, and the only place this is not automatically true is when \(\sin(u/2) = 0\); this only occurs when \(u = 0\). Strictly, \(p_x(u)\) isn't even defined here, but if \(\lim_{u \to 0} p_x(u)\) is well defined, then we can simply define \(p_x(0) = \lim_{u \to 0} p_x(u)\) and be on our merry way. We have
+\[
+\lim_{u \to 0} p_x(u) = \lim_{u \to 0}\frac{f(x + u) - f(x)}{u} \frac{u}{\sin\left(\frac{u}{2}\right)} \cos\left(\frac{u}{2}\right)
+= f'(x) \frac{2}{\cos\left(\frac{u}{2}\right)} \cos\left(\frac{u}{2}\right)
+= 2f'(x)
+\]
+where we have used L'Hospital's rule in the second term. We can now conclude that \(p_x(u)\) is effectively continuous, for the purposes of applying the Riemann-Lebesgue Lemma, and thus the integral goes to zero.
+}
+\end{solution}
