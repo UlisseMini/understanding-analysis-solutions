@@ -62,3 +62,79 @@ and
 \[\intpi \sin(mx) \sin(nx) dx = \frac{n^2}{m^2} \intpi \sin(mx) \sin(nx) = 0\]
 }
 \end{solution}
+
+\begin{exercise}
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+Derive the formulas
+\[a_m = \frac{1}{\pi} \intpi f(x) \cos(mx) dx \text{\quad and \quad} b_m = \frac{1}{\pi}\intpi f(x) \sin(mx) dx\]
+for all \(m \geq 1\).
+\end{exercise}
+
+\begin{solution}
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\[\begin{aligned}
+\intpi f(x) \cos(mx) dx &= \intpi \left[a_0 \cos(mx) + \sum^\infty_{n=1} a_n \cos(nx) \cos(mx)+ b_n \sin(nx)\cos(mx)\right] dx \\
+&=\sum^\infty_{n=1} \intpi \left[a_n \cos(nx) \cos(mx) + b_n \sin(nx) \cos(mx) \right]dx \\
+&= \intpi a_m \cos^2(m x) = a_m \pi
+\end{aligned}\]
+
+\[\begin{aligned}
+\intpi f(x) \sin(mx) dx &= \intpi \left[a_0 \sin(mx) + \sum^\infty_{n=1} a_n \cos(nx) \sin(mx)+ b_n \sin(nx)\sin(mx)\right] dx \\
+&=\sum^\infty_{n=1} \intpi \left[a_n \cos(nx) \sin(mx) + b_n \sin(nx) \sin(mx) \right]dx \\
+&= \intpi b_m \sin^2(m x) = b_m \pi
+\end{aligned}\]
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Referring to the previous example, explain why we can be sure that the convergence of the partial sums to \(f(x)\) is \emph{not} uniform on any interval containing 0.
+\item Repeat the computations of Example 8.5.1 for the function \(g(x) = \abs{x}\) and examine graphs for some partial sums. This time, make use of the fact that \(g\) is even \((g(x) = g(-x))\) to simplify the calculations. By just looking at the coefficients, how do we know this series converges uniformly to something?
+\item Use graphs to collect some empirical evidence regarding the question of term-by-term differentiation in our two examples to this point. Is it possible to conclude convergence or divergence of either differentiated series by looking at the resulting coefficients? Theorem 6.4.3 is about the legitimacy of term-by-term differentiation. Can it be applied to either of these examples?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\item \(f(x)\) is not continuous at 0, and each of the partial sums is continuous. Uniform convergence would imply that the function which the partial sums converge to must be continuous.
+\item
+\[a_0 = \frac{1}{2\pi}\intpi \abs{x} dx = \frac{1}{2\pi} 2\int_0^\pi x dx = \frac{\pi}{2}\]
+For \(n \geq 1\),
+\[
+    \begin{aligned}
+a_n &= \frac{1}{\pi} \intpi \abs{x} \cos(nx) dx = \frac{2}{\pi} \int_0^\pi x \cos (nx) dx \\
+&= \frac{2}{\pi} \left(x \sin (x) \Bigr\rvert_0^\pi - \frac{1}{n} \int_0^\pi \sin (nx) dx\right) = \frac{2}{n^2 \pi} \left( \cos(n\pi) - 1\right) \\
+&= \begin{cases}
+    -\frac{4}{n^2 \pi} & n \text{ odd} \\
+    0 & n \text{ even}
+\end{cases}
+    \end{aligned}
+    \]
+\[
+\begin{aligned}
+b_n &= \frac{1}{\pi} \intpi \abs{x} \sin(nx) dx = \frac{1}{\pi} \left(\int_0^\pi x \sin(nx) dx - \int_{-\pi}^0 -x \sin{nx}\right) \\
+&= \frac{1}{\pi} \left(\int_0^\pi x \sin(nx) dx + \int_{\pi}^0 x \sin(nx)dx\right) = 0
+\end{aligned}
+\]
+We get
+\[g(x) = \frac{-4}{\pi}\sum^\infty_{n=0} \frac{1}{(2n + 1)^2} \cos((2n+1)x)\]
+Noting that the series of non-zero coefficients converges absolutely, we can use the Weierstrauss M-Test with
+\[\sum_{n=0}^\infty \abs{a_n}\]
+to conclude the Fourier series of \(g\) converges uniformly.
+
+\item Taking the termwise derivative of the series representation of \(g(x)\) leaves us with the series representation of \(f(x)\), which is promising since \(g'(x) = f(x)\) where \(g'(x)\) is defined. But  convergence is not immediately clear looking at the coefficients.
+
+Taking the termwise derivative of the series representation of \(f(x)\) leaves us with
+\[\frac{4}{\pi}\sum^\infty_{n=0} \cos((2n+1) x)\]
+which looks like it should diverge, although proving this is difficult. As a specific example, though, at \(x = \pi/3\) the partial sums will cycle between three different values and fail to converge.
+}
+\end{solution}
+
+\begin{exercise}
+Explain why \(h\) is uniformly continuous on \(\mathbf{R}\).
+\end{exercise}
+\begin{solution}
+\(h\) is continuous on the compact set \([-\pi, \pi]\) and therefore uniformly continuous over this set, and thus for any \(\epsilon> 0\) we can find \(\delta\) so that \(\abs{x - x_0} < \delta\) implies \(\abs{h(x) - h(x_0)} < \epsilon / 2\), at least if \(x\) and \(x_0\) are both in \([-\pi, \pi]\) or both in the same ``copy'' of \(h\). If they are not, however, then there must be some \(k = n\pi\), with \(n\) odd, separating them, with \(\abs{x - k} < \delta\) and \(
+    \abs{k - x_0} < \delta\). Then
+\[\abs{h(x) - h(x_0)} \leq \abs{h(x) - h(k)} + \abs{h(k) - h(x_0)} < \epsilon\]
+showing \(h\) is uniformly continuous on all \(\mathbf{R}\).
+\end{solution}
