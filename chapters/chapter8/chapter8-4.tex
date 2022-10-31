@@ -394,3 +394,33 @@ and since \(\log\) is continuous,
 \item We only need to show this equation holds for \(x = 0\). We have \(f(0) = 1\) by property (i), and
 \[\lim_{n \to \infty} \frac{n^0 n!}{\prod^{n}_{i=1} i} = \lim_{n \to \infty} \frac{n!}{n!} = 1 = f(0)\]
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Where does \(g(x) = \frac{x}{x! (-x)!}\) equal zero? What other familiar function has the same set of roots?
+\item The function \(e^{-x^2}\) provides the raw material for the all-important Gaussian bell curve from probability, where it is known that \(\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}\). Use this fact (and some standard integration techniques) to evaluate \((1/2)!\).
+\item Now use (a) and (b) to conjecture a striking relationship between the factorial function and a well-known function from trigonometry.
+}
+\end{exercise}
+\begin{solution}
+\item \(g(x)\) has roots at all integers, as does \(\sin \pi x\).
+\item Apply integration by parts:
+\[\left(\frac{1}{2}\right)! = \int_0^\infty \sqrt(t) e^{-t} dt = \left(-\lim_{t \to \infty} \sqrt{t} e^{-t}\right) - (-\sqrt{0} e^{0}) + \int_0^\infty e^{-t} \frac{1}{2\sqrt{t}} dt = \int_0^\infty e^{-t} \frac{1}{2 \sqrt{t}} dt \]
+Apply change-of-variable formula (Theorem 8.1.10), with \(u = \sqrt{t}\) taking advantage of \(t \geq 0\):
+\[\int_0^\infty e^{-t} \frac{1}{2\sqrt{t}}dt = \int_0^\infty e^{-u^2} du = \frac{1}{2}\int_{-\infty}^\infty e^{-u^2} du = \frac{\sqrt{\pi}}{2}\]
+\item We have \((-1/2)! = 2 (1/2)! = \sqrt{\pi}\), so from part (a) \(g(1/2) = \frac{1}{\pi}\). The conjecture is
+\[\frac{x}{x! (-x)!} = \frac{\sin(\pi x)}{\pi}\]
+\end{solution}
+
+\begin{exercise}
+As a parting shot, use the value for \((1/2)!\) and the Gauss product formula in equation (9) to derive the famous product formula for \(\pi\) discovered by John Wallis in the 1650s:
+\[\frac{\pi}{2} = \lim_{n \to \infty} \left(\frac{2 \cdot 2}{1 \cdot 3}\right) \left(\frac{4 \cdot 4}{3 \cdot 5}\right) \frac{6 \cdot 6 }{5 \cdot 7} \cdots \left(\frac{2n \cdot 2n}{(2n-1)(2n+1)}\right)\]
+\end{exercise}
+\begin{solution}
+\[\frac{\sqrt{\pi}}{2} = \lim_{n \to \infty} \sqrt{n} \prod^n_{i=1} \frac{i}{i + 1/2} = \lim_{n \to \infty} \sqrt{n} \prod^n_{i=1} \frac{2i}{2i + 1}\]
+\[ \begin{aligned}
+    \frac{\pi}{2} &= \lim_{n \to \infty} 2n \left(\prod^n_{i = 1} \frac{2i}{2i + 1}\right)\left(\prod^n_{i = 1} \frac{2i}{2i + 1}\right) = \lim_{n \to \infty} \left(\prod^n_{i = 1} \frac{2i}{2i - 1}\right)\left(\prod^n_{i = 1} \frac{2i}{2i + 1}\right)  \\
+&= \lim_{n \to \infty} \prod^n_{i=1} \frac{(2i)^2}{(2i-1)(2i+1)}
+\end{aligned}
+\]
+\end{solution}
