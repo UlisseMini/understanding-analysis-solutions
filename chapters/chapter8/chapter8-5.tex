@@ -1,1 +1,64 @@
 \section{Fourier Series}
+\begin{exercise}
+\enum{
+\item  Verify that
+\[u(x,t) = b_n \sin(nx) \cos(nt)\]
+satisfies equations (1), (2), and (3) for any choice of \(n \in \mathbf{N}\) and \(b_n \in \mathbf{R}\). What goes wrong if \(n \notin \mathbf{N}\)?
+\item Explain why any finite sum of functions of the form given in part (a) would also satisfy (1), (2), and (3).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item
+\[\frac{\partial^2 u}{\partial x^2} = -b_n n^2 \sin(nx) \cos(nt) = \frac{\partial^2 u}{\partial t^2}\]
+\[u(0, t) = b_n \sin(0) \cos (nt) = 0\]
+\[u(\pi, t) = b_n \sin(n \pi) \cos (nt) = 0\]
+(Note that the above equation is no longer true if \(n \notin \mathbf{N}\).)
+\[\frac{\partial u}{\partial t}(x,0) = -b_n \sin(nx) \sin (0) = 0\]
+\item The differential equation itself and the boundary conditions are linear; that is, if \(u_1\) and \(u_2\) both satisfy equations (1) through (3), then so does \(c_1 u_1 + c_2 u_2\) for any \(c_1, c_2 \in \mathbf{R}\).
+}
+\end{solution}
+
+\begin{exercise}
+Using trigonometric identities when necessary, verify the following integrals.
+\enum{
+\item For all \(n\in \mathbf{N}\),
+\[\int_{-\pi}^\pi \cos(nx) dx = 0 \text{\quad and \quad} \int_{-\pi}^\pi \sin(nx)dx = 0\]
+\item For all \(n\in \mathbf{N}\),
+\[\int_{-\pi}^\pi \cos^2(nx) dx = \pi \text{\quad and \quad} \int_{-\pi}^\pi \sin^2(nx)dx = \pi\]
+\item For all \(m,n \in \mathbf{N}\),
+\[\int_{-\pi}^\pi \cos(mx) \sin (nx) dx = 0\]
+For \(m \neq n\),
+\[\int_{-\pi}^\pi \cos(mx) \cos(nx) dx = 0 \text{\quad and \quad} \int_{-\pi}^{\pi} \sin(mx) \sin(nx) dx = 0\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Setting \(u = nx\),
+\[\int_{-\pi}^\pi \cos(nx) dx = \frac{1}{n} \int_{-n \pi} ^{n\pi} \cos(u) du = \frac{1}{n}\left(\sin(n\pi) - \sin(-n\pi)\right) = 0\]
+\[\int_{-\pi}^\pi \sin(nx) dx = \frac{1}{n} \int_{-n \pi} ^{n\pi} \sin(u) du = \frac{-1}{n}\left(\cos(n\pi) - \cos(-n\pi)\right) = 0\]
+\item Using part (a),
+\[\int_{-\pi}^\pi \cos^2(nx) dx = \frac{1}{2}\int_{-\pi}^\pi 1 + \cos (2nx) dx = \pi\]
+\[2 \pi = \int_{-\pi}^\pi 1 dx = \int_{-\pi}^{\pi} \sin^2(nx) + \cos^2 (nx)dx \implies \int_{-\pi}^\pi \sin^2 (nx) dx = \pi\]
+
+\item  If \(m = n\):
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\[\intpi \cos(nx) \sin(nx) dx = \intpi \sin(2nx) dx = 0\]
+If \(m \neq n\):
+\[\begin{aligned}
+\intpi \cos(nx) \sin(mx) dx &= \frac{\sin(n\pi) \sin(m\pi) - \sin(-n\pi)\sin(-m\pi)}{m} \\
+    &\qquad\qquad - \frac{n}{m}\intpi \cos(nx) \sin(mx) dx \\
+&= - \frac{n}{m}\intpi \cos(nx) \sin(mx) dx \\
+&= -\frac{n}{m} \left( \frac{-\cos(n\pi) \cos(m\pi) + \cos(-n\pi)\cos(-m \pi)}{n}\right) \\
+    &\qquad\qquad + \frac{n^2}{m^2}\intpi \sin(nx) \cos(mx) dx  \\
+&= \frac{n^2}{m^2}\intpi \sin(nx) \cos(mx) dx
+\end{aligned}
+    \]
+Since \(n^2 / m^2 \neq 1\), this implies
+\[\intpi \sin(nx) \cos(mx) dx = 0\]
+A similar process shows
+\[\intpi \cos(mx) \cos(nx) dx = \frac{n^2}{m^2} \intpi \cos(mx) \cos(nx) = 0\]
+and
+\[\intpi \sin(mx) \sin(nx) dx = \frac{n^2}{m^2} \intpi \sin(mx) \sin(nx) = 0\]
+}
+\end{solution}
