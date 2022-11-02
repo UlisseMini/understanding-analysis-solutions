@@ -292,3 +292,24 @@ Now since \(F_N \to 0\) uniformly, we can choose \(N\) large enough so that
 again bringing the integral arbitrarily small.
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Use the fact that the Taylor series for \(\sin(x)\) and \(\cos(x)\) converge uniformly on any compact set to prove WAT under the added assumption that \([a,b]\) is \([0,\pi]\).
+\item Show how the case for an arbitrary interval \([a, b]\) follows from this one.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For any function \(f\), Fejér's Theorem implies we can construct a function of the form
+\[g(x) = k_0 + \sum^{N_1}_{i=1} k_i \sin(c_i x) + \sum^{N}_{i=N_1 + 1} k_i \cos(c_i x)\]
+satisfying \(\abs{g(x) - f(x)} < \epsilon/2\) over \(x \in [0, \pi]\), and uniform convergence of the Taylor series of \(\sin x\) and \(\cos x\) imply we can find a set of polynomials \(P_i\) satisfying
+\[\abs{P_i(x) - k_i \sin(c_i x)} < \frac{\epsilon}{2N}\]
+for \(1 \leq i \leq N_1\) and
+\[\abs{P_i(x) - k_i \cos(c_i x)} < \frac{\epsilon}{2N}\]
+for \(N_1 + 1 \leq i \leq N\)
+Then the polynomial \(P(x) = k_0 + \sum^N_{i=1} P_i(x)\) satisfies
+\[\abs{P(x) - g(x)} < \frac{\epsilon}{2} \text{\quad and \quad} \abs{P(x) - f(x) }< \epsilon\]
+\item For \(x \in [a,b]\), apply the variable substitution \(y = \frac{\pi}{b-a}(x-a) \) and use part (a) on \(y\).
+}
+\end{solution}
