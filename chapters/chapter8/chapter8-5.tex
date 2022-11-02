@@ -243,3 +243,52 @@ Assume that \(\theta \neq 2n\pi\) for integer \(n\); otherwise the right side is
 \end{aligned} \]
 which is the desired identity, except missing a factor of \(1/(N+1)\) on both sides.
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that
+\[\sigma_N(x) = \frac{1}{\pi} \int_{-\pi}^\pi f(u+x) F_N(u) du\]
+\item Graph the function \(F_N(u)\) for several values of \(N\). Where is \(F_N\) large, and where is it close to zero? Compare this function to the Dirichlet kernel \(D_N(u)\). Now, prove that \(F_N \to 0\) uniformly on any set of the form \(\{u : \abs{u} \geq \delta\}\), where \(\delta>0\) is fixed (and \(u\) is restricted to the interval \((-\pi, \pi]\).)
+\item Prove that \(\int_{-\pi}^\pi F_N(u) du = \pi\).
+\item To finish the proof of Fejér's Theorem, first choose a \(\delta > 0\) so that
+\[\abs{u} < \delta \text{\quad implies \quad} \abs{f(x+u) - f(x) } < \epsilon.\]
+Set up a single integral that represents the difference \(\sigma_N(x) - f(x)\) and divide this integral into sets where \(\abs{u} \leq \delta\) and \(\abs{u} \geq \delta\). Explain why it is possible to make each of these integrals sufficiently small, independently of the choice of \(x\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Note that \(D_0(u) = 1/2\). We have
+\[\begin{aligned}
+\sigma_N(x) &= \frac{1}{N+1} \sum_{n=0}^N S_n(x) \\
+&= \frac{1}{N+1} \sum_{n=0}^N \frac{1}{\pi}\int_{-\pi}^\pi f(u+x) D_N(u) du \\
+&= \frac{1}{\pi} \int_{-\pi}^\pi f(u+x) \left(\frac{1}{N+1}\right) \left( \frac{1}{2} + \sum_{n=1}^N D_N(u) \right) du \\
+&= \frac{1}{\pi} \int_{-\pi}^\pi f(u+x) F_N(u) du \\
+\end{aligned}\]
+\item \(F_N(u)\) is large when \(u\) is close to zero, and close to zero everywhere else. In contrast, \(D_N(u)\) continues to oscillate with large amplitude away from \(u=0\). To show \(F_N \to 0\) uniformly when \(\abs{u} \geq \delta\), note that under this condition,
+\[\abs{F_N(u)} = \abs{ \frac{1}{2(N+1)} \left(\frac{\sin \left((N+1) \frac{u}{2}\right)}{\sin \frac{u}{2}}\right) } \leq \abs{ \frac{1}{2(N+1) \sin \frac{\delta}{2}} } \]
+which approaches zero as \(N \to \infty\); hence \(F_N(u) \to 0\) uniformly when \(\abs{u} \geq \delta\).
+\item Recall Fact 3 from earlier stating \(\int_{-\pi}^\pi D_N(\theta) d\theta = \pi\).
+\[\int_{-\pi}^\pi F_N(u) du = \frac{1}{N+1}\int_{-\pi}^\pi \sum_{n=0}^N D_n(u) du = \frac{1}{N+1} (N+1)\pi = \pi\]
+
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\item \[\begin{aligned}
+    \sigma_N(x) - f(x) &= \frac{1}{\pi}\intpi f(u+x) F_N(u) du - \frac{1}{\pi} \intpi f(x) F_N(u) du\\
+&= \frac{1}{\pi}\intpi \left(f(u+x) - f(x)\right) F_N(u) du
+\end{aligned}
+\]
+For the set where \(|u| \leq \delta\),
+\[ \begin{aligned}
+    \abs{\sigma_N(x) - f(x)} \leq \frac{1}{\pi}\intpi \abs{f(u+x) - f(x)} F_N(u) du\leq \frac{\epsilon}{\pi} \intpi F_N(u) = \epsilon
+\end{aligned} \]
+and since \(\epsilon\) is chosen freely, this part of the integral can be made arbitrarily small.
+
+For the set where \(|u| \geq \delta\), let \(M\) be a bound on \(f(x)\). Then
+\[ \begin{aligned}
+    \abs{\sigma_N(x) - f(x)}
+    &\leq \frac{1}{\pi}\intpi \abs{f(u+x) - f(x)} F_N(u) du \leq \frac{2M}{\pi}\intpi F_N(u) du
+\end{aligned} \]
+Now since \(F_N \to 0\) uniformly, we can choose \(N\) large enough so that
+\[\intpi F_N(u) < \frac{\epsilon \pi}{2M}\]
+again bringing the integral arbitrarily small.
+}
+\end{solution}
