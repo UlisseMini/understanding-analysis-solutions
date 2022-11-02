@@ -173,3 +173,73 @@ Now, subdivide \([-\pi, \pi]\) into \(n\) subintervals, each of size \(2\pi/n\),
 where we have used L'Hospital's rule in the second term. We can now conclude that \(p_x(u)\) is effectively continuous, for the purposes of applying the Riemann-Lebesgue Lemma, and thus the integral goes to zero.
 }
 \end{solution}
+
+\begin{exercise}
+Prove that if a sequence of real numbers \((x_n)\) converges, then the arithmetic means
+\[y_n = \frac{x_1 + x_2 + x_3 + \cdots + x_n}{n}\]
+also converges to the same limit. Give an example to show that it is possible for the sequence of means \((y_n)\) to converge even if the original sequence \((x_n)\) does not.
+\end{exercise}
+\begin{solution}
+See Exercise 2.3.11.
+\end{solution}
+
+\begin{exercise}
+Use the previous identity to show that
+\[\frac{1/2 + D_1(\theta) + D_2(\theta) + \cdots + D_N(\theta)}{N+1} = \frac{1}{2(N+1)} \left[\frac{\sin\left((N + 1) \frac{\theta}{2}\right)}{\sin\left(\frac{\theta}{2}\right)}\right]^2\]
+\end{exercise}
+\begin{solution}
+We need one more trigonometric identity, for any \(a, b\):
+\[\begin{aligned}
+    \sin(a+b)\sin(a-b) &= \left(\sin x \cos b + \sin b \cos a\right) \left(\sin a \cos b - \sin b \cos a\right) \\
+    &= \sin^2 a \cos^2 b - \sin^b \cos^a \\
+    &= \sin^2 a \left(1 - \sin^2 b\right) - \sin^2 b \left(1 - \sin^2 a\right) \\
+    &= \sin^2 a - \sin^2 a \sin^2 b - \sin^2 b + \sin^2 a \sin^2 b\\
+    \sin(a+b) \sin(a-b) + \sin^2 b &= \sin^2 a
+\end{aligned}\]
+Assume that \(\theta \neq 2n\pi\) for integer \(n\); otherwise the right side isn't defined. What follows is a lot of algebra:
+\[\begin{aligned}
+\frac{1}{2} + \sum_{i=1}^N D_i(\theta)
+&= \frac{1}{2} + \frac{1}{2 \sin \frac{\theta}{2}} \sum_{i=1}^N \sin \left(i \theta + \frac{\theta}{2}\right) \\
+&= \frac{1}{2} + \frac{1}{2 \sin \frac{\theta}{2}} \sum_{i=1}^N \left(\sin i \theta \cos \frac{\theta}{2} + \sin \frac{\theta}{2}\cos i \theta\right) \\
+&= \frac{1}{2 \sin \frac{\theta}{2}}
+    \left[
+        \left(\cos \frac{\theta}{2}\sum_{i=1}^N \sin i \theta \right)
+        + \left(\sin \frac{\theta}{2} \left( \frac{1}{2} + \sum_{i=1}^N \cos i \theta \right)  \right)
+    \right] + \frac{1}{4} \\
+&= \frac{\cos \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{N \theta}{2} \sin \left((N+1)\frac{\theta}{2}\right)}{\sin \frac{\theta}{2}}
++ \frac{\sin \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{(2N + 1) \theta}{2}}{2 \sin \frac{\theta}{2}}
++ \frac{1}{4} \\
+&=\frac{1}{4}  +  \frac{\cos \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{N \theta}{2} \sin \left((N+1)\frac{\theta}{2}\right)}{\sin \frac{\theta}{2}} \\
+&\quad+ \frac{\sin \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{N\theta}{2} \cos \frac{(N+1)\theta}{2}
+            + \cos \frac{N\theta}{2} \sin \frac{(N+1)\theta}{2}}
+        {2 \sin \frac{\theta}{2}}
+\\
+&=\frac{1}{4} + \frac{1}{4 \sin^2 \frac{\theta}{2}} \left[
+    \sin \frac{N\theta}{2} \left(
+        \sin \frac{(N+1)\theta}{2} \cos \frac{\theta}{2} +
+        \sin \frac{\theta}{2} \cos \frac{(N+1)\theta}{2} \right)
+\right. \\
+&\qquad + \left.
+    \sin \frac{(N+1)\theta}{2} \left(
+        \cos \frac{\theta}{2} \sin \frac{N\theta}{2} +
+        \sin \frac{\theta}{2} \cos \frac{N\theta}{2}
+    \right)
+ \right] \\
+&=\frac{1}{4} + \frac{1}{4 \sin^2 \frac{\theta}{2}} \left(
+\sin \frac{N \theta}{2} \sin \frac{(N+2)\theta}{2} + \sin^2 \frac{(N+1)\theta}{2}
+    \right) \\
+&=\frac{1}{4 \sin^2 \frac{\theta}{2}} \left(
+\sin \frac{N \theta}{2} \sin \frac{(N+2)\theta}{2} + \sin^2 \frac{\theta}{2} + \sin^2 \frac{(N+1)\theta}{2}
+    \right) \\
+&=\frac{1}{4 \sin^2 \frac{\theta}{2}} \left(
+2\sin^2 \frac{(N+1)\theta}{2}
+    \right) \\
+&=\frac{\sin^2 \frac{(N+1)\theta}{2}}{2 \sin^2 \frac{\theta}{2}} \\
+&= \frac{1}{2} \left(\frac{\sin \frac{(N+1)\theta}{2}}{\sin \frac{\theta}{2}}\right)^2
+\end{aligned} \]
+which is the desired identity, except missing a factor of \(1/(N+1)\) on both sides.
+\end{solution}
