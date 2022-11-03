@@ -88,3 +88,36 @@ Now, let \(a = \frac{n}{2q} \in A\) with \(\frac{n+1}{2q} \notin A\). Then \(r =
 completing the proof.
 }
 \end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that \(AB\) is a cut and that property (o5) holds.
+\item Propose a good candidate for the multiplicative identity (1) on \(\mathbf{R}\) and show that this works for all cuts \(A \geq O\).
+\item Show the distributive property (f5) holds for non-negative cuts.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For (c1): \(-1 \in AB\) so \(AB \neq \emptyset\). If \(a' \notin A\) and \(b' \notin B\), then \(a'b' \geq 0\), and for any \(a\in A,\ b \in B\), \(ab < ab' < a'b' \neq ab\) so \(AB \neq \mathbf{Q}\) proving (c1).
+
+For (c2): suppose \(r \in AB\) and let \(q < r\). There are two cases to consider: \(r < 0\) and \(r = ab\). If \(r < 0\), then \(q < r < 0\) must be in \(AB\). If \(r = ab\), let's assume \(q \geq 0\) (the case \(q < 0\) is trivial), implying \(ab > 0\). Then
+\[q = \left(a \frac{q}{ab}\right)(b) = \left(\frac{q}{b}\right)b\]
+where since \(\frac{q}{ab} < 1\) and is defined, \(\frac{q}{b} < a\) and \(\frac{q}{b} \in A\). Hence \(q \in AB\), proving property (c2).
+
+For (c3): suppose \(r \in AB\). If \(r < 0\) then \(r < r/2 < 0\) is also in \(AB\). If \(r = 0\) then that implies \(0 \in A\)  and \(0 \in B\), which means we can find \(a \in A\) and \(b \in B\) where \(a,b > 0\) and so \(r < ab  \in AB\). If \(r > 0\) then \(r = ab\), and we can find \(a < a' \in A\) and \(b < b' \in B\) with \(ab < a'b' \in AB\), proving (c3) in all cases.
+
+For (o5): Note that the definition of \(AB\) is of the form \(K \cup O\) with \(K\) some set, so \(O \subseteq AB\) trivially.
+\item Let the multiplicative identity \(I = {p \in \mathbf{Q} : p < 1}\). \(1/2 \in I\) and \(1/2 \notin O\) so \(I \neq 0\). Let \(A \geq O\) and let \(a \in A\), and let \(a < a' \in A\). Then \(\frac{a}{a'} < 1\) so \(\frac{a}{a'}\in I\), and \(a = \left(\frac{a}{a'}\right) a' \in I\) implying \(A \subseteq IA\).
+
+Now let \(r \in IA\). If \(r < 0\) then since \(A \geq O\), \(r \in A\). If \(r \geq 0\), then we have \(r = ia\) with \(i \in I\) and \(a \in A\), with \(a \geq 0\). Then since \(i < 1\), we have \(ia < a \in A\) and so \(r \in A\). Therefore \(A = IA\).
+
+\item If \(a \in X(Y+Z)\), then either \(a < 0\) or \(a = x(y+z)\), for some \(x \in X\), \(y \in Y\), and \(z \in Z\). If \(a < 0\), since \(XY + XZ \geq O\), we have \(a \in XY + XZ\). If \(a = x(y+z)\), we have \(a = xy + xz \in XY + XZ\), so either way \(X(Y+Z) \subseteq XY + XZ\).
+
+Now suppose \(a \in XY + XZ\). Then \(a = r_1 + r_2\) where \(r_1 \in XY\) and \(r_2 \in XZ\). We have three cases to consider: \(r_1,r_2 \geq 0\), \(r_1,r_2 < 0\), and \(r_1 < 0\) while \(r_2 \geq 0\). (The case of \(r_1 > 0\) and \(r_2 < 0\) is equivalent to the last case, with \(Y\) and \(Z\) flipped, which is an acceptable operation since \(Y+Z = Z+Y\).)
+
+If \(r_1\) and \(r_2\) are both negative, then \(a < 0\) and \(a \in X(Y+Z)\) trivially. If \(r_1 \geq 0\) and \(r_2 \geq 0\), then we have \(a =x_1 y + x_2 z\) where \(x_1, x_2 \in X\), \(y\in Y\), \(z \in Z\), and these four numbers are all non-negative. Let \(x = \max\{x_1, x_2\}\), and note that \(a \leq xy + xz = x(y+z) \in X(Y+Z)\); therefore \(a \in X(Y+Z)\).
+
+If \(r_1 < 0\) while \(r_2 \geq 0\), then \(a = r_1 + xz\) where \(0 \leq x \in X\) and \(0 \leq z \in Z\). If \(x = 0\)  then \(0 > a \in X(Y+Z)\), so let's take \(x > 0\).
+If \(a < 0\) then clearly \(a \in X(Y+Z)\). Otherwise, define \(y = \frac{r_1}{x} < 0 \) and note \(y \in Y\). We have \(a = xy + xz = x(y+z) \geq 0\), so \(y+z \geq 0\) and \(a \in X(Y+Z)\).
+}
+\end{solution}
