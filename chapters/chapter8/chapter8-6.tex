@@ -37,9 +37,54 @@ Using the usual definitions of addition and multiplication, determine which of t
 Show that this defines an ordering on \(\mathbf{R}\) by verifying properties (o1), (o2), and (o3) from Definition 8.6.5.
 \end{exercise}
 \begin{solution}
-To prove property (o1), assume \(A nsubseteq B\). By definition, this means there is some  \(a \in A\) with \(a \notin B\). From Exercise 8.6.2 this means \(\forall b \in B\), \(b < a\). Then by property (c2) \(b \in A\); hence \(B \subseteq A\).
+To prove property (o1), assume \(A \nsubseteq B\). By definition, this means there is some  \(a \in A\) with \(a \notin B\). From Exercise 8.6.2 this means \(\forall b \in B\), \(b < a\). Then by property (c2) \(b \in A\); hence \(B \subseteq A\).
 
 (o2) is a direct result of the definition of set equality, and (o3) is true because of transivity of the set inclusion relationship.
 \end{solution}
 
+\begin{exercise}
+\enum{
+\item Show that (c1) and (c3) also hold for \(A+B\). Conclude that \(A+B\) is a cut.
+\item Check that addition in \(\mathbf{R}\) is commutative (f1) and associative (f2).
+\item Show that property (o4) holds.
+\item Show that the cut
+\[O = \{p \in \mathbf{Q} : p < 0\}\]
+successfully plays the role of the additive identity (f3). (Showing \(A+O = A\) amounts to proving that these two sets are the same. The standard way to prove such a thing is to show two inclusions: \(A + O \subseteq A\) and \(A \subseteq A + O\).)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For (c1), we can find \(a \in A\), \(a' \notin A\), \(b \in B\), and \(b' \notin B\). Then \(a + b \in A + B\) so \(A + B \neq \emptyset\). Also, since \(a < a'\) and \(b < b'\), \(a + b \neq a' + b'\) and therefore \(a' + b' \notin A + B\).
 
+For (c3), let arbitrary \(a + b \in A + B\) with \(a \in A\) and \(b \in B\), and let \(a < a' \in A\) and \(b < b' \in B\). Then \(a + b < a' + b' \in A + B\).
+\item Let arbitrary \(a + b \in A + B\); then \(b + a \in B + A\); hence (f1) holds for addition. Let arbitrary \((a + b) + c \in (A+B)+C \), then \(a + (b+c) \in A + (B+C)\); hence (f2) holds for addition.
+\item Let \(Y \subseteq Z\), and let \(x + y \in X + Y\) with \(x \in X\) and \(y \in Y\). Then \(y \in Z\) so \(x + y \in X + Z\), implying \(X + Y \subseteq X + Z\).
+\item Let \(a + o \in A + O\) where \(a \in A\) and \(o \in O\). Then \(a + o < a\) implying \(a + o \in A\) so \(A + O \subseteq A\). Now let arbitrary \(a \in A\), and find \(a < a' \in A\). Define \(s = a - a' < 0\), so \(s \in O\). Then \(a = a' + s \in A + O\), so \(A \subseteq A + O\).
+}
+\end{solution}
+
+\begin{solution}
+\enum{
+\item Prove that \(-A\) defines a cut.
+\item What goes wrong if we set \(-A = \{r \in \mathbf{Q} : -r \notin A\}\)?
+\item If \(a \in A\) and \(r \in -A\), show \(a + r \in O\). This shoes \(A + (-A) \subseteq O\). Now, finish the proof of property (f4) for addition in Definition 8.6.4.
+}
+\end{solution}
+\begin{solution}
+\enum{
+\item Let \(t \neq A\) and \(r < -t\). Then \(-r > t\) so \(r \in -A\) and \(-A \neq \emptyset\). Let \(a \in A\). Then \(\forall t \neq A\), \(t > a\); therefore \(-a \notin -A\) and \(A \neq \mathbf{Q}\), proving (c1).
+To prove (c2), let arbitrary \(r \in -A\) and let \(q < r\). Then \(-q > -r > t\) for some \(t \notin A\); hence \(q \in -A\).
+To prove (c3), let \(r \in -A\), and let \(t \notin A\) satisfy \(t < -r\). Let \(q = (t - r) / 2\), and note that \(t < q < -r\), so \(-q \in -A\). Moreover \(-q > r\), so (c3) is proved.
+
+\item This would fail on the cut \(A = \{t \in \mathbf{Q} : t < -2\}\), since then \(-A = \{t \in \mathbf{Q} : t \leq 2\}\) which from Exercise 8.6.1 (b) is not a cut.
+\item Since \(-r \in -A\), then we have some \(t \notin A\) where \(-r > t > a\). Then \(0 > a + r\) implying \(a + r \in O\). Now suppose \(o \in O\); we would like to find \(a \in A\) and \(r \in -A\) satisfying \(o \leq a + r\); this would imply \(O \subseteq A + (-A)\) and thus \(O = A + (-A)\). Since \(o \in \mathbf{Q}\) and \(o < 0\), let \(o = -p/q\) where \(p, q \in \mathbf{N}\). We can prove the following lemma: for any cut \(A\) and \(n \in \mathbf{N}\), we can find \(z \in \mathbf{Z}\) where
+\[\frac{z}{n} \in A \text{\quad and \quad} \frac{z + 1}{n} \notin A\]
+To do this, start with \(a \in A\) and \(a' \notin A\), and find \(N, M \in \mathbf{Z}\) satisfying
+\[\frac{N}{n} < a \text{\quad and \quad} \frac{M}{n} > a'\]
+Clearly \(\frac{N}{n} \in A\) and \(\frac{M}{n} \notin A\). If we count upwards from \(i = N\), at some point \(\frac{i}{n}\) is going to transition from being in \(A\) to not being in \(A\), so that by the time we reach \(i = M\) we have \(\frac{i}{n} \notin A\). This transition point implies the existence of \(z\).
+
+Now, let \(a = \frac{n}{2q} \in A\) with \(\frac{n+1}{2q} \notin A\). Then \(r = -\frac{n+2}{2q} \notin A\), and
+\[a + r = \frac{-2}{2q} = -\frac{1}{q} \geq \frac{-p}{q} = o\]
+completing the proof.
+}
+\end{solution}
