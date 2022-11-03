@@ -1,1 +1,45 @@
 \section{A Construction of R from Q}
+\begin{exercise}
+\enum{
+\item Fix \(r \in \mathbf{Q}\). Show that the set \(C_r = \{t \in \mathbf{Q} : t < r\}\) is a cut.
+The temptation to think of all cuts as being of this form should be avoided. Which of the following subsets of \(\mathbf{Q}\) are cuts?
+\item \(S = \{t \in \mathbf{Q}: t \leq 2\}\)
+\item \(T = \{t \in \mathbf{Q} : t^2 < 2 \text{ or } t < 0\}\)
+\item \(U = \{t \in \mathbf{Q} : t^2 \leq 2 \text{ or } t < 0\}\)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(C_r\) contains \(r - 1\) and does not contain \(r\), so (c1) is satisfied. If \(p \in C_r\) and \(q < p\), then \(q < p < r\) and thus \(q \in C_r\), so (c2) is satisfied. Also, \(p < \frac{p + r}{2} < r\) so \(\frac{p+r}{2} \in C_r\) and (c3) is satisfied.
+\item Not a cut, \(S\) has the maximum \(p = 2\). There are no elements in \(S\) that can be greater than \(2\).
+\item Is a cut. \(0 \in T\) and \(2 \notin T\) so (c1) is satisfied. Let \(r \in T\) and \(q < r\). If \(q < 0\) then \(q \in T\) trivially. Otherwise, \(r > q \geq 0\) implies \(2 > r^2 > q^2\) and therefore \(q \in T\), showing (c2) is satisfied. Finally, to show (c3), let \(r \in T\) with \(r \geq 1\). (If \(r < 1\) then we can trivially identify \(r < 1 \in T\) to confirm (c3).)  Let \(a = 2- r^2\), and note \(1 \geq a > 0\). Consider the rational number
+\[q = \left(r + \frac{a}{4r}\right)^2 = r^2 + \frac{a}{2} + \frac{a^2}{4r} > r\]
+It is easy to show \(\frac{a^2}{4r} < \frac{a}{2}\), implying \(q < r^2 + a = 2\) and thus \(q \in 2\), and thus \(r\) is not a maximum and (c3) is true.
+\item Is a cut. The only difference from part (c) is that we cannot immediately claim by definition that \(a > 0\); instead the definition of \(U\) only implies \(a \geq 0\). However, Section 1.1. provides a proof that \(a \neq 0\); therefore we can maintain \(a > 0\) and reuse the rest of the logic.
+}
+\end{solution}
+
+\begin{exercise}
+Let \(A\) be a cut. Show that if \(r \in A\) and \(s \notin A\), then \(r < s\).
+\end{exercise}
+\begin{solution}
+If \(r \geq s\) then by (c2) \(s\) would be in \(A\), a contradiction.
+\end{solution}
+
+\begin{exercise}
+Using the usual definitions of addition and multiplication, determine which of these properties are possessed by \(\mathbf{N}\), \(\mathbf{Z}\), and \(\mathbf{Q}\), respectively.
+\end{exercise}
+\begin{solution}
+\(\mathbf{N}\) possesses properties (f1), (f2), and (f5). The natural numbers do not contain 0 or any additive inverses. \(\mathbf{Z}\) additionally satisfies (f3) but still does not satisfy (f4) for multiplicative inverses (e.g. \(2^{-1}\) is not in \(\mathbf{Z}\)). \(\mathbf{Q}\) possesses all properties; in particular if \(q \in \mathbf{Q}\) then so are \(-q\) and \(1/q\).
+\end{solution}
+
+\begin{exercise}
+Show that this defines an ordering on \(\mathbf{R}\) by verifying properties (o1), (o2), and (o3) from Definition 8.6.5.
+\end{exercise}
+\begin{solution}
+To prove property (o1), assume \(A nsubseteq B\). By definition, this means there is some  \(a \in A\) with \(a \notin B\). From Exercise 8.6.2 this means \(\forall b \in B\), \(b < a\). Then by property (c2) \(b \in A\); hence \(B \subseteq A\).
+
+(o2) is a direct result of the definition of set equality, and (o3) is true because of transivity of the set inclusion relationship.
+\end{solution}
+
+
