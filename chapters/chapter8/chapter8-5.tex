@@ -1,0 +1,315 @@
+\section{Fourier Series}
+\begin{exercise}
+\enum{
+\item  Verify that
+\[u(x,t) = b_n \sin(nx) \cos(nt)\]
+satisfies equations (1), (2), and (3) for any choice of \(n \in \mathbf{N}\) and \(b_n \in \mathbf{R}\). What goes wrong if \(n \notin \mathbf{N}\)?
+\item Explain why any finite sum of functions of the form given in part (a) would also satisfy (1), (2), and (3).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item
+\[\frac{\partial^2 u}{\partial x^2} = -b_n n^2 \sin(nx) \cos(nt) = \frac{\partial^2 u}{\partial t^2}\]
+\[u(0, t) = b_n \sin(0) \cos (nt) = 0\]
+\[u(\pi, t) = b_n \sin(n \pi) \cos (nt) = 0\]
+(Note that the above equation is no longer true if \(n \notin \mathbf{N}\).)
+\[\frac{\partial u}{\partial t}(x,0) = -b_n \sin(nx) \sin (0) = 0\]
+\item The differential equation itself and the boundary conditions are linear; that is, if \(u_1\) and \(u_2\) both satisfy equations (1) through (3), then so does \(c_1 u_1 + c_2 u_2\) for any \(c_1, c_2 \in \mathbf{R}\).
+}
+\end{solution}
+
+\begin{exercise}
+Using trigonometric identities when necessary, verify the following integrals.
+\enum{
+\item For all \(n\in \mathbf{N}\),
+\[\int_{-\pi}^\pi \cos(nx) dx = 0 \text{\quad and \quad} \int_{-\pi}^\pi \sin(nx)dx = 0\]
+\item For all \(n\in \mathbf{N}\),
+\[\int_{-\pi}^\pi \cos^2(nx) dx = \pi \text{\quad and \quad} \int_{-\pi}^\pi \sin^2(nx)dx = \pi\]
+\item For all \(m,n \in \mathbf{N}\),
+\[\int_{-\pi}^\pi \cos(mx) \sin (nx) dx = 0\]
+For \(m \neq n\),
+\[\int_{-\pi}^\pi \cos(mx) \cos(nx) dx = 0 \text{\quad and \quad} \int_{-\pi}^{\pi} \sin(mx) \sin(nx) dx = 0\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Setting \(u = nx\),
+\[\int_{-\pi}^\pi \cos(nx) dx = \frac{1}{n} \int_{-n \pi} ^{n\pi} \cos(u) du = \frac{1}{n}\left(\sin(n\pi) - \sin(-n\pi)\right) = 0\]
+\[\int_{-\pi}^\pi \sin(nx) dx = \frac{1}{n} \int_{-n \pi} ^{n\pi} \sin(u) du = \frac{-1}{n}\left(\cos(n\pi) - \cos(-n\pi)\right) = 0\]
+\item Using part (a),
+\[\int_{-\pi}^\pi \cos^2(nx) dx = \frac{1}{2}\int_{-\pi}^\pi 1 + \cos (2nx) dx = \pi\]
+\[2 \pi = \int_{-\pi}^\pi 1 dx = \int_{-\pi}^{\pi} \sin^2(nx) + \cos^2 (nx)dx \implies \int_{-\pi}^\pi \sin^2 (nx) dx = \pi\]
+
+\item  If \(m = n\):
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\[\intpi \cos(nx) \sin(nx) dx = \intpi \sin(2nx) dx = 0\]
+If \(m \neq n\):
+\[\begin{aligned}
+\intpi \cos(nx) \sin(mx) dx &= \frac{\sin(n\pi) \sin(m\pi) - \sin(-n\pi)\sin(-m\pi)}{m} \\
+    &\qquad\qquad - \frac{n}{m}\intpi \cos(nx) \sin(mx) dx \\
+&= - \frac{n}{m}\intpi \cos(nx) \sin(mx) dx \\
+&= -\frac{n}{m} \left( \frac{-\cos(n\pi) \cos(m\pi) + \cos(-n\pi)\cos(-m \pi)}{n}\right) \\
+    &\qquad\qquad + \frac{n^2}{m^2}\intpi \sin(nx) \cos(mx) dx  \\
+&= \frac{n^2}{m^2}\intpi \sin(nx) \cos(mx) dx
+\end{aligned}
+    \]
+Since \(n^2 / m^2 \neq 1\), this implies
+\[\intpi \sin(nx) \cos(mx) dx = 0\]
+A similar process shows
+\[\intpi \cos(mx) \cos(nx) dx = \frac{n^2}{m^2} \intpi \cos(mx) \cos(nx) = 0\]
+and
+\[\intpi \sin(mx) \sin(nx) dx = \frac{n^2}{m^2} \intpi \sin(mx) \sin(nx) = 0\]
+}
+\end{solution}
+
+\begin{exercise}
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+Derive the formulas
+\[a_m = \frac{1}{\pi} \intpi f(x) \cos(mx) dx \text{\quad and \quad} b_m = \frac{1}{\pi}\intpi f(x) \sin(mx) dx\]
+for all \(m \geq 1\).
+\end{exercise}
+
+\begin{solution}
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\[\begin{aligned}
+\intpi f(x) \cos(mx) dx &= \intpi \left[a_0 \cos(mx) + \sum^\infty_{n=1} a_n \cos(nx) \cos(mx)+ b_n \sin(nx)\cos(mx)\right] dx \\
+&=\sum^\infty_{n=1} \intpi \left[a_n \cos(nx) \cos(mx) + b_n \sin(nx) \cos(mx) \right]dx \\
+&= \intpi a_m \cos^2(m x) = a_m \pi
+\end{aligned}\]
+
+\[\begin{aligned}
+\intpi f(x) \sin(mx) dx &= \intpi \left[a_0 \sin(mx) + \sum^\infty_{n=1} a_n \cos(nx) \sin(mx)+ b_n \sin(nx)\sin(mx)\right] dx \\
+&=\sum^\infty_{n=1} \intpi \left[a_n \cos(nx) \sin(mx) + b_n \sin(nx) \sin(mx) \right]dx \\
+&= \intpi b_m \sin^2(m x) = b_m \pi
+\end{aligned}\]
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Referring to the previous example, explain why we can be sure that the convergence of the partial sums to \(f(x)\) is \emph{not} uniform on any interval containing 0.
+\item Repeat the computations of Example 8.5.1 for the function \(g(x) = \abs{x}\) and examine graphs for some partial sums. This time, make use of the fact that \(g\) is even \((g(x) = g(-x))\) to simplify the calculations. By just looking at the coefficients, how do we know this series converges uniformly to something?
+\item Use graphs to collect some empirical evidence regarding the question of term-by-term differentiation in our two examples to this point. Is it possible to conclude convergence or divergence of either differentiated series by looking at the resulting coefficients? Theorem 6.4.3 is about the legitimacy of term-by-term differentiation. Can it be applied to either of these examples?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\item \(f(x)\) is not continuous at 0, and each of the partial sums is continuous. Uniform convergence would imply that the function which the partial sums converge to must be continuous.
+\item
+\[a_0 = \frac{1}{2\pi}\intpi \abs{x} dx = \frac{1}{2\pi} 2\int_0^\pi x dx = \frac{\pi}{2}\]
+For \(n \geq 1\),
+\[
+    \begin{aligned}
+a_n &= \frac{1}{\pi} \intpi \abs{x} \cos(nx) dx = \frac{2}{\pi} \int_0^\pi x \cos (nx) dx \\
+&= \frac{2}{\pi} \left(x \sin (x) \Bigr\rvert_0^\pi - \frac{1}{n} \int_0^\pi \sin (nx) dx\right) = \frac{2}{n^2 \pi} \left( \cos(n\pi) - 1\right) \\
+&= \begin{cases}
+    -\frac{4}{n^2 \pi} & n \text{ odd} \\
+    0 & n \text{ even}
+\end{cases}
+    \end{aligned}
+    \]
+\[
+\begin{aligned}
+b_n &= \frac{1}{\pi} \intpi \abs{x} \sin(nx) dx = \frac{1}{\pi} \left(\int_0^\pi x \sin(nx) dx - \int_{-\pi}^0 -x \sin{nx}\right) \\
+&= \frac{1}{\pi} \left(\int_0^\pi x \sin(nx) dx + \int_{\pi}^0 x \sin(nx)dx\right) = 0
+\end{aligned}
+\]
+We get
+\[g(x) = \frac{-4}{\pi}\sum^\infty_{n=0} \frac{1}{(2n + 1)^2} \cos((2n+1)x)\]
+Noting that the series of non-zero coefficients converges absolutely, we can use the Weierstrauss M-Test with
+\[\sum_{n=0}^\infty \abs{a_n}\]
+to conclude the Fourier series of \(g\) converges uniformly.
+
+\item Taking the termwise derivative of the series representation of \(g(x)\) leaves us with the series representation of \(f(x)\), which is promising since \(g'(x) = f(x)\) where \(g'(x)\) is defined. But  convergence is not immediately clear looking at the coefficients.
+
+Taking the termwise derivative of the series representation of \(f(x)\) leaves us with
+\[\frac{4}{\pi}\sum^\infty_{n=0} \cos((2n+1) x)\]
+which looks like it should diverge, although proving this is difficult. As a specific example, though, at \(x = \pi/3\) the partial sums will cycle between three different values and fail to converge.
+}
+\end{solution}
+
+\begin{exercise}
+Explain why \(h\) is uniformly continuous on \(\mathbf{R}\).
+\end{exercise}
+\begin{solution}
+\(h\) is continuous on the compact set \([-\pi, \pi]\) and therefore uniformly continuous over this set, and thus for any \(\epsilon> 0\) we can find \(\delta\) so that \(\abs{x - x_0} < \delta\) implies \(\abs{h(x) - h(x_0)} < \epsilon / 2\), at least if \(x\) and \(x_0\) are both in \([-\pi, \pi]\) or both in the same ``copy'' of \(h\). If they are not, however, then there must be some \(k = n\pi\), with \(n\) odd, separating them, with \(\abs{x - k} < \delta\) and \(
+    \abs{k - x_0} < \delta\). Then
+\[\abs{h(x) - h(x_0)} \leq \abs{h(x) - h(k)} + \abs{h(k) - h(x_0)} < \epsilon\]
+showing \(h\) is uniformly continuous on all \(\mathbf{R}\).
+\end{solution}
+
+\begin{exercise}
+Show that \(\abs{\int_a^b h(x) \sin(nx) dx} < \epsilon/n\), and use this fact to complete the proof.
+\end{exercise}
+\begin{solution}
+Slight change to the premise - we'll require that \(\abs{h(x) - h(y)} < \epsilon / (2\pi)\) when \(\abs{x-y} < \delta\).
+
+Define \(\Delta h(x) \) satisfying \(h(x) = h(\frac{a+b}{2}) + \Delta h(x) \) and note that by uniform continuity, \(\abs{\Delta h(x)} < \epsilon / {2\pi}\). Note also that \(\int_a^b \sin(nx) dx= 0\).
+\[
+    \begin{aligned}
+    \abs{\int_a^b h(x) \sin(nx) dx} &= \abs{h\left(\frac{a+b}{2}\right) \int_a^b \sin(nx) dx + \int_a^b \Delta h(x) dx} \leq \int_a^b \abs{\Delta h(x)} dx \\
+    &< \frac{\epsilon}{2\pi} \frac{2\pi}{n} = \epsilon/n
+    \end{aligned}
+\]
+Now, subdivide \([-\pi, \pi]\) into \(n\) subintervals, each of size \(2\pi/n\), and apply the above result to each interval; this shows that \[\abs{\int_{-\pi}^\pi h(x) \sin(nx)} < \epsilon\]. The process can be repeated with \(\cos(nx)\) replacing \(\sin(nx)\) to get \[\abs{\int_{-\pi}^\pi h(x) \cos(nx)} < \epsilon\]
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item First, argue why the integral involving \(q_x(u)\) tends to zero as \(N \to \infty\).
+\item The first integral is a little more subtle because the function \(p_x(u)\) has the \(\sin(u/2)\) term in the denominator. Use the fact that \(f\) is differentiable at \(x\) (and a familiar limit from calculus) to prove that the first integral goes to zero as well.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is a direct result of the Riemann-Lebesgue Lemma (Theorem 8.5.2).
+\item We would like to show that \(p_x(u)\) is continuous, and the only place this is not automatically true is when \(\sin(u/2) = 0\); this only occurs when \(u = 0\). Strictly, \(p_x(u)\) isn't even defined here, but if \(\lim_{u \to 0} p_x(u)\) is well defined, then we can simply define \(p_x(0) = \lim_{u \to 0} p_x(u)\) and be on our merry way. We have
+\[
+\lim_{u \to 0} p_x(u) = \lim_{u \to 0}\frac{f(x + u) - f(x)}{u} \frac{u}{\sin\left(\frac{u}{2}\right)} \cos\left(\frac{u}{2}\right)
+= f'(x) \frac{2}{\cos\left(\frac{u}{2}\right)} \cos\left(\frac{u}{2}\right)
+= 2f'(x)
+\]
+where we have used L'Hospital's rule in the second term. We can now conclude that \(p_x(u)\) is effectively continuous, for the purposes of applying the Riemann-Lebesgue Lemma, and thus the integral goes to zero.
+}
+\end{solution}
+
+\begin{exercise}
+Prove that if a sequence of real numbers \((x_n)\) converges, then the arithmetic means
+\[y_n = \frac{x_1 + x_2 + x_3 + \cdots + x_n}{n}\]
+also converges to the same limit. Give an example to show that it is possible for the sequence of means \((y_n)\) to converge even if the original sequence \((x_n)\) does not.
+\end{exercise}
+\begin{solution}
+See Exercise 2.3.11.
+\end{solution}
+
+\begin{exercise}
+Use the previous identity to show that
+\[\frac{1/2 + D_1(\theta) + D_2(\theta) + \cdots + D_N(\theta)}{N+1} = \frac{1}{2(N+1)} \left[\frac{\sin\left((N + 1) \frac{\theta}{2}\right)}{\sin\left(\frac{\theta}{2}\right)}\right]^2\]
+\end{exercise}
+\begin{solution}
+We need one more trigonometric identity, for any \(a, b\):
+\[\begin{aligned}
+    \sin(a+b)\sin(a-b) &= \left(\sin x \cos b + \sin b \cos a\right) \left(\sin a \cos b - \sin b \cos a\right) \\
+    &= \sin^2 a \cos^2 b - \sin^b \cos^a \\
+    &= \sin^2 a \left(1 - \sin^2 b\right) - \sin^2 b \left(1 - \sin^2 a\right) \\
+    &= \sin^2 a - \sin^2 a \sin^2 b - \sin^2 b + \sin^2 a \sin^2 b\\
+    \sin(a+b) \sin(a-b) + \sin^2 b &= \sin^2 a
+\end{aligned}\]
+Assume that \(\theta \neq 2n\pi\) for integer \(n\); otherwise the right side isn't defined. What follows is a lot of algebra:
+\[\begin{aligned}
+\frac{1}{2} + \sum_{i=1}^N D_i(\theta)
+&= \frac{1}{2} + \frac{1}{2 \sin \frac{\theta}{2}} \sum_{i=1}^N \sin \left(i \theta + \frac{\theta}{2}\right) \\
+&= \frac{1}{2} + \frac{1}{2 \sin \frac{\theta}{2}} \sum_{i=1}^N \left(\sin i \theta \cos \frac{\theta}{2} + \sin \frac{\theta}{2}\cos i \theta\right) \\
+&= \frac{1}{2 \sin \frac{\theta}{2}}
+    \left[
+        \left(\cos \frac{\theta}{2}\sum_{i=1}^N \sin i \theta \right)
+        + \left(\sin \frac{\theta}{2} \left( \frac{1}{2} + \sum_{i=1}^N \cos i \theta \right)  \right)
+    \right] + \frac{1}{4} \\
+&= \frac{\cos \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{N \theta}{2} \sin \left((N+1)\frac{\theta}{2}\right)}{\sin \frac{\theta}{2}}
++ \frac{\sin \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{(2N + 1) \theta}{2}}{2 \sin \frac{\theta}{2}}
++ \frac{1}{4} \\
+&=\frac{1}{4}  +  \frac{\cos \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{N \theta}{2} \sin \left((N+1)\frac{\theta}{2}\right)}{\sin \frac{\theta}{2}} \\
+&\quad+ \frac{\sin \frac{\theta}{2}}{2 \sin \frac{\theta}{2}}
+        \frac{\sin \frac{N\theta}{2} \cos \frac{(N+1)\theta}{2}
+            + \cos \frac{N\theta}{2} \sin \frac{(N+1)\theta}{2}}
+        {2 \sin \frac{\theta}{2}}
+\\
+&=\frac{1}{4} + \frac{1}{4 \sin^2 \frac{\theta}{2}} \left[
+    \sin \frac{N\theta}{2} \left(
+        \sin \frac{(N+1)\theta}{2} \cos \frac{\theta}{2} +
+        \sin \frac{\theta}{2} \cos \frac{(N+1)\theta}{2} \right)
+\right. \\
+&\qquad + \left.
+    \sin \frac{(N+1)\theta}{2} \left(
+        \cos \frac{\theta}{2} \sin \frac{N\theta}{2} +
+        \sin \frac{\theta}{2} \cos \frac{N\theta}{2}
+    \right)
+ \right] \\
+&=\frac{1}{4} + \frac{1}{4 \sin^2 \frac{\theta}{2}} \left(
+\sin \frac{N \theta}{2} \sin \frac{(N+2)\theta}{2} + \sin^2 \frac{(N+1)\theta}{2}
+    \right) \\
+&=\frac{1}{4 \sin^2 \frac{\theta}{2}} \left(
+\sin \frac{N \theta}{2} \sin \frac{(N+2)\theta}{2} + \sin^2 \frac{\theta}{2} + \sin^2 \frac{(N+1)\theta}{2}
+    \right) \\
+&=\frac{1}{4 \sin^2 \frac{\theta}{2}} \left(
+2\sin^2 \frac{(N+1)\theta}{2}
+    \right) \\
+&=\frac{\sin^2 \frac{(N+1)\theta}{2}}{2 \sin^2 \frac{\theta}{2}} \\
+&= \frac{1}{2} \left(\frac{\sin \frac{(N+1)\theta}{2}}{\sin \frac{\theta}{2}}\right)^2
+\end{aligned} \]
+which is the desired identity, except missing a factor of \(1/(N+1)\) on both sides.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that
+\[\sigma_N(x) = \frac{1}{\pi} \int_{-\pi}^\pi f(u+x) F_N(u) du\]
+\item Graph the function \(F_N(u)\) for several values of \(N\). Where is \(F_N\) large, and where is it close to zero? Compare this function to the Dirichlet kernel \(D_N(u)\). Now, prove that \(F_N \to 0\) uniformly on any set of the form \(\{u : \abs{u} \geq \delta\}\), where \(\delta>0\) is fixed (and \(u\) is restricted to the interval \((-\pi, \pi]\).)
+\item Prove that \(\int_{-\pi}^\pi F_N(u) du = \pi\).
+\item To finish the proof of Fejér's Theorem, first choose a \(\delta > 0\) so that
+\[\abs{u} < \delta \text{\quad implies \quad} \abs{f(x+u) - f(x) } < \epsilon.\]
+Set up a single integral that represents the difference \(\sigma_N(x) - f(x)\) and divide this integral into sets where \(\abs{u} \leq \delta\) and \(\abs{u} \geq \delta\). Explain why it is possible to make each of these integrals sufficiently small, independently of the choice of \(x\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Note that \(D_0(u) = 1/2\). We have
+\[\begin{aligned}
+\sigma_N(x) &= \frac{1}{N+1} \sum_{n=0}^N S_n(x) \\
+&= \frac{1}{N+1} \sum_{n=0}^N \frac{1}{\pi}\int_{-\pi}^\pi f(u+x) D_N(u) du \\
+&= \frac{1}{\pi} \int_{-\pi}^\pi f(u+x) \left(\frac{1}{N+1}\right) \left( \frac{1}{2} + \sum_{n=1}^N D_N(u) \right) du \\
+&= \frac{1}{\pi} \int_{-\pi}^\pi f(u+x) F_N(u) du \\
+\end{aligned}\]
+\item \(F_N(u)\) is large when \(u\) is close to zero, and close to zero everywhere else. In contrast, \(D_N(u)\) continues to oscillate with large amplitude away from \(u=0\). To show \(F_N \to 0\) uniformly when \(\abs{u} \geq \delta\), note that under this condition,
+\[\abs{F_N(u)} = \abs{ \frac{1}{2(N+1)} \left(\frac{\sin \left((N+1) \frac{u}{2}\right)}{\sin \frac{u}{2}}\right) } \leq \abs{ \frac{1}{2(N+1) \sin \frac{\delta}{2}} } \]
+which approaches zero as \(N \to \infty\); hence \(F_N(u) \to 0\) uniformly when \(\abs{u} \geq \delta\).
+\item Recall Fact 3 from earlier stating \(\int_{-\pi}^\pi D_N(\theta) d\theta = \pi\).
+\[\int_{-\pi}^\pi F_N(u) du = \frac{1}{N+1}\int_{-\pi}^\pi \sum_{n=0}^N D_n(u) du = \frac{1}{N+1} (N+1)\pi = \pi\]
+
+\newcommand{\intpi}{\int_{-\pi}^\pi}
+\item \[\begin{aligned}
+    \sigma_N(x) - f(x) &= \frac{1}{\pi}\intpi f(u+x) F_N(u) du - \frac{1}{\pi} \intpi f(x) F_N(u) du\\
+&= \frac{1}{\pi}\intpi \left(f(u+x) - f(x)\right) F_N(u) du
+\end{aligned}
+\]
+For the set where \(|u| \leq \delta\),
+\[ \begin{aligned}
+    \abs{\sigma_N(x) - f(x)} \leq \frac{1}{\pi}\intpi \abs{f(u+x) - f(x)} F_N(u) du\leq \frac{\epsilon}{\pi} \intpi F_N(u) = \epsilon
+\end{aligned} \]
+and since \(\epsilon\) is chosen freely, this part of the integral can be made arbitrarily small.
+
+For the set where \(|u| \geq \delta\), let \(M\) be a bound on \(f(x)\). Then
+\[ \begin{aligned}
+    \abs{\sigma_N(x) - f(x)}
+    &\leq \frac{1}{\pi}\intpi \abs{f(u+x) - f(x)} F_N(u) du \leq \frac{2M}{\pi}\intpi F_N(u) du
+\end{aligned} \]
+Now since \(F_N \to 0\) uniformly, we can choose \(N\) large enough so that
+\[\intpi F_N(u) < \frac{\epsilon \pi}{2M}\]
+again bringing the integral arbitrarily small.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Use the fact that the Taylor series for \(\sin(x)\) and \(\cos(x)\) converge uniformly on any compact set to prove WAT under the added assumption that \([a,b]\) is \([0,\pi]\).
+\item Show how the case for an arbitrary interval \([a, b]\) follows from this one.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For any function \(f\), Fejér's Theorem implies we can construct a function of the form
+\[g(x) = k_0 + \sum^{N_1}_{i=1} k_i \sin(c_i x) + \sum^{N}_{i=N_1 + 1} k_i \cos(c_i x)\]
+satisfying \(\abs{g(x) - f(x)} < \epsilon/2\) over \(x \in [0, \pi]\), and uniform convergence of the Taylor series of \(\sin x\) and \(\cos x\) imply we can find a set of polynomials \(P_i\) satisfying
+\[\abs{P_i(x) - k_i \sin(c_i x)} < \frac{\epsilon}{2N}\]
+for \(1 \leq i \leq N_1\) and
+\[\abs{P_i(x) - k_i \cos(c_i x)} < \frac{\epsilon}{2N}\]
+for \(N_1 + 1 \leq i \leq N\)
+Then the polynomial \(P(x) = k_0 + \sum^N_{i=1} P_i(x)\) satisfies
+\[\abs{P(x) - g(x)} < \frac{\epsilon}{2} \text{\quad and \quad} \abs{P(x) - f(x) }< \epsilon\]
+\item For \(x \in [a,b]\), apply the variable substitution \(y = \frac{\pi}{b-a}(x-a) \) and use part (a) on \(y\).
+}
+\end{solution}

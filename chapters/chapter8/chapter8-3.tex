@@ -1,0 +1,257 @@
+\section{Euler's Sum}
+\begin{exercise}
+Supply the details to show that when \(x = \pi/2\) the product formula in (2) is equivalent to
+\[\frac{\pi}{2} = \lim_{n \to \infty} \left(\frac{2 \cdot 2}{1 \cdot 3}\right) \left(\frac{4 \cdot 4}{3 \cdot 5}\right) \left(\frac{6 \cdot 6}{5 \cdot 5}\right) \cdots \left(\frac{2n \cdot 2n}{(2n-1)(2n+1)}\right),\]
+where the infinite product in (2) is interpreted to be a limit of partial products.
+\end{exercise}
+\begin{solution}
+Plugging \(x = \pi/2\) into (2),
+\[
+1 = \frac{\pi}{2} \prod^\infty_{i=1} \left(1 - \frac{1}{2i}\right)\left(1 + \frac{1}{2i}\right)\]
+\[
+\frac{2}{\pi} = \prod^\infty_{i=1} \frac{(2i-1)(2i + 1)}{4i^2}
+\]
+Taking the reciprocal of both sides leads us with the desired equality.
+\end{solution}
+
+\begin{exercise}
+Assume $h(x)$ and $k(x)$ have continuous derivatives on $[a, b]$ and derive the integration-by-parts formula
+$$
+\int_{a}^{b} h(t) k^{\prime}(t) dt=h(b) k(b)-h(a) k(a)-\int_{a}^{b} h^{\prime}(t) k(t) dt
+$$
+\end{exercise}
+\begin{solution}
+See Exercise 7.5.6 (a).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Using the simple identity \(sin^n(x) = \sin^{n-1}(x) \sin(x)\) and the previous exercise, derive the recurrence relation
+\[b_n = \frac{n-1}{n}b_{n-2}\]
+for all \(n \geq 2\).
+\item Use this relation to generate the first three even terms and the first three odd terms of the sequence \((b_n)\).
+\item Write a general expression for \(b_{2n}\) and \(b_{2n+1}\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Apply integration-by-parts with \(h = \sin^{n-1}(x)\) and \(k = -\cos(x)\):
+\[ \begin{aligned}
+    \int^\frac{\pi}{2}_0 \sin^{n-1}(x) \sin(x) &= \left(\sin^{n-1}\frac{\pi}{2}\right)\left(-\cos \frac{\pi}{2}\right) - \left(\sin^{n-1} 0\right)\left(\cos 0\right) \\
+        &+ \int^\frac{\pi}{2}_0 (n-1)\sin^{n-2}(x)\cos^2(x) \\
+    b_n &=(n-1)\int^\frac{\pi}{2}_0 \sin^{n-2}(x) \left(1 - \sin^2(x)\right) = (n-1) b_{n-2} - (n-1)b_n \\
+    n b_n &= (n-1) b_{n-2} \\
+    b_n &= \frac{n-1}{n}b_{n-2}
+\end{aligned}\]
+\item Evens: \(b_2 = \frac{1}{4} \pi\), \(b_4 = \frac{3}{16}\pi\), \(b_6 = \frac{5}{32} \pi\). Odds: \(b_1 = 1\), \(b_3 = \frac{2}{3}\), \(b_5 = \frac{8}{15}\)
+\item For \(n \geq 1\),
+\[b_{2n} = \frac{\pi}{2}\prod^n_{i=1} \frac{2i - 1}{2i} \text{ and } b_{2n+1} = \prod^n_{i=1} \frac{2i}{2i + 1}\]
+}
+\end{solution}
+
+\begin{exercise}
+Show
+\[\lim_{n \to \infty} \frac{b_{2n}}{b_{2n+1}} = 1,\]
+and use this fact to finish Wallis's product formula in (3).
+\end{exercise}
+\begin{solution}
+    Equivalently, we wish to evaluate
+\[\lim_{n \to \infty} \frac{b_n}{b_{n+1}} = \lim_{n \to \infty} \frac{\int^{\pi/2}_0 \sin^{n+1} (t) dt}{\int^{\pi/2}_0 \sin^n (t) dt}\]
+Note that since \(b_n > b_{n+1}\), \(\frac{b_n}{b_{n+1}} \geq 1\).
+We prove the following lemma: for \(\frac{\pi}{2} > b > a > 0\),
+\[\lim_{n \to \infty} \frac{\int^{\pi/2}_b \sin^n x}{\int^a_0 \sin^n x} = \infty\]
+
+To see this, let \(y_n\) be the value in the limit. Note that \(\int^{\pi/2}_b \sin^{n+1}x \geq \sin b \int^{\pi/2}_b \sin^n x\) and similarly \(\int_0^a \sin^{n+1}x \leq \sin a \int_0^a \sin^n x\), and note
+\[\frac{y_{n+1}}{y_n} = \left(\frac{\int^{\pi/2}_b \sin^{n+1} x}{\int^{\pi/2}_b \sin^{n} x}\right) \left(\frac{\int_0^a \sin^{n} x}{\int_0^a \sin^{n+1} x}\right) \geq \frac{\sin b}{\sin a}> 1\]
+In other words, \((y_n)\) grows at least exponentially, and therefore must not be bounded.
+
+We now show that for arbitrary \(\epsilon > 0\), we can find \(N\) large enough so that for \(n \geq N\),
+\[\int^\frac{\pi}{2}_0 \sin^{n+1} x \geq (1-\epsilon) \int_0^\frac{\pi}{2} \sin^n x\]
+Note that, for any \(a \in (0, \pi / 2)\),
+\[\int^\frac{\pi}{2}_0 \sin^{n+1} x = \int_0^a \sin^{n+1} x + \int_a^\frac{\pi}{2} \sin^{n+1} x \geq \sin a \int_a^\frac{\pi}{2} \sin^n x\]
+and for any \(b \in (a, \pi/2)\),
+\[\int_0^\frac{\pi}{2} \sin^n x = \int_0^a \sin^n x + \int_a^b \sin^n x + \int_b^\frac{\pi}{2}\sin^n x\]
+Find \(a \in (0, \pi/2)\) so that \(\sin a > \sqrt{1-\epsilon}\), and fix \(b = \left(a + \frac{\pi}{2}\right)/2\). From our earlier lemma, we can find \(N\) large enough that \(n > N\) ensures
+\[\int_0^a \sin^n x < \epsilon_1 \int_b^\frac{\pi}{2}\sin^n x\]
+where we'll choose \(\epsilon_1\) to satisfy \(\frac{1}{1 + \epsilon_1} = \sqrt{1 - \epsilon}\). This ensures that
+\[\int^\frac{\pi}{2}_a \sin^n x > \sqrt{1-\epsilon} \int_0^\frac{\pi}{2} \sin^n x\]
+and
+\[\int^\frac{\pi}{2}_0 \sin^{n+1} x \geq (1-\epsilon) \int_0^\frac{\pi}{2} \sin^n x.\]
+We can convert this to indicate that for large enough \(n\), \(b_n / b_{n+1} \leq 1 + \epsilon\), which together with our earlier observation that \(b_n > b_{n+1}\) lets us conclude
+\[\lim_{n \to \infty} \frac{b_n}{b_{n+1}} = 1\]
+On the other hand, plugging in the formulas for \(b_{2n}\) and \(b_{2n+1}\) in Exercise 8.3.3 (c) into
+\[\lim_{n \to \infty} \frac{b_{2n}}{b_{2n+1}}\]
+leaves us with Wallis's product.
+\end{solution}
+
+\begin{exercise}
+Derive the following alternative form of Wallis's product formula:
+\[\sqrt{\pi} = \lim_{n \to \infty} \frac{2^{2n} (n!)^2}{(2n)! \sqrt{n}}\]
+\end{exercise}
+\begin{solution}
+\[ \begin{aligned}
+    \frac{\pi}{2} &= \prod^\infty_{i=1} \frac{(2i)^2}{(2i-1)(2i+1)} = \lim_{n \to \infty} \frac{2^n (n!)^2}{\left(\prod^n_{i=1} (2i-1)\right)\left(\prod^n_{i=1} (2i + 1) \right)} \\
+    &= \lim_{n \to \infty} \frac{2^{2n} (n!)^2 (2^n n!) \left(2^n n! (2n + 1)\right)}{\left((2n+1)!\right)^2} = \lim_{n \to \infty} \left(\frac{2^{2n} (n!)^2}{(2n)!}\right)^2 \left(\frac{1}{2n}\right)\left(\frac{2n}{2n+1}\right) \\
+    \pi &= \left(\lim_{n \to \infty} \left(\frac{2^{2n} (n!)^2}{(2n)!}\right)^2 \left(\frac{1}{n}\right) \right) \left( \lim_{n \to \infty}\frac{2n}{2n+1}\right) =\left(\lim_{n \to \infty} \frac{2^{2n} (n!)^2}{(2n)! \sqrt{n}}\right)^2  \\
+\sqrt{\pi} &= \lim_{n \to \infty} \frac{2^{2n} (n!)^2}{(2n)! \sqrt{n}}
+\end{aligned}
+   \]
+\end{solution}
+
+\begin{exercise}
+Show that \(1 / \sqrt{1-x}\) has Taylor expansion \(\sum^\infty_{n=0} c_n x^n\), where \(c_0 = 1\) and
+\[c_n = \frac{(2n)!}{2^{2n} (n!)^2} = \frac{1 \cdot 3 \cdot 5 \cdots (2n-1)}{ 2 \cdot 4 \cdot 6 \cdots 2n}\]
+for \(n \geq 1\).
+\end{exercise}
+\begin{solution}
+\(c_0 = 1 / \sqrt{1-0} = 1\), and we computed in Exercise 6.6.10 (a) that
+\[c_n = \frac{\prod^n_{i=1} (2i - 1)}{2^n n!} = \frac{(2n-1)!}{\left(2^n n!\right)\left( 2^{n-1} (n-1)!\right)} =\frac{(2n)!}{2^{2n} (n!)^2} \]
+\end{solution}
+
+\begin{exercise}
+Show that \(\lim c_n = 0\) but \(\sum^\infty_{n=0} c_n \) diverges.
+\end{exercise}
+\begin{solution}
+We showed in Exercise 2.7.10 (b) that \(\lim c_n = 0\).  We can show that \(\sum_{n=0}^\infty c_n\) diverges by comparison against the harmonic series \((h_n)\), which we modify for convenience to define \(h_n = 1 / (n+1)\). We have \(c_0 \geq h_0\), and note that
+\[c_n / c_{n-1} = \frac{2n-1}{2n} \geq \frac{n}{n+1} = \frac{h_n}{h_{n-1}}\]
+for \(n \geq 1\), so by induction \(c_n \geq h_n\).
+\end{solution}
+
+\begin{exercise}
+Using the expression for \(E_N(x)\) from Lagrange's Remainder Theorem, show that equation (4) is valid for all \(|x| < 1/2\). What goes wrong when we try to use this method to prove (4) for \(x \in (1/2,1)\)?
+\end{exercise}
+\begin{solution}
+See Exercise 6.6.10 (a).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show \[f(x) = f(0) +\int_0^x f'(t) dt\ .\]
+\item Now use a previous result from this section to show \[f(x) = f(0) + f'(0)x + \int_0^x f''(t)(x-t)dt \ .\]
+\item Continue in this fashion to complete the proof of the theorem.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is a simple application of the Fundamental Theorem of Calculus.
+\item Use Exercise 8.3.2 (integration by parts), with \(h(t) = f'(t)\) and \(k(t) = t-x\):
+\[\int_0^x f'(t)dt = f'(x)\cdot 0 - f'(0) \cdot (-x) - \int_0^x f''(t) (t-x) dt = f'(0)x + \int_0^x f''(t)(x-t)dt\]
+\item In general, with \(h = f^{(n+1)}\) and \(k(t) = -\frac{(x-t)^{n+1}}{n+1}\),
+\[\int_0^x f^{(n+1)}(t)(x-t)^n = f^{(n+1)}(x) \cdot 0 + f^{(n+1)}(0) \cdot \left(\frac{x^{n+1}}{n+1}\right) + \frac{1}{n+1}\int_0^x f^{(n+2)}(t)(x-t)^{n+1} dt\]
+\[\frac{1}{n!} \int_0^x f^{(n+1)}(t) (x-t)^n = \frac{f^{(n+1)}}{(n+1)!}x^{n+1} + \frac{1}{(n+1)!} \int_0^x f^{(n+2)}(t) (x-t)^{n+1} dt\]
+Armed with this, we can show inductively that, for any \(N \in \mathbf{N}\),
+\[f(x) = \frac{1}{N!}\int_0^x f^{(N+1)}(t) (x-t)^{N} dt + \sum^N_{i=0} \frac{f^{(i)}(x)}{i!}x^i = E_N(x) + S_N(x)\]
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Make a rough sketch of \(1 / \sqrt{1-x}\) and \(S_2(x)\) over the interval \(-1, 1\), and compute \(E_2(x)\) for \(x = 1/2, 3/4\), and \(8/9\).
+\item For a general \(x\) satisfying \(-1 < x < 1\), show
+\[E_2(x) = \frac{15}{16}\int_0^x \left(\frac{x-t}{1-t}\right)^2 \frac{1}{(1-t)^{3/2}}dt\]
+\item Explain why the inequality
+\[\abs{\frac{x-t}{1-t}} \leq \abs{x}\]
+is valid, and use this to find an overestimate for \(\abs{E_2(x)}\) that no longer involves an integral. Note that this estimate will necessarily depend on \(x\). Confirm that things are going well by checking that this overestimate is infact larger than \(\abs{E_2(x)}\) at the three computed values from part \((a)\).
+\item Finally, show \(E_N(x) \to 0\) as \(N \to \infty\) for an arbitrary \(x \in (-1,1)\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \[S_2(x) = 1 + \frac{1}{2}x + \frac{3}{8}x^2\]
+A plot is best made using your favourite graphing calculator.
+\[
+\begin{array}{|c|c|c|c|}
+    \hline
+    x & 1/2 & 3/4 & 8/9 \\ \hline
+    1/\sqrt{1-x} & 1.414 & 2 & 3\\ \hline
+    S_2(x) & 1.344 & 1.586 & 1.741 \\ \hline
+    E_2(x) & 0.070 & 0.414& 1.259\\ \hline
+\end{array}
+\]
+\item From Theorem 8.3.1,
+\[E_2(x) = \frac{1}{2} \int_0^x f^{(3)}(t) (x-t)^2 = \frac{1}{2}\int_0^x \frac{15}{8} \frac{(x-t)^2}{(1-t)^{7/2}}  = \frac{15}{16}\int_0^x \left(\frac{x-t}{1-t}\right)^2 \frac{1}{(1-t)^{3/2}} \]
+\item We have that \(|t| \leq |x| < 1\) and \(t\) having the same sign as \(x\), so
+\[\abs{\frac{x-t}{1-t}} \leq \abs{x} \Longleftrightarrow \abs{x-t} \leq \abs{x(1-t)}\]
+For \(x \geq t > 0\),
+\[\abs{x-t} \leq \abs{x(1-t)} \Longleftrightarrow x -t \leq x - xt \Longleftrightarrow t \geq xt\]
+which is true since \(x < 1\). Similarly for \(x \leq t < 0\),
+\[\abs{x-t} \leq \abs{x(1-t)} \Longleftrightarrow t- x \leq xt - x\Longleftrightarrow t \leq xt\]
+again true since \(xt \geq 0 \geq t\). So
+\[\abs{E_2(x)} \leq \frac{15}{16} \abs{\int_0^x \abs{x}^2 \frac{1}{(1-t)^{3/2}}dt} = \frac{15x^2}{16} \int_0^x (1-t)^{-3/2} dt = \frac{15x^2}{8}\abs{1 - \frac{1}{\sqrt{1-x}}}\]
+\[
+\begin{array}{|c|c|c|c|}
+    \hline
+    x & 1/2 & 3/4 & 8/9 \\ \hline
+    E_2(x) & 0.070 & 0.414& 1.259\\ \hline
+    \text{Overestimate} & 1.406 & 15.820 & 118.519 \\ \hline
+\end{array}
+\]
+
+\item Recall that
+\[f^{(n)}(x) = \left(\prod^n_{i=1} \frac{2i-1}{2(1-x)}\right) \sqrt{\frac{1}{1-x}}\]
+so
+\[
+    \begin{aligned}
+        \abs{E_N(x)} &= \frac{1}{N!}\abs{\int_0^x \left(\prod^{N+1}_{i=1} \frac{2i-1}{2(1-x)}\right) \frac{1}{(1-t)^{1/2}} dt }\\
+        &= \frac{1}{N!} \abs{ \int_0^x \left(\prod^N_{i=1} \frac{(2i-1)(x-t)}{2 (i-t)}\right)\frac{2N+1}{2(1-t)^{3/2}}dt } \\
+        &= \frac{2N+1}{2} \abs{\int_0^x \left(\prod^N_{i=1} \frac{2i-1}{2i}\right) \left(\frac{x-t}{1-t}\right)^N (1-t)^{3/2}dt }\\
+        &\leq \abs{x}^N \left(\frac{2N+1}{2}\right) \abs{\int^x_0(1-t)^{-3/2} dt }\\
+        &= \abs{x}^N (2N+1) \abs{1 - \frac{1}{\sqrt{1-x}}}
+    \end{aligned}
+\]
+For a fixed \(x\), with \(|x| < 1\), as \(N\) increases \(|x|^N\) will go to 0 exponentially, faster than \(2N+1\) increases, and therefore \(\lim_{n \to \infty} E_N(x) = 0\) for \(x \in (-1,1)\).
+}
+\end{solution}
+
+\begin{exercise}
+Assuming that the derivative of \(\arcsin(x)\) is indeed \(1 / \sqrt{1-x^2}\), supply the justification that allows us to conclude
+\[\arcsin(x) = \sum^\infty_{n=0} \frac{c_n}{2n+1} x^{2n+1} \text{ for all } |x| < 1\]
+\end{exercise}
+\begin{solution}
+Term-by-term antidifferentiation is a valid operation with the expected results, as proven in Exercise 6.5.4.
+\end{solution}
+
+\begin{exercise}
+   Our work thus far shows that the Taylor series in (5) is valid for all \(\abs{x} < 1\), but note that \(\arcsin(x)\) is continuous for all  \(\abs{x} \leq 1\). Carefully explain why the series in (5) converges uniformly to \(\arcsin (x)\) on the closed interval \([-1,1]\).
+\end{exercise}
+\begin{solution}
+If we can show that the power series converges absolutely for \(x = 1\), then by Theorem 6.5.2 the series uniformly converges over \([-1, 1]\), and is therefore continuous. Taking limits on both sides approaching \(\pm 1\) would lead us to conclude that the equality is valid for \(|x| \leq 1\). We now show that \(\sum \frac{c_n}{2n+1}\) converges absolutely.
+
+By the Cauchy Condensation Test (Theorem 2.4.6), this series converges if
+\[\sum^\infty_{n=0} 2^n \frac{c_{2^n}}{2 \cdot 2^n+1} = \sum^\infty_{n=0}\frac{2^n}{2 \cdot 2^n + 1} c_{2^n} \leq \frac{1}{2} \sum^\infty_{n=0} c_{2^n} \]
+converges. We now show that \(\sum^\infty_{n=0} c_{2^n}\) converges by comparison against a geometric series.
+
+Let \(m = 2^n\); we have
+\[\frac{c_{2m}}{c_m}= \frac{(4m)! (m!)^2}{\left((2m)!\right)^3 2^{2m}} = \left(\prod^{m}_{i=1} \frac{2m+i}{m+i} \right) \left( \prod^{m}_{i=1} \frac{3m+i}{m+i} \right) \left(\frac{1}{4}\right)^m \leq \left(\frac{3}{2} \cdot \frac{4}{2} \cdot \frac{1}{4}\right)^m = \left(\frac{3}{4} \right)^m\]
+which is less than \(7/8 < 1\) for all \(n > N\). This can readily be used to show convergence by comparison against \(K\sum^\infty_{n=0} (7/8)^n\) with \(K\) some constant.
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show
+\[\int_0^{\pi/2} \theta d\theta = \sum^\infty_{n=0} \frac{c_n}{2n + 1} b_{2n+1},\]
+being careful to justify each step in the argument. The term \(b_{2n+1}\) refers back to our earlier work on Wallis's product.
+\item Deduce
+\[\frac{\pi^2}{8} = \sum^\infty_{n=0} \frac{1}{(2n+1)^2},\]
+and use this to finish the proof that \(\pi^2 / 6 = \sum^\infty_{n=1} 1/n^2\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item From the substitution of \(x = \sin(\theta)\)  in (5), integrate both sides:
+\[\int_0^{\pi/2} \theta d\theta = \int_0^{\pi/2}  \left( \lim_{N \to \infty}\sum^N_{n=0} \frac{c_n}{2n + 1}\sin^{2n+1} \theta \right) d\theta\]
+Since the series converges uniformly, by the Integrable Limit Theorem (Theorem 7.4.4) we can move the integral inside of the limit, and since integrals preserve addition, we can move the integral inside of the summation as well:
+\[\int_0^{\pi/2} \theta d\theta = \lim_{N \to \infty}  \sum^N_{n=0}\left(  \frac{c_n}{2n + 1} \int_0^{\pi/2}\sin^{2n+1} \theta d\theta \right) = \sum^\infty_{n=0} \frac{c_n}{2n+1}b_{2n+1} \]
+\item The left side evaluates to \(\pi^2/8\). Recall
+\[b_{2n+1} = \prod^n_{i=1} \frac{2i}{2i+1} \text{ and } c_n = \prod^n_{i=1} \frac{2i-1}{2i}\]
+so
+\[\frac{c_n}{2n+1} b_{2n+1} = \frac{1}{2n+1} \prod^n_{i=1} \frac{2i-1}{2i+1}\]
+The product telescopes and is equal to \(1/(2n+1)\), so
+\[\frac{\pi^2}{8} = \sum^\infty_{n=0} \frac{1}{(2n+1)^2}\]
+Note that \(\sum^\infty_{n=1} 1/n^2\) and \(\sum^\infty_{n=0}1 / (2n+1)^2\) both converge absolutely, so we're free to reorder terms as necessary. Let \(a = \sum^\infty_{n=1} 1/n^2\), and note that
+
+We have
+\[\sum^\infty_{n=1} \frac{1}{n^2} = \sum^\infty_{n=1} \frac{1}{(2n-1)^2} + \sum^\infty_{n=1} \frac{1}{(2n)^2} = \sum^\infty_{n=0} \frac{1}{(2n+1)^2} + \frac{1}{4}\sum^\infty_{n=1} \frac{1}{n^2}\]
+A little algebra on this result shows \(\pi^2 / 6 = \sum^\infty_{n=1} 1/n^2\).
+}
+\end{solution}
