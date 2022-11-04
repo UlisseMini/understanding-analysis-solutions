@@ -1,0 +1,291 @@
+\section{Metric Spaces and the Baire Category Theorem}
+\begin{exercise}
+Decide which of the following are metrics on \(X = \mathbf{R}^2\). For each, we let \(x = (x_1,x_2)\) and \(y = y_1, y_2\) be points in the plane.
+\enum{
+\item \(d(x,y) \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}\)
+\item \(d(x,y) = \max\{|x_1 - y_1|, |x_2 - y_2|\}\)
+\item \(d(x,y) = |x_1x_2 + y_1y_2|\)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is just the Euclidean distance between \(x\) and \(y\). The first two properties are obvious, while the third can be demonstrated with a little geometry.
+\item It's fairly easy to see that the first two properties are met. To demonstrate the triangle inequality, note
+\[d(x, z) + d(z, y) \geq \abs{x_1 - z_1} + \abs{z_1 - y_1} \geq \abs{x_1 - y_1}\]
+and
+\[d(x, z) + d(z, y) \geq \abs{x_2 - z_2} + \abs{z_2 - y_2} \geq \abs{x_2 - y_2}\]
+therefore \(d(x,z) + d(z,y)\) is greater than or equal to both possible values of \(d(x,y)\).
+\item Property (i) is not met; take \(x = (0,1)\) and \(y = (1,0)\).
+}
+\end{solution}
+
+\begin{exercise}
+Let \(C[0,1]\) be the collection of continuous functions on the closed interval \([0,1]\). Decide which of the following are metrics on \(C[0,1]\).
+\enum{
+\item \(d(f,g) = \sup{\abs{f(x) - g(x)} : x \in [0,1]}\)
+\item \(d(f,g) = \abs{f(1) - g(1)}\)
+\item \(d(f,g) = \int^1_0 \abs{f-g}\)
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item The first two properties are trivial. For the triangle inequality:
+\[\sup |f-g| \leq \sup (\abs{f-h} + \abs{h-g}) \leq \sup |f-h| + \sup |h-g|\]
+\item The first property fails, e.g. \(f(x) = 1\), \(g(x) = x\)
+\item Clearly \(\int^1_0 |f-g| \geq \int^1_0 0 = 0\), and if \(f = g\) then \(\int^1_0 |f-g| = 0\). If \(\int^1_0 |f-g| = 0\), let \(F(x) = \int^x_0 \abs{f - g}\). By the Fundamental Theorem of Calculus, and noting that \(\abs{f-g}\) is continuous,
+\[F'(x) = |f-g| = 0\]
+implying that \(f = g\). This indicates the first property is met. The second property is trivially true. The third property follows from the triangle inequality on absolute values.
+}
+\end{solution}
+
+\begin{exercise}
+Verify that the discrete metric is actually a metric.
+\end{exercise}
+\begin{solution}
+Property (i) and (ii) are trivial. For property (iii), there are two cases - either \(x = y\) or \(x \neq y\). If \(x = y\) then certainly \(\rho(x,z) + \rho(z,y) \geq 0\) by property (i). If \(x \neq y\) then at least one of \(z \neq y\) and \(z \neq x\) is true, so
+\[\rho(x,z) + \rho(z, y) \geq 1 = \rho(x,y)\]
+\end{solution}
+
+\begin{exercise}
+Show that a convergent sequence is Cauchy.
+\end{exercise}
+\begin{solution}
+Given \((x_n) \to x\), choose \(N\) large enough that for \(n \geq N\), \(d(x_n, x) < \epsilon/2\). Then for \(m,n \geq N\), \(d(x_m - x_n) \leq d(x_m - x) + d(x, x_n) < \epsilon\)
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Consider \(\mathbf{R}^2\) with the discrete metric \(\rho(x,y)\) examined in Exercise 8.2.3. What do Cauchy sequences look like in this space? Is \(\mathbf{R}^2\) complete with respect to this metric?
+\item Show that \(C[0,1]\) is complete with respect to the metric in Exercise 8.2.2 (a).
+\item Define \(C^1[0,1]\) to be the collection of differentiable functions on \([0,1]\) whose derivatives are also continuous. Is \(C^1[0,1]\) complete with respect to the metric defined in Exercise 8.2.2 (a)?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item In order to reach any \(\epsilon < 1\), after a certain point in any Cauchy sequence, all elements need to be identical, with the sequence converging to this identical value. Therefore \(\mathbf{R}^2\) (and any set) is complete with respect to the discrete metric.
+\item By Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence), any \((f_n)\) which is a Cauchy sequence, uniformly converges to some function \(f\). Since uniform convergence preserves continuity, \(f\) is also continuous and thus in \(C[0,1]\).
+\item Recall that Theorem 6.2.5 is an if-and-only-if statement, so any uniformly convergent sequence of functions is a Cauchy sequence. With that in mind, Exercise 6.3.2 is an example of a sequence of functions which converges uniformly to a function which is not differentiable. Thus \(C^1[0,1]\) is not complete with respect to this metric.
+}
+\end{solution}
+
+\begin{exercise}
+Which of these functions from \(C[0,1]\) to \(\mathbf{R}\) (with the usual metric) are continuous?
+\enum{
+\item \(g(f) = \int^1_0 fk\), where \(k\) is some fixed function in \(C[0,1]\).
+\item \(g(f) = f(1/2)\).
+\item \(g(f) = f(1/2)\), but this time with respect to the metric on \(C[0,1]\) from Exercise 8.2.2 (c).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Continuous. Let \(M\) be a bound on \(|k|\), and for any \(\epsilon > 0\), let \(\delta = \epsilon / M\). Then for any function \(h\) satisfying \(d(f,h) < \delta\), we have
+\[\abs{\int^1_0 fk - \int^1_0 hk} = \abs{\int^1_0 (f-h)k} \leq \int^1_0 \abs{(f-h)}\abs{k} < \int^1_0 \delta M = \epsilon\]
+\item Continuous. Let \(\delta = \epsilon\), and note that \(\abs{f(1/2) - h(1/2)} \leq d(f,h) < \delta = \epsilon\)
+\item Not continuous. Let \(f = 0\), and for any \(\delta > 0\), define
+\[h_\delta(x) = \begin{cases}
+1/2 & x \in V_\delta(1/2) \\
+0 & \text{otherwise}
+\end{cases} \]
+Clearly for any \(\delta\), \(d(h_\delta,f) = \delta\). But \((h-f)(1/2) = 1/2\), so any \(\epsilon < 1/2\) cannot be achieved.
+}
+\end{solution}
+
+\begin{exercise}
+Describe the \(\epsilon\)-neighborhoods in \(\mathbf{R}^2\) for each of the different metrics described in Exercise 8.2.1. How about for the discrete metric?
+\end{exercise}
+\begin{solution}
+\enum{
+\item Since this is the Euclidean distance, a \(\epsilon\)-neighborhood is a circle (not including its boundary) with radius \(\epsilon\).
+\item An \(\epsilon\)-neighborhood of \(x\) looks like a square with side length \(2\epsilon\) centred at \(x\).
+}
+
+For the discrete metric, if \(\epsilon > 1\) then an \(\epsilon\)-neighborhood is the entire plane, while if \(\epsilon \leq 1\) a neighborhood of \(x\) is just the single point \(x\).
+\end{solution}
+
+\begin{exercise}
+Let \((X,d)\) be a metric space.
+\enum{
+\item Verify that a typical \(\epsilon\)-neighborhood \(V_\epsilon(x)\) is an open set. Is the set
+\[C_\epsilon(x) = \{y \in X : d(x,y) \leq \epsilon\}\]
+a closed set?
+\item Show that a set \(E \subseteq X\) is open if and only if its complement is closed.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For any point \(y \in V_\epsilon(x)\), define \(a = \epsilon - d(x,y)\); by the triangle inequality \(V_a(y) \subseteq V_\epsilon(x)\).
+
+Consider any limit point \(y\) of \(C_\epsilon(x)\). For any \(a > 0\), \(\exists z \in C_\epsilon\) where
+\[d(x, y) \leq d(x, z) + d(z, y) < \epsilon + a\]
+therefore \(d(x,y) \leq \epsilon\) and so \(C_\epsilon(x)\) is closed.
+
+\item The proof is identical to that of Theorem 3.2.13, which is this statement in the special case for \(\mathbf{R}\) with the usual metric.
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that the set \(Y =\{f \in C[0,1] : \|f\|_\infty \leq 1 \}\) is closed in \(C[0,1]\).
+\item Is the set \(T = \{f \in C[0,1]: f(0) = 0\}\) open, closed, or neither in \(C[0,1]\)?
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(Y^c = \{f \in C[0,1] : \|f\|_\infty > 1\}\). Let \(f \in Y^c\) and \(\|f\|_\infty = 1 + \epsilon\). Then if \(g \in V_{\epsilon/2}(f)\), we have \(\|g\|_\infty + \|f-g\|_\infty \geq \|f\|\), implying \(\|g\|_\infty \geq 1 + \epsilon / 2\) and so \(Y^c\) is open and \(Y\) is closed.
+\item \(T\) is not open; the function \(f(x) = 0\) is in \(T\), but \(g_\epsilon(x) = \epsilon/2 \in V_\epsilon(f)\). \(T\) is closed; let \(f\) be a limit point of \(T\). We have that for any \(\epsilon > 0\), \(\exists h\) so that \(\|f-h\|_\infty < \epsilon\), with \(h \in T\). Then \(\abs{f(0)} < \epsilon\), which implies \(f(0) = 0\) and hence \(f\in T\).
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Supply a definition for \emph{bounded} subsets of a metric space \(X, d\).
+\item Show that if \(K\) is a compact subset of the metric space \(X, c\), then \(K\) is closed and bounded.
+\item Show that \(Y \subseteq C[0,1]\) from Exercise 8.2.9 (a) is closed and bounded but not compact.
+}
+\end{exercise}
+\begin{solution}
+\item A subset \(S\) is bounded if there exists some \(x \in X\) and some finite bound \(M\) such that \(S \subseteq V_M(x)\). Equivalently, the \(\exists x \in X\) can be replaced with \(\forall x \in X\), since given \(x_0\) and a bound \(M\), \(x_1 \in X\) and \(M + d(x_0, x_1)\) will also work.
+\item Suppose \(K\) is not bounded, and let \(k_0\) be some element in \(K\). Then construct the sequence \((k_n)\) satisfying \(d(k_0,k_n) > n\). Clearly no subsequence of \((k_n)\) can converge, and therefore \(K\) is not compact. Thus, if \(K\) is compact then \(K\) must be bounded.
+
+Let \(k \in X\) be a limit point of \(K\), and construct the sequence \((k_n) \in K\) satisfying \(d(k_n, k) < 1/n\). Let \((k'_n)\) be a convergent subsequence of \((k_n)\); given that \(d(k'_n, k) < 1/n\) we must have that \((k'_n) \to k\), and hence \(k \in K\) and \(K\) is closed.
+
+\item We showed \(Y\) is closed in 8.2.9 (a), and the definition of \(Y\) shows it lies within \(V_{2}(0)\) and is hence bounded. Now consider the sequence \(f_n\) where
+\[f_n(x) = \begin{cases}
+    n & x \leq 1/n \\
+    1 & x > 1/n
+\end{cases}\]
+\((f_n)\) does not converge to a function in \(C[0,1]\); in particular, it converges pointwise to
+\[f(x) = \begin{cases}
+    0 & x = 0 \\
+    1 & x > 0
+\end{cases}\]
+It's clear intuitively that \((f_n)\) cannot have a convergent subsequence. For formality's sake, let \((g_m)\) be some subsequence of \((f_n)\). For any \(m\), let \(g_m\) be the \(a\)'th element of \((f_n)\) (i.e. \(g_m = f_a\), and identify \(g_p = f_b\) where \(b > 2a\). Note that \(g_m(1/(2a)) = 1/2\) and \(g_p(1/(2a)) = 1\), hence \(d(g_m, g_p) > 1/2\). Since \(m\) was arbitrary, \((g_m)\) cannot be a Cauchy sequence and thus cannot be convergent.
+\end{solution}
+
+\begin{exercise}
+  \enum{
+  \item Show that $E$ is closed if and only if $\closure{E}=E$. Show that $E$ is open if and only if $E^{\circ}=E$.
+  \item Show that $\closure{E}^{c}=\left(E^{c}\right)^{\circ}$, and similarly that $\left(E^{\circ}\right)^{c}=\closure{E^{c}}$.
+  }
+\end{exercise}
+\begin{solution}
+The proof is identical to that for Exercise 3.2.14, which is the same question in the context of \(\mathbf{R}\) but whose solution does not use any features unique to \(\mathbf{R}\).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show
+\[\closure{V_\epsilon(x)} \subseteq \{y \in X : d(x,y) \leq \epsilon\},\]
+in an arbitrary metric space \((X, d)\).
+\item To keep things from sounding too familiar, find an example of a specific metric space where
+\[\closure{V_\epsilon(x)} \neq \{y \in X : d(x,y) \leq \epsilon\}.\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Let \(y\) be a limit point of \(V_\epsilon(x)\). For all \(a > 0\), we have some \(z \in V_\epsilon(x)\) where \(d(z, y) < a\), and thus
+\[d(x, y) \leq d(x, z) + d(z, y) < \epsilon + a\]
+which implies \(d(x, y) \leq \epsilon \) and hence
+\[\closure{V_\epsilon(x)} \subseteq \{y \in X : d(x,y) \leq \epsilon\}\]
+
+\item Consider the metric space \((\mathbf{R}, \rho)\) where \(\rho\) is the discrete metric, and consider \(V_1(0) = \{0\}\). \(\closure{V_1(0)} = \{0\}\) but \(\{y \in \mathbf{R} : \rho(x,y) \leq 1\} = \mathbf{R}\).
+}
+\end{solution}
+
+\begin{exercise}
+If \(E\) is a subset of a metric space \((X, d)\), show that \(E\) is nowhere-dense in \(X\) if and only if \(\closure{E}^c\) is dense in \(X\).
+\end{exercise}
+\begin{solution}
+\[\closure{E}^o = \emptyset \Longleftrightarrow (\closure{E}^o)^c = X \Longleftrightarrow \closure{\closure{E}^c} = X\]
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Give the details for why we know there exists a point \(x_2 \in V_{\epsilon_1}(x_1) \cap O_2\) and an \(\epsilon_2 > 0\) satisfying \(\epsilon_2 < \epsilon_1 / 2\) with \(V_{\epsilon_2}(x_2)\) contained in \(O_2\) and
+\[\closure{V_{\epsilon_2}(x_2)} \subseteq V_{\epsilon_1}(x_1)\]
+\item Proceed along this line and use the completeness of \((X, d)\) to produce a single point \(x \in O_n\) for every \(n \in \mathbf{N}\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item It's clear from the definition that, for a dense set \(S\), any point \(x \in X\), and any \(\epsilon > 0\), \(V_\epsilon(x) \cap S \neq \emptyset\). Since \(O_2\) is dense, there must be some \(x_2 \in V_{\epsilon_1 / 2}(x_1) \cap O_2\). Now since \(O_2\) is open, we have that for some \(\epsilon_a\), \(V_{\epsilon_a}(x_2) \subseteq O_2\). We can also find \(\epsilon_b\) so that \(\closure{V_{\epsilon_b}(x_2)} \subseteq V_{\epsilon_1}(x_1)\). To do this, recall from Exercise 8.2.12 (a) that if \(x \in \closure{V_{\epsilon_b}(x_2)}\), then \(d(x, x_2) \leq \epsilon_b\). By choosing any \(\epsilon_b < \epsilon/2\), we have
+\[d(x, x_1) \leq d(x, x_2) + d(x_2, x_1) < \epsilon/2 + \epsilon/2 = \epsilon\]
+and hence \(x \in V_{\epsilon_1}(x_1)\). Finally, set \(\epsilon_2 = \min\{\epsilon_a, \epsilon_b \} \), so that \(\epsilon_2\) satisifies both properties.
+
+\item We can repeat this process to define \(\epsilon_n > 0\) and \(x_n\) for \(n > 1\), satisfying \(\epsilon_n < \epsilon_{n-1} / 2\), \(V_{\epsilon_n}(x_n) \subseteq O_n\), and \(\closure{V_{\epsilon_n}(x_n)} \subseteq V_{\epsilon_{n-1}}\).
+
+Note that \((\epsilon_n) \to 0\), and that \(\sum^\infty_{i=n} \epsilon_i < 2\epsilon_n\). These two facts imply that \((x_n)\) is a Cauchy sequence, and by completeness \((x_n)\) converges to some \(x \in X\).
+
+Theorem 3.2.5 is still true for arbitrary metric spaces, and the proof can be reused (replacing the absolute value function with a general distance metric). Let \(N \in \mathbf{N}\) be arbitrary. Noting that for \(n \geq N + 1\), \(x_n \in V_{\epsilon_{N+1}}(x_{N+1})\), we have \(x \in \closure{V_{\epsilon_{N+1}}} \subseteq V_{\epsilon_N}\). Hence, \(x \in O_n\) for any \(n \in \mathbf{N}\).
+}
+\end{solution}
+
+\begin{exercise}
+Complete the proof of the theorem.
+\end{exercise}
+\begin{solution}
+Let \((X,d)\) be a complete metric space. Let \((C_n)\) be a countable collection of nowhere-dense sets. Note that
+since \(C_n\) is nowhere-dense, \(\closure{C_n}^c = (C_n^c)^o\) is dense and open.
+\[\left(\bigcup^\infty_{i=1} C_n\right)^c = \bigcap^\infty_{i=1} C_n^c \supseteq \bigcap^\infty_{i=1} (C_n^c)^o \neq \emptyset \implies X \neq \bigcup^\infty_{i=1} C_n \]
+\end{solution}
+
+\begin{exercise}
+Show that if \(f \in C[0,1]\) is differentiable at a point \(x \in [0,1]\), then \(f \in A_{m,n}\) for some pair \(m, n \in \mathbf{N}\).
+\end{exercise}
+\begin{solution}
+Let \(f\) be differentiable at \(x\), and let \(\epsilon = 1\). Then there exists \(\delta > 0\) such that \(|x - t| < \delta\),
+\[ \abs{\frac{f(x) - f(t)}{x - t}} - \abs{f'(x)} \leq  \abs{\frac{f(x) - f(t)}{x - t} - f'(x)} < \epsilon = 1\]
+So, for \(m > 1/\delta\) and \(n > f'(x) + 1\), \(f \in A_{m,n}\).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item The sequence \((x_k)\) does not necessarily converge, but explain why there exists a subsequence \((x_{k_l})\) that is convergent. Let \(x = \lim(x_{k_l})\).
+\item Prove that \(f_{k_l}(x_{k_l}) \to f(x)\).
+\item Now finish the proof that \(A_{m,n}\) is closed.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item The sequence \((x_k)\) is in \(\mathbf{R}\) and is bounded, so by the Bolzano-Weierstrauss Theorem it contains a convergent subsequence.
+\item Let \(\epsilon > 0\) be arbitrary. \(f\) is continuous and \((x_{k_l}) \to x\), so for some \(K\), for \(k_l > K_1\), \(\abs{f(x_{k_l}) - f(x)} < \epsilon / 2\). We also have \((f_k)\) uniformly converging to \(f\), so for some \(K_2\) and \(k_l > K_2\), \(\abs{f(x_{k_l}) - f_{k_l}(x_{k_l})} < \epsilon/2\). Thus if \(k_l > \max\{K_1,K_2\}\) then \(\abs{f(x) - f_{k_l}(x_{k_l})} < \epsilon\).
+\item For conciseness, I'll abuse notation a bit and redefine \((x_k)\) to be the convergent subsequence \((x_{k_l})\) in part (a) and (b). Let \(y \in V_{1/m}(x)\). Let \(\epsilon > 0\) be arbitrary. Choose a \(x_k\) ``close'' to \(x\) (we'll specify exactly how close in a moment). We have
+\[\abs{f(y) - f(x)} \leq \abs{f(x) - f(x_k)} + \abs{f(x_k) - f_k(x_k)} + \abs{f_k(x_k) - f_k(y)} + \abs{f_k(y) - f(y)}\]
+The first term on the right can be made small by continuity on \(f\); for an arbitrary \(\epsilon_1\) we can choose \(x_k \in V_{\delta_1}(x)\) to ensure \(|f(x) - f(x_k)| < \epsilon_1\). The second and fourth terms can be made small because of uniform convergence of \((f_k)\); we can identify \(\delta_2\) so that \(x_k \in V_{\delta_2}(x)\) implies \(\abs{f_k - f} < \epsilon_2\) for arbitrary \(\epsilon_2 > 0\). For the third term, first note that if \(\delta_3 < 1/m - \abs{y-x}\), then \(y \in V_{\delta_3}(x_k)\). Now since \(f_k \in A_{m,n}\),
+\[\abs{f_k(x_k) -f_k(y)} \leq n \abs{y - x_k} \leq n \abs{y-x} + n \abs{x - x_k}\]
+
+Putting it all together and rearranging, we have
+\[\abs{\frac{f(y) - f(x)}{y-x}} \leq n + \frac{\epsilon_1 + 2\epsilon_2 + n \abs{x - x_k}}{\abs{y-x}} \]
+If we set \(\epsilon_1 = \epsilon_2 = \epsilon / |y-x|\), define
+\[\delta_4 = \frac{\abs{y-x}}{n}\]
+and \(\delta = \min\{\delta_1, \delta_2, \delta_3, \delta_4 \}\), and we find \(x_k\) so that \(x_k \in V_\delta(x)\), then we'll have
+\[\abs{\frac{f(y) - f(x)}{y-x}} \leq n + \epsilon\]
+for arbitrary \(\epsilon > 0\), implying
+\[\abs{\frac{f(y) - f(x)}{y-x}} \leq n \]
+and that \(f \in A_{m,n}\)  and \(A_{m,n}\) is closed.
+}
+\end{solution}
+
+\begin{exercise}
+A continuous function is called \emph{polygonal} if its graph consists of a finite number of line segments.
+\enum{
+\item Show that there exists a polygonal function \(p \in C[0,1]\) satisfying \(\|f-p\|_\infty < \epsilon / 2\).
+\item Show that if \(h\) is any function in \(C[0,1]\) that is bounded by \(1\), then the function
+\[g(x) = p(x) + \frac{\epsilon}{2} h(x)\]
+satisfies \(g \in V_\epsilon(f)\).
+\item Construct a polygonal function \(h(x)\) in \(C[0,1]\) that is bounded by 1 and leads to the conclusion \(g \notin A_{m,n}\), where \(g\) is defined as in (b). Explain how this completes the argument for Theorem 8.2.12.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item This is Theorem 6.7.3, proved as exercise 6.7.2.
+\item Let \(q(x) = \epsilon h(x) /2\).
+\[\|f - g\|_\infty \leq \|f - p\|_\infty + \|p - (p + q)\|_\infty < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
+\item Let \(M\) be a bound on \(\abs{p'}\) (for where \(p'\) is defined); i.e.\ a bound on the maximum slope of \(p\). Then let \(h\) zig-zag between \(\pm 1\) with slope greater than \(2(M + n) / \epsilon\). More formally, let \(K > 2(M + n) / \epsilon\), define \(i(x) = xK / 2\) , and set
+\[h = \begin{cases}
+    2 \left(i(x) - \lfloor i(x)\rfloor\right) - 1 & \lfloor i(x) \rfloor \text{ even} \\
+    1 - 2 \left(i(x) - \lfloor(i(x)\rfloor)\right) & \lfloor i(x) \rfloor \text{ odd}
+\end{cases}\]
+(\(\lfloor y \rfloor\) denotes the floor function, the largest integer \(z\) with \(z \leq y\).) It's clear that \(g\) is a polygonal function with each line segment has slope greater than \(n\), although proving this formally requires some case work which is not a good use of our time. Thus, \(g \notin A_{m,n}\) regardless of \(m\).
+}
+\end{solution}

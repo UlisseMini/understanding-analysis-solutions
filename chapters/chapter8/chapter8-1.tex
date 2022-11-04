@@ -1,0 +1,178 @@
+\section{The Generalized Riemann Integral}
+
+\begin{exercise}
+\enum{
+\item Explain why both the Riemann sum \(R(f,P)\) and \(\int^b_a f\) fall between \(L(f,P)\) and \(U(f,P)\).
+\item Explain why \(U(f,P') - L(f,P') < \epsilon / 3\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(L(f,P) \leq R(f,P) \leq U(f,P)\) is clear from their definitions, as noted earlier in the section's discussion. The definition of \(\int^b_a f\) as the supremum of \(L(f,P)\) over all partitions \(P\) shows \(\int^b_a f \geq L(f,P)\), and similar reasoning gives \(\int^b_a f \leq U(f,P)\).
+\item \(P\) is a refinement of \(P_\epsilon\), so from Lemma 7.2.3,
+\[U(f, P') - L(f,P') = U(f,P_\epsilon) - L(f, P_\epsilon) < \frac{\epsilon}{3}\]
+}
+\end{solution}
+
+\begin{exercise}
+Explain why \(U(f,P) - U(f,P') \geq 0\).
+\end{exercise}
+\begin{solution}
+\(P'\) is a refinement of \(P\), so by Lemma 7.2.3, \(U(f,P') \leq U(f,P)\).
+\end{solution}
+
+\begin{exercise}
+\enum{
+    \item In terms of \(n\), what is the largest number of terms of the form \(M_k (x_k - x_{k-1})\) that could appear in one of \(U(f,P)\) or \(U(f,P')\) but not the other?
+    \item Finish the proof in this direction by arguing that
+    \[U(f,P) - U(f,P') < \epsilon/3\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item In order to transform \(P\) into \(P'\), we add the \(n-1\) points from \(P_\epsilon\) which are not the endpoints \(a\) or \(b\). Each point added can increase the number of non-cancelled terms by at most three (by preventing an interval from \(P\) being cancelled, and by creating two new intervals in \(P'\)). Therefore the maximum number of terms is \(3n - 3\).
+\item A triangle inequality gives that \(U(f,P) - U(f,P') \leq \sum M_k (x_k - x_{k-1})\), where \(k\) goes over all of the subintervals in both \(P\) and \(P'\) which weren't cancelled. Since the length of each subinterval in \(P\) and \(P'\) is no more than \(\delta\),
+\[\sum M_k (x_k - x_{k-1}) \leq \sum M \delta = (3n-3) \frac{\epsilon}{9n} < \frac{\epsilon}{3} \]
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Show that if \(f\) is continuous, then it is possible to pick tags \(\{c_k\}^n_{k=1}\) so that
+\[R(f,P) = U(f,P)\]
+Similarly, there are tags for which \(R(f,P) = L(f,P)\) as well.
+\item If \(f\) is not continuous, it may not be possible to find tags for which \(R(f,P) = U(f,P)\). Show, however, that given an arbitrary \(\epsilon > 0\), it is possible to pick tags for \(P\) so that
+\[U(f,P) - R(f,P) < \epsilon\]
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Each subinterval is closed, and since \(f\) is continuous, the image of each subinterval under \(f\) (the set of points which \(f\) maps the subinterval to) is also closed, and thus contains its supremum and infimum; this allows us to pick tags so that \(R(f,P) = U(f,P)\).
+\item We can pick tags so that
+\[M_k - f(c_k) < \frac{\epsilon}{b-a}\]
+}
+\end{solution}
+
+\begin{exercise}
+Use the results of the previous exercise to finish the proof of Theorem 8.1.2.
+\end{exercise}
+\begin{solution}
+Given arbitrary \(\epsilon > 0\), find a \(\delta\) and a corresponding \(\delta\)-fine partition \(P\) so that for any set of tags \(\{c_k\}\), we have
+\[\abs{R(f,P) - A} < \frac{\epsilon}{4}\]
+Then pick tags \(c_1\) so that \(R(f, (P,c_1)) - L(f,P) < \epsilon/4\) and tags \(c_2\) so that \(U(f,P) - R(f, (P,c_2)) < \epsilon/4\). For conciseness let \(L = L(f,P)\), \(U=U(f,P)\), \(R_1 = R(f,(P,c_1))\), \(R_2 = R(f, (P,c_2))\). Then
+\[U - L \leq U - R_1 + \abs{R_1 - A} + \abs{A - R_2} + R_2 - L < \epsilon\]
+showing \(f\) is Riemann-integrable.
+\end{solution}
+
+\begin{exercise}
+Consider the interval \([0,1]\).
+\enum{
+\item If \(\delta(x) = 1/9\), find a \(\delta(x)\)-fine tagged partition of \([0,1]\). Does the choice of tags matter in this case?
+\item Let
+\[\delta(x) = \begin{cases}
+   1/4 & \text{if } x = 0 \\
+   x/3 & \text{if } 0 < x \leq 1
+\end{cases}\]
+Construct a \(\delta(x)\)-fine tagged partition of \([0,1]\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item \(P = \{n/10 : n \in \mathbf{N}, 0 \leq n \leq 10\}\). Choice of tags does not matter since \(\delta(x)\) is constant.
+\item \(P = \{n/15 : n \in \mathbf{N}, 3 \leq n \leq 15\} \cup \{0\}\), \(c_1 = 0\), \(c_k = (k+2)/15\) for \(k \geq 2\). Then \(\delta(c_k) > 1/15\) for \(k \geq 2\).
+}
+\end{solution}
+
+\begin{exercise}
+Finish the proof of Theorem 8.1.5.
+\end{exercise}
+\begin{solution}
+If both halves have a tag which can satisfy \(\delta(c_i) > (b-a)/2\), then we're done. Otherwise, bisect any halves which do not have such a tag. Repeat, identifying subintervals that have candidate tags and bisecting the subintervals that don't. To show this process ends, by contradiction assume that it doesn't and there is an infinite sequence of nested subintervals \((I_i)\) which do not have a candidate tag, and by construction the length of these subintervals goes to zero. By the Nested Interval Property there must be some \(c\) in the intersection of all of the subintervals, but \(\delta(c) > 0\), meaning that at some point \(c\) would have been a valid tag for some \(I_n\) - a contradiction.
+\end{solution}
+
+\begin{exercise}
+Finish the argument.
+\end{exercise}
+\begin{solution}
+Consider an arbitrary \(\epsilon > 0\). We have that with some gauge \(\delta_1(x)\), we have \(|R(f,P) - A_1| < \epsilon / 2\) for all \(P\) which are \(\delta_1(x)\)-fine. Similarly we have \(\delta_2(x)\) where \(|R(f,P) - A_2| < \epsilon / 2\). Let \(\delta(x) = \min\{\delta_1(x), \delta_2(x)\}\) and note that \(\delta\) is also a gauge, and that any partition \(P\) which is \(\delta(x)\)-fine is also \(\delta_1(x)\)-fine and \(\delta_2(x)\)-fine. Find a partition \(P\) which is \(\delta(x)\)-fine.
+
+We then have \(|R(f,P) - A_1| < \epsilon/2\) and \(|A_2 - R(f,P)| < \epsilon/2\), so \(|A_2 - A_1| < \epsilon\), for arbitrary \(\epsilon > 0\). Therefore \(A_1 = A_2\).
+\end{solution}
+
+\begin{exercise}
+Explain why every function that is Riemann-integrable with \(\int^b_a f = A\) must also have generalized Riemann integral \(A\).
+\end{exercise}
+\begin{solution}
+For a given \(\epsilon > 0\), we can simply use the gauge \(\delta(x) = \delta\), at which point the Riemann integral and generalized Riemann integral are equivalent.
+\end{solution}
+
+\begin{exercise}
+Show that if \((P, \{c_k\}^n_{k=1})\) is a \(\delta(x)\)-fine tagged partition, then \(R(g,P) < \epsilon\).
+\end{exercise}
+\begin{solution}
+Subintervals with irrational tags do not contribute to \(R(g,P)\), so the maximum value of \(R(g,P)\) is the sum of the lengths of the subintervals with rational tags. This can be no more than \(\sum_{x \in \mathbf{Q}} \delta(x) = \epsilon\). To show strict inequality, note that any subinterval must contain more than one rational number, and so some of the subinterval lengths are ``missing''.
+\end{solution}
+
+\begin{exercise}
+Show that
+\[F(b) - F(a) = \sum^n_{k=1} [F(x_k) - F(x_{k-1})]\]
+\end{exercise}
+\begin{solution}
+This is a telescoping sum, with the right hand side becoming \(F(x_n) - F(x_0) = F(b) - F(a)\).
+\end{solution}
+
+\begin{exercise}
+For each \(c \in [a,b]\), explain why there exists a \(\delta(c) > 0\) (a \(\delta > 0\) depending on \(c\)) such that
+\[\abs{\frac{F(x) - F(c)}{x-c} - f(c)} < \epsilon\]
+for all \(0 < |x - c| < \delta(c)\).
+\end{exercise}
+\begin{solution}
+Since \(F' = f\), this is essentially the limit defining \(F'(c) = f(c)\). So just use the same \(\delta\) as that used to define the derivative of \(F\).
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item For a particular \(c_k \in [x_{k-1}, x_k]\) of \(P\), show that
+\[\abs{F(x_k) - F(c_k) - f(c_k)(x_k - c_k)} < \epsilon (x_k - c_k)\]
+and
+\[\abs{F(c_k) - F(x_{k-1}) - f(c_k)(c_k - x_{k-1})} < \epsilon (c_k - x_{k-1})\]
+\item Now, argue that
+\[\abs{F(x_k) - F(x_{k-1}) - f(x_k)(x_k - x_{k-1})} < \epsilon(x_k- x_{k-1})\]
+and use this fact to complete the proof of the theorem.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For the first inequality, evaluate
+\[\abs{\frac{F(x) - F(c)}{x-c} - f(c)} < \epsilon\]
+at \(x = x_k\), \(c = c_k\) and multiply both sides by \(|x_k-c_k|\), noting that \(x_k \geq c_k\).
+
+For the second inequality, rewrite
+\[\abs{\frac{F(x) - F(c)}{x-c} - f(c)} = \abs{\frac{F(c) - F(x)}{c-x} - f(c)} < \epsilon,\]
+evaluate at \(x = x_{k-1}\), \(c = c_k\) and multiply both sides by \(|c_k - x_{k-1}|\), noting that \(c_k \geq x_{k-1}\).
+
+\item Add the two inequalities in part (a) together and apply the Triangle Inequality. Then summing over \(k\) from 1 to \(n\) gets us
+\[\begin{aligned}
+    \epsilon (x_n - x_0) &= \epsilon(b - a) \\
+    &> \sum^n_{k=1} \abs{F(x_k) - F(x_{k-1}) - f(c_k) (x_k - x_{k-1})} \\
+    &\geq \abs{F(b) - F(a) - R(f,P)}
+\end{aligned}\]
+To prove the theorem we need \(\abs{F(b) - F(a) - R(f,P)} < \epsilon\), which can be readily obtained by instead constructing the gauge \(\delta(c)\) for \(\epsilon / (b-a)\).
+}
+\end{solution}
+
+\begin{exercise}
+\enum{
+\item Why are we sure that \(f\) and \((F \circ g)'\) have generalized Riemann integrals?
+\item Use Theorem 8.1.9 to finish the proof.
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Both of them are derivatives of some function.
+\item
+\[
+\int^b_a (f \circ g) \cdot g' = \int^b_a (F \circ g)' = (F \circ g)(b) - (F \circ g)(a) = F(g(b)) - F(g(a)) = \int^{g(b)}_{g(a)} f
+\]
+}
+\end{solution}
