@@ -121,3 +121,47 @@ If \(r_1 < 0\) while \(r_2 \geq 0\), then \(a = r_1 + xz\) where \(0 \leq x \in 
 If \(a < 0\) then clearly \(a \in X(Y+Z)\). Otherwise, define \(y = \frac{r_1}{x} < 0 \) and note \(y \in Y\). We have \(a = xy + xz = x(y+z) \geq 0\), so \(y+z \geq 0\) and \(a \in X(Y+Z)\).
 }
 \end{solution}
+
+\begin{exercise}
+ Let \(\mathcal{A} \subseteq \mathbf{R}\) be nonempty and bounded above, and let \(S\) be the \emph{union} of all \(A \in \mathcal{A}\).
+\enum{
+\item First, prove that \(S \in \mathbf{R}\) by showing that it is a cut.
+\item Now, show that \(S\) is the least upper bound for \(\mathcal{A}\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item For (c1):
+Let \(A \in \mathcal{A}\), and let \(a \in A\). Then \(a \in S\), so \(S \neq \emptyset\). Now let \(B\) be a bound on \(\mathcal{A}\), and let \(b' \notin B\). Then for any \(s \in S\), we have \(s \in A \in \mathcal{A}\) for some \(A\). Thus since \(A \leq B\), \(s \in B\) and so \(b' > s\), so \(b' \notin S\) and \(S \neq \mathbf{Q}\).
+
+For (c2) and (c3):
+Consider arbitrary \(s \in S\), with \(s \in A \in \mathcal{A}\). Then for any \(q < s\) we must have \(q \in A \implies q \in S\), so (c2) is satisfied. Also, we can find \(s < a \in A\), with \(a \in A\), so (c3) is satisfied.
+
+\item Let \(B\) be an upper bound for \(\mathcal{A}\). Now for any \(s \in S\), with \(s \in A \in \mathcal{A}\), we have \(A \subseteq B\) so \(s \in B\). Therefore \(S \subseteq B\) and \(S\) is the least upper bound for \(\mathcal{A}\).
+}
+\end{solution}
+
+\begin{exercise}
+Consider the collection of so-called ``rational'' cuts of the form
+\[C_r = \{t \in Q: t < r\}\]
+where \(r \in \mathbf{Q}\). (See Exercise 8.6.1.)
+\enum{
+\item Show that \(C_r + C_s = C_{r+s}\) for all \(r, s \in \mathbf{Q}\). Verify \(C_rC_s = C_{rs}\) for the case when \(r, s \geq 0\).
+\item Show that \(C_r \leq C_s\) if and only if \(r \leq s\) in \(\mathbf{Q}\).
+}
+\end{exercise}
+\begin{solution}
+\enum{
+\item Let \(a + b \in C_r + C_s\) satisfying \(a \in C_r\) and \(b \in C_s\). Then \(a + b < r + s\) so \(a + b \in C_{r+s}\). Now let \(c \in C_{r+s}\). Let \(\delta = r+s - c > 0\). Then \(d = r - \delta/2 \in C_r\), \(e = s - \delta / 2 \in C_s\), and \(c = d + e \in C_r + C_s\). Hence \(C_r + C_s = C_{r+s}\).
+
+Let \(x \in C_r C_s \).
+Since \(rs \geq 0\), if \(x < 0\) then \(x \in C_{rs}\).
+If \(x \geq 0\), \(x = ab\) where \(a \in C_r\) and \(b \in C_s\).
+Then \(a < r\) and \(b < s\), implying \(ab < rs\) and \(x \in C_{rs}\).
+
+Now let \(c \in C_{rs}\). If \(c < 0\) then \(c \in C_r C_s\) trivially; otherwise note \(rs > 0\) and define \(q = \frac{c+rs}{2}\), so \(0 \leq c < q < rs\).
+Define \(0 \leq \delta_1 = \frac{c}{q} < 1\) and \(\delta_2 = \frac{q}{rs} < 1\).
+Then \(\delta_1r \in C_r\), \(\delta_2s \in C_s\), and \(c = \delta_1 r \delta_2 s \in C_{rs}\). Therefore \(C_rC_s = C_{rs}\).
+\item Suppose \(s < r\). Define \(a = \frac{s+r}{2} < r \in C_r\) but \(a > s\) so \(a \notin C_s\) and \(C_r \nleq C_s\). Equivalently, \(C_r \leq C_s\) implies \(r \leq s\). Now suppose \(r \leq s\). Then \(a \in C_r\) implies \(a < r \leq s\) so \(a < s\), \(a \in C_r\), and \(C_r \subseteq C_s\).
+}
+\end{solution}
