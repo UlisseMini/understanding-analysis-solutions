@@ -34,11 +34,10 @@
 \begin{solution}
   \enum{
   \item We have $\left|\frac{2}{3} x_n - \frac 43\right| = \frac 23\left|x_n - 2\right| < \epsilon$ which can always be done since $|x_n - 2|$ can be made arbitrarily small.
-  \item Since $x_n$ is bounded we have $|x_n| \le M$
+  \item Let $N$ be such that $|x_n - 2| < \min{1, \epsilon}$. Since $x_n$ is at least $1$ we can bound $|1/x_n| \le 1$, giving
     $$
-    |1/x_n - 1/2| = \frac{|2 - x_n|}{|2x_n|} \le \frac{|2 - x_n|}{|2M|} < \epsilon
+    |1/x_n - 1/2| = \frac{|2-x_n|}{|2x_n|} \le \frac{|x_n-2|}{2} \le \frac{\epsilon}{2} < \epsilon.
     $$
-    Letting $|2 - x_n| < \epsilon/{|2M|}$ gives $|1/x_n - 1/2| < \epsilon$.
   }
 \end{solution}
 
