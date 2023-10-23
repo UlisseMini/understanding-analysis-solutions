@@ -116,15 +116,25 @@
   \item $a_n = (-1)^n/n$  is quasi-increasing since $(-1)^m/m - (-1)^n/n \le 1/m + 1/n < 2/N < \epsilon$ after picking some $N > 2/\epsilon$.
   \item $a_n = (2,2-1/2,3,3-1/3,\dots)$ is quasi-increasing. Let $\epsilon > 0$ and set $N > 1/\epsilon$, for $n > m \ge N$ consider two cases
     We have $a_n > a_m$ as long as $a_n \ne m-1/m$. If $a_n = m-1/m$ then $a_n > a_m-\epsilon$ since $m-1/m > m-\epsilon$ as $1/m < \epsilon$.
-  \item Suppose $(a_n)$ is quasi-increasing and bounded and let $\epsilon > 0$.
 
-    Let $N_1$ be large enough that $n > m \ge N_1$ implies $a_n > a_m - \epsilon$.
+  \item Suppose $(a_n)$ is quasi-increasing and bounded and let $\epsilon > 0$. By Bolzano-Weierstrauss, we have a convergent subsequence \((a_{n_k}) \to a\).
 
-    Since $(a_n)$ is bounded we can set $s = \sup a_n$ applying Lemma 1.3.8 tells us there exists an $N > N_1$ such that $a_N > s-\epsilon$.
+  Let \(N_1\) be large enough that \(n_k > N_1\) implies \(\abs{a_{n_k} - a} < \epsilon / 2\). Let \(N_2 > N_1\) be large enough that by the quasi-increasing property of \((a_n)\), for \(n > m >  N_2\) it follows that  \(a_n > a_m - \epsilon /2 \). Finally, let \(N = n_{k_1} > N_2 \); in other words \(a_N\) is part of our convergent subsequence \((a_{n_k})\).
 
-    Now for all $n > N$ we have $a_n > a_N-\epsilon$, and since $a_N > s-\epsilon$ we have $a_n > s-2\epsilon$.
+  Now for any \(n > N\), we can also find \(M = n_{k_2} > n\) (so that \(a_M\) is also part of our convergent subsequence \((a_{n_k})\)). Then we have
+  \[a_n > a_N - \epsilon / 2 > a - \epsilon\]
+  and
+  \[a_n - \epsilon / 2 < a_M < a + \epsilon /2  \implies a_n < a + \epsilon \]
+  and hence \(\abs{a_n - a} < \epsilon\), with the conclusion that \((a_n) \to a\).
 
-    This completes the proof as $s \ge a_n > s-2\epsilon$ implies $|a_n - s| < 2\epsilon$ \emph{for all} $n \ge N$, thus $s = \lim a_n$.
+%   Commented out previous proof - see issue #62 ; might be fixable if you set \(s = \sup a_n\) for \(n > N_1\).
+    % Let $N_1$ be large enough that $n > m \ge N_1$ implies $a_n > a_m - \epsilon$.
+
+    % Since $(a_n)$ is bounded we can set $s = \sup a_n$ applying Lemma 1.3.8 tells us there exists an $N > N_1$ such that $a_N > s-\epsilon$.
+
+    % Now for all $n > N$ we have $a_n > a_N-\epsilon$, and since $a_N > s-\epsilon$ we have $a_n > s-2\epsilon$.
+
+    % This completes the proof as $s \ge a_n > s-2\epsilon$ implies $|a_n - s| < 2\epsilon$ \emph{for all} $n \ge N$, thus $s = \lim a_n$.
 
 
   }
