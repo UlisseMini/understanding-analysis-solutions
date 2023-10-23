@@ -12,9 +12,9 @@
 \begin{solution}
   \enum{
   \item By the Sequential Criterion for Functional Limits, since \(\lim_{x\to c} f(x) = L\), \(\lim_{x\to c} g(x) = M\), all sequences \((x_n) \to c\) (where every \(x_n \ne c\)) have \(f(x_n) \to L\) and \(g(x_n) \to M\), which implies that \(f(x_n) + g(x_n) \to L + M\) by the Algebraic Limit Theorem, which implies that \(\lim_{x \to c} [f(x) + g(x)] = L + M\).
-  \item Let $\epsilon > 0$, set $\delta_1$ such that $0<|x-c|<\delta_1$ implies $|f(x)-f(c)|<\epsilon/2$ and set $\delta_2$ such that $0<|x-c|<\delta_2$ implies $|g(x)-g(c)|<\epsilon/2$. Now let $\delta = \min\{\delta_1,\delta_2\}$ and use the triangle inequality to get
+  \item Let $\epsilon > 0$, set $\delta_1$ such that $0<|x-c|<\delta_1$ implies $|f(x)-L|<\epsilon/2$ and set $\delta_2$ such that $0<|x-c|<\delta_2$ implies $|g(x)-M|<\epsilon/2$. Now let $\delta = \min\{\delta_1,\delta_2\}$ and use the triangle inequality to get
     $$
-    |f(x)+g(x) - (f(c) + g(c))| \le |f(x)-f(c) | + |g(x)-g(c)| < \epsilon/2 + \epsilon/2 = \epsilon
+    |f(x)+g(x) - (L + M)| \le |f(x)-L | + |g(x)-M| < \epsilon/2 + \epsilon/2 = \epsilon
     $$
     for all $0<|x-c|<\delta$.
   \item (a) is the same, if $f(x_n) \to L$ and $g(x_n) \to M$ then $(f(x_n)g(x_n)) \to LM$ by the sequential criterion for functional limits.
