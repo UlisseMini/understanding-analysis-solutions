@@ -62,8 +62,8 @@ which is not equal to \(g'(x)\) at \(1\). Tne convergence is not uniform. For \(
     \[f'_n(x) = \frac{1-nx^2}{\left(1 + nx^2\right)^2}\]
     which is zero at \(x = \pm 1/\sqrt{n}\). Plugging these values back into \(f_n(x)\) we get that \(\abs{f_n(x)} \leq \frac{1}{2\sqrt{n}}\). Clearly this forces \(f_n\) to converge uniformly to 0.
     \item \(f(x) = f'(x) = 0\). We have
-    \[\lim_{n \to \infty} f'_n(x) = \frac{1 - nx^2}{1 + 2nx^2 + n^2 x^4} = \frac{\frac{1}{n} - x^2}{\frac{1}{n} + 2x^2 + nx^4} = 0\]
-    and therefore \(f'(x) = \lim f'_n(x)\) everywhere.
+    \[\lim_{n \to \infty} f'_n(x) = \frac{1 - nx^2}{1 + 2nx^2 + n^2 x^4} = \frac{\frac{1}{n} - x^2}{\frac{1}{n} + 2x^2 + nx^4}\]
+    For \(x = 0\) this is 1; everywhere else this is 0. Therefore \(f'(x) = \lim f'_n(x)\) on \(\mathbb{R} \backslash \{0\}\).
 }
 \end{solution}
 \begin{exercise}
