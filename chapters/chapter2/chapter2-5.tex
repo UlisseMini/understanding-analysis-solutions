@@ -95,7 +95,7 @@
 \end{exercise}
 
 \begin{solution}
-  $(a_2, a_3, \dots)$ Is a convergent subsequence, so obviously if $(a_2, a_3, \dots) \to a$ then $(a_n) \to a$ also.
+Suppose \((a_n)\) does not converge to \(a\). Then, there must be some some \(\epsilon > 0\) where \(\forall N\), we can find some \(n > N\) where \(\abs{a_n - a} \geq \epsilon\). Put differently, we can find some subsequence \((b_n)\) of \((a_n)\) where all elements \(b_n\) satisfy \(\abs{b_n - a} \geq \epsilon\). Since \((a_n)\) is bounded, so must \((b_n)\), and therefore there must be a convergent subsequence of \((b_n)\). This would also be a subsequence of \((a_n)\), but this subsequence obviously cannot converge to \(a\) - a contradiction. Therefore, \((a_n) \to a\).
 \end{solution}
 
 \begin{exercise}
