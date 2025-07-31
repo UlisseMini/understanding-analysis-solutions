@@ -163,13 +163,10 @@
 \begin{solution}
   \enum{
   \item If $c = \sup A = \inf B$ then $a \le c \le b$ is obvious. So we must only prove $\sup A = \inf B$. If $\sup A < \inf B$ then consider $c=\frac{\sup A + \inf B}{2}$. $c > \sup A$ and therefore $c \notin A$; similarly $c < \inf B$ and therefore $c \notin B$, implying $A \cup B \ne \mathbf{R}$. If $\sup A > \inf B$ then we can find $a$ such that $a > b$ by subtracting $\epsilon > 0$ and using the least upper/lower bound facts, similarly to Lemma 1.3.8. Thus $\sup A$ must equal $\inf B$ since we have shown both alternatives are impossible.
-  \item Let $B = \{x \mid e < x,\forall e\in E\}$ and let $A = B^c$. Clearly $a < b$ so the cut property applies. We have $a \le c \le b$ and must show the two conditions for $c = \sup E$
-    \enumr{
-    \item Since $E \subseteq A$, $a \le c$ implies $e \le c$ thus $c$ is an upper bound.
-    \item $c \le b$ implies $c$ is the smallest upper bound.
-    }
-
-    Note: Using (a) here would be wrong, it assumes the axiom of completeness so we would be making a circular argument.
+  \item If $E$ has a maximum element, then this element is $\sup E$, and we are done. \\
+    Consider the case where $E$ has no maximum element. Let $B$ be the set of all upper bounds of $E$ and let $A=B^c$. There is no element of $E$ in $B$; otherwise, $E$ has a maximum element. Thus, $E \subseteq A$. \\
+   By the Cut Property, there exists $c$ such that $a \leq c \leq b$ for all $a \in A$ and $b \in B$. Since $c$ is an upper bound on A and $E \subseteq A$, $c$ is also an upper bound on E. Since $c \leq b$, $c$ is the lowest upper bound. \\
+    Therefore, $c = \sup E$.
 
   \item $A = \{r \in \mathbf{Q} \mid r^2 < 2 \text{ or } r < 0\}$, $B = A^c$ does not satisfy the cut property in $\mathbf{Q}$ since $\sqrt{2} \notin \mathbf{Q}$.
 
