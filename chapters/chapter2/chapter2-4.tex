@@ -200,9 +200,11 @@
 \begin{solution}
   \enum{
   \item $(y_n)$ is decreasing and converges by the monotone convergence theorem.
-  \item Define $\lim \inf a_n = \lim z_n$ for $z_n = \inf\{a_n : k \ge n\}$. $z_n$ converges since it is increasing and bounded.
+  \item Define $\lim \inf a_n = \lim x_n$ for $x_n = \inf\{a_n : k \ge n\}$. $x_n$ converges since it is increasing and bounded.
   \item Obviously $\inf\{a_k : k \ge n\} \le \sup\{a_n : k \ge n\}$ so by the Order Limit Theorem $\lim \inf a_n \le \lim \sup a_n$.
-  \item If $\lim \inf a_n = \lim \sup a_n$ then the squeeze theorem (Exercise 2.3.3) implies $a_n$ converges to the same value, since $\inf\{a_{k\ge n}\} \le a_n \le \sup\{a_{k\ge n}\}$.
+  \item
+$(\Rightarrow)$ Assume that lim$a_n$ exists, and let $a=$lim$a_n$. By definition, for all $k \geq n$, $x_n \leq a_k \leq y_n$. Since $a_n$ converges, it is bounded, so liminf$a_n=$lim$x_n$ and limsup$a_n=$lim$y_n$ exist. And, by definition, for all $\epsilon >0$, there exists a $k\geq n$ such that $y_n - \epsilon < a_k \leq y_n$, which implies that for any $\epsilon>0$, there exists $k \geq n$ such that $y_n - a_k < \epsilon$. Likewise, for all $\epsilon >0$ and all $k \geq n$, $a_k \leq y_n < y_n + \epsilon$, or $-\epsilon < y_n- a_k$. Thus for any $\epsilon$ and any $n$, there exists a $k \geq n$ such that $|y_n - a_k| < \epsilon.$ Since for all $\epsilon >0$, there exists a $k$ such that for all $n\geq k$, $|a_k - a| < \epsilon$, choose $N \in \mathbb{N}$ such that for all $n, k \geq N$, the following holds: $$|a_k - a| < \frac {\epsilon} {2}$$ and $$|y_k - a_k| < \frac {\epsilon} {2}.$$ We thus obtain $$|y_n - a| = |y_n - a_k + a_k - a| \leq |y_n - a_k| + |a_k - a| < \epsilon,$$ and so $y_n \rightarrow a$. An analogous argument holds for $x_n$, and it follows that if lim$a_n$ exists, then liminf$a_n$ and limsup$a_n$ exist and liminf$a_n = $ limsup$a_n = $ lim$a_n$.
+$(\Leftarrow)$ Assume that liminf$a_n = $ limsup$a_n$, both limits existing. Since both limits exist, the sequence must be bounded (since their respective convergences imply bounds, which can be taken as bounds for $a_n$). Thus as proved in (c), $x_n \leq y_n$ for all $n$, and since $x_n \leq a_n \leq y_n$ for all $n$, by the Squeeze Theorem it follows that limsup$a_n = $lim$a_n = $limsup$a_n$.
   }
 \end{solution}
 
