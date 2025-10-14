@@ -147,7 +147,7 @@
   \enum{
   \item Let $f(n) = n + 1$ does not have a solution to $f(a) = 1$
   \item Let $f(1) = 1$ and $f(n) = n - 1$ for $n > 1$
-  \item Let $f(n) = n/2$ for even $n$, and $f(n) = -(n+1)/2$ for odd $n$.
+  \item Let $f(n) = n/2$ for even $n$, and $f(n) = -(n-1)/2$ for odd $n$.
   }
 \end{solution}
 
@@ -272,8 +272,7 @@
     \end{aligned}
     $$
   \item $B_1 = \{1, 2, \dots\}, B_2 = \{2, 3, \dots\}, \dots$
-  \item First suppose $x \in \left(\bigcap_{i=1}^\infty A_i\right)^c$, then $x \notin \bigcap_{i=1}^\infty A_i$ meaning $x \notin A_i$ for some $i$, which is the same as $x \in A_i^c$ for some $i$, meaning $x \in \bigcup_{i=1}^\infty A_i^c$. This shows
-    $$\left(\bigcap_{i=1}^\infty A_i\right) \subseteq \bigcup_{i=1}^\infty A_i^c$$
-    Now suppose $x \in \bigcup_{i=1}^\infty A_i^c$ meaning $x \notin A_i$ for some $i$, which is the same as $x \notin \bigcap_{i=1}^\infty A_i$ implying $x \notin \left(\bigcap_{i=1}^\infty A_i\right)^c$. This shows inclusion the other way and completes the proof.
+  \item First suppose $x \in \left(\bigcup_{i=1}^\infty A_i\right)^c$, then $x \notin \bigcup_{i=1}^\infty A_i$ meaning $x \notin A_i$ for all $i$, which is the same as $x \in A_i^c$ for all $i$, meaning $x \in \bigcap_{i=1}^\infty A_i^c$. This shows $$\left(\bigcup_{i=1}^\infty A_i\right)^c \subseteq \bigcap_{i=1}^\infty A_i^c$$
+  Now suppose $x \in \bigcap_{i=1}^\infty A_i^c$ meaning $x \notin A_i$ for all $i$, which is the same as $x \notin \bigcup_{i=1}^\infty A_i$ implying $x \in \left(\bigcup_{i=1}^\infty A_i\right)^c$. This shows inclusion the other way and completes the proof.
   }
 \end{solution}
