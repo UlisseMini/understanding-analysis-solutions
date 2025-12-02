@@ -121,9 +121,11 @@
 \end{exercise}
 
 \begin{solution}
-  Eventually we have $1/n^p < 1/p^n$ for $p > 1$ (polynomial vs exponential) meaning we can use the comparison test to conclude $\sum_{n=1}^\infty 1/n^p$ converges if $p > 1$.
-
-  Now suppose $p \le 1$, since $1/n^p \le 1/n$ a comparsion test with the harmonic series implies $p \le 1$ diverges.
+  Applying the Cauchy Condensation Test, we find that the original series converges iff
+   \[
+   \sum^\infty_{n=0}2^n\frac{1}{(2^n)^p} = \sum^\infty_{n=0} 2^{n - np} = \sum^\infty_{n=0} \left(2^{1-p}\right)^n
+   \]
+   converges. This is a geometric series that converges iff \(2^{1-p} < 1\), or $p > 1$.
 \end{solution}
 
 \begin{exercise}
