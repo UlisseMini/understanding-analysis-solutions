@@ -236,7 +236,7 @@
 
 \begin{solution}
   \enum{
-  \item Rewriting the terms as $a_n = (1 + 1/n)$ and using the result from 2.4.10 implies the product diverges since $\sum 1/n$ diverges.
+  \item Rewriting the terms as $a_n = (1 + 1/2^{n-1})$ and using the result from 2.4.10 implies the product converges since $\sum (1/2^{n-1})$ converges.
   \item Converges by the monotone convergence theorem since the partial products are decreasing and greater then zero. To show that the product converges to zero, the key insight is to rewrite each term \(a_n = (2n -1) / (2n) = 1 / (2n/(2n - 1)) = 1/b_n\), where \(b_n = 2n / (2n -1)\). Then the partial products
 \[
     p_n = \prod^n_{i = 1} a_n = \frac{1}{\prod^n_{i = 1} b_n}
