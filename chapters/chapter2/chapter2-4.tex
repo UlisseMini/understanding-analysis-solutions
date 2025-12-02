@@ -200,9 +200,15 @@
 \begin{solution}
   \enum{
   \item $(y_n)$ is decreasing and converges by the monotone convergence theorem.
-  \item Define $\lim \inf a_n = \lim z_n$ for $z_n = \inf\{a_n : k \ge n\}$. $z_n$ converges since it is increasing and bounded.
-  \item Obviously $\inf\{a_k : k \ge n\} \le \sup\{a_n : k \ge n\}$ so by the Order Limit Theorem $\lim \inf a_n \le \lim \sup a_n$.
-  \item If $\lim \inf a_n = \lim \sup a_n$ then the squeeze theorem (Exercise 2.3.3) implies $a_n$ converges to the same value, since $\inf\{a_{k\ge n}\} \le a_n \le \sup\{a_{k\ge n}\}$.
+  \item Define $\lim \inf a_n = \lim x_n$ for $x_n = \inf\{a_n : k \ge n\}$. $x_n$ converges since it is increasing and bounded.
+  \item Obviously $\inf\{a_k : k \ge n\} \le \sup\{a_n : k \ge n\}$ so by the Order Limit Theorem $\lim \inf a_n \le \lim \sup a_n$. For a sequence that alternates between two numbers, for example $a_n = (-1)^n$, clearly \(\lim \inf a_n = -1 < 1 = \lim \inf a_n\). 
+  \item
+$(\Rightarrow)$
+If $\lim \inf a_n = \lim \sup a_n$ then the Squeeze Theorem (Exercise 2.3.3) implies $a_n$ converges to the same value, since $\inf\{a_{k\ge n}\} \le a_n \le \sup\{a_{k\ge n}\}$.
+
+$(\Leftarrow)$ Assume that $\lim a_n$ exists, and let $a= \lim a_n$. For all $\epsilon > 0$, we can find $N$ so that $\forall k > N$, $\abs{a_k - a} < \epsilon$, or $a - \epsilon < a_k < a + \epsilon$. This in turn means that:
+\[a - \epsilon < x_N \leq x_k \leq y_k \leq y_N < a + \epsilon \]
+which shows that both \(x_n\) and \(y_n\) converge to \(a\).
   }
 \end{solution}
 
