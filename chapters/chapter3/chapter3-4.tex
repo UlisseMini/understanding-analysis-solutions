@@ -7,7 +7,7 @@
 \begin{solution}
   Recall a perfect set is a closed set with no isolated points. Thus the intersection of a closed set $P$ and a closed bounded set $K$ gives a closed bounded (and thus compact) set $P \cap K$.
 
-  Now take $P = \mathbf{R}$, we get $P \cap K = K$ which is not nessesarily perfect.
+  Now take $P = \mathbf{R}$, we get $P \cap K = K$ which is not necessarily perfect.
 \end{solution}
 
 \begin{exercise}
@@ -128,7 +128,7 @@ and thus the Cantor-like set has zero length.
   To do so, let \(V_{\zeta_n} (x_n) = (\alpha_n, \beta_n)\). Choose \(L < \alpha_n < L + 2 \zeta_{n+1}\).
 
   We show by induction that \([L, L + 2\zeta_1) \backslash \bigcup^n_{i=1} V_{\zeta_i} (x_i) \subseteq [L, L + 2 \zeta_{n + 1})\). The base case \(n = 1\) is trivial. For the inductive case: assume \([L, L + 2\zeta_1) \backslash \bigcup^n_{i=1} V_{\zeta_i} (x_i) \subseteq [L, L + 2 \zeta_{n + 1})\). Then
-  \[[L, L + \zeta_1) \backslash \bigcup^{n+1}_{i=1} V_{\zeta_i} (x_i) \subseteq [L, L + 2\zeta_{n+1}) \backslash V_{\zeta_{n+1}}(x_{n+1}) = [L, L + 2\zeta_{n+1}) \backslash (\alpha_{n+1}, \beta_{n+1})\]
+  \[[L, L + 2\zeta_1) \backslash \bigcup^{n+1}_{i=1} V_{\zeta_i} (x_i) \subseteq [L, L + 2\zeta_{n+1}) \backslash V_{\zeta_{n+1}}(x_{n+1}) = [L, L + 2\zeta_{n+1}) \backslash (\alpha_{n+1}, \beta_{n+1})\]
   Since \(\alpha_{n+1} > L\), \(\beta_{n+1} > L + 2 \zeta_{n+1}\). Recall also that \(\alpha_{n+1} < L + 2 \zeta_{n+2}\), and therefore \([L, L + 2\zeta_{n+1}) \backslash (\alpha_{n+1}, \beta_{n+1}) \subseteq [L, L + 2 \zeta_{n+2})\), completing the inductive step.
 
   Now, for any \(l \in [L, L + 2 \zeta_1) > L\), since \((\zeta_n) \to 0\) there must be some \(\zeta_j\) so that \(L + 2 \zeta_j \leq l\) and \(j > 1\), and therefore
@@ -153,4 +153,3 @@ To construct an \((r_n)\) which satisfies this condition, we start with an arbit
   }
 
 \end{solution}
-
