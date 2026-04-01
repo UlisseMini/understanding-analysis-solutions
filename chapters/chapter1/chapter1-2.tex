@@ -40,7 +40,8 @@
 
 \begin{solution}
   \enum{
-  \item False, consider $A_1 = \{1, 2, \dots\}, A_2 = \{2, 3, \dots\}$, ... has $\bigcap_{n=1}^\infty A_n = \emptyset$.
+  \item False, consider $A_1 = \{1, 2, \dots\}, A_2 = \{2, 3, \dots\}$, ... has $\bigcap_{n=1}^\infty A_n = \emptyset$. More formally, let $A_n = \{k \in \mathbb{N} \mid k \ge n\}$.
+  Assume $\bigcap_{n=1}^{\infty} A_n \neq \emptyset$. Hence, there exists $m \in \bigcap_{n=1}^{\infty} A_n$. But $m \not\in A_{m+1}$. Contradiction! Therefore, $\bigcap_{n=1}^{\infty} A_n = \emptyset$.
   \item True, because we eventually reach $A_j = \{x\}$ and get stuck
   \item False, $A = \emptyset$ gives $\emptyset = C$.
   \item True, intersection is associative.
